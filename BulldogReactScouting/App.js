@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import React from 'react';
+import React, {useState} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
 const Tab = createMaterialTopTabNavigator();
@@ -39,24 +39,26 @@ async function test() {
   }
 }
 
+
 function Setup()
 {
   return (
     <View style={generalViewStyle}>
-      
       <Text>Setup</Text>
-      
     </View>
   )
 }
 
 function Auton() {
+  const [notes,setNotes] = useState(0);
   return (
     <View style={generalViewStyle}>
       
       <Text>Auton</Text>
       
-      <Button title="One"/>
+      <Button title="Up" onPress={()=>setNotes(notes+1)}/>
+      <Button title="Down" onPress={()=>setNotes(notes-1)}/>
+      <Text>{notes}</Text>
       
     </View>
   )
