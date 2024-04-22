@@ -1,4 +1,4 @@
-# Visual Studio
+# Visual Studio Code
 Install Expo Tools  
 Install React Native Tools
 
