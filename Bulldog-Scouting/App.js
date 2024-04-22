@@ -68,14 +68,17 @@ function Setup({props}) {
         onChangeText={props.setMatch}
         value={props.match}
         placeholder="Match Number"
-        keyboardType="numeric"
+        keyboardType="number-pad"
+        inputMode='numeric'
       />
       <TextInput
         style={styles.input}
         onChangeText={props.setTeamNumber}
         value={props.teamNumber}
         placeholder="Team Number"
-        keyboardType="numeric"
+        keyboardType="number-pad"
+        maxLength={5}
+        inputMode='numeric'
       />
     </View>
   )
@@ -140,7 +143,7 @@ export default function App() {
 function ScoutingApp() {
   const [isRedAlliance, setIsRedAlliance] = useState(true);
   const [station, setStation] = useState(1);
-  const [match, setMatch] = useState(1);
+  const [match, setMatch] = useState("1");
   const [bumps, setBumps] = useState(0);
   const [notes, setNotes] = useState(0);
   const [teamNumber, setTeamNumber] = React.useState('');
