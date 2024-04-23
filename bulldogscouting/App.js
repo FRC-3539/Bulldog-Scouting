@@ -1,5 +1,4 @@
 import {
-  Button,
   TextInput,
   View,
   Text,
@@ -12,6 +11,7 @@ import * as FileSystem from 'expo-file-system';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { Button, HStack, NativeBaseProvider, extendTheme, Center, VStack } from 'native-base';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === 'android' ? 25 : 0
   },
   generalViewStyle: {
+    justifyContent: "center",
     alignItems: 'center',
-    justifyContent: 'center',
     height: "100%",
     backgroundColor: '#fff',
   },
@@ -36,7 +36,34 @@ const styles = StyleSheet.create({
 
 });
 
-async function test({props}) {
+const theme = extendTheme({
+  colors: {
+    // Add new color
+    primary: {
+      50: '#E3F2F9',
+      100: '#C5E4F3',
+      200: '#A2D4EC',
+      300: '#7AC1E4',
+      400: '#47A9DA',
+      500: '#0088CC',
+      600: '#007AB8',
+      700: '#006BA1',
+      800: '#005885',
+      900: '#003F5E',
+    },
+    // Redefining only one shade, rest of the color will remain same.
+    amber: {
+      400: '#d97706',
+    },
+  },
+  config: {
+    // Changing initialColorMode to 'dark'
+    initialColorMode: 'dark',
+  },
+});
+
+
+async function test({ props }) {
   const permissions = await StorageAccessFramework.requestDirectoryPermissionsAsync();
   // Check if permission granted
   if (permissions.granted) {
@@ -58,7 +85,7 @@ async function test({props}) {
 }
 
 
-function Setup({props}) {
+function Setup({ props }) {
   return (
 
     <View style={styles.generalViewStyle}>
@@ -84,23 +111,78 @@ function Setup({props}) {
   )
 }
 
-function Auton({props}) {
+function Auton({ props }) {
   return (
     <View style={styles.generalViewStyle}>
-      <Text>Auton</Text>
-      <Button title="Up" onPress={() => props.setNotes(props.notes + 1)} />
-      <Button title="Down" onPress={() => props.setNotes(props.notes - 1)} />
-      <Text>{props.notes}</Text>
-    </View>
+      <Text style={{ fontSize: 30 }}>Auton</Text>
+      <VStack space={1} justifyContent="center">
+        <HStack space={2} justifyContent="center">
+          <Center h="40" w="20" bg="primary.300" rounded="md" shadow={3}>
+            <VStack space={1} justifyContent="center">
+              <Center><Text style={{ fontSize: 20 }}>Notes</Text></Center>
+              <Center><Text style={{ fontSize: 20 }}>{props.notes}</Text></Center>
+              <Button onPress={() => props.setNotes(props.notes + 1)}>+</Button>
+              <Button onPress={() => props.setNotes(props.notes - 1)}>-</Button>
+            </VStack>
+          </Center>
+          <Center h="40" w="20" bg="primary.400" rounded="md" shadow={3}>
+            <VStack space={1} justifyContent="center">
+              <Center><Text style={{ fontSize: 20 }}>Bumps</Text></Center>
+              <Center><Text style={{ fontSize: 20 }}>{props.bumps}</Text></Center>
+              <Button onPress={() => props.setBumps(props.bumps + 1)}>+</Button>
+              <Button onPress={() => props.setBumps(props.bumps - 1)}>-</Button>
+            </VStack>
+          </Center>
+          <Center h="40" w="20" bg="primary.500" rounded="md" shadow={3} />
+        </HStack>
+        <HStack space={2} justifyContent="center">
+          <Center h="40" w="20" bg="primary.600" rounded="md" shadow={3}>
+            <VStack space={1} justifyContent="center">
+              <Center><Text style={{ fontSize: 20 }}>Notes</Text></Center>
+              <Center><Text style={{ fontSize: 20 }}>{props.notes}</Text></Center>
+              <Button onPress={() => props.setNotes(props.notes + 1)}>+</Button>
+              <Button onPress={() => props.setNotes(props.notes - 1)}>-</Button>
+            </VStack>
+          </Center>
+          <Center h="40" w="20" bg="primary.700" rounded="md" shadow={3}>
+            <VStack space={1} justifyContent="center">
+              <Center><Text style={{ fontSize: 20 }}>Bumps</Text></Center>
+              <Center><Text style={{ fontSize: 20 }}>{props.bumps}</Text></Center>
+              <Button onPress={() => props.setBumps(props.bumps + 1)}>+</Button>
+              <Button onPress={() => props.setBumps(props.bumps - 1)}>-</Button>
+            </VStack>
+          </Center>
+          <Center h="40" w="20" bg="primary.800" rounded="md" shadow={3} />
+        </HStack>
+        <HStack space={2} justifyContent="center">
+          <Center h="40" w="20" bg="primary.600" rounded="md" shadow={3}>
+            <VStack space={1} justifyContent="center">
+              <Center><Text style={{ fontSize: 20 }}>Notes</Text></Center>
+              <Center><Text style={{ fontSize: 20 }}>{props.notes}</Text></Center>
+              <Button onPress={() => props.setNotes(props.notes + 1)}>+</Button>
+              <Button onPress={() => props.setNotes(props.notes - 1)}>-</Button>
+            </VStack>
+          </Center>
+          <Center h="40" w="20" bg="primary.700" rounded="md" shadow={3}>
+            <VStack space={1} justifyContent="center">
+              <Center><Text style={{ fontSize: 20 }}>Bumps</Text></Center>
+              <Center><Text style={{ fontSize: 20 }}>{props.bumps}</Text></Center>
+              <Button onPress={() => props.setBumps(props.bumps + 1)}>+</Button>
+              <Button onPress={() => props.setBumps(props.bumps - 1)}>-</Button>
+            </VStack>
+          </Center>
+          <Center h="40" w="20" bg="primary.800" rounded="md" shadow={3} />
+        </HStack>
+      </VStack>
+    </View >
   )
 }
 
-function Teleop({props}) {
+function Teleop({ props }) {
   return (
     <View style={styles.generalViewStyle}>
 
       <Text>Teleop</Text>
-
       <Button title="Up" onPress={() => props.setBumps(props.bumps + 1)} />
       <Button title="Down" onPress={() => props.setBumps(props.bumps - 1)} />
       <Text>{props.bumps}</Text>
@@ -109,7 +191,7 @@ function Teleop({props}) {
   )
 }
 
-function EndGame({props}) {
+function EndGame({ props }) {
   return (
     <View style={styles.generalViewStyle}>
 
@@ -119,12 +201,12 @@ function EndGame({props}) {
   )
 }
 
-function Submit({props}) {
+function Submit({ props }) {
   return (
     <View style={styles.generalViewStyle}>
       <Text>Submit</Text>
-      <Button title="bumps" onPress={() => props.setBumps(props.bumps+1)} />
-      <Button title="Submit" onPress={() => test(props = {props})} />
+      <Button title="bumps" onPress={() => props.setBumps(props.bumps + 1)} />
+      <Button title="Submit" onPress={() => test(props = { props })} />
       <Text>Team = {props.teamNumber}</Text>
       <Text>Match = {props.match}</Text>
       <Text>Bumps = {props.bumps}</Text>
@@ -136,7 +218,7 @@ function Submit({props}) {
 
 
 export default function App() {
-  return (<NavigationContainer>{ScoutingApp()}</NavigationContainer>)
+  return (<NavigationContainer><NativeBaseProvider theme={theme}>{ScoutingApp()}</NativeBaseProvider></NavigationContainer>)
 }
 
 
@@ -148,7 +230,7 @@ function ScoutingApp() {
   const [notes, setNotes] = useState(0);
   const [teamNumber, setTeamNumber] = React.useState('');
 
-  var props = {isRedAlliance, setIsRedAlliance, teamNumber, setTeamNumber, match, setMatch, bumps, setBumps, notes, setNotes};
+  var props = { isRedAlliance, setIsRedAlliance, teamNumber, setTeamNumber, match, setMatch, bumps, setBumps, notes, setNotes };
 
 
   return (
@@ -174,7 +256,7 @@ function ScoutingApp() {
           ></EndGame>} />
         <Tab.Screen name="Submit" children={() =>
           <Submit
-          props={props}
+            props={props}
           ></Submit>} />
       </Tab.Navigator>
     </SafeAreaView>
