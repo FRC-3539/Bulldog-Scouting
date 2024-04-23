@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Bulldog-Scouting",
-    "slug": "Bulldog-Scouting",
-    "version": "2024.0.0",
+    "name": "bulldogscouting",
+    "slug": "bulldogscouting",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -22,15 +22,16 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.bytingbulldogs.BulldogScouting"
+      "package": "com.bbprogrammers3539.bulldogscouting"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "dc744d0d-0ecd-4234-88fb-8ff64ace1355"
+        "projectId": "0af23adf-f6f2-44ba-a209-e68490979fd4"
       }
-    }
+    },
+    "owner": "bbprogrammers3539"
   }
 }
