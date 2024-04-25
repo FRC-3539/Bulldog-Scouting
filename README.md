@@ -4,8 +4,8 @@ Install React Native Tools
 
 # Terminal
 In the command propmt inside of the project folder run ```npm install```.  
-Apply the patches ```npx patch-package```
+Apply the patches ```npx patch-package```.  
 Login to Expo Go with ```npx expo login```.  
 Then run ```npx expo start``` for debugging/development.  
-Install eas-cli ```npm install -g eas-cli```  
-Build with ```eas build -p android --profile preview```
+Install eas-cli ```npm install -g eas-cli```.  
+Build with ```eas build -p android --profile preview```.
