@@ -31,10 +31,9 @@ export const theme = extendTheme({
 });
 
 export const styles = StyleSheet.create({
-    droidSafeArea: {
+    safeArea: {
         flex: 1,
         backgroundColor: "white",
-        paddingTop: Platform.OS === 'android' ? 25 : 0
     },
     generalViewStyle: {
         alignItems: 'center',
@@ -48,5 +47,12 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
     },
+    setupImage:
+    {
+        width: '50%',
+        height: undefined,
+        resizeMode: 'contain',
+        margin: 10,
+    }
 
 });

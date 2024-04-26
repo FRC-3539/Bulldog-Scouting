@@ -6,6 +6,8 @@ import {
   SafeAreaView,
   StyleSheet,
   Platform,
+  StatusBar,
+  Image,
 } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -52,16 +54,23 @@ function ScoutingApp() {
   const [isRedAlliance, setIsRedAlliance] = useState(true);
   const [noShow, setNoShow] = useState(false);
   const [preloaded, setPreloaded] = useState(false);
-  const [station, setStation] = useState("Red One");
+  const [station, setStation] = useState("Red 1");
+  const [startArea, setStartArea] = useState("A");
   const [match, setMatch] = useState("1");
   const [bumps, setBumps] = useState(0);
   const [notes, setNotes] = useState(0);
   const [teamNumber, setTeamNumber] = React.useState('');
 
-  var props = { station, setStation, preloaded, setPreloaded, noShow, setNoShow, isRedAlliance, setIsRedAlliance, teamNumber, setTeamNumber, match, setMatch, bumps, setBumps, notes, setNotes };
+  var props = {startArea, setStartArea, station, setStation, preloaded, setPreloaded, noShow, setNoShow, isRedAlliance, setIsRedAlliance, teamNumber, setTeamNumber, match, setMatch, bumps, setBumps, notes, setNotes };
 
   return (
-    <SafeAreaView style={styles.droidSafeArea}>
+    <SafeAreaView style={styles.safeArea}>
+      <StatusBar
+        animated={true}
+        backgroundColor={styles.safeArea.backgroundColor}
+        barStyle="dark-content"
+        hidden={false}
+      />
       <Tab.Navigator screenOptions={{
         tabBarItemStyle: {
           padding: 0,
