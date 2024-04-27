@@ -11,24 +11,6 @@ import * as FileSystem from 'expo-file-system';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { Button, HStack, NativeBaseProvider, extendTheme, Center, VStack } from 'native-base';
-export const theme = extendTheme({
-    colors: {
-        // Add new color
-        primary: {
-            50: '#0051ff',
-            100: '#ff0000',
-            200: '#A2D4EC',
-            300: '#7AC1E4',
-            400: '#47A9DA',
-            500: '#0088CC',
-            600: '#007AB8',
-            700: '#006BA1',
-            800: '#005885',
-            900: '#003F5E',
-        },
-    },
-});
 
 export const styles = StyleSheet.create({
     safeArea: {
@@ -45,6 +27,7 @@ export const styles = StyleSheet.create({
         height: 40,
         margin: 12,
         borderWidth: 1,
+        borderRadius: 20,
         padding: 10,
     },
     setupImage:
@@ -52,7 +35,62 @@ export const styles = StyleSheet.create({
         width: '50%',
         height: undefined,
         resizeMode: 'contain',
-        margin: 10,
-    }
+    },
+    radioStyle:
+    {
+        padding: 0,
+        margin: 0,
+        paddingVertical: 0,
+        paddingHorizontal: 0,
+        color: 'black',
+
+    },
+    radioLabelStyle:
+    {
+        paddingTop: 0,
+        paddingBottom: 0,
+        padding: 0,
+        margin: 0,
+        paddingVertical: 0,
+        paddingHorizontal: 0,
+    },
+    radioView:
+    {
+        flexDirection: 'row',
+        paddingTop: 0,
+        paddingBottom: 0,
+        padding: 0,
+        margin: 0,
+        paddingVertical: 0,
+        paddingHorizontal: 0,
+        color: 'black',
+        alignContent: 'center',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    hstackFullWidth:
+    {
+        padding: 2,
+        flexDirection: 'row',
+        alignContent: 'center',
+        justifyContent: 'space-evenly',
+        flex: 1,
+        width:'100%',
+    },
+    hstack:
+    {
+        padding: 2,
+        flexDirection: 'row',
+        alignContent: 'center',
+        justifyContent: 'space-evenly',
+    },
+    vstack:
+    {
+        paddingHorizontal: 10,
+        flexDirection: 'column',
+        alignContent: 'center',
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
+    },
 
 });
