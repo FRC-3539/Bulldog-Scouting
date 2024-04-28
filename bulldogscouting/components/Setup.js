@@ -7,7 +7,6 @@ import {
 	StyleSheet,
 	Platform,
 	Image,
-	Button,
 } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -20,44 +19,59 @@ import { useFocusEffect } from '@react-navigation/native';
 
 import {
 	RadioButton,
-	Switch
+	Switch,
+	Button
 } from 'react-native-paper';
+
+var lastMatch = 0;
+var lastStation = '';
 
 
 export function Setup({ props }) {
 
 	//Camera Stuff
-    const [hasPermission, setHasPermission] = useState(null);
-    const [scanned, setScanned] = useState(false);
-    const [key, setKey] = useState(0); // Add key state
+	const [hasPermission, setHasPermission] = useState(null);
+	const [scanned, setScanned] = useState(false);
+	const [key, setKey] = useState(0); // Add key state
 	const [scanMode, setScanMode] = useState(false); // Add key state
 
-    useEffect(() => {
-        (async () => {
-            const { status } = await Camera.requestCameraPermissionsAsync();
-            setHasPermission(status === 'granted');
-        })();
-    }, []);
+	//props.teamNumber = 
+	if (props.match != lastMatch || props.station != lastStation) {
+		if (matchData[props.match] != null && matchData[props.match][props.station] != null)
+			props.setTeamNumber(matchData[props.match][props.station])
+		else {
 
-    useFocusEffect(
-        useCallback(() => {
-            setScanned(false);
-            setKey(prevKey => prevKey + 1); // Change key to force remount
-            return () => {
-                // Cleanup function when the component unmounts
-            };
-        }, [])
-    );
+			props.setTeamNumber('')
+			console.log('test')
 
-    const handleBarCodeScanned = ({ type, data }) => {
-        setScanned(true);
+		}
+	}
+
+	useEffect(() => {
+		(async () => {
+			const { status } = await Camera.requestCameraPermissionsAsync();
+			setHasPermission(status === 'granted');
+		})();
+	}, []);
+
+	useFocusEffect(
+		useCallback(() => {
+			setScanned(false);
+			setKey(prevKey => prevKey + 1); // Change key to force remount
+			return () => {
+				// Cleanup function when the component unmounts
+			};
+		}, [])
+	);
+
+	const handleBarCodeScanned = ({ type, data }) => {
+		setScanned(true);
 		// Create an empty dictionary to store parsed data
 		var matches = data.toString().split(';');
 
 		// Iterate through each match
 		matches.forEach(match => {
-			if(!match.includes(","))
-			{
+			if (!match.includes(",")) {
 				return;
 			}
 
@@ -76,41 +90,43 @@ export function Setup({ props }) {
 			matchData[loadedMatchData[0]] = matchTeams
 		});
 		console.log(matchData)
-		
-        Alert.alert(
-            `Data Added`,
-			'Data Added',
-            [
-                { text: 'Continue', onPress: () => setScanned(false) },
-            ]
-        );
-    };
 
-    if (hasPermission === null) {
-        return <View />;
-    }
-    if (hasPermission === false) {
-        return <Text>No access to camera</Text>;
-    }
-	if(scanMode)
-	{
+		Alert.alert(
+			`Data Added`,
+			'Data Added',
+			[
+				{ text: 'Continue', onPress: () => setScanned(false) },
+			]
+		);
+	};
+
+	if (hasPermission === null) {
+		return <View />;
+	}
+	if (hasPermission === false) {
+		return <Text>No access to camera</Text>;
+	}
+	if (scanMode) {
 		return (
-			<View style={styles.container}>
+			<View style={styles.cameraContainer}>
 				<Camera
 					key={key} // Pass key prop
 					style={styles.camera}
 					type={Camera.Constants.Type.back}
 					barcodeScannerSettings={{
 						barcodeTypes: ["qr"],
-					  }}
+					}}
 					onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
 					ratio='16:9'
 				/>
-				<Button title="Return" onPress={() => setScanMode(!scanMode) } />
+				<Button buttonColor='lime' mode="contained" onPress={() => setScanMode(!scanMode)}>Return</Button>
 			</View>
 		);
 	}
-   
+
+	lastMatch = props.match
+	lastStation = props.station
+
 	return (
 		<View style={styles.generalViewStyle}>
 			<Text style={{ fontSize: 25 }}>Alliance Station</Text>
@@ -119,29 +135,29 @@ export function Setup({ props }) {
 					<View style={styles.vstack}>
 						<View style={styles.radioView}>
 							<Text>Red 1</Text>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='red' color='red' uncheckedColor='red' value="Red 1" />
+							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='red' color='red' uncheckedColor='red' value="red1" />
 						</View>
 						<View style={styles.radioView}>
 							<Text>Red 2</Text>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='red' color='red' uncheckedColor='red' value="Red 2" />
+							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='red' color='red' uncheckedColor='red' value="red2" />
 						</View>
 						<View style={styles.radioView}>
 							<Text>Red 3</Text>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='red' color='red' uncheckedColor='red' value="Red 3" />
+							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='red' color='red' uncheckedColor='red' value="red3" />
 						</View>
 					</View>
 					<View style={styles.vstack}>
 
 						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='blue' color='blue' uncheckedColor='blue' value="Blue 1" />
+							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='blue' color='blue' uncheckedColor='blue' value="blue1" />
 							<Text>Blue 1</Text>
 						</View>
 						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='blue' color='blue' uncheckedColor='blue' value="Blue 2" />
+							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='blue' color='blue' uncheckedColor='blue' value="blue2" />
 							<Text>Blue 2</Text>
 						</View>
 						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='blue' color='blue' uncheckedColor='blue' value="Blue 3" />
+							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='blue' color='blue' uncheckedColor='blue' value="blue3" />
 							<Text>Blue 3</Text>
 						</View>
 					</View>
@@ -189,7 +205,7 @@ export function Setup({ props }) {
 			<View style={styles.hstackFullWidth}>
 				<Image
 					style={styles.setupImage}
-					source={(props.station === "Blue 1" || props.station === "Blue 2" || props.station === "Blue 3")
+					source={(props.station === "blue1" || props.station === "blue2" || props.station === "blue3")
 						? require('../assets/BlueStartPosition.png') : require('../assets/RedStartPosition.png')} />
 				<View style={styles.vstack}>
 					<RadioButton.Group value={props.startArea} onValueChange={nextValue => { props.setStartArea(nextValue) }}>
@@ -212,7 +228,7 @@ export function Setup({ props }) {
 					</RadioButton.Group>
 				</View>
 			</View>
-			<Button title="Scan QR" onPress={() => setScanMode(!scanMode)} />
+			<Button buttonColor='purple' mode="contained" onPress={() => setScanMode(!scanMode)}>Scan QR</Button>
 
 		</View>
 	)

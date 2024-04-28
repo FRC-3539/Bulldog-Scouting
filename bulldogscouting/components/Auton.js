@@ -35,7 +35,6 @@ export function Auton({ props }) {
 				/>
 			</View>
 			<Text></Text>
-			<View style={styles.vstack}>
 				<View style={styles.hstack}>
 					<View style={styles.vstack}>
 						<Text style={{ fontSize: 20 }}>Scored Notes</Text>
@@ -50,7 +49,6 @@ export function Auton({ props }) {
 						<Button buttonColor='darkred' mode="contained" onPress={() => props.setAutonNotesAttempts(props.autonNotesAttempts - 1)}>-</Button>
 					</View>
 				</View>
-			</View >
 			<Text></Text>
 			<View style={styles.hstackFullWidth}>
 				<Image

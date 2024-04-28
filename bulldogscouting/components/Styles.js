@@ -72,18 +72,19 @@ export const styles = StyleSheet.create({
         width: '100%',
     },
     hstack: {
+        width:'100%',
         padding: 2,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
     },
     vstack: {
-        paddingHorizontal: 10,
         flexDirection: 'column',
         justifyContent: 'space-evenly',
         alignItems: 'center',
+        flex: 1,
     },
-    container: {
+    cameraContainer: {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',

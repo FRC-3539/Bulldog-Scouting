@@ -9,7 +9,6 @@ import {
 	StatusBar,
 	Image,
 } from 'react-native';
-import * as FileSystem from 'expo-file-system';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
@@ -31,11 +30,19 @@ function ScoutingApp() {
 	const [isRedAlliance, setIsRedAlliance] = useState(true);
 	const [noShow, setNoShow] = useState(false);
 	const [preloaded, setPreloaded] = useState(false);
-	const [station, setStation] = useState("Red 1");
+	const [station, setStation] = useState("red1");
 	const [startArea, setStartArea] = useState("A");
 	const [match, setMatch] = useState("1");
-	const [bumps, setBumps] = useState(0);
-	const [notes, setNotes] = useState(0);
+	const [teleopSpeaker, setTeleopSpeaker] = useState(0);
+	const [teleopAmp, setTeleopAmp] = useState(0);
+	const [teleopSpeakerAttempts, setTeleopSpeakerAttempts] = useState(0);
+	const [teleopAmpAttempts, setTeleopAmpAttempts] = useState(0);
+	const [teleopAmplified, setTeleopAmplified] = useState(0);
+	const [teleopPass, setTeleopPass] = useState(0);
+	const [teleopDrop, setTeleopDrop] = useState(0);
+	const [slams, setSlams] = useState(0);
+	const [shotsBlocked, setShotsBlocked] = useState(0);
+
 	const [autonNotes, setAutonNotes] = useState(0);
 	const [autonNotesAttempts, setAutonNotesAttempts] = useState(0);
 	const [teamNumber, setTeamNumber] = React.useState('');
@@ -52,12 +59,16 @@ function ScoutingApp() {
 
 
 	var props = {
+		teleopAmp, setTeleopAmp,teleopSpeakerAttempts, setTeleopSpeakerAttempts,
+		teleopAmpAttempts, setTeleopAmpAttempts, teleopPass, setTeleopPass,
+		teleopDrop, setTeleopDrop, teleopAmplified, setTeleopAmplified,
+		slams, setSlams,shotsBlocked, setShotsBlocked,
 		usedNoteA, setusedNoteA, usedNoteB, setusedNoteB, usedNoteC, setusedNoteC,
 		usedNoteD, setusedNoteD, usedNoteE, setusedNoteE, usedNoteF, setusedNoteF,
 		usedNoteG, setusedNoteG, usedNoteH, setusedNoteH, autonNotesAttempts, setAutonNotesAttempts,
 		autonNotes, setAutonNotes, leftAutonZone, setLeftAutonZone, startArea, setStartArea,
 		station, setStation, preloaded, setPreloaded, noShow, setNoShow, isRedAlliance, setIsRedAlliance,
-		teamNumber, setTeamNumber, match, setMatch, bumps, setBumps, notes, setNotes
+		teamNumber, setTeamNumber, match, setMatch, teleopSpeaker, setTeleopSpeaker
 	};
 
 	return (
