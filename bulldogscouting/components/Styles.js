@@ -12,17 +12,21 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
+// Define styles
 export const styles = StyleSheet.create({
+    // General styles
     safeArea: {
         flex: 1,
         backgroundColor: "white",
     },
     generalViewStyle: {
         alignItems: 'center',
-        height: "100%",
-        width: "100%",
+        justifyContent: 'center',
         backgroundColor: '#fff',
+        flex: 1,
     },
+
+    // Input styles
     input: {
         height: 40,
         margin: 12,
@@ -30,67 +34,63 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
         padding: 10,
     },
-    setupImage:
-    {
+
+    // Image styles
+    setupImage: {
         width: '50%',
         height: undefined,
+        aspectRatio: .654, // Maintain aspect ratio
         resizeMode: 'contain',
+        borderRadius: 10, // Add rounded corners
     },
-    radioStyle:
-    {
-        padding: 0,
-        margin: 0,
-        paddingVertical: 0,
-        paddingHorizontal: 0,
-        color: 'black',
 
-    },
-    radioLabelStyle:
-    {
-        paddingTop: 0,
-        paddingBottom: 0,
+    // Radio button styles
+    radioStyle: {
         padding: 0,
         margin: 0,
-        paddingVertical: 0,
-        paddingHorizontal: 0,
-    },
-    radioView:
-    {
-        flexDirection: 'row',
-        paddingTop: 0,
-        paddingBottom: 0,
-        padding: 0,
-        margin: 0,
-        paddingVertical: 0,
-        paddingHorizontal: 0,
         color: 'black',
-        alignContent: 'center',
+    },
+    radioLabelStyle: {
+        padding: 0,
+        margin: 0,
+    },
+    radioView: {
+        flexDirection: 'row',
+        padding: 0,
+        margin: 0,
+        color: 'black',
+        alignItems: 'center',
         justifyContent: 'center',
-        alignItems: 'center'
     },
-    hstackFullWidth:
-    {
+
+    // Layout styles
+    hstackFullWidth: {
         padding: 2,
         flexDirection: 'row',
-        alignContent: 'center',
         justifyContent: 'space-evenly',
-        flex: 1,
-        width:'100%',
+        alignItems: 'center',
+        width: '100%',
     },
-    hstack:
-    {
+    hstack: {
         padding: 2,
         flexDirection: 'row',
-        alignContent: 'center',
         justifyContent: 'space-evenly',
+        alignItems: 'center',
     },
-    vstack:
-    {
+    vstack: {
         paddingHorizontal: 10,
         flexDirection: 'column',
-        alignContent: 'center',
         justifyContent: 'space-evenly',
-        alignItems: 'center'
+        alignItems: 'center',
     },
-
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    camera: {
+        flex: 1,
+        aspectRatio:"0.5625",
+    },
 });

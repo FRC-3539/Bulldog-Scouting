@@ -1,39 +1,97 @@
 import {
-    TextInput,
-    View,
-    Text,
-    Alert,
-    SafeAreaView,
-    StyleSheet,
-    Platform,
-    Button,
+	TextInput,
+	View,
+	Text,
+	Alert,
+	SafeAreaView,
+	StyleSheet,
+	Platform,
+	Image,
 } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { styles, theme } from './Styles'
+import {
+	Checkbox,
+	Button,
+	RadioButton
+} from 'react-native-paper';
 
 export function Auton({ props }) {
-    return (
-        <View style={styles.generalViewStyle}>
-            <Text style={{ fontSize: 30 }}>Auton</Text>
-            <View style={styles.vstack}>
-                <View style={styles.hstack}>
-                    <View style={styles.vstack}>
-                        <Text style={{ fontSize: 20 }}>Notes</Text>
-                        <Text style={{ fontSize: 20 }}>{props.notes}</Text>
-                        <Button onPress={() => props.setNotes(props.notes + 1)} title='+'></Button>
-                        <Button onPress={() => props.setNotes(props.notes - 1)} title='-'></Button>
-                    </View>
-                    <View style={styles.vstack}>
-                        <Text style={{ fontSize: 20 }}>Bumps</Text>
-                        <Text style={{ fontSize: 20 }}>{props.bumps}</Text>
-                        <Button onPress={() => props.setBumps(props.bumps + 1)} title='+'></Button>
-                        <Button onPress={() => props.setBumps(props.bumps - 1)} title='-'></Button>
-                    </View>
-                </View>
-            </View >
-        </View >
-    )
+	return (
+		<View style={styles.generalViewStyle}>
+			<Text style={{ fontSize: 30 }}>Auton</Text>
+			<Text></Text>
+			<View style={styles.hstack}>
+				<Text style={{ fontSize: 16 }}>Left the starting zone?</Text>
+				<Checkbox
+					status={props.leftAutonZone ? 'checked' : 'unchecked'}
+					onPress={() => {
+						props.setLeftAutonZone(!props.leftAutonZone);
+					}}
+					color='lime'
+				/>
+			</View>
+			<Text></Text>
+			<View style={styles.vstack}>
+				<View style={styles.hstack}>
+					<View style={styles.vstack}>
+						<Text style={{ fontSize: 20 }}>Scored Notes</Text>
+						<Button buttonColor='green' mode="contained" onPress={() => props.setAutonNotes(props.autonNotes + 1)}>+</Button>
+						<Text style={{ fontSize: 20 }}>{props.autonNotes}</Text>
+						<Button buttonColor='darkred' mode="contained" onPress={() => props.setAutonNotes(props.autonNotes - 1)}>-</Button>
+					</View>
+					<View style={styles.vstack}>
+						<Text style={{ fontSize: 20 }}>Failed Notes</Text>
+						<Button buttonColor='green' mode="contained" onPress={() => props.setAutonNotesAttempts(props.autonNotesAttempts + 1)}>+</Button>
+						<Text style={{ fontSize: 20 }}>{props.autonNotesAttempts}</Text>
+						<Button buttonColor='darkred' mode="contained" onPress={() => props.setAutonNotesAttempts(props.autonNotesAttempts - 1)}>-</Button>
+					</View>
+				</View>
+			</View >
+			<Text></Text>
+			<View style={styles.hstackFullWidth}>
+				<Image
+					style={styles.setupImage}
+					source={(props.station === "Blue 1" || props.station === "Blue 2" || props.station === "Blue 3")
+						? require('../assets/BlueStartPosition.png') : require('../assets/RedStartPosition.png')} />
+				<View style={styles.vstack}>
+					<View style={styles.radioView}>
+						<Text>A</Text>
+						<Checkbox status={props.usedNoteA ? 'checked' : 'unchecked'} onPress={() => { props.setusedNoteA(!props.usedNoteA); }} color='lime' />
+					</View>
+					<View style={styles.radioView}>
+						<Text>B</Text>
+						<Checkbox status={props.usedNoteB ? 'checked' : 'unchecked'} onPress={() => { props.setusedNoteB(!props.usedNoteB); }} color='lime' />
+					</View>
+					<View style={styles.radioView}>
+						<Text>C</Text>
+						<Checkbox status={props.usedNoteC ? 'checked' : 'unchecked'} onPress={() => { props.setusedNoteC(!props.usedNoteC); }} color='lime' />
+					</View>
+					<View style={styles.radioView}>
+						<Text>D</Text>
+						<Checkbox status={props.usedNoteD ? 'checked' : 'unchecked'} onPress={() => { props.setusedNoteD(!props.usedNoteD); }} color='lime' />
+					</View>
+					<View style={styles.radioView}>
+						<Text>E</Text>
+						<Checkbox status={props.usedNoteE ? 'checked' : 'unchecked'} onPress={() => { props.setusedNoteE(!props.usedNoteE); }} color='lime' />
+					</View>
+					<View style={styles.radioView}>
+						<Text>F</Text>
+						<Checkbox status={props.usedNoteF ? 'checked' : 'unchecked'} onPress={() => { props.setusedNoteF(!props.usedNoteF); }} color='lime' />
+					</View>
+					<View style={styles.radioView}>
+						<Text>G</Text>
+						<Checkbox status={props.usedNoteG ? 'checked' : 'unchecked'} onPress={() => { props.setusedNoteG(!props.usedNoteG); }} color='lime' />
+					</View>
+					<View style={styles.radioView}>
+						<Text>H</Text>
+						<Checkbox status={props.usedNoteH ? 'checked' : 'unchecked'} onPress={() => { props.setusedNoteH(!props.usedNoteH); }} color='lime' />
+					</View>
+				</View>
+			</View>
+		</View >
+	)
 }
