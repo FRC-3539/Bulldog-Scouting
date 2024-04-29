@@ -16,9 +16,7 @@ import { styles, theme } from './Styles'
 export function EndGame({ props }) {
     return (
         <View style={styles.generalViewStyle}>
-
             <Text>EndGame</Text>
-
         </View>
     )
 }

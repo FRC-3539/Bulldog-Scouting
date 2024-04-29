@@ -67,9 +67,9 @@ export function Teleop({ props }) {
                     <View style={styles.vstack}>
                         <Text style={{ fontSize: 20 }}>Amplified Notes</Text>
                         <View style={styles.hstack}>
-                        <Button buttonColor='goldenrod' mode="contained" onPress={() => props.setTeleopAmplified(props.teleopAmplified + 1)}>+</Button>
+                        <Button buttonColor='green' mode="contained" onPress={() => props.setTeleopAmplified(props.teleopAmplified + 1)}>+</Button>
                         <Text style={{ fontSize: 16 }}>{props.teleopAmplified}</Text>
-                        <Button buttonColor='saddlebrown' mode="contained" onPress={() => props.setTeleopAmplified(props.teleopAmplified - 1)}>-</Button>
+                        <Button buttonColor='darkred' mode="contained" onPress={() => props.setTeleopAmplified(props.teleopAmplified - 1)}>-</Button>
                         </View>
                     </View>
                 </View>
@@ -95,9 +95,9 @@ export function Teleop({ props }) {
                 <View style={styles.hstack}>
                     <Text style={{ fontSize: 16 }}>Used Amplication?</Text>
                     <Checkbox
-                        status={props.leftAutonZone ? 'checked' : 'unchecked'}
+                        status={props.usedAmplification ? 'checked' : 'unchecked'}
                         onPress={() => {
-                            props.setLeftAutonZone(!props.leftAutonZone);
+                            props.setUsedAmplification(!props.usedAmplification);
                         }}
                         color='lime'
                     />

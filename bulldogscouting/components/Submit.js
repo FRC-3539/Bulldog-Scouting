@@ -11,7 +11,6 @@ import {
 import * as FileSystem from 'expo-file-system';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React, { useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { styles, theme } from './Styles'
 import * as Sharing from 'expo-sharing';
 
@@ -21,7 +20,7 @@ async function share() {
   Sharing.shareAsync("file:///data/user/0/host.exp.exponent/files/parsed_data.json")
 }
 
-async function WriteToFile({ props }) {
+async function WriteToFile({ props, navigation }) {
 
   let data = JSON.stringify({ match: props.match, isRedAlliance: props.isRedAlliance, teamNumber: props.teamNumber, notes: props.teleopSpeaker, bumps: props.bumps }); // Compile data to a json string.
 
@@ -31,15 +30,23 @@ async function WriteToFile({ props }) {
   // Write data to file
   await FileSystem.writeAsStringAsync(filePath, data);
   console.log(filePath)
-  alert("Submitted");
+
+  Alert.alert(
+    `Submitted`,
+    'Your data has been submitted.',
+    [
+      { text: 'Continue', onPress: () => navigation.navigate('Setup') },
+    ]
+  );
 }
 
-export function Submit({ props }) {
+export function Submit({ props, navigation }) {
+  // Inside your component function
 
   return (
     <View style={styles.generalViewStyle}>
       <Text>Submit</Text>
-      <Button title="Submit" onPress={() => WriteToFile(props = { props })} />
+      <Button title="Submit" onPress={() => WriteToFile({ props, navigation })} />
       <Button title="Share" onPress={() => share()} />
       <Text>Team = {props.teamNumber}</Text>
       <Text>Match = {props.match}</Text>

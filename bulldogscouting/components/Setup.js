@@ -23,8 +23,12 @@ import {
 	Button
 } from 'react-native-paper';
 
+
+// Keep track of changes so we can update the team number only when we change station, match number,
+// or if we load new qr code data, this will allow us to override the teamnumber if we must.
 var lastMatch = 0;
 var lastStation = '';
+var lastMatchData;
 
 
 export function Setup({ props }) {
@@ -35,15 +39,16 @@ export function Setup({ props }) {
 	const [key, setKey] = useState(0); // Add key state
 	const [scanMode, setScanMode] = useState(false); // Add key state
 
-	//props.teamNumber = 
-	if (props.match != lastMatch || props.station != lastStation) {
+	console.log('setup')
+	console.log(matchData)
+	console.log(lastMatchData)
+
+	if (props.match != lastMatch || props.station != lastStation || matchData != lastMatchData) {
+		console.log("reset")
 		if (matchData[props.match] != null && matchData[props.match][props.station] != null)
-			props.setTeamNumber(matchData[props.match][props.station])
+			props.teamNumber = (matchData[props.match][props.station])
 		else {
-
-			props.setTeamNumber('')
-			console.log('test')
-
+			props.teamNumber = ''
 		}
 	}
 
@@ -106,6 +111,11 @@ export function Setup({ props }) {
 	if (hasPermission === false) {
 		return <Text>No access to camera</Text>;
 	}
+
+	lastMatch = props.match
+	lastStation = props.station
+	lastMatchData = { ...matchData }
+
 	if (scanMode) {
 		return (
 			<View style={styles.cameraContainer}>
@@ -124,8 +134,6 @@ export function Setup({ props }) {
 		);
 	}
 
-	lastMatch = props.match
-	lastStation = props.station
 
 	return (
 		<View style={styles.generalViewStyle}>

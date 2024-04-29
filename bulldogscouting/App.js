@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React, { useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { Setup } from './components/Setup';
 import { Auton } from './components/Auton';
 import { styles, theme } from './components/Styles'
@@ -21,28 +21,17 @@ import { Submit } from './components/Submit';
 
 const Tab = createMaterialTopTabNavigator();
 
-
 export default function App() {
-	return (<NavigationContainer>{ScoutingApp()}</NavigationContainer>)
-}
 
-function ScoutingApp() {
+	//Setup
 	const [isRedAlliance, setIsRedAlliance] = useState(true);
 	const [noShow, setNoShow] = useState(false);
 	const [preloaded, setPreloaded] = useState(false);
 	const [station, setStation] = useState("red1");
 	const [startArea, setStartArea] = useState("A");
 	const [match, setMatch] = useState("1");
-	const [teleopSpeaker, setTeleopSpeaker] = useState(0);
-	const [teleopAmp, setTeleopAmp] = useState(0);
-	const [teleopSpeakerAttempts, setTeleopSpeakerAttempts] = useState(0);
-	const [teleopAmpAttempts, setTeleopAmpAttempts] = useState(0);
-	const [teleopAmplified, setTeleopAmplified] = useState(0);
-	const [teleopPass, setTeleopPass] = useState(0);
-	const [teleopDrop, setTeleopDrop] = useState(0);
-	const [slams, setSlams] = useState(0);
-	const [shotsBlocked, setShotsBlocked] = useState(0);
 
+	//Auton
 	const [autonNotes, setAutonNotes] = useState(0);
 	const [autonNotesAttempts, setAutonNotesAttempts] = useState(0);
 	const [teamNumber, setTeamNumber] = React.useState('');
@@ -57,12 +46,30 @@ function ScoutingApp() {
 	const [usedNoteG, setusedNoteG] = React.useState(false);
 	const [usedNoteH, setusedNoteH] = React.useState(false);
 
+	// Teleop
+	const [teleopSpeaker, setTeleopSpeaker] = useState(0);
+	const [teleopAmp, setTeleopAmp] = useState(0);
+	const [teleopSpeakerAttempts, setTeleopSpeakerAttempts] = useState(0);
+	const [teleopAmpAttempts, setTeleopAmpAttempts] = useState(0);
+	const [teleopAmplified, setTeleopAmplified] = useState(0);
+	const [usedAmplification, setUsedAmplification] = useState(0);
+	const [teleopPass, setTeleopPass] = useState(0);
+	const [teleopDrop, setTeleopDrop] = useState(0);
+	const [slams, setSlams] = useState(0);
+	const [shotsBlocked, setShotsBlocked] = useState(0);
+
+	// EndGame
+	const [climbed, setClimbed] = useState(false);
+	const [sideClimb, setSideClimb] = useState(false);
+	const [climbSpeed, setClimbSpeed] = useState(0);
+
+
 
 	var props = {
-		teleopAmp, setTeleopAmp,teleopSpeakerAttempts, setTeleopSpeakerAttempts,
+		teleopAmp, setTeleopAmp, teleopSpeakerAttempts, setTeleopSpeakerAttempts,
 		teleopAmpAttempts, setTeleopAmpAttempts, teleopPass, setTeleopPass,
 		teleopDrop, setTeleopDrop, teleopAmplified, setTeleopAmplified,
-		slams, setSlams,shotsBlocked, setShotsBlocked,
+		slams, setSlams, shotsBlocked, setShotsBlocked, usedAmplification, setUsedAmplification,
 		usedNoteA, setusedNoteA, usedNoteB, setusedNoteB, usedNoteC, setusedNoteC,
 		usedNoteD, setusedNoteD, usedNoteE, setusedNoteE, usedNoteF, setusedNoteF,
 		usedNoteG, setusedNoteG, usedNoteH, setusedNoteH, autonNotesAttempts, setAutonNotesAttempts,
@@ -71,7 +78,8 @@ function ScoutingApp() {
 		teamNumber, setTeamNumber, match, setMatch, teleopSpeaker, setTeleopSpeaker
 	};
 
-	return (
+
+	return (<NavigationContainer>
 		<SafeAreaView style={styles.safeArea}>
 			<StatusBar
 				animated={true}
@@ -87,23 +95,20 @@ function ScoutingApp() {
 			}
 			}>
 				<Tab.Screen name="Setup" children={() =>
-					<Setup props={props}
-					></Setup>} />
+					<Setup props={props} />} />
 				<Tab.Screen name="Auton" children={() =>
-					<Auton props={props}
-					></Auton>} />
+					<Auton props={props} />} />
 				<Tab.Screen name="Teleop" children={() =>
-					<Teleop props={props}
-					></Teleop>} />
+					<Teleop props={props} />} />
 				<Tab.Screen name="EndGame" children={() =>
-					<EndGame props={props}
-					></EndGame>} />
+					<EndGame props={props} />} />
 				<Tab.Screen name="Submit" children={() =>
 					<Submit
 						props={props}
-					></Submit>} />
+						navigation={useNavigation()} />} />
 			</Tab.Navigator>
 		</SafeAreaView>
+	</NavigationContainer>
 
 	);
 }
