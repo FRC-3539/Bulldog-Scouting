@@ -63,9 +63,14 @@ export default function App() {
 	const [sideClimb, setSideClimb] = useState(false);
 	const [climbSpeed, setClimbSpeed] = useState(0);
 
-
+	//Submit
+	const [robotRemarks, setRobotRemarks] = useState('');
+	const [matchScoreRed, setMatchScoreRed] = useState('');
+	const [matchScoreBlue, setMatchScoreBlue] = useState('');
 
 	var props = {
+		robotRemarks, setRobotRemarks, climbSpeed, setClimbSpeed, sideClimb, setSideClimb,
+		climbed, setClimbed, matchScoreRed, setMatchScoreRed, matchScoreBlue, setMatchScoreBlue,
 		teleopAmp, setTeleopAmp, teleopSpeakerAttempts, setTeleopSpeakerAttempts,
 		teleopAmpAttempts, setTeleopAmpAttempts, teleopPass, setTeleopPass,
 		teleopDrop, setTeleopDrop, teleopAmplified, setTeleopAmplified,

@@ -27,8 +27,16 @@ export const styles = StyleSheet.create({
     },
 
     // Input styles
-    input: {
+    SingleLineInput: {
         height: 40,
+        margin: 12,
+        borderWidth: 1,
+        borderRadius: 20,
+        padding: 10,
+    },
+    // Input styles
+    MultiLineInput: {
+        textAlignVertical: 'top',
         margin: 12,
         borderWidth: 1,
         borderRadius: 20,
@@ -72,7 +80,7 @@ export const styles = StyleSheet.create({
         width: '100%',
     },
     hstack: {
-        width:'100%',
+        width: '100%',
         padding: 2,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
@@ -92,6 +100,6 @@ export const styles = StyleSheet.create({
     },
     camera: {
         flex: 1,
-        aspectRatio:"0.5625",
+        aspectRatio: "0.5625",
     },
 });

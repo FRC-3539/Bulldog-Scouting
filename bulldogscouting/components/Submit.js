@@ -6,13 +6,16 @@ import {
   SafeAreaView,
   StyleSheet,
   Platform,
-  Button,
 } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React, { useState } from 'react';
 import { styles, theme } from './Styles'
 import * as Sharing from 'expo-sharing';
+import {
+  Button,
+} from 'react-native-paper';
+
 
 export var matchData = {}; // Create an empty dictionary to store the match data.
 
@@ -45,14 +48,46 @@ export function Submit({ props, navigation }) {
 
   return (
     <View style={styles.generalViewStyle}>
-      <Text>Submit</Text>
-      <Button title="Submit" onPress={() => WriteToFile({ props, navigation })} />
-      <Button title="Share" onPress={() => share()} />
-      <Text>Team = {props.teamNumber}</Text>
-      <Text>Match = {props.match}</Text>
-      <Text>Notes = {props.teleopSpeaker}</Text>
-      <Text>preloaded = {props.preloaded.toString()}</Text>
-      <Text>no show = {props.noShow.toString()}</Text>
+
+      <View style={styles.vstack}>
+        <View style={styles.hstack}>
+          
+          <View style={styles.vstack}>
+          <Text style={{color:'red', fontWeight:'bold', fontSize:16}}>Red Score</Text>
+
+            <TextInput
+              style={styles.SingleLineInput}
+              onChangeText={props.setMatchScoreRed}
+              value={props.matchscoreRed}
+              placeholder="Red Match Score"
+              keyboardType="number-pad"
+              inputMode='numeric'
+            />
+          </View>
+          <View style={styles.vstack}>
+          <Text style={{color:'blue', fontWeight:'bold', fontSize:16}}>Blue Score</Text>
+            <TextInput
+              style={styles.SingleLineInput}
+              onChangeText={props.setMatchScoreBlue}
+              value={props.matchscoreBlue}
+              placeholder="Blue Match Score"
+              keyboardType="number-pad"
+              inputMode='numeric'
+            />
+          </View>
+        </View>
+        <TextInput
+          editable
+          multiline
+          style={styles.MultiLineInput}
+          numberOfLines={8}
+          onChangeText={props.setRobotRemarks}
+          value={props.robotRemarks}
+          placeholder="Any thing else you wanna say about this robot?"
+        />
+        <Button buttonColor='purple' mode="contained" onPress={() => WriteToFile({ props, navigation })}>Submit</Button>
+        <Button buttonColor='darkred' mode="contained" onPress={() => share()}>Share</Button>
+      </View>
 
     </View>
   )

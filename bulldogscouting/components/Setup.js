@@ -20,7 +20,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import {
 	RadioButton,
 	Switch,
-	Button
+	Button,
 } from 'react-native-paper';
 
 
@@ -28,8 +28,27 @@ import {
 // or if we load new qr code data, this will allow us to override the teamnumber if we must.
 var lastMatch = 0;
 var lastStation = '';
-var lastMatchData;
+var lastMatchData = {};
 
+function compareObjects(obj1, obj2) {
+	const keys1 = Object.keys(obj1);
+	const keys2 = Object.keys(obj2);
+
+	// Check if the number of keys is the same
+	if (keys1.length !== keys2.length) {
+		return false;
+	}
+
+	// Check if all keys in obj1 are present in obj2 and have the same values
+	for (let key of keys1) {
+		if (obj1[key] !== obj2[key]) {
+			return false;
+		}
+	}
+
+	// If all checks passed, the objects are equal
+	return true;
+}
 
 export function Setup({ props }) {
 
@@ -39,16 +58,14 @@ export function Setup({ props }) {
 	const [key, setKey] = useState(0); // Add key state
 	const [scanMode, setScanMode] = useState(false); // Add key state
 
-	console.log('setup')
-	console.log(matchData)
-	console.log(lastMatchData)
-
-	if (props.match != lastMatch || props.station != lastStation || matchData != lastMatchData) {
-		console.log("reset")
-		if (matchData[props.match] != null && matchData[props.match][props.station] != null)
-			props.teamNumber = (matchData[props.match][props.station])
+	if (props.match != lastMatch || props.station != lastStation || !compareObjects(matchData, lastMatchData)) {
+		if (matchData[props.match] != null && matchData[props.match][props.station] != null) {
+			props.setTeamNumber(matchData[props.match][props.station])
+			console.log("hi")
+		}
 		else {
-			props.teamNumber = ''
+			console.log("hi1")
+			props.setTeamNumber('')
 		}
 	}
 
@@ -188,7 +205,7 @@ export function Setup({ props }) {
 				<View style={styles.vstack}>
 					<Text>Match Number</Text>
 					<TextInput
-						style={styles.input}
+						style={styles.SingleLineInput}
 						onChangeText={props.setMatch}
 						value={props.match}
 						placeholder="Match Number"
@@ -199,7 +216,7 @@ export function Setup({ props }) {
 				<View style={styles.vstack}>
 					<Text>Team Number</Text>
 					<TextInput
-						style={styles.input}
+						style={styles.SingleLineInput}
 						onChangeText={props.setTeamNumber}
 						value={props.teamNumber}
 						placeholder="Team Number"
