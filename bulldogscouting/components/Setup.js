@@ -58,16 +58,18 @@ export function Setup({ props, setProps }) {
 	const [key, setKey] = useState(0); // Add key state
 	const [scanMode, setScanMode] = useState(false); // Add key state
 
-	if (props.match != lastMatch || props.station != lastStation || !compareObjects(matchData, lastMatchData)) {
-		if (matchData[props.match] != null && matchData[props.match][props.station] != null) {
-			setProps.setTeamNumber(matchData[props.match][props.station])
-			console.log("hi")
+	useEffect(() => {
+		if (props.match != lastMatch || props.station != lastStation || !compareObjects(matchData, lastMatchData)) {
+			if (matchData[props.match] != null && matchData[props.match][props.station] != null) {
+				setProps.setTeamNumber(matchData[props.match][props.station])
+			}
+			else {
+				setProps.setTeamNumber('')
+			}
 		}
-		else {
-			console.log("hi1")
-			setProps.setTeamNumber('')
-		}
-	}
+	}, [props.match, lastMatch, props.station, lastStation, matchData, lastMatchData]);
+
+
 
 	useEffect(() => {
 		(async () => {
@@ -111,7 +113,6 @@ export function Setup({ props, setProps }) {
 			};
 			matchData[loadedMatchData[0]] = matchTeams
 		});
-		console.log(matchData)
 
 		Alert.alert(
 			`Data Added`,

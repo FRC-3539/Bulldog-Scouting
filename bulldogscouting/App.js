@@ -24,7 +24,6 @@ const Tab = createMaterialTopTabNavigator();
 export default function App() {
 
 	//Setup
-	const [isRedAlliance, setIsRedAlliance] = useState(true);
 	const [noShow, setNoShow] = useState(false);
 	const [preloaded, setPreloaded] = useState(false);
 	const [station, setStation] = useState("red1");
@@ -34,17 +33,17 @@ export default function App() {
 	//Auton
 	const [autonNotes, setAutonNotes] = useState(0);
 	const [autonNotesAttempts, setAutonNotesAttempts] = useState(0);
-	const [teamNumber, setTeamNumber] = React.useState('');
-	const [leftAutonZone, setLeftAutonZone] = React.useState(false);
+	const [teamNumber, setTeamNumber] = useState('');
+	const [leftAutonZone, setLeftAutonZone] = useState(false);
 
-	const [usedNoteA, setusedNoteA] = React.useState(false);
-	const [usedNoteB, setusedNoteB] = React.useState(false);
-	const [usedNoteC, setusedNoteC] = React.useState(false);
-	const [usedNoteD, setusedNoteD] = React.useState(false);
-	const [usedNoteE, setusedNoteE] = React.useState(false);
-	const [usedNoteF, setusedNoteF] = React.useState(false);
-	const [usedNoteG, setusedNoteG] = React.useState(false);
-	const [usedNoteH, setusedNoteH] = React.useState(false);
+	const [usedNoteA, setusedNoteA] = useState(false);
+	const [usedNoteB, setusedNoteB] = useState(false);
+	const [usedNoteC, setusedNoteC] = useState(false);
+	const [usedNoteD, setusedNoteD] = useState(false);
+	const [usedNoteE, setusedNoteE] = useState(false);
+	const [usedNoteF, setusedNoteF] = useState(false);
+	const [usedNoteG, setusedNoteG] = useState(false);
+	const [usedNoteH, setusedNoteH] = useState(false);
 
 	// Teleop
 	const [teleopSpeaker, setTeleopSpeaker] = useState(0);
@@ -54,7 +53,6 @@ export default function App() {
 	const [teleopAmplified, setTeleopAmplified] = useState(0);
 	const [usedAmplification, setUsedAmplification] = useState(0);
 	const [teleopPass, setTeleopPass] = useState(0);
-	const [teleopDrop, setTeleopDrop] = useState(0);
 	const [slams, setSlams] = useState(0);
 	const [shotsBlocked, setShotsBlocked] = useState(0);
 
@@ -72,14 +70,13 @@ export default function App() {
 		robotRemarks, climbSpeed, sideClimb,
 		climbed, matchScoreRed, matchScoreBlue,
 		teleopAmp, teleopSpeakerAttempts,
-		teleopAmpAttempts, teleopPass,
-		teleopDrop, teleopAmplified,
+		teleopAmpAttempts, teleopPass, teleopAmplified,
 		slams, shotsBlocked, usedAmplification,
 		usedNoteA, usedNoteB, usedNoteC,
 		usedNoteD, usedNoteE, usedNoteF,
 		usedNoteG, usedNoteH, autonNotesAttempts,
 		autonNotes, leftAutonZone, startArea,
-		station, preloaded, noShow, isRedAlliance,
+		station, preloaded, noShow,
 		teamNumber, match, teleopSpeaker,
 	};
 
@@ -87,14 +84,13 @@ export default function App() {
 		setRobotRemarks, setClimbSpeed, setSideClimb,
 		setClimbed, setMatchScoreRed, setMatchScoreBlue,
 		setTeleopAmp, setTeleopSpeakerAttempts,
-		setTeleopAmpAttempts, setTeleopPass,
-		setTeleopDrop, setTeleopAmplified,
+		setTeleopAmpAttempts, setTeleopPass, setTeleopAmplified,
 		setSlams, setShotsBlocked, setUsedAmplification,
 		setusedNoteA, setusedNoteB, setusedNoteC,
 		setusedNoteD, setusedNoteE, setusedNoteF,
 		setusedNoteG, setusedNoteH, setAutonNotesAttempts,
 		setAutonNotes, setLeftAutonZone, setStartArea,
-		setStation, setPreloaded, setNoShow, setIsRedAlliance,
+		setStation, setPreloaded, setNoShow,
 		setTeamNumber, setMatch, setTeleopSpeaker
 	};
 
