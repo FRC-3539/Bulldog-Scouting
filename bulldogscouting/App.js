@@ -69,18 +69,33 @@ export default function App() {
 	const [matchScoreBlue, setMatchScoreBlue] = useState('');
 
 	var props = {
-		robotRemarks, setRobotRemarks, climbSpeed, setClimbSpeed, sideClimb, setSideClimb,
-		climbed, setClimbed, matchScoreRed, setMatchScoreRed, matchScoreBlue, setMatchScoreBlue,
-		teleopAmp, setTeleopAmp, teleopSpeakerAttempts, setTeleopSpeakerAttempts,
-		teleopAmpAttempts, setTeleopAmpAttempts, teleopPass, setTeleopPass,
-		teleopDrop, setTeleopDrop, teleopAmplified, setTeleopAmplified,
-		slams, setSlams, shotsBlocked, setShotsBlocked, usedAmplification, setUsedAmplification,
-		usedNoteA, setusedNoteA, usedNoteB, setusedNoteB, usedNoteC, setusedNoteC,
-		usedNoteD, setusedNoteD, usedNoteE, setusedNoteE, usedNoteF, setusedNoteF,
-		usedNoteG, setusedNoteG, usedNoteH, setusedNoteH, autonNotesAttempts, setAutonNotesAttempts,
-		autonNotes, setAutonNotes, leftAutonZone, setLeftAutonZone, startArea, setStartArea,
-		station, setStation, preloaded, setPreloaded, noShow, setNoShow, isRedAlliance, setIsRedAlliance,
-		teamNumber, setTeamNumber, match, setMatch, teleopSpeaker, setTeleopSpeaker
+		robotRemarks, climbSpeed, sideClimb,
+		climbed, matchScoreRed, matchScoreBlue,
+		teleopAmp, teleopSpeakerAttempts,
+		teleopAmpAttempts, teleopPass,
+		teleopDrop, teleopAmplified,
+		slams, shotsBlocked, usedAmplification,
+		usedNoteA, usedNoteB, usedNoteC,
+		usedNoteD, usedNoteE, usedNoteF,
+		usedNoteG, usedNoteH, autonNotesAttempts,
+		autonNotes, leftAutonZone, startArea,
+		station, preloaded, noShow, isRedAlliance,
+		teamNumber, match, teleopSpeaker,
+	};
+
+	var setProps = {
+		setRobotRemarks, setClimbSpeed, setSideClimb,
+		setClimbed, setMatchScoreRed, setMatchScoreBlue,
+		setTeleopAmp, setTeleopSpeakerAttempts,
+		setTeleopAmpAttempts, setTeleopPass,
+		setTeleopDrop, setTeleopAmplified,
+		setSlams, setShotsBlocked, setUsedAmplification,
+		setusedNoteA, setusedNoteB, setusedNoteC,
+		setusedNoteD, setusedNoteE, setusedNoteF,
+		setusedNoteG, setusedNoteH, setAutonNotesAttempts,
+		setAutonNotes, setLeftAutonZone, setStartArea,
+		setStation, setPreloaded, setNoShow, setIsRedAlliance,
+		setTeamNumber, setMatch, setTeleopSpeaker
 	};
 
 
@@ -100,16 +115,17 @@ export default function App() {
 			}
 			}>
 				<Tab.Screen name="Setup" children={() =>
-					<Setup props={props} />} />
+					<Setup props={props} setProps={setProps} />} />
 				<Tab.Screen name="Auton" children={() =>
-					<Auton props={props} />} />
+					<Auton props={props} setProps={setProps} />} />
 				<Tab.Screen name="Teleop" children={() =>
-					<Teleop props={props} />} />
+					<Teleop props={props} setProps={setProps} />} />
 				<Tab.Screen name="EndGame" children={() =>
-					<EndGame props={props} />} />
+					<EndGame props={props} setProps={setProps} />} />
 				<Tab.Screen name="Submit" children={() =>
 					<Submit
 						props={props}
+						setProps={setProps}
 						navigation={useNavigation()} />} />
 			</Tab.Navigator>
 		</SafeAreaView>

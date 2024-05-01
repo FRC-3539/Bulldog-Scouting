@@ -19,16 +19,16 @@ import {
 
 export var matchData = {}; // Create an empty dictionary to store the match data.
 
+const filePath = FileSystem.documentDirectory + 'data.json';
+
+
 async function share() {
-  Sharing.shareAsync("file:///data/user/0/host.exp.exponent/files/parsed_data.json")
+  Sharing.shareAsync(filePath)
 }
 
 async function WriteToFile({ props, navigation }) {
 
-  let data = JSON.stringify({ match: props.match, isRedAlliance: props.isRedAlliance, teamNumber: props.teamNumber, notes: props.teleopSpeaker, bumps: props.bumps }); // Compile data to a json string.
-
-  // Define file path
-  const filePath = FileSystem.documentDirectory + 'parsed_data.json';
+  let data = JSON.stringify(props); // Compile data to a json string.
 
   // Write data to file
   await FileSystem.writeAsStringAsync(filePath, data);
@@ -43,7 +43,7 @@ async function WriteToFile({ props, navigation }) {
   );
 }
 
-export function Submit({ props, navigation }) {
+export function Submit({ props, setProps, navigation }) {
   // Inside your component function
 
   return (
@@ -51,13 +51,13 @@ export function Submit({ props, navigation }) {
 
       <View style={styles.vstack}>
         <View style={styles.hstack}>
-          
+
           <View style={styles.vstack}>
-          <Text style={{color:'red', fontWeight:'bold', fontSize:16}}>Red Score</Text>
+            <Text style={{ color: 'red', fontWeight: 'bold', fontSize: 16 }}>Red Score</Text>
 
             <TextInput
               style={styles.SingleLineInput}
-              onChangeText={props.setMatchScoreRed}
+              onChangeText={setProps.setMatchScoreRed}
               value={props.matchscoreRed}
               placeholder="Red Match Score"
               keyboardType="number-pad"
@@ -65,10 +65,10 @@ export function Submit({ props, navigation }) {
             />
           </View>
           <View style={styles.vstack}>
-          <Text style={{color:'blue', fontWeight:'bold', fontSize:16}}>Blue Score</Text>
+            <Text style={{ color: 'blue', fontWeight: 'bold', fontSize: 16 }}>Blue Score</Text>
             <TextInput
               style={styles.SingleLineInput}
-              onChangeText={props.setMatchScoreBlue}
+              onChangeText={setProps.setMatchScoreBlue}
               value={props.matchscoreBlue}
               placeholder="Blue Match Score"
               keyboardType="number-pad"
@@ -81,7 +81,7 @@ export function Submit({ props, navigation }) {
           multiline
           style={styles.MultiLineInput}
           numberOfLines={8}
-          onChangeText={props.setRobotRemarks}
+          onChangeText={setProps.setRobotRemarks}
           value={props.robotRemarks}
           placeholder="Any thing else you wanna say about this robot?"
         />

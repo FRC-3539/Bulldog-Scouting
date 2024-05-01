@@ -50,7 +50,7 @@ function compareObjects(obj1, obj2) {
 	return true;
 }
 
-export function Setup({ props }) {
+export function Setup({ props, setProps }) {
 
 	//Camera Stuff
 	const [hasPermission, setHasPermission] = useState(null);
@@ -60,12 +60,12 @@ export function Setup({ props }) {
 
 	if (props.match != lastMatch || props.station != lastStation || !compareObjects(matchData, lastMatchData)) {
 		if (matchData[props.match] != null && matchData[props.match][props.station] != null) {
-			props.setTeamNumber(matchData[props.match][props.station])
+			setProps.setTeamNumber(matchData[props.match][props.station])
 			console.log("hi")
 		}
 		else {
 			console.log("hi1")
-			props.setTeamNumber('')
+			setProps.setTeamNumber('')
 		}
 	}
 
@@ -155,7 +155,7 @@ export function Setup({ props }) {
 	return (
 		<View style={styles.generalViewStyle}>
 			<Text style={{ fontSize: 25 }}>Alliance Station</Text>
-			<RadioButton.Group value={props.station} onValueChange={nextValue => { props.setStation(nextValue) }}>
+			<RadioButton.Group value={props.station} onValueChange={nextValue => { setProps.setStation(nextValue) }}>
 				<View style={styles.hstack}>
 					<View style={styles.vstack}>
 						<View style={styles.radioView}>
@@ -192,11 +192,11 @@ export function Setup({ props }) {
 			<View style={styles.hstack}>
 				<View style={styles.vstack}>
 					<Text style={{ fontSize: 18 }}>Preloaded</Text>
-					<Switch onValueChange={() => { props.setPreloaded(!props.preloaded) }} value={props.preloaded} color='lime'></Switch>
+					<Switch onValueChange={() => { setProps.setPreloaded(!props.preloaded) }} value={props.preloaded} color='lime'></Switch>
 				</View>
 				<View style={styles.vstack}>
 					<Text style={{ fontSize: 18 }}>No Show</Text>
-					<Switch onValueChange={() => { props.setNoShow(!props.noShow) }} value={props.noShow} color='lime'></Switch>
+					<Switch onValueChange={() => { setProps.setNoShow(!props.noShow) }} value={props.noShow} color='lime'></Switch>
 				</View>
 			</View>
 
@@ -206,7 +206,7 @@ export function Setup({ props }) {
 					<Text>Match Number</Text>
 					<TextInput
 						style={styles.SingleLineInput}
-						onChangeText={props.setMatch}
+						onChangeText={setProps.setMatch}
 						value={props.match}
 						placeholder="Match Number"
 						keyboardType="number-pad"
@@ -217,7 +217,7 @@ export function Setup({ props }) {
 					<Text>Team Number</Text>
 					<TextInput
 						style={styles.SingleLineInput}
-						onChangeText={props.setTeamNumber}
+						onChangeText={setProps.setTeamNumber}
 						value={props.teamNumber}
 						placeholder="Team Number"
 						keyboardType="number-pad"
@@ -233,7 +233,7 @@ export function Setup({ props }) {
 					source={(props.station === "blue1" || props.station === "blue2" || props.station === "blue3")
 						? require('../assets/BlueStartPosition.png') : require('../assets/RedStartPosition.png')} />
 				<View style={styles.vstack}>
-					<RadioButton.Group value={props.startArea} onValueChange={nextValue => { props.setStartArea(nextValue) }}>
+					<RadioButton.Group value={props.startArea} onValueChange={nextValue => { setProps.setStartArea(nextValue) }}>
 						<View style={styles.radioView}>
 							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='black' color='black' uncheckedColor='black' value="A" />
 							<Text>A</Text>

@@ -13,7 +13,7 @@ import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { styles, theme } from './Styles'
 
-export function EndGame({ props }) {
+export function EndGame({ props, setProps }) {
     return (
         <View style={styles.generalViewStyle}>
             <Text>EndGame</Text>
