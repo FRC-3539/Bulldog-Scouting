@@ -35,7 +35,6 @@ async function WriteToFile({ props, setProps, navigation }) {
 
   existingContent+=data
 
-
   // Write data to file
   await FileSystem.writeAsStringAsync(filePath, existingContent);
 
