@@ -57,9 +57,8 @@ export default function App() {
 	const [shotsBlocked, setShotsBlocked] = useState(0);
 
 	// EndGame
-	const [climbed, setClimbed] = useState(false);
 	const [sideClimb, setSideClimb] = useState(false);
-	const [climbSpeed, setClimbSpeed] = useState(0);
+	const [climbSpeed, setClimbSpeed] = useState('No Climb');
 
 	//Submit
 	const [robotRemarks, setRobotRemarks] = useState('');
@@ -68,7 +67,7 @@ export default function App() {
 
 	var props = {
 		robotRemarks, climbSpeed, sideClimb,
-		climbed, matchScoreRed, matchScoreBlue,
+		matchScoreRed, matchScoreBlue,
 		teleopAmp, teleopSpeakerAttempts,
 		teleopAmpAttempts, teleopPass, teleopAmplified,
 		slams, shotsBlocked, usedAmplification,
@@ -82,7 +81,7 @@ export default function App() {
 
 	var setProps = {
 		setRobotRemarks, setClimbSpeed, setSideClimb,
-		setClimbed, setMatchScoreRed, setMatchScoreBlue,
+		setMatchScoreRed, setMatchScoreBlue,
 		setTeleopAmp, setTeleopSpeakerAttempts,
 		setTeleopAmpAttempts, setTeleopPass, setTeleopAmplified,
 		setSlams, setShotsBlocked, setUsedAmplification,

@@ -92,6 +92,11 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 1,
     },
+    vstackRadio: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+    },
     cameraContainer: {
         flex: 1,
         flexDirection: 'column',

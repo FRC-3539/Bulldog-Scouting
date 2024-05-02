@@ -67,6 +67,9 @@ export function Setup({ props, setProps }) {
 				setProps.setTeamNumber('')
 			}
 		}
+		lastMatch = props.match
+		lastStation = props.station
+		lastMatchData = { ...matchData }
 	}, [props.match, lastMatch, props.station, lastStation, matchData, lastMatchData]);
 
 
@@ -129,10 +132,6 @@ export function Setup({ props, setProps }) {
 	if (hasPermission === false) {
 		return <Text>No access to camera</Text>;
 	}
-
-	lastMatch = props.match
-	lastStation = props.station
-	lastMatchData = { ...matchData }
 
 	if (scanMode) {
 		return (

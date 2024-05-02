@@ -29,53 +29,15 @@ async function share() {
 
 async function WriteToFile({ props, setProps, navigation }) {
 
-  let data = JSON.stringify(props); // Compile data to a json string.
+  let data = JSON.stringify(props)+","; // Compile data to a json string.
+
+  let existingContent = await FileSystem.readAsStringAsync(filePath);
+
+  existingContent+=data
+
 
   // Write data to file
-  await FileSystem.writeAsStringAsync(filePath, data);
-
-  // //Setup
-  // const [noShow, setNoShow] = useState(false);
-  // const [preloaded, setPreloaded] = useState(false);
-  // const [station, setStation] = useState("red1");
-  // const [startArea, setStartArea] = useState("A");
-  // const [match, setMatch] = useState("1");
-
-  // //Auton
-  // const [autonNotes, setAutonNotes] = useState(0);
-  // const [autonNotesAttempts, setAutonNotesAttempts] = useState(0);
-  // const [teamNumber, setTeamNumber] = React.useState('');
-  // const [leftAutonZone, setLeftAutonZone] = React.useState(false);
-
-  // const [usedNoteA, setusedNoteA] = React.useState(false);
-  // const [usedNoteB, setusedNoteB] = React.useState(false);
-  // const [usedNoteC, setusedNoteC] = React.useState(false);
-  // const [usedNoteD, setusedNoteD] = React.useState(false);
-  // const [usedNoteE, setusedNoteE] = React.useState(false);
-  // const [usedNoteF, setusedNoteF] = React.useState(false);
-  // const [usedNoteG, setusedNoteG] = React.useState(false);
-  // const [usedNoteH, setusedNoteH] = React.useState(false);
-
-  // // Teleop
-  // const [teleopSpeaker, setTeleopSpeaker] = useState(0);
-  // const [teleopAmp, setTeleopAmp] = useState(0);
-  // const [teleopSpeakerAttempts, setTeleopSpeakerAttempts] = useState(0);
-  // const [teleopAmpAttempts, setTeleopAmpAttempts] = useState(0);
-  // const [teleopAmplified, setTeleopAmplified] = useState(0);
-  // const [usedAmplification, setUsedAmplification] = useState(0);
-  // const [teleopPass, setTeleopPass] = useState(0);
-  // const [slams, setSlams] = useState(0);
-  // const [shotsBlocked, setShotsBlocked] = useState(0);
-
-  // // EndGame
-  // const [climbed, setClimbed] = useState(false);
-  // const [sideClimb, setSideClimb] = useState(false);
-  // const [climbSpeed, setClimbSpeed] = useState(0);
-
-  // //Submit
-  // const [robotRemarks, setRobotRemarks] = useState('');
-  // const [matchScoreRed, setMatchScoreRed] = useState('');
-  // const [matchScoreBlue, setMatchScoreBlue] = useState('');
+  await FileSystem.writeAsStringAsync(filePath, existingContent);
 
   // Reset All States except, station and match number.
   // Group all updates into one render.
@@ -109,9 +71,8 @@ async function WriteToFile({ props, setProps, navigation }) {
     setProps.setSlams(0)
     setProps.setShotsBlocked(0)
 
-    setProps.setClimbed(false)
     setProps.setSideClimb(false)
-    setProps.setClimbSpeed(0)
+    setProps.setClimbSpeed('No Climb')
 
     setProps.setRobotRemarks("")
     setProps.setMatchScoreRed("")

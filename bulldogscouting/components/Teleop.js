@@ -15,7 +15,7 @@ export function Teleop({ props, setProps }) {
     return (
         <View style={styles.generalViewStyle}>
             <View style={styles.vstack}>
-                <Text style={{ fontSize: 25 }}>Speaker</Text>
+                <Text style={{ fontSize: 25 , fontWeight: 'bold' }}>Speaker</Text>
                 <View style={styles.hstack}>
                     <View style={styles.vstack}>
                         <Text style={{ fontSize: 20 }}>Scored Notes</Text>
@@ -35,7 +35,7 @@ export function Teleop({ props, setProps }) {
                         </View>
                     </View>
                 </View>
-                <Text style={{ fontSize: 25 }}>Amp</Text>
+                <Text style={{ fontSize: 25, fontWeight: 'bold'  }}>Amp</Text>
                 <View style={styles.hstack}>
                     <View style={styles.vstack}>
                         <Text style={{ fontSize: 20 }}>Scored Notes</Text>
@@ -57,7 +57,7 @@ export function Teleop({ props, setProps }) {
                 <Text style={{ fontSize: 20 }}></Text>
                 <View style={styles.hstack}>
                     <View style={styles.vstack}>
-                        <Text style={{ fontSize: 20 }}>Passes</Text>
+                        <Text style={{ fontSize: 20 , fontWeight: 'bold' }}>Passes</Text>
                         <View style={styles.hstack}>
                             <Button buttonColor='green' mode="contained" onPress={() => setProps.setTeleopPass(props.teleopPass + 1)}>+</Button>
                             <Text style={{ fontSize: 16 }}>{props.teleopPass}</Text>
@@ -65,7 +65,7 @@ export function Teleop({ props, setProps }) {
                         </View>
                     </View>
                     <View style={styles.vstack}>
-                        <Text style={{ fontSize: 20 }}>Amplified Notes</Text>
+                        <Text style={{ fontSize: 20, fontWeight: 'bold'  }}>Amplified Notes</Text>
                         <View style={styles.hstack}>
                             <Button buttonColor='green' mode="contained" onPress={() => setProps.setTeleopAmplified(props.teleopAmplified + 1)}>+</Button>
                             <Text style={{ fontSize: 16 }}>{props.teleopAmplified}</Text>
@@ -76,7 +76,7 @@ export function Teleop({ props, setProps }) {
                 <Text style={{ fontSize: 20 }}></Text>
                 <View style={styles.hstack}>
                     <View style={styles.vstack}>
-                        <Text style={{ fontSize: 20 }}>Slams</Text>
+                        <Text style={{ fontSize: 20, fontWeight: 'bold'  }}>Slams</Text>
                         <View style={styles.hstack}>
                             <Button buttonColor='green' mode="contained" onPress={() => setProps.setSlams(props.slams + 1)}>+</Button>
                             <Text style={{ fontSize: 16 }}>{props.slams}</Text>
@@ -84,7 +84,7 @@ export function Teleop({ props, setProps }) {
                         </View>
                     </View>
                     <View style={styles.vstack}>
-                        <Text style={{ fontSize: 20 }}>Shots Blocked</Text>
+                        <Text style={{ fontSize: 20, fontWeight: 'bold'  }}>Shots Blocked</Text>
                         <View style={styles.hstack}>
                             <Button buttonColor='green' mode="contained" onPress={() => setProps.setShotsBlocked(props.shotsBlocked + 1)}>+</Button>
                             <Text style={{ fontSize: 16 }}>{props.shotsBlocked}</Text>
@@ -93,7 +93,7 @@ export function Teleop({ props, setProps }) {
                     </View>
                 </View>
                 <View style={styles.hstack}>
-                    <Text style={{ fontSize: 16 }}>Used Amplication?</Text>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold'  }}>Used Amplication?</Text>
                     <Checkbox
                         status={props.usedAmplification ? 'checked' : 'unchecked'}
                         onPress={() => {
