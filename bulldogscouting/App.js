@@ -1,13 +1,6 @@
 import {
-	TextInput,
-	View,
-	Text,
-	Alert,
 	SafeAreaView,
-	StyleSheet,
-	Platform,
 	StatusBar,
-	Image,
 } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React, { useState } from 'react';
@@ -18,6 +11,8 @@ import { styles, theme } from './components/Styles'
 import { Teleop } from './components/Teleop';
 import { EndGame } from './components/Endgame';
 import { Submit } from './components/Submit';
+import { PaperProvider } from 'react-native-paper';
+
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -95,36 +90,39 @@ export default function App() {
 
 
 	return (<NavigationContainer>
-		<SafeAreaView style={styles.safeArea}>
-			<StatusBar
-				animated={true}
-				backgroundColor={styles.safeArea.backgroundColor}
-				barStyle="dark-content"
-				hidden={false}
-			/>
-			<Tab.Navigator screenOptions={{
-				tabBarItemStyle: {
-					padding: 0,
-					margin: 0,
+		<PaperProvider>
+			<SafeAreaView style={styles.safeArea}>
+				<StatusBar
+					animated={true}
+					backgroundColor={styles.safeArea.backgroundColor}
+					barStyle="dark-content"
+					hidden={false}
+				/>
+				<Tab.Navigator screenOptions={{
+					tabBarItemStyle: {
+						padding: 0,
+						margin: 0,
+					}
 				}
-			}
-			}>
-				<Tab.Screen name="Setup" children={() =>
-					<Setup props={props} setProps={setProps} />} />
-				<Tab.Screen name="Auton" children={() =>
-					<Auton props={props} setProps={setProps} />} />
-				<Tab.Screen name="Teleop" children={() =>
-					<Teleop props={props} setProps={setProps} />} />
-				<Tab.Screen name="EndGame" children={() =>
-					<EndGame props={props} setProps={setProps} />} />
-				<Tab.Screen name="Submit" children={() =>
-					<Submit
-						props={props}
-						setProps={setProps}
-						navigation={useNavigation()} />} />
-			</Tab.Navigator>
-		</SafeAreaView>
+				}>
+					<Tab.Screen name="Setup" children={() =>
+						<Setup props={props} setProps={setProps} />} />
+					<Tab.Screen name="Auton" children={() =>
+						<Auton props={props} setProps={setProps} />} />
+					<Tab.Screen name="Teleop" children={() =>
+						<Teleop props={props} setProps={setProps} />} />
+					<Tab.Screen name="EndGame" children={() =>
+						<EndGame props={props} setProps={setProps} />} />
+					<Tab.Screen name="Submit" children={() =>
+						<Submit
+							props={props}
+							setProps={setProps}
+							navigation={useNavigation()} />} />
+				</Tab.Navigator>
+			</SafeAreaView>
+		</PaperProvider>
 	</NavigationContainer>
+
 
 	);
 }

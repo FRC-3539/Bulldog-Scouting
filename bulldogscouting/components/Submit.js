@@ -3,18 +3,16 @@ import {
   View,
   Text,
   Alert,
-  SafeAreaView,
-  StyleSheet,
-  Platform,
   unstable_batchedUpdates,
 } from 'react-native';
 import * as FileSystem from 'expo-file-system';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React, { useState } from 'react';
-import { styles, theme } from './Styles'
+import { styles } from './Styles'
 import * as Sharing from 'expo-sharing';
 import {
   Button,
+  Portal,
+  Dialog,
 } from 'react-native-paper';
 
 
@@ -22,18 +20,50 @@ export var matchData = {}; // Create an empty dictionary to store the match data
 
 const filePath = FileSystem.documentDirectory + 'data.json';
 
+const clearFilePass = '3539'
+
 
 async function share() {
   Sharing.shareAsync(filePath)
 }
 
+async function tryClearFile(password, setPassword, hideDialog) {
+  if (password == clearFilePass) {
+    Alert.alert(
+      `Are you sure?`,
+      'Clearing the data will erase all currently stored scouting data and will be unrecoverable',
+      [
+        { text: 'Cancel' },
+        { text: 'Continue', onPress: clearFile },
+      ]
+    );
+  }
+  else
+  {
+    Alert.alert(
+      `Error`,
+      'Incorrect password.',
+      [
+        { text: 'Return' },
+      ]
+    );
+  }
+  setPassword('')
+  hideDialog()
+}
+
+async function clearFile() {
+  await FileSystem.writeAsStringAsync(filePath, ' ')
+}
+
+
 async function WriteToFile({ props, setProps, navigation }) {
 
-  let data = JSON.stringify(props)+","; // Compile data to a json string.
+  let data = JSON.stringify(props) + ","; // Compile data to a json string.
 
   let existingContent = await FileSystem.readAsStringAsync(filePath);
 
-  existingContent+=data
+  existingContent += data
 
   // Write data to file
   await FileSystem.writeAsStringAsync(filePath, existingContent);
@@ -89,6 +119,16 @@ async function WriteToFile({ props, setProps, navigation }) {
 
 export function Submit({ props, setProps, navigation }) {
   // Inside your component function
+  const [visible, setVisible] = React.useState(false)
+
+  const [password, setPassword] = useState('')
+
+  const showDialog = () => setVisible(true)
+
+  const hideDialog = () => {
+    setVisible(false)
+    setPassword('')
+  }
 
   return (
     <View style={styles.generalViewStyle}>
@@ -131,6 +171,27 @@ export function Submit({ props, setProps, navigation }) {
         />
         <Button buttonColor='purple' mode="contained" onPress={() => WriteToFile({ props, setProps, navigation })}>Submit</Button>
         <Button buttonColor='darkred' mode="contained" onPress={() => share()}>Share</Button>
+        <Button buttonColor='darkred' mode="contained" onPress={() => showDialog()}> Clear File </Button>
+
+        <Portal>
+          <Dialog visible={visible} onDismiss={hideDialog}>
+            <Dialog.Title>Enter Your Password</Dialog.Title>
+            <Dialog.Content>
+              <TextInput
+                style={styles.SingleLineInput}
+                onChangeText={setPassword}
+                value={password}
+                placeholder="Password"
+                secureTextEntry={true}
+              />
+            </Dialog.Content>
+            <Dialog.Actions>
+              <Button onPress={hideDialog}>Cancel</Button>
+              <Button onPress={() => tryClearFile(password, setPassword, hideDialog)}>Continue</Button>
+            </Dialog.Actions>
+          </Dialog>
+        </Portal>
+
       </View>
 
     </View>

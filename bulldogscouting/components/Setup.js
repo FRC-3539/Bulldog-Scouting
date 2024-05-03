@@ -3,15 +3,9 @@ import {
 	View,
 	Text,
 	Alert,
-	SafeAreaView,
-	StyleSheet,
-	Platform,
 	Image,
 } from 'react-native';
-import * as FileSystem from 'expo-file-system';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React, { useState, useEffect, useCallback } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { styles, theme } from './Styles'
 import { matchData } from './Submit'
 import { Camera } from 'expo-camera';

@@ -2,12 +2,10 @@ import {
     View,
     Text,
 } from 'react-native';
-import React, { useState } from 'react';
-import { styles, theme } from './Styles'
+import { styles } from './Styles'
 import {
     Button,
     Checkbox,
-    ToggleButton
 } from 'react-native-paper';
 
 
