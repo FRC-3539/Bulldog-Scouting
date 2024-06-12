@@ -61,7 +61,11 @@ async function WriteToFile({ props, setProps, navigation }) {
 
   let data = JSON.stringify(props) + ","; // Compile data to a json string.
 
-  let existingContent = await FileSystem.readAsStringAsync(filePath);
+  const dirInfo = await FileSystem.getInfoAsync(filePath);
+  let existingContent = "";
+  if (dirInfo.exists) {
+    existingContent = await FileSystem.readAsStringAsync(filePath);
+  }
 
   existingContent += data
 
