@@ -191,7 +191,6 @@ export function Submit({ props, setProps, navigation }) {
           onChangeText={handleOnChangeText}
           value={props.robotRemarks}
           placeholder="Any thing else you wanna say about this robot?"
-          returnKeyType='done'
         />
 
         <Button buttonColor='purple' mode="contained" onPress={() => WriteToFile({ props, setProps, navigation })}>Submit</Button>
