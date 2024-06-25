@@ -57,9 +57,6 @@ async function clearFile() {
 
 
 async function WriteToFile({ props, setProps, navigation }) {
-
-  let matchData = JSON.stringify(props); // Compile data to a json string.
-
   const dirInfo = await FileSystem.getInfoAsync(filePath);
   let existingContent = "";
   if (dirInfo.exists) {
@@ -74,8 +71,6 @@ async function WriteToFile({ props, setProps, navigation }) {
   else {
     fileContent = {};
   }
-
-
 
   // Check if the "matches" list exists, if not create it.
   if (!fileContent.matches) {
@@ -196,9 +191,9 @@ export function Submit({ props, setProps, navigation }) {
           onChangeText={handleOnChangeText}
           value={props.robotRemarks}
           placeholder="Any thing else you wanna say about this robot?"
-          returnKeyType ='done'
-          />
-          
+          returnKeyType='done'
+        />
+
         <Button buttonColor='purple' mode="contained" onPress={() => WriteToFile({ props, setProps, navigation })}>Submit</Button>
         <Button buttonColor='darkred' mode="contained" onPress={() => share()}>Share</Button>
         <Button buttonColor='darkred' mode="contained" onPress={() => showDialog()}> Clear File </Button>
