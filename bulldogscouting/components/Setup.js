@@ -6,9 +6,9 @@ import {
 	Image,
 } from 'react-native';
 import React, { useState, useEffect, useCallback } from 'react';
-import { styles, theme } from './Styles'
+import { styles } from './Styles'
 import { matchData } from './Submit'
-import { Camera } from 'expo-camera';
+import { CameraView , useCameraPermissions } from 'expo-camera';
 import { useFocusEffect } from '@react-navigation/native';
 
 import {
@@ -47,10 +47,10 @@ function compareObjects(obj1, obj2) {
 export function Setup({ props, setProps }) {
 
 	//Camera Stuff
-	const [hasPermission, setHasPermission] = useState(null);
 	const [scanned, setScanned] = useState(false);
 	const [key, setKey] = useState(0); // Add key state
 	const [scanMode, setScanMode] = useState(false); // Add key state
+	const [permission, requestPermission] = useCameraPermissions();
 
 	useEffect(() => {
 		if (props.match != lastMatch || props.station != lastStation || !compareObjects(matchData, lastMatchData)) {
@@ -65,15 +65,6 @@ export function Setup({ props, setProps }) {
 		lastStation = props.station
 		lastMatchData = { ...matchData }
 	}, [props.match, lastMatch, props.station, lastStation, matchData, lastMatchData]);
-
-
-
-	useEffect(() => {
-		(async () => {
-			const { status } = await Camera.requestCameraPermissionsAsync();
-			setHasPermission(status === 'granted');
-		})();
-	}, []);
 
 	useFocusEffect(
 		useCallback(() => {
@@ -120,24 +111,31 @@ export function Setup({ props, setProps }) {
 		);
 	};
 
-	if (hasPermission === null) {
+	if (!permission) {
+		// Camera permissions are still loading.
 		return <View />;
-	}
-	if (hasPermission === false) {
-		return <Text>No access to camera</Text>;
-	}
+	  }
+	
+	  if (!permission.granted) {
+		// Camera permissions are not granted yet.
+		return (
+		  <View style={styles.container}>
+			<Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
+			<Button onPress={requestPermission} title="grant permission" />
+		  </View>
+		);
+	  }
 
 	if (scanMode) {
 		return (
 			<View style={styles.cameraContainer}>
-				<Camera
+				<CameraView
 					key={key} // Pass key prop
 					style={styles.camera}
-					type={Camera.Constants.Type.back}
 					barcodeScannerSettings={{
 						barcodeTypes: ["qr"],
-					}}
-					onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+					  }}
+					onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
 					ratio='16:9'
 				/>
 				<Button buttonColor='lime' mode="contained" onPress={() => setScanMode(!scanMode)}>Return</Button>

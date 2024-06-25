@@ -1,7 +1,6 @@
 import {
 	View,
 	Text,
-	Alert,
 	Image,
 } from 'react-native';
 import React from 'react';

@@ -38,8 +38,7 @@ async function tryClearFile(password, setPassword, hideDialog) {
       ]
     );
   }
-  else
-  {
+  else {
     Alert.alert(
       `Error`,
       'Incorrect password.',
@@ -59,18 +58,35 @@ async function clearFile() {
 
 async function WriteToFile({ props, setProps, navigation }) {
 
-  let data = JSON.stringify(props) + ","; // Compile data to a json string.
+  let matchData = JSON.stringify(props); // Compile data to a json string.
 
   const dirInfo = await FileSystem.getInfoAsync(filePath);
   let existingContent = "";
   if (dirInfo.exists) {
     existingContent = await FileSystem.readAsStringAsync(filePath);
+    if (existingContent.trim() !== '') {
+      fileContent = JSON.parse(existingContent); // Parse existing JSON.
+    }
+    else {
+      fileContent = {};
+    }
+  }
+  else {
+    fileContent = {};
   }
 
-  existingContent += data
+
+
+  // Check if the "matches" list exists, if not create it.
+  if (!fileContent.matches) {
+    fileContent.matches = [];
+  }
+
+  // Add the new data to the "matches" list.
+  fileContent.matches.push(props);
 
   // Write data to file
-  await FileSystem.writeAsStringAsync(filePath, existingContent);
+  await FileSystem.writeAsStringAsync(filePath, JSON.stringify(fileContent, null, 2));
 
   // Reset All States except, station and match number.
   // Group all updates into one render.
@@ -121,8 +137,8 @@ async function WriteToFile({ props, setProps, navigation }) {
   );
 }
 
+
 export function Submit({ props, setProps, navigation }) {
-  // Inside your component function
   const [visible, setVisible] = React.useState(false)
 
   const [password, setPassword] = useState('')
@@ -133,6 +149,14 @@ export function Submit({ props, setProps, navigation }) {
     setVisible(false)
     setPassword('')
   }
+  //Ignore the stuiped return button...
+  const handleOnChangeText = (text) => {
+    if (text.charAt(text.length - 1) === '\n') {
+      setProps.setRobotRemarks(text.slice(0, -1));
+    } else {
+      setProps.setRobotRemarks(text);
+    }
+  };
 
   return (
     <View style={styles.generalViewStyle}>
@@ -169,10 +193,12 @@ export function Submit({ props, setProps, navigation }) {
           multiline
           style={styles.MultiLineInput}
           numberOfLines={8}
-          onChangeText={setProps.setRobotRemarks}
+          onChangeText={handleOnChangeText}
           value={props.robotRemarks}
           placeholder="Any thing else you wanna say about this robot?"
-        />
+          returnKeyType ='done'
+          />
+          
         <Button buttonColor='purple' mode="contained" onPress={() => WriteToFile({ props, setProps, navigation })}>Submit</Button>
         <Button buttonColor='darkred' mode="contained" onPress={() => share()}>Share</Button>
         <Button buttonColor='darkred' mode="contained" onPress={() => showDialog()}> Clear File </Button>
