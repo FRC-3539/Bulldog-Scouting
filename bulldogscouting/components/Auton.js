@@ -9,12 +9,9 @@ import {
 	Checkbox,
 	Button,
 } from 'react-native-paper';
-import FocusRender from 'react-navigation-focus-render'
 
 export function Auton({ props, setProps }) {
-	console.log(props)
 	return (
-		<FocusRender>
 		<View style={styles.generalViewStyle}>
 			<View style={styles.vstack}>
 				<Text></Text>
@@ -87,6 +84,5 @@ export function Auton({ props, setProps }) {
 				</View>
 			</View >
 		</View>
-		</FocusRender>
 	)
 }
