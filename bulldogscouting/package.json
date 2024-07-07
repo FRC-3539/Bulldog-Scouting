@@ -26,7 +26,8 @@
     "react-native-screens": "3.31.1",
     "react-native-svg": "15.2.0",
     "react-native-tab-view": "^3.5.2",
-    "react-navigation": "^5.0.0"
+    "react-navigation": "^5.0.0",
+    "react-navigation-focus-render": "^0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

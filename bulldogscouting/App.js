@@ -12,6 +12,8 @@ import { Teleop } from './components/Teleop';
 import { EndGame } from './components/Endgame';
 import { Submit } from './components/Submit';
 import { PaperProvider } from 'react-native-paper';
+import FocusRender from 'react-navigation-focus-render'
+
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -102,22 +104,22 @@ export default function App() {
 					tabBarItemStyle: {
 						padding: 0,
 						margin: 0,
-					}
+					},
 				}
 				}>
 					<Tab.Screen name="Setup" children={() =>
-						<Setup props={props} setProps={setProps} />} />
+						<FocusRender><Setup props={props} setProps={setProps} /></FocusRender>} />
 					<Tab.Screen name="Auton" children={() =>
-						<Auton props={props} setProps={setProps} />} />
+						<FocusRender><Auton props={props} setProps={setProps} /></FocusRender>} />
 					<Tab.Screen name="Teleop" children={() =>
-						<Teleop props={props} setProps={setProps} />} />
+						<FocusRender><Teleop props={props} setProps={setProps} /></FocusRender>} />
 					<Tab.Screen name="EndGame" children={() =>
-						<EndGame props={props} setProps={setProps} />} />
+						<FocusRender><EndGame props={props} setProps={setProps} /></FocusRender>} />
 					<Tab.Screen name="Submit" children={() =>
-						<Submit
+						<FocusRender><Submit
 							props={props}
 							setProps={setProps}
-							navigation={useNavigation()} />} />
+							navigation={useNavigation()} /></FocusRender>} />
 				</Tab.Navigator>
 			</SafeAreaView>
 		</PaperProvider>

@@ -9,9 +9,12 @@ import {
 	Checkbox,
 	Button,
 } from 'react-native-paper';
+import FocusRender from 'react-navigation-focus-render'
 
 export function Auton({ props, setProps }) {
+	console.log(props)
 	return (
+		<FocusRender>
 		<View style={styles.generalViewStyle}>
 			<View style={styles.vstack}>
 				<Text></Text>
@@ -44,8 +47,9 @@ export function Auton({ props, setProps }) {
 				<View style={styles.hstackFullWidth}>
 					<Image
 						style={styles.setupImage}
-						source={(props.station === "Blue 1" || props.station === "Blue 2" || props.station === "Blue 3")
-							? require('../assets/BlueStartPosition.png') : require('../assets/RedStartPosition.png')} />
+						source={(props.station === "blue1" || props.station === "blue2" || props.station === "blue3")
+							? require('../assets/BlueHalfAuton.png') : require('../assets/RedHalfAuton.png')}
+					/>
 					<View style={styles.vstack}>
 						<View style={styles.radioView}>
 							<Text>A</Text>
@@ -83,5 +87,6 @@ export function Auton({ props, setProps }) {
 				</View>
 			</View >
 		</View>
+		</FocusRender>
 	)
 }
