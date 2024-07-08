@@ -115,7 +115,7 @@ export function Setup({ props, setProps }) {
 		if (password == clearFilePass) {
 			Alert.alert(
 				`Are you sure?`,
-				'Clearing the data will erase all currently stored scouting data and will be unrecoverable',
+				'Clearing the data will erase all currently stored match data. This will be unrecoverable.',
 				[
 					{ text: 'Cancel' },
 					{ text: 'Continue', onPress: clearFile },
@@ -170,9 +170,9 @@ export function Setup({ props, setProps }) {
 	if (!permission.granted) {
 		// Camera permissions are not granted yet.
 		return (
-			<View style={styles.container}>
+			<View style={styles.vstack}>
 				<Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
-				<Button onPress={requestPermission} title="grant permission" />
+				<Button buttonColor='#eec643' mode="contained" onPress={requestPermission} title="grant permission">Grant Permission</Button>
 			</View>
 		);
 	}
@@ -190,8 +190,8 @@ export function Setup({ props, setProps }) {
 					ratio='16:9'
 				/>
 				<View style={styles.hstack}>
-					<Button buttonColor='lime' mode="contained" onPress={() => setScanMode(!scanMode)}>Return</Button>
-					<Button buttonColor='pink' mode="contained" onPress={() => showDialog()}>Clear Loaded Match Data</Button>
+					<Button buttonColor='#eec643' mode="contained" onPress={() => setScanMode(!scanMode)}>Return</Button>
+					<Button buttonColor='#FE654F' mode="contained" onPress={() => showDialog()}>Clear Loaded Match Data</Button>
 				</View>
 				<Portal>
 					<Dialog visible={visible} onDismiss={hideDialog}>
@@ -257,11 +257,11 @@ export function Setup({ props, setProps }) {
 			<View style={styles.hstack}>
 				<View style={styles.vstack}>
 					<Text style={{ fontSize: 18 }}>Preloaded</Text>
-					<Switch onValueChange={() => { setProps.setPreloaded(!props.preloaded) }} value={props.preloaded} color='lime'></Switch>
+					<Switch onValueChange={() => { setProps.setPreloaded(!props.preloaded) }} value={props.preloaded} color='#4C8577'></Switch>
 				</View>
 				<View style={styles.vstack}>
 					<Text style={{ fontSize: 18 }}>No Show</Text>
-					<Switch onValueChange={() => { setProps.setNoShow(!props.noShow) }} value={props.noShow} color='lime'></Switch>
+					<Switch onValueChange={() => { setProps.setNoShow(!props.noShow) }} value={props.noShow} color='#4C8577'></Switch>
 				</View>
 			</View>
 
@@ -300,25 +300,25 @@ export function Setup({ props, setProps }) {
 				<View style={styles.vstack}>
 					<RadioButton.Group value={props.startArea} onValueChange={nextValue => { setProps.setStartArea(nextValue) }}>
 						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='black' color='black' uncheckedColor='black' value="A" />
+							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='#4e6e58' color='#4e6e58' uncheckedColor='black' value="A" />
 							<Text>A</Text>
 						</View>
 						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='black' color='black' uncheckedColor='black' value="B" />
+							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='#4e6e58' color='#4e6e58' uncheckedColor='black' value="B" />
 							<Text>B</Text>
 						</View>
 						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='black' color='black' uncheckedColor='black' value="C" />
+							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='#4e6e58' color='#4e6e58' uncheckedColor='black' value="C" />
 							<Text>C</Text>
 						</View>
 						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='black' color='black' uncheckedColor='black' value="D" />
+							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='#4e6e58' color='#4e6e58' uncheckedColor='black' value="D" />
 							<Text>D</Text>
 						</View>
 					</RadioButton.Group>
 				</View>
 			</View>
-			<Button buttonColor='purple' mode="contained" onPress={() => setScanMode(!scanMode)}>Scan QR</Button>
+			<Button buttonColor='#544B3D' mode="contained" onPress={() => setScanMode(!scanMode)}>Scan QR</Button>
 
 		</View>
 	)

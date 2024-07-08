@@ -19,8 +19,21 @@ import {
 const clearFilePass = '3539' // Should be a number
 
 
-async function share() {
-  Sharing.shareAsync(filePath)
+async function share(props) {
+
+  const currentDate = new Date();
+const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
+const day = currentDate.getDate().toString().padStart(2, '0');
+const year = currentDate.getFullYear();
+const hour = currentDate.getHours().toString().padStart(2, '0');
+const min = currentDate.getMinutes().toString().padStart(2, '0');
+const second = currentDate.getSeconds().toString().padStart(2, '0');
+const dateString = `${month}-${day}-${year}_${hour}-${min}-${second}`;
+  const newFilePath = FileSystem.documentDirectory + `data-${dateString}-${props.station}.json`;
+  existingContent = await FileSystem.readAsStringAsync(filePath);
+  await FileSystem.writeAsStringAsync(newFilePath, JSON.stringify(existingContent));
+  await Sharing.shareAsync(newFilePath)
+  await FileSystem.deleteAsync(newFilePath);
 }
 
 async function tryClearFile(password, setPassword, hideDialog) {
@@ -53,81 +66,89 @@ async function clearFile() {
 
 
 async function WriteToFile({ props, setProps, navigation }) {
-  const dirInfo = await FileSystem.getInfoAsync(filePath);
-  let existingContent = "";
-  if (dirInfo.exists) {
-    existingContent = await FileSystem.readAsStringAsync(filePath);
-    if (existingContent.trim() !== '') {
-      fileContent = JSON.parse(existingContent); // Parse existing JSON.
-    }
-    else {
-      fileContent = {};
-    }
-  }
-  else {
-    fileContent = {};
-  }
-
-  // Check if the "matches" list exists, if not create it.
-  if (!fileContent.matches) {
-    fileContent.matches = [];
-  }
-
-  // Add the new data to the "matches" list.
-  fileContent.matches.push(props);
-
-  // Write data to file
-  await FileSystem.writeAsStringAsync(filePath, JSON.stringify(fileContent, null, 2));
-
-  // Reset All States except, station and match number.
-  // Group all updates into one render.
-  unstable_batchedUpdates(() => {
-    setProps.setTeamNumber('')
-    setProps.setMatch("" + (Number(props.match) + 1))
-
-    setProps.setNoShow(false)
-    setProps.setPreloaded(false)
-    setProps.setStartArea('A')
-    setProps.setAutonNotes(0)
-    setProps.setAutonNotesAttempts(0)
-    setProps.setLeftAutonZone(false)
-
-    setProps.setusedNoteA(false)
-    setProps.setusedNoteB(false)
-    setProps.setusedNoteC(false)
-    setProps.setusedNoteD(false)
-    setProps.setusedNoteE(false)
-    setProps.setusedNoteF(false)
-    setProps.setusedNoteG(false)
-    setProps.setusedNoteH(false)
-
-    setProps.setTeleopSpeaker(0)
-    setProps.setTeleopAmp(0)
-    setProps.setTeleopSpeakerAttempts(0)
-    setProps.setTeleopAmpAttempts(0)
-    setProps.setTeleopAmplified(0)
-    setProps.setUsedAmplification(0)
-    setProps.setTeleopPass(0)
-    setProps.setSlams(0)
-    setProps.setShotsBlocked(0)
-
-    setProps.setSideClimb(false)
-    setProps.setClimbSpeed('No Climb')
-
-    setProps.setRobotRemarks("")
-    setProps.setMatchScoreRed("")
-    setProps.setMatchScoreBlue("")
-  })
 
   Alert.alert(
-    `Submitted`,
-    'Your data has been submitted.',
+    `Confirmation`,
+    'Are you ready to submit?',
     [
-      { text: 'Continue', onPress: () => navigation.navigate('Setup') },
+      { text: 'Cancel', onPress: () => { } },
+      {
+        text: 'Continue', onPress: () => {
+          async function submit() {
+            const dirInfo = await FileSystem.getInfoAsync(filePath);
+            let existingContent = "";
+            if (dirInfo.exists) {
+              existingContent = await FileSystem.readAsStringAsync(filePath);
+              if (existingContent.trim() !== '') {
+                fileContent = JSON.parse(existingContent); // Parse existing JSON.
+              }
+              else {
+                fileContent = {};
+              }
+            }
+            else {
+              fileContent = {};
+            }
+
+            // Check if the "matches" list exists, if not create it.
+            if (!fileContent.matches) {
+              fileContent.matches = [];
+            }
+
+            // Add the new data to the "matches" list.
+            fileContent.matches.push(props);
+
+            // Write data to file
+            await FileSystem.writeAsStringAsync(filePath, JSON.stringify(fileContent, null, 2));
+
+            // Reset All States except, station and match number.
+            // Group all updates into one render.
+            unstable_batchedUpdates(() => {
+              setProps.setTeamNumber('')
+              setProps.setMatch("" + (Number(props.match) + 1))
+
+              setProps.setNoShow(false)
+              setProps.setPreloaded(false)
+              setProps.setStartArea('A')
+              setProps.setAutonNotes(0)
+              setProps.setAutonNotesAttempts(0)
+              setProps.setLeftAutonZone(false)
+
+              setProps.setusedNoteA(false)
+              setProps.setusedNoteB(false)
+              setProps.setusedNoteC(false)
+              setProps.setusedNoteD(false)
+              setProps.setusedNoteE(false)
+              setProps.setusedNoteF(false)
+              setProps.setusedNoteG(false)
+              setProps.setusedNoteH(false)
+
+              setProps.setTeleopSpeaker(0)
+              setProps.setTeleopAmp(0)
+              setProps.setTeleopSpeakerAttempts(0)
+              setProps.setTeleopAmpAttempts(0)
+              setProps.setTeleopAmplified(0)
+              setProps.setUsedAmplification(0)
+              setProps.setTeleopPass(0)
+              setProps.setSlams(0)
+              setProps.setShotsBlocked(0)
+
+              setProps.setSideClimb(false)
+              setProps.setClimbSpeed('No Climb')
+
+              setProps.setRobotRemarks("")
+              setProps.setMatchScoreRed("")
+              setProps.setMatchScoreBlue("")
+              navigation.navigate('Setup')
+            })
+          }
+
+          submit();
+        }
+      },
     ]
   );
 }
-
 
 export function Submit({ props, setProps, navigation }) {
   const [visible, setVisible] = React.useState(false)
@@ -150,14 +171,11 @@ export function Submit({ props, setProps, navigation }) {
   };
 
   return (
-    <View style={styles.generalViewStyle}>
-
       <View style={styles.vstack}>
+
         <View style={styles.hstack}>
-
           <View style={styles.vstack}>
-            <Text style={{ color: 'red', fontWeight: 'bold', fontSize: 16 }}>Red Score</Text>
-
+            <Text style={{ color: 'red', fontWeight: 'bold', fontSize: 20 }}>Red Score</Text>
             <TextInput
               style={styles.SingleLineInput}
               onChangeText={setProps.setMatchScoreRed}
@@ -168,7 +186,7 @@ export function Submit({ props, setProps, navigation }) {
             />
           </View>
           <View style={styles.vstack}>
-            <Text style={{ color: 'blue', fontWeight: 'bold', fontSize: 16 }}>Blue Score</Text>
+            <Text style={{ color: 'blue', fontWeight: 'bold', fontSize: 20 }}>Blue Score</Text>
             <TextInput
               style={styles.SingleLineInput}
               onChangeText={setProps.setMatchScoreBlue}
@@ -179,6 +197,7 @@ export function Submit({ props, setProps, navigation }) {
             />
           </View>
         </View>
+
         <TextInput
           editable
           multiline
@@ -189,10 +208,13 @@ export function Submit({ props, setProps, navigation }) {
           placeholder="Any thing else you wanna say about this robot?"
         />
 
-        <Button buttonColor='purple' mode="contained" onPress={() => WriteToFile({ props, setProps, navigation })}>Submit</Button>
-        <Button buttonColor='darkred' mode="contained" onPress={() => share()}>Share</Button>
-        <Button buttonColor='darkred' mode="contained" onPress={() => showDialog()}> Clear File </Button>
-
+        <View style={styles.hstack}>
+          <Button buttonColor='#6DD900' mode="contained" onPress={() => WriteToFile({ props, setProps, navigation })}>Submit</Button>
+        </View>
+        <View style={styles.hstack}>
+          <Button buttonColor='#708090' mode="contained" onPress={() => share(props)}>Share</Button>
+          <Button buttonColor='#708090' mode="contained" onPress={() => showDialog()}>Clear</Button>
+        </View>
         <Portal>
           <Dialog visible={visible} onDismiss={hideDialog}>
             <Dialog.Title>Enter Your Password</Dialog.Title>
@@ -212,9 +234,6 @@ export function Submit({ props, setProps, navigation }) {
             </Dialog.Actions>
           </Dialog>
         </Portal>
-
       </View>
-
-    </View>
   )
 }

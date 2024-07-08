@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { Setup } from './components/Setup';
 import { Auton } from './components/Auton';
-import { styles, theme } from './components/Styles'
+import { styles } from './components/Styles'
 import { Teleop } from './components/Teleop';
 import { EndGame } from './components/Endgame';
 import { Submit } from './components/Submit';
