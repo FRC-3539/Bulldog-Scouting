@@ -70,22 +70,23 @@ export default function App() {
 
 	useEffect(() => {
 		const loadData = async () => { //Must create a new function to use await
-		try {
-			console.log(qrDataFilePath);
+			try {
+				console.log(qrDataFilePath);
 
-			const fileContents = await FileSystem.readAsStringAsync(qrDataFilePath);
-			console.log("File Contents: ", fileContents);
-			const data = JSON.parse(fileContents);
-			if(data!=null || data!='' || data!=' ')
-				setMatchData(data);
-		} catch (error) {
-			console.error("Failed to read or parse the qrDataFile file", error);
-		}};
+				const fileContents = await FileSystem.readAsStringAsync(qrDataFilePath);
+				console.log("File Contents: ", fileContents);
+				const data = JSON.parse(fileContents);
+				if (data != null || data != '' || data != ' ')
+					setMatchData(data);
+			} catch (error) {
+				console.error("Failed to read or parse the qrDataFile file", error);
+			}
+		};
 		loadData();
 	}, []);
 
 	var props = {
-		matchData,robotRemarks, climbSpeed, sideClimb,
+		matchData, robotRemarks, climbSpeed, sideClimb,
 		matchScoreRed, matchScoreBlue,
 		teleopAmp, teleopSpeakerAttempts,
 		teleopAmpAttempts, teleopPass, teleopAmplified,
@@ -99,7 +100,7 @@ export default function App() {
 	};
 
 	var setProps = {
-		setMatchData,setRobotRemarks, setClimbSpeed, setSideClimb,
+		setMatchData, setRobotRemarks, setClimbSpeed, setSideClimb,
 		setMatchScoreRed, setMatchScoreBlue,
 		setTeleopAmp, setTeleopSpeakerAttempts,
 		setTeleopAmpAttempts, setTeleopPass, setTeleopAmplified,

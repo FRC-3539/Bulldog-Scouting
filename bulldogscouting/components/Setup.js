@@ -88,7 +88,7 @@ export function Setup({ props, setProps }) {
 				blue2: loadedMatchData[5],
 				blue3: loadedMatchData[6]
 			};
-			
+
 			copyMatchData[loadedMatchData[0]] = matchTeams
 			setProps.setMatchData(copyMatchData);
 		});
