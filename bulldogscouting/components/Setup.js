@@ -7,22 +7,25 @@ import {
 } from 'react-native';
 import React, { useState, useEffect, useCallback } from 'react';
 import { styles } from './Styles'
-import { matchData } from './Submit'
-import { CameraView , useCameraPermissions } from 'expo-camera';
+import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useFocusEffect } from '@react-navigation/native';
-
+import * as FileSystem from 'expo-file-system';
+import { qrDataFilePath } from '../App'
 import {
 	RadioButton,
 	Switch,
 	Button,
+	Portal,
+	Dialog,
 } from 'react-native-paper';
-
 
 // Keep track of changes so we can update the team number only when we change station, match number,
 // or if we load new qr code data, this will allow us to override the teamnumber if we must.
 var lastMatch = 0;
 var lastStation = '';
 var lastMatchData = {};
+const clearFilePass = '3539' // Should be a number
+
 
 function compareObjects(obj1, obj2) {
 	const keys1 = Object.keys(obj1);
@@ -51,33 +54,19 @@ export function Setup({ props, setProps }) {
 	const [key, setKey] = useState(0); // Add key state
 	const [scanMode, setScanMode] = useState(false); // Add key state
 	const [permission, requestPermission] = useCameraPermissions();
+	const [visible, setVisible] = React.useState(false)
+	const [password, setPassword] = useState('')
+	const showDialog = () => setVisible(true)
 
-	useEffect(() => {
-		if (props.match != lastMatch || props.station != lastStation || !compareObjects(matchData, lastMatchData)) {
-			if (matchData[props.match] != null && matchData[props.match][props.station] != null) {
-				setProps.setTeamNumber(matchData[props.match][props.station])
-			}
-			else {
-				setProps.setTeamNumber('')
-			}
-		}
-		lastMatch = props.match
-		lastStation = props.station
-		lastMatchData = { ...matchData }
-	}, [props.match, lastMatch, props.station, lastStation, matchData, lastMatchData]);
+	const hideDialog = () => {
+		setVisible(false)
+		setPassword('')
+	}
 
-	useFocusEffect(
-		useCallback(() => {
-			setScanned(false);
-			setKey(prevKey => prevKey + 1); // Change key to force remount
-			return () => {
-				// Cleanup function when the component unmounts
-			};
-		}, [])
-	);
-
-	const handleBarCodeScanned = ({ type, data }) => {
+	async function handleBarCodeScanned({ type, data }) {
+		copyMatchData = props.matchData;
 		setScanned(true);
+
 		// Create an empty dictionary to store parsed data
 		var matches = data.toString().split(';');
 
@@ -99,8 +88,13 @@ export function Setup({ props, setProps }) {
 				blue2: loadedMatchData[5],
 				blue3: loadedMatchData[6]
 			};
-			matchData[loadedMatchData[0]] = matchTeams
+			
+			copyMatchData[loadedMatchData[0]] = matchTeams
+			setProps.setMatchData(copyMatchData);
 		});
+
+		// Save match data to local storage
+		await FileSystem.writeAsStringAsync(qrDataFilePath, JSON.stringify(props.matchData));
 
 		Alert.alert(
 			`Data Added`,
@@ -109,22 +103,79 @@ export function Setup({ props, setProps }) {
 				{ text: 'Continue', onPress: () => setScanned(false) },
 			]
 		);
-	};
+	}
+
+	async function clearFile() {
+		setProps.setMatchData({});
+		await FileSystem.writeAsStringAsync(qrDataFilePath, props.matchData);
+	}
+
+
+	async function tryClearFile(password, setPassword, hideDialog) {
+		if (password == clearFilePass) {
+			Alert.alert(
+				`Are you sure?`,
+				'Clearing the data will erase all currently stored scouting data and will be unrecoverable',
+				[
+					{ text: 'Cancel' },
+					{ text: 'Continue', onPress: clearFile },
+				]
+			);
+		}
+		else {
+			Alert.alert(
+				`Error`,
+				'Incorrect password.',
+				[
+					{ text: 'Return' },
+				]
+			);
+		}
+		setPassword('')
+		hideDialog()
+	}
+
+
+	useEffect(() => {
+		if (props.match != lastMatch || props.station != lastStation || !compareObjects(props.matchData, lastMatchData)) {
+			if (props.matchData[props.match] != null && props.matchData[props.match][props.station] != null) {
+				setProps.setTeamNumber(props.matchData[props.match][props.station])
+			}
+			else {
+				setProps.setTeamNumber('')
+			}
+		}
+		lastMatch = props.match
+		lastStation = props.station
+		lastMatchData = { ...props.matchData }
+	}, [props.match, lastMatch, props.station, lastStation, props.matchData, lastMatchData]);
+
+	useFocusEffect(
+		useCallback(() => {
+			setScanned(false);
+			setKey(prevKey => prevKey + 1); // Change key to force remount
+			return () => {
+				// Cleanup function when the component unmounts
+			};
+		}, [])
+	);
+
+
 
 	if (!permission) {
 		// Camera permissions are still loading.
 		return <View />;
-	  }
-	
-	  if (!permission.granted) {
+	}
+
+	if (!permission.granted) {
 		// Camera permissions are not granted yet.
 		return (
-		  <View style={styles.container}>
-			<Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
-			<Button onPress={requestPermission} title="grant permission" />
-		  </View>
+			<View style={styles.container}>
+				<Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
+				<Button onPress={requestPermission} title="grant permission" />
+			</View>
 		);
-	  }
+	}
 
 	if (scanMode) {
 		return (
@@ -134,11 +185,33 @@ export function Setup({ props, setProps }) {
 					style={styles.camera}
 					barcodeScannerSettings={{
 						barcodeTypes: ["qr"],
-					  }}
+					}}
 					onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
 					ratio='16:9'
 				/>
-				<Button buttonColor='lime' mode="contained" onPress={() => setScanMode(!scanMode)}>Return</Button>
+				<View style={styles.hstack}>
+					<Button buttonColor='lime' mode="contained" onPress={() => setScanMode(!scanMode)}>Return</Button>
+					<Button buttonColor='pink' mode="contained" onPress={() => showDialog()}>Clear Loaded Match Data</Button>
+				</View>
+				<Portal>
+					<Dialog visible={visible} onDismiss={hideDialog}>
+						<Dialog.Title>Enter Your Password</Dialog.Title>
+						<Dialog.Content>
+							<TextInput
+								style={styles.SingleLineInput}
+								onChangeText={setPassword}
+								value={password}
+								placeholder="Password"
+								keyboardType="numeric"
+								secureTextEntry={true}
+							/>
+						</Dialog.Content>
+						<Dialog.Actions>
+							<Button onPress={hideDialog}>Cancel</Button>
+							<Button onPress={() => tryClearFile(password, setPassword, hideDialog)}>Continue</Button>
+						</Dialog.Actions>
+					</Dialog>
+				</Portal>
 			</View>
 		);
 	}

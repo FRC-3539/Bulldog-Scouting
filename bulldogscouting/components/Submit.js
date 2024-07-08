@@ -9,18 +9,14 @@ import * as FileSystem from 'expo-file-system';
 import React, { useState } from 'react';
 import { styles } from './Styles'
 import * as Sharing from 'expo-sharing';
+import { filePath } from '../App'
 import {
   Button,
   Portal,
   Dialog,
 } from 'react-native-paper';
 
-
-export var matchData = {}; // Create an empty dictionary to store the match data.
-
-const filePath = FileSystem.documentDirectory + 'data.json';
-
-const clearFilePass = '3539'
+const clearFilePass = '3539' // Should be a number
 
 
 async function share() {
@@ -206,6 +202,7 @@ export function Submit({ props, setProps, navigation }) {
                 onChangeText={setPassword}
                 value={password}
                 placeholder="Password"
+                keyboardType="numeric"
                 secureTextEntry={true}
               />
             </Dialog.Content>

@@ -13,10 +13,14 @@ import { EndGame } from './components/Endgame';
 import { Submit } from './components/Submit';
 import { PaperProvider } from 'react-native-paper';
 import FocusRender from 'react-navigation-focus-render'
-
-
+import { useEffect } from 'react';
+import * as FileSystem from 'expo-file-system';
 
 const Tab = createMaterialTopTabNavigator();
+
+
+export const qrDataFilePath = FileSystem.documentDirectory + 'qrData.json';
+export const filePath = FileSystem.documentDirectory + 'data.json';
 
 export default function App() {
 
@@ -26,6 +30,8 @@ export default function App() {
 	const [station, setStation] = useState("red1");
 	const [startArea, setStartArea] = useState("A");
 	const [match, setMatch] = useState("1");
+	const [matchData, setMatchData] = useState({}); // Create an empty dictionary to store the match data.
+
 
 	//Auton
 	const [autonNotes, setAutonNotes] = useState(0);
@@ -62,8 +68,24 @@ export default function App() {
 	const [matchScoreRed, setMatchScoreRed] = useState('');
 	const [matchScoreBlue, setMatchScoreBlue] = useState('');
 
+	useEffect(() => {
+		const loadData = async () => { //Must create a new function to use await
+		try {
+			console.log(qrDataFilePath);
+
+			const fileContents = await FileSystem.readAsStringAsync(qrDataFilePath);
+			console.log("File Contents: ", fileContents);
+			const data = JSON.parse(fileContents);
+			if(data!=null || data!='' || data!=' ')
+				setMatchData(data);
+		} catch (error) {
+			console.error("Failed to read or parse the qrDataFile file", error);
+		}};
+		loadData();
+	}, []);
+
 	var props = {
-		robotRemarks, climbSpeed, sideClimb,
+		matchData,robotRemarks, climbSpeed, sideClimb,
 		matchScoreRed, matchScoreBlue,
 		teleopAmp, teleopSpeakerAttempts,
 		teleopAmpAttempts, teleopPass, teleopAmplified,
@@ -77,7 +99,7 @@ export default function App() {
 	};
 
 	var setProps = {
-		setRobotRemarks, setClimbSpeed, setSideClimb,
+		setMatchData,setRobotRemarks, setClimbSpeed, setSideClimb,
 		setMatchScoreRed, setMatchScoreBlue,
 		setTeleopAmp, setTeleopSpeakerAttempts,
 		setTeleopAmpAttempts, setTeleopPass, setTeleopAmplified,
