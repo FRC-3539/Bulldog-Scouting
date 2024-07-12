@@ -4,20 +4,21 @@ import {
 	Text,
 	Alert,
 	Image,
-} from 'react-native';
-import React, { useState, useEffect, useCallback } from 'react';
-import { styles } from './Styles'
-import { CameraView, useCameraPermissions } from 'expo-camera';
-import { useFocusEffect } from '@react-navigation/native';
-import * as FileSystem from 'expo-file-system';
-import { qrDataFilePath } from '../App'
-import {
-	RadioButton,
 	Switch,
 	Button,
-	Portal,
-	Dialog,
-} from 'react-native-paper';
+} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { styles } from './Styles'
+import { CameraView, useCameraPermissions } from 'expo-camera';
+// import { useFocusEffect } from '@react-navigation/native';
+import * as FileSystem from 'expo-file-system';
+import { qrDataFilePath } from '../App'
+import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
+// import {
+// 	Portal,
+// 	Dialog,
+// 	PaperProvider
+// } from 'react-native-paper';
 
 // Keep track of changes so we can update the team number only when we change station, match number,
 // or if we load new qr code data, this will allow us to override the teamnumber if we must.
@@ -51,7 +52,6 @@ export function Setup({ props, setProps }) {
 
 	//Camera Stuff
 	const [scanned, setScanned] = useState(false);
-	const [key, setKey] = useState(0); // Add key state
 	const [scanMode, setScanMode] = useState(false); // Add key state
 	const [permission, requestPermission] = useCameraPermissions();
 	const [visible, setVisible] = React.useState(false)
@@ -150,15 +150,15 @@ export function Setup({ props, setProps }) {
 		lastMatchData = { ...props.matchData }
 	}, [props.match, lastMatch, props.station, lastStation, props.matchData, lastMatchData]);
 
-	useFocusEffect(
-		useCallback(() => {
-			setScanned(false);
-			setKey(prevKey => prevKey + 1); // Change key to force remount
-			return () => {
-				// Cleanup function when the component unmounts
-			};
-		}, [])
-	);
+	// useFocusEffect(
+	// 	useCallback(() => {
+	// 		setScanned(false);
+	// 		setKey(prevKey => prevKey + 1); // Change key to force remount
+	// 		return () => {
+	// 			// Cleanup function when the component unmounts
+	// 		};
+	// 	}, [])
+	// );
 
 
 
@@ -172,47 +172,48 @@ export function Setup({ props, setProps }) {
 		return (
 			<View style={styles.vstack}>
 				<Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
-				<Button buttonColor='#eec643' mode="contained" onPress={requestPermission} title="grant permission">Grant Permission</Button>
+				<Button title="Grant Permission" onPress={requestPermission} />
 			</View>
 		);
 	}
 
 	if (scanMode) {
 		return (
-			<View style={styles.cameraContainer}>
-				<CameraView
-					key={key} // Pass key prop
-					style={styles.camera}
-					barcodeScannerSettings={{
-						barcodeTypes: ["qr"],
-					}}
-					onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
-					ratio='16:9'
-				/>
-				<View style={styles.hstack}>
-					<Button buttonColor='#eec643' mode="contained" onPress={() => setScanMode(!scanMode)}>Return</Button>
-					<Button buttonColor='#FE654F' mode="contained" onPress={() => showDialog()}>Clear Loaded Match Data</Button>
+				<View style={styles.cameraContainer}>
+					<CameraView
+						style={styles.camera}
+						barcodeScannerSettings={{
+							barcodeTypes: ["qr"],
+						}}
+						onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
+						ratio='16:9'
+					/>
+					<View style={styles.hstack}>
+						<Button title="Return" onPress={() => setScanMode(!scanMode)}/>
+						<Button title="Clear Loaded Match Data" onPress={() => showDialog()}/>
+					</View>
+					{/* <PaperProvider>
+					<Portal>
+						<Dialog visible={visible} onDismiss={hideDialog}>
+							<Dialog.Title>Enter Your Password</Dialog.Title>
+							<Dialog.Content>
+								<TextInput
+									style={styles.SingleLineInput}
+									onChangeText={setPassword}
+									value={password}
+									placeholder="Password"
+									keyboardType="numeric"
+									secureTextEntry={true}
+								/>
+							</Dialog.Content>
+							<Dialog.Actions>
+								<Button title="Cancel" onPress={hideDialog}/>
+								<Button title="Continue" onPress={() => tryClearFile(password, setPassword, hideDialog)}/>
+							</Dialog.Actions>
+						</Dialog>
+					</Portal>
+					</PaperProvider> */}
 				</View>
-				<Portal>
-					<Dialog visible={visible} onDismiss={hideDialog}>
-						<Dialog.Title>Enter Your Password</Dialog.Title>
-						<Dialog.Content>
-							<TextInput
-								style={styles.SingleLineInput}
-								onChangeText={setPassword}
-								value={password}
-								placeholder="Password"
-								keyboardType="numeric"
-								secureTextEntry={true}
-							/>
-						</Dialog.Content>
-						<Dialog.Actions>
-							<Button onPress={hideDialog}>Cancel</Button>
-							<Button onPress={() => tryClearFile(password, setPassword, hideDialog)}>Continue</Button>
-						</Dialog.Actions>
-					</Dialog>
-				</Portal>
-			</View>
 		);
 	}
 
@@ -220,48 +221,28 @@ export function Setup({ props, setProps }) {
 	return (
 		<View style={styles.generalViewStyle}>
 			<Text style={{ fontSize: 25 }}>Alliance Station</Text>
-			<RadioButton.Group value={props.station} onValueChange={nextValue => { setProps.setStation(nextValue) }}>
-				<View style={styles.hstack}>
-					<View style={styles.vstack}>
-						<View style={styles.radioView}>
-							<Text>Red 1</Text>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='red' color='red' uncheckedColor='red' value="red1" />
-						</View>
-						<View style={styles.radioView}>
-							<Text>Red 2</Text>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='red' color='red' uncheckedColor='red' value="red2" />
-						</View>
-						<View style={styles.radioView}>
-							<Text>Red 3</Text>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='red' color='red' uncheckedColor='red' value="red3" />
-						</View>
-					</View>
-					<View style={styles.vstack}>
-
-						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='blue' color='blue' uncheckedColor='blue' value="blue1" />
-							<Text>Blue 1</Text>
-						</View>
-						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='blue' color='blue' uncheckedColor='blue' value="blue2" />
-							<Text>Blue 2</Text>
-						</View>
-						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='blue' color='blue' uncheckedColor='blue' value="blue3" />
-							<Text>Blue 3</Text>
-						</View>
-					</View>
-				</View>
-			</RadioButton.Group>
+			<View style={styles.hstack}>
+				
+				<RadioButtonGroup selected={props.station} onSelected={(nextValue) => { setProps.setStation(nextValue) }}>
+						<RadioButtonItem label="Red 1" value="red1" />
+						<RadioButtonItem label="Red 2" value="red2" />
+						<RadioButtonItem label="Red 3" value="red3" />
+				</RadioButtonGroup>
+				<RadioButtonGroup selected={props.station} onSelected={(nextValue) => { setProps.setStation(nextValue) }}>
+						<RadioButtonItem label="Blue 1" value="blue1" />
+						<RadioButtonItem label="Blue 2" value="blue2" />
+						<RadioButtonItem label="Blue 3" value="blue3" />
+				</RadioButtonGroup>
+			</View>
 
 			<View style={styles.hstack}>
 				<View style={styles.vstack}>
 					<Text style={{ fontSize: 18 }}>Preloaded</Text>
-					<Switch onValueChange={() => { setProps.setPreloaded(!props.preloaded) }} value={props.preloaded} color='#4C8577'></Switch>
+					<Switch onValueChange={setProps.setPreloaded} value={props.preloaded}/>
 				</View>
 				<View style={styles.vstack}>
 					<Text style={{ fontSize: 18 }}>No Show</Text>
-					<Switch onValueChange={() => { setProps.setNoShow(!props.noShow) }} value={props.noShow} color='#4C8577'></Switch>
+					<Switch onValueChange={setProps.setNoShow} value={props.noShow}/>
 				</View>
 			</View>
 
@@ -298,27 +279,15 @@ export function Setup({ props, setProps }) {
 					source={(props.station === "blue1" || props.station === "blue2" || props.station === "blue3")
 						? require('../assets/BlueStartPosition.png') : require('../assets/RedStartPosition.png')} />
 				<View style={styles.vstack}>
-					<RadioButton.Group value={props.startArea} onValueChange={nextValue => { setProps.setStartArea(nextValue) }}>
-						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='#4e6e58' color='#4e6e58' uncheckedColor='black' value="A" />
-							<Text>A</Text>
-						</View>
-						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='#4e6e58' color='#4e6e58' uncheckedColor='black' value="B" />
-							<Text>B</Text>
-						</View>
-						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='#4e6e58' color='#4e6e58' uncheckedColor='black' value="C" />
-							<Text>C</Text>
-						</View>
-						<View style={styles.radioView}>
-							<RadioButton style={styles.radioStyle} labelStyle={styles.radioLabelStyle} rippleColor='#4e6e58' color='#4e6e58' uncheckedColor='black' value="D" />
-							<Text>D</Text>
-						</View>
-					</RadioButton.Group>
+					<RadioButtonGroup selected={props.startArea} onSelected={(nextValue) => { setProps.setStartArea(nextValue) }}>
+						<RadioButtonItem label="A" value="A" />
+						<RadioButtonItem label="B" value="B" />
+						<RadioButtonItem label="C" value="C" />
+						<RadioButtonItem label="D" value="D" />
+					</RadioButtonGroup>
 				</View>
 			</View>
-			<Button buttonColor='#544B3D' mode="contained" onPress={() => setScanMode(!scanMode)}>Scan QR</Button>
+			<Button title="Scan QR" onPress={() => setScanMode(!scanMode)}/>
 
 		</View>
 	)

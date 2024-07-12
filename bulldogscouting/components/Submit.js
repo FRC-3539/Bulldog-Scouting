@@ -4,17 +4,19 @@ import {
   Text,
   Alert,
   unstable_batchedUpdates,
+  Button,
 } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 import React, { useState } from 'react';
 import { styles } from './Styles'
 import * as Sharing from 'expo-sharing';
 import { filePath } from '../App'
-import {
-  Button,
-  Portal,
-  Dialog,
-} from 'react-native-paper';
+// import {
+//   Portal,
+//   Dialog,
+// } from 'react-native-paper';
+// import { PaperProvider } from 'react-native-paper';
+
 
 const clearFilePass = '3539' // Should be a number
 
@@ -209,12 +211,13 @@ export function Submit({ props, setProps, navigation }) {
         />
 
         <View style={styles.hstack}>
-          <Button buttonColor='#6DD900' mode="contained" onPress={() => WriteToFile({ props, setProps, navigation })}>Submit</Button>
+          <Button title="Submit" onPress={() => WriteToFile({ props, setProps, navigation })}/>
         </View>
         <View style={styles.hstack}>
-          <Button buttonColor='#708090' mode="contained" onPress={() => share(props)}>Share</Button>
-          <Button buttonColor='#708090' mode="contained" onPress={() => showDialog()}>Clear</Button>
+          <Button title="Share" onPress={() => share(props)}/>
+          <Button title="Clear" onPress={() => showDialog()}/>
         </View>
+        {/* <PaperProvider>
         <Portal>
           <Dialog visible={visible} onDismiss={hideDialog}>
             <Dialog.Title>Enter Your Password</Dialog.Title>
@@ -229,11 +232,13 @@ export function Submit({ props, setProps, navigation }) {
               />
             </Dialog.Content>
             <Dialog.Actions>
-              <Button onPress={hideDialog}>Cancel</Button>
-              <Button onPress={() => tryClearFile(password, setPassword, hideDialog)}>Continue</Button>
+              <Button title="Cancel" onPress={hideDialog}/>
+              <Button title="Continue" onPress={() => tryClearFile(password, setPassword, hideDialog)}/>
             </Dialog.Actions>
           </Dialog>
         </Portal>
+        </PaperProvider> */}
       </View>
+
   )
 }

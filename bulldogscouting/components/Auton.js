@@ -2,13 +2,12 @@ import {
 	View,
 	Text,
 	Image,
+	Button,
+
 } from 'react-native';
 import React from 'react';
 import { styles } from './Styles'
-import {
-	Checkbox,
-	Button,
-} from 'react-native-paper';
+import Checkbox from 'expo-checkbox';
 
 export function Auton({ props, setProps }) {
 	return (
@@ -18,26 +17,23 @@ export function Auton({ props, setProps }) {
 				<View style={styles.hstack}>
 					<Text style={{ fontSize: 16 }}>Left the starting zone?</Text>
 					<Checkbox
-						status={props.leftAutonZone ? 'checked' : 'unchecked'}
-						onPress={() => {
-							setProps.setLeftAutonZone(!props.leftAutonZone);
-						}}
-						color='#4e6e58'
+						value={props.leftAutonZone}
+						onValueChange={setProps.setLeftAutonZone}
 					/>
 				</View>
 				<Text></Text>
 				<View style={styles.hstack}>
 					<View style={styles.vstack}>
 						<Text style={{ fontSize: 20 }}>Scored Notes</Text>
-						<Button buttonColor='#6DD900' mode="contained" onPress={() => setProps.setAutonNotes(props.autonNotes + 1)}>+</Button>
+						<Button title="   +   " onPress={() => setProps.setAutonNotes(props.autonNotes + 1)} />
 						<Text style={{ fontSize: 20 }}>{props.autonNotes}</Text>
-						<Button buttonColor='#e26d5c' mode="contained" onPress={() => setProps.setAutonNotes(Math.max(props.autonNotes - 1,0))}>-</Button>
+						<Button title="   -   " onPress={() => setProps.setAutonNotes(Math.max(props.autonNotes - 1, 0))} />
 					</View>
 					<View style={styles.vstack}>
 						<Text style={{ fontSize: 20 }}>Failed Notes</Text>
-						<Button buttonColor='#6DD900' mode="contained" onPress={() => setProps.setAutonNotesAttempts(props.autonNotesAttempts + 1)}>+</Button>
+						<Button title="   +   " onPress={() => setProps.setAutonNotesAttempts(props.autonNotesAttempts + 1)} />
 						<Text style={{ fontSize: 20 }}>{props.autonNotesAttempts}</Text>
-						<Button buttonColor='#e26d5c' mode="contained" onPress={() => setProps.setAutonNotesAttempts(Math.max(props.autonNotesAttempts - 1,0))}>-</Button>
+						<Button title="   -   " onPress={() => setProps.setAutonNotesAttempts(Math.max(props.autonNotesAttempts - 1, 0))} />
 					</View>
 				</View>
 				<Text></Text>
@@ -50,35 +46,35 @@ export function Auton({ props, setProps }) {
 					<View style={styles.vstack}>
 						<View style={styles.radioView}>
 							<Text>A</Text>
-							<Checkbox status={props.usedNoteA ? 'checked' : 'unchecked'} onPress={() => { setProps.setusedNoteA(!props.usedNoteA); }} color='#4e6e58' />
+							<Checkbox value={props.usedNoteA} onValueChange={setProps.setusedNoteA} />
 						</View>
 						<View style={styles.radioView}>
 							<Text>B</Text>
-							<Checkbox status={props.usedNoteB ? 'checked' : 'unchecked'} onPress={() => { setProps.setusedNoteB(!props.usedNoteB); }} color='#4e6e58' />
+							<Checkbox value={props.usedNoteB} onValueChange={setProps.setusedNoteB} />
 						</View>
 						<View style={styles.radioView}>
 							<Text>C</Text>
-							<Checkbox status={props.usedNoteC ? 'checked' : 'unchecked'} onPress={() => { setProps.setusedNoteC(!props.usedNoteC); }} color='#4e6e58' />
+							<Checkbox value={props.usedNoteC} onValueChange={setProps.setusedNoteC} />
 						</View>
 						<View style={styles.radioView}>
 							<Text>D</Text>
-							<Checkbox status={props.usedNoteD ? 'checked' : 'unchecked'} onPress={() => { setProps.setusedNoteD(!props.usedNoteD); }} color='#4e6e58' />
+							<Checkbox value={props.usedNoteD} onValueChange={setProps.setusedNoteD} />
 						</View>
 						<View style={styles.radioView}>
 							<Text>E</Text>
-							<Checkbox status={props.usedNoteE ? 'checked' : 'unchecked'} onPress={() => { setProps.setusedNoteE(!props.usedNoteE); }} color='#4e6e58' />
+							<Checkbox value={props.usedNoteE} onValueChange={setProps.setusedNoteE} />
 						</View>
 						<View style={styles.radioView}>
 							<Text>F</Text>
-							<Checkbox status={props.usedNoteF ? 'checked' : 'unchecked'} onPress={() => { setProps.setusedNoteF(!props.usedNoteF); }} color='#4e6e58' />
+							<Checkbox value={props.usedNoteF} onValueChange={setProps.setusedNoteF} />
 						</View>
 						<View style={styles.radioView}>
 							<Text>G</Text>
-							<Checkbox status={props.usedNoteG ? 'checked' : 'unchecked'} onPress={() => { setProps.setusedNoteG(!props.usedNoteG); }} color='#4e6e58' />
+							<Checkbox value={props.usedNoteG} onValueChange={setProps.setusedNoteG} />
 						</View>
 						<View style={styles.radioView}>
 							<Text>H</Text>
-							<Checkbox status={props.usedNoteH ? 'checked' : 'unchecked'} onPress={() => { setProps.setusedNoteH(!props.usedNoteH); }} color='#4e6e58' />
+							<Checkbox value={props.usedNoteH} onValueChange={setProps.setusedNoteH} />
 						</View>
 					</View>
 				</View>

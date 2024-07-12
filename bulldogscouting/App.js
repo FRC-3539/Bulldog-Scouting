@@ -11,7 +11,6 @@ import { styles } from './components/Styles'
 import { Teleop } from './components/Teleop';
 import { EndGame } from './components/Endgame';
 import { Submit } from './components/Submit';
-import { PaperProvider } from 'react-native-paper';
 import FocusRender from 'react-navigation-focus-render'
 import { useEffect } from 'react';
 import * as FileSystem from 'expo-file-system';
@@ -54,7 +53,7 @@ export default function App() {
 	const [teleopSpeakerAttempts, setTeleopSpeakerAttempts] = useState(0);
 	const [teleopAmpAttempts, setTeleopAmpAttempts] = useState(0);
 	const [teleopAmplified, setTeleopAmplified] = useState(0);
-	const [usedAmplification, setUsedAmplification] = useState(0);
+	const [usedAmplification, setUsedAmplification] = useState(false);
 	const [teleopPass, setTeleopPass] = useState(0);
 	const [slams, setSlams] = useState(0);
 	const [shotsBlocked, setShotsBlocked] = useState(0);
@@ -118,7 +117,6 @@ export default function App() {
 
 
 	return (<NavigationContainer>
-		<PaperProvider>
 			<SafeAreaView style={styles.safeArea}>
 				<StatusBar
 					animated={true}
@@ -148,7 +146,6 @@ export default function App() {
 							navigation={useNavigation()} /></FocusRender>} />
 				</Tab.Navigator>
 			</SafeAreaView>
-		</PaperProvider>
 	</NavigationContainer>
 
 
