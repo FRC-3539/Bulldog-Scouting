@@ -8,7 +8,9 @@ import Checkbox from 'expo-checkbox';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 
 
-export function EndGame({ updateStates, resetTrigger }) {
+export function EndGame({ route, navigation }) {
+	const { updateStates, resetTrigger, getStation, getNoShow } = route.params;
+
 	const [sideClimb, setSideClimb] = useState(false);
 	const [climbSpeed, setClimbSpeed] = useState('No Climb');
 
@@ -22,7 +24,7 @@ export function EndGame({ updateStates, resetTrigger }) {
 	// Intermediary state updater function
 	// Sends update to main app and updates local state
 	const updateState = (stateName, stateUpdateFunction, stateValue) => {
-		updateStates({stateName: stateValue});
+		updateStates({[stateName]: stateValue});
 		stateUpdateFunction(stateValue);
 	};
 
@@ -33,6 +35,8 @@ export function EndGame({ updateStates, resetTrigger }) {
                     <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Climb Speed</Text>
                     <RadioButtonGroup
                         selected={climbSpeed}
+                        radioBackground={'lime'}
+						radioStyle={styles.radioStyle}
                         onSelected={
                             (nextValue) => updateState('climbSpeed', setClimbSpeed, nextValue)
                         }

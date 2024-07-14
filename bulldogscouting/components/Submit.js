@@ -1,57 +1,54 @@
 import {
-  TextInput,
-  View,
-  Text,
-  Alert,
-  Button,
+    TextInput,
+    View,
+    Text,
+    Alert,
+    Button,
 } from 'react-native';
-import * as FileSystem from 'expo-file-system';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { styles } from './Styles'
-import * as Sharing from 'expo-sharing';
+import * as FileSystem from 'expo-file-system';
 import { filePath } from '../App'
-// import {
-//   Portal,
-//   Dialog,
-// } from 'react-native-paper';
-// import { PaperProvider } from 'react-native-paper';
+
 
 
 const clearFilePass = '3539' // Should be a number
 
 
-// async function tryClearFile(password, setPassword, hideDialog) {
-//     if (password == clearFilePass) {
-//         Alert.alert(
-//             `Are you sure?`,
-//             'Clearing the data will erase all currently stored scouting data and will be unrecoverable',
-//             [
-//                 { text: 'Cancel' },
-//                 { text: 'Continue', onPress: clearFile },
-//             ]
-//         );
-//     }
-//     else {
-//         Alert.alert(
-//             `Error`,
-//             'Incorrect password.',
-//             [
-//                 { text: 'Return' },
-//             ]
-//         );
-//     }
-//     setPassword('');
-//     hideDialog();
-// }
+async function tryClearFile(password, setPassword, hideDialog) {
+    if (password == clearFilePass) {
+        Alert.alert(
+            `Are you sure?`,
+            'Clearing the data will erase all currently stored scouting data and will be unrecoverable',
+            [
+                { text: 'Cancel' },
+                { text: 'Continue', onPress: clearFile },
+            ]
+        );
+    }
+    else {
+        Alert.alert(
+            `Error`,
+            'Incorrect password.',
+            [
+                { text: 'Return' },
+            ]
+        );
+    }
+    setPassword('');
+    hideDialog();
+}
 
-// async function clearFile() {
-//   await FileSystem.writeAsStringAsync(filePath, ' ')
-// }
+async function clearFile() {
+    await FileSystem.writeAsStringAsync(filePath, ' ')
+}
 
-export function Submit({ updateStates, resetTrigger, triggerWriteToFile, triggerShare }) {
-	const [robotRemarks, setRobotRemarks] = useState('');
-	const [matchScoreRed, setMatchScoreRed] = useState('');
-	const [matchScoreBlue, setMatchScoreBlue] = useState('');
+export function Submit({ route, navigation }) {
+	const { updateStates, resetTrigger, getStation, triggerWriteToFile, triggerShare, getNoShow  } = route.params;
+
+    const [robotRemarks, setRobotRemarks] = useState('');
+    const [matchScoreRed, setMatchScoreRed] = useState('');
+    const [matchScoreBlue, setMatchScoreBlue] = useState('');
 
     const [visible, setVisible] = React.useState(false)
     const [password, setPassword] = useState('')
@@ -63,20 +60,39 @@ export function Submit({ updateStates, resetTrigger, triggerWriteToFile, trigger
         setPassword('')
     }
 
-  // On change in reset trigger variable from main app, reset state
-	useEffect(() => {
-		console.log('Submit reset trigger activated');
+    // On change in reset trigger variable from main app, reset state
+    useEffect(() => {
+        console.log('Submit reset trigger activated');
         updateState('robotRemarks', setRobotRemarks, '');
         updateState('matchScoreRed', setMatchScoreRed, '');
         updateState('matchScoreBlue', setMatchScoreBlue, '');
-	}, [resetTrigger]);
+    }, [resetTrigger]);
 
-	// Intermediary state updater function
-	// Sends update to main app and updates local state
-	const updateState = (stateName, stateUpdateFunction, stateValue) => {
-		updateStates({stateName: stateValue});
-		stateUpdateFunction(stateValue);
-	};
+    // Intermediary state updater function
+    // Sends update to main app and updates local state
+    const updateState = (stateName, stateUpdateFunction, stateValue) => {
+        updateStates({ [stateName]: stateValue });
+        stateUpdateFunction(stateValue);
+    };
+
+    if (visible) {
+        return (
+            <View style={styles.vstack}>
+                <TextInput
+                    style={styles.SingleLineInput}
+                    onChangeText={setPassword}
+                    value={password}
+                    placeholder="Password"
+                    keyboardType="numeric"
+                    secureTextEntry={true}
+                />
+                <View style={styles.hstack}>
+                    <Button title="Cancel" onPress={hideDialog} />
+                    <Button title="Continue" onPress={() => tryClearFile(password, setPassword, hideDialog)} />
+                </View>
+            </View>);
+    }
+
 
     return (
         <View style={styles.vstack}>
@@ -121,35 +137,16 @@ export function Submit({ updateStates, resetTrigger, triggerWriteToFile, trigger
             />
 
             <View style={styles.hstack}>
-                <Button title="Submit" onPress={() => triggerWriteToFile()}/>
+                <Button title="Submit" onPress={() => triggerWriteToFile()} />
             </View>
 
             <View style={styles.hstack}>
-                <Button title="Share" onPress={() => triggerShare()}/>
-                <Button title="Clear" onPress={() => showDialog()}/>
+                <Button title="Share" onPress={() => triggerShare()} />
+                <Button title="Clear" onPress={() => showDialog()} />
             </View>
 
-            {/* <PaperProvider>
-            <Portal>
-            <Dialog visible={visible} onDismiss={hideDialog}>
-                <Dialog.Title>Enter Your Password</Dialog.Title>
-                <Dialog.Content>
-                <TextInput
-                    style={styles.SingleLineInput}
-                    onChangeText={setPassword}
-                    value={password}
-                    placeholder="Password"
-                    keyboardType="numeric"
-                    secureTextEntry={true}
-                />
-                </Dialog.Content>
-                <Dialog.Actions>
-                <Button title="Cancel" onPress={hideDialog}/>
-                <Button title="Continue" onPress={() => tryClearFile(password, setPassword, hideDialog)}/>
-                </Dialog.Actions>
-            </Dialog>
-            </Portal>
-            </PaperProvider> */}
+
+
         </View>
     )
 }

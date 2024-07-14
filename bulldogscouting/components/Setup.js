@@ -48,7 +48,8 @@ function compareObjects(obj1, obj2) {
 	return true;
 }
 
-export function Setup({ updateStates, resetTrigger }) {
+export function Setup({ route, navigation }) {
+	const { updateStates, resetTrigger, getStation, getNoShow } = route.params;
 	// States that reset between matches
 	const [teamNumber, setTeamNumber] = useState('');
 	const [noShow, setNoShow] = useState(false);
@@ -58,25 +59,25 @@ export function Setup({ updateStates, resetTrigger }) {
 	// States that do not reset between matches
 	const [station, setStation] = useState('red1');
 	const [match, setMatch] = useState('1');
-	const [matchData, setMatchData] = useState({}); // Not included in main state
+	const [matchData, setMatchData] = useState({});
 
 	//Camera Stuff (not included in main state)
 	const [scanned, setScanned] = useState(false);
-	const [scanMode, setScanMode] = useState(false); // Add key state
+	const [scanMode, setScanMode] = useState(false);
 	const [permission, requestPermission] = useCameraPermissions();
-	const [visible, setVisible] = React.useState(false);
+	const [visible, setVisible] = useState(false);
 	const [password, setPassword] = useState('');
 	const showDialog = () => setVisible(true);
 
 	// On change in reset trigger variable from main app, reset state
 	useEffect(() => {
 		console.log('Setup reset trigger activated');
-        updateState('teamNumber', setTeamNumber, '');
-        updateState('noShow', setNoShow, false);
-        updateState('preloaded', setPreloaded, false);
-        updateState('startArea', setStartArea, 'A');
-        updateState('station', setStation, 'red1');
-        updateState('match', setMatch, '1');
+		updateState('teamNumber', setTeamNumber, '');
+		updateState('noShow', setNoShow, false);
+		updateState('preloaded', setPreloaded, false);
+		updateState('startArea', setStartArea, 'A');
+		updateState('station', setStation, 'red1');
+		updateState('match', setMatch, '1');
 		// TODO: how does reset work for the "Camera stuff" states?
 		// only use "updateState" if meant to be included in main state
 		// otherwise the normal setter will do
@@ -85,7 +86,7 @@ export function Setup({ updateStates, resetTrigger }) {
 	// Intermediary state updater function
 	// Sends update to main app and updates local state
 	const updateState = (stateName, stateUpdateFunction, stateValue) => {
-		updateStates({stateName: stateValue});
+		updateStates({ [stateName]: stateValue });
 		stateUpdateFunction(stateValue);
 	};
 
@@ -128,13 +129,15 @@ export function Setup({ updateStates, resetTrigger }) {
 		Alert.alert(
 			`Data Added`,
 			'Data Added',
-			[ { text: 'Continue', onPress: () => setScanned(false) } ]
+			[{ text: 'Continue', onPress: () => setScanned(false) }]
 		);
 	}
 
 	async function clearFile() {
 		setMatchData({});
-		await FileSystem.writeAsStringAsync(qrDataFilePath, matchData);
+		console.log('Cleared match data');
+		await FileSystem.writeAsStringAsync(qrDataFilePath, JSON.stringify(matchData));
+		console.log('Cleared File');
 	}
 
 	async function tryClearFile(password, setPassword, hideDialog) {
@@ -142,14 +145,14 @@ export function Setup({ updateStates, resetTrigger }) {
 			Alert.alert(
 				`Are you sure?`,
 				'Clearing the data will erase all currently stored match data. This will be unrecoverable.',
-				[ { text: 'Cancel' }, { text: 'Continue', onPress: clearFile } ]
+				[{ text: 'Cancel' }, { text: 'Continue', onPress: clearFile }]
 			);
 		}
 		else {
 			Alert.alert(
 				`Error`,
 				'Incorrect password.',
-				[ { text: 'Return' } ]
+				[{ text: 'Return' }]
 			);
 		}
 		setPassword('')
@@ -165,16 +168,6 @@ export function Setup({ updateStates, resetTrigger }) {
 		lastMatchData = { ...matchData }
 	}, [match, lastMatch, station, lastStation, matchData, lastMatchData]);
 
-	// useFocusEffect(
-	// 	useCallback(() => {
-	// 		setScanned(false);
-	// 		setKey(prevKey => prevKey + 1); // Change key to force remount
-	// 		return () => {
-	// 			// Cleanup function when the component unmounts
-	// 		};
-	// 	}, [])
-	// );
-
 	if (!permission) {
 		// Camera permissions are still loading.
 		return <View />;
@@ -189,6 +182,25 @@ export function Setup({ updateStates, resetTrigger }) {
 			</View>
 		);
 	}
+	if (visible) {
+		return (
+			<View style={styles.vstack}>
+				<TextInput
+					style={styles.SingleLineInput}
+					onChangeText={setPassword}
+					value={password}
+					placeholder="Password"
+					keyboardType="numeric"
+					secureTextEntry={true}
+				/>
+				<View style={styles.hstack}>
+					<Button title="Cancel" onPress={hideDialog} />
+					<Button title="Continue" onPress={() => tryClearFile(password, setPassword, hideDialog)} />
+				</View>
+			</View>
+
+		)
+	}
 
 	if (scanMode) {
 		return (
@@ -200,30 +212,9 @@ export function Setup({ updateStates, resetTrigger }) {
 					ratio='16:9'
 				/>
 				<View style={styles.hstack}>
-					<Button title="Return" onPress={() => setScanMode(!scanMode)}/>
-					<Button title="Clear Loaded Match Data" onPress={() => showDialog()}/>
+					<Button title="Return" onPress={() => setScanMode(!scanMode)} />
+					<Button title="Clear Loaded Match Data" onPress={() => showDialog()} />
 				</View>
-				{/* <PaperProvider>
-				<Portal>
-					<Dialog visible={visible} onDismiss={hideDialog}>
-						<Dialog.Title>Enter Your Password</Dialog.Title>
-						<Dialog.Content>
-							<TextInput
-								style={styles.SingleLineInput}
-								onChangeText={setPassword}
-								value={password}
-								placeholder="Password"
-								keyboardType="numeric"
-								secureTextEntry={true}
-							/>
-						</Dialog.Content>
-						<Dialog.Actions>
-							<Button title="Cancel" onPress={hideDialog}/>
-							<Button title="Continue" onPress={() => tryClearFile(password, setPassword, hideDialog)}/>
-						</Dialog.Actions>
-					</Dialog>
-				</Portal>
-				</PaperProvider> */}
 			</View>
 		);
 	}
@@ -236,6 +227,8 @@ export function Setup({ updateStates, resetTrigger }) {
 			<View style={styles.hstack}>
 				<RadioButtonGroup
 					selected={station}
+					radioBackground="red"
+					radioStyle={styles.radioStyle}
 					onSelected={
 						(nextValue) => updateState('station', setStation, nextValue)
 					}
@@ -246,6 +239,8 @@ export function Setup({ updateStates, resetTrigger }) {
 				</RadioButtonGroup>
 				<RadioButtonGroup
 					selected={station}
+					radioBackground="blue"
+					radioStyle={styles.radioStyle}
 					onSelected={
 						(nextValue) => updateState('station', setStation, nextValue)
 					}
@@ -259,11 +254,11 @@ export function Setup({ updateStates, resetTrigger }) {
 			<View style={styles.hstack}>
 				<View style={styles.vstack}>
 					<Text style={{ fontSize: 18 }}>Preloaded</Text>
-					<Switch onValueChange={() => updateState('preloaded', setPreloaded, !preloaded)} value={preloaded}/>
+					<Switch onValueChange={() => updateState('preloaded', setPreloaded, !preloaded)} value={preloaded} />
 				</View>
 				<View style={styles.vstack}>
 					<Text style={{ fontSize: 18 }}>No Show</Text>
-					<Switch onValueChange={() => updateState('noShow', setNoShow, !noShow)} value={noShow}/>
+					<Switch onValueChange={() => updateState('noShow', setNoShow, !noShow)} value={noShow} />
 				</View>
 			</View>
 
@@ -296,12 +291,14 @@ export function Setup({ updateStates, resetTrigger }) {
 			<View style={styles.hstackFullWidth}>
 				<Image
 					style={styles.setupImage}
-					source={station.includes('blue')? require('../assets/BlueStartPosition.png')
+					source={station.includes('blue') ? require('../assets/BlueStartPosition.png')
 						: require('../assets/RedStartPosition.png')}
 				/>
 				<View style={styles.vstack}>
 					<RadioButtonGroup
 						selected={startArea}
+						radioBackground={station?.includes('blue') ? "blue" : "red"}
+						radioStyle={styles.radioStyle}
 						onSelected={
 							(nextValue) => updateState('startArea', setStartArea, nextValue)
 						}
@@ -313,7 +310,7 @@ export function Setup({ updateStates, resetTrigger }) {
 					</RadioButtonGroup>
 				</View>
 			</View>
-			<Button title="Scan QR" onPress={() => setScanMode(!scanMode)}/>
+			<Button title="Scan QR" onPress={() => setScanMode(!scanMode)} />
 
 		</View>
 	)
