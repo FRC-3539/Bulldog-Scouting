@@ -29,7 +29,7 @@ export function EndGame({ route, navigation }) {
 	};
 
     return (
-        <View style={styles.generalViewStyle}>
+        <View style={styles.vstack}>
             <View style={styles.hstack}>
                 <View style={styles.vstack}>
                     <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Climb Speed</Text>
@@ -52,12 +52,13 @@ export function EndGame({ route, navigation }) {
                 <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Side Climb</Text>
                     <Checkbox
                         value={sideClimb}
+                        style={styles.checkboxStyle}
                         onValueChange={
                             () => updateState('sideClimb', setSideClimb, !sideClimb)
                         }
                     />
                 </View>
             </View>
-        </View>
+            </View>
     )
 }

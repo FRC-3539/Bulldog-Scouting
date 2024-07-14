@@ -14,6 +14,9 @@ import { CameraView, useCameraPermissions } from 'expo-camera';
 import * as FileSystem from 'expo-file-system';
 import { qrDataFilePath } from '../App'
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
+import { LinearGradient } from 'expo-linear-gradient';
+
+
 // import {
 // 	Portal,
 // 	Dialog,
@@ -133,6 +136,23 @@ export function Setup({ route, navigation }) {
 		);
 	}
 
+	useEffect(() => {
+		const loadData = async () => { //Must create a new function to use await
+			try {
+				const dirInfo = await FileSystem.getInfoAsync(qrDataFilePath);
+				if (dirInfo.exists) {
+					const fileContents = await FileSystem.readAsStringAsync(qrDataFilePath);
+					const data = JSON.parse(fileContents);
+					if (data != null || data != '' || data != ' ')
+						setMatchData(data);
+				}
+			} catch (error) {
+				console.error("Failed to read or parse the qrDataFile file", error);
+			}
+		};
+		loadData();
+	}, []);
+
 	async function clearFile() {
 		setMatchData({});
 		console.log('Cleared match data');
@@ -184,6 +204,7 @@ export function Setup({ route, navigation }) {
 	}
 	if (visible) {
 		return (
+			
 			<View style={styles.vstack}>
 				<TextInput
 					style={styles.SingleLineInput}
@@ -221,7 +242,7 @@ export function Setup({ route, navigation }) {
 
 
 	return (
-		<View style={styles.generalViewStyle}>
+		<View style={styles.vstack}>
 			<Text style={{ fontSize: 25 }}>Alliance Station</Text>
 
 			<View style={styles.hstack}>

@@ -9,37 +9,33 @@ export const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "white",
     },
-    generalViewStyle: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#fff',
-        flex: 1,
-    },
-
     //Buttons
-    plusButton: {
-        backgroundColor: 'lime',
-        borderRadius: 10,
+    buttonDisabled: {
+        borderRadius: 20,
         paddingHorizontal: 30,
-        paddingVertical: 20,
+        paddingVertical: 2,
+    },
+    plusButton: {
+        elevation: 10,
+        borderRadius: 20,
+        paddingHorizontal: 30,
+        paddingVertical: 2,
     },
     plusButtonPressed: {
-        backgroundColor: 'green',
-        borderRadius: 10,
+        borderRadius: 20,
         paddingHorizontal: 30,
-        paddingVertical: 20,
+        paddingVertical: 2,
     },
     minusButton: {
-        backgroundColor: 'red',
-        borderRadius: 10,
+        elevation: 10,
+        borderRadius: 20,
         paddingHorizontal: 30,
-        paddingVertical: 20,
+        paddingVertical: 2,
     },
     minusButtonPressed: {
-        backgroundColor: 'darkred',
-        borderRadius: 10,
+        borderRadius: 20,
         paddingHorizontal: 30,
-        paddingVertical: 20,
+        paddingVertical: 2,
     },
 
     // Input styles
@@ -69,6 +65,7 @@ export const styles = StyleSheet.create({
     },
 
     checkboxStyle: {
+        padding:12,
         marginLeft: 10,
     },
 

@@ -115,26 +115,9 @@ export default function App() {
 		await Sharing.shareAsync(newFilePath)
 	}
 
-	useEffect(() => {
-		const loadData = async () => { //Must create a new function to use await
-			try {
-				const dirInfo = await FileSystem.getInfoAsync(qrDataFilePath);
-				if (dirInfo.exists) {
-					console.log(qrDataFilePath);
 
-					const fileContents = await FileSystem.readAsStringAsync(qrDataFilePath);
-					console.log("File Contents: ", fileContents);
-					const data = JSON.parse(fileContents);
-					if (data != null || data != '' || data != ' ')
-						setMatchData(data);
-				}
-			} catch (error) {
-				console.error("Failed to read or parse the qrDataFile file", error);
-			}
-		};
-		loadData();
-	}, []);
-	return (<NavigationContainer>
+	return (
+	<NavigationContainer>
 		<SafeAreaView style={styles.safeArea}>
 			<StatusBar
 				animated={true}
