@@ -8,10 +8,11 @@ import { styles } from './Styles';
 import Checkbox from 'expo-checkbox';
 import React, { useState, useEffect } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
+import {resetContext } from '../App'
 
 
 export function Teleop({ route, navigation }) {
-    const { updateStates, resetTrigger, getStation, getNoShow } = route.params;
+    const { updateStates, getStation, getNoShow } = route.params;
 
     const [teleopSpeaker, setTeleopSpeaker] = useState(0);
     const [teleopAmp, setTeleopAmp] = useState(0);
@@ -35,7 +36,7 @@ export function Teleop({ route, navigation }) {
         updateState('teleopPass', setTeleopPass, 0);
         updateState('slams', setSlams, 0);
         updateState('shotsBlocked', setShotsBlocked, 0);
-    }, [resetTrigger]);
+    }, [resetContext]);
 
     // Intermediary state updater function
     // Sends update to main app and updates local state

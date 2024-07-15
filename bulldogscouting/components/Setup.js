@@ -10,9 +10,8 @@ import {
 import React, { useState, useEffect } from 'react';
 import { styles } from './Styles'
 import { CameraView, useCameraPermissions } from 'expo-camera';
-// import { useFocusEffect } from '@react-navigation/native';
 import * as FileSystem from 'expo-file-system';
-import { qrDataFilePath } from '../App'
+import { qrDataFilePath, resetContext} from '../App'
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -52,7 +51,7 @@ function compareObjects(obj1, obj2) {
 }
 
 export function Setup({ route, navigation }) {
-	const { updateStates, resetTrigger, getStation, getNoShow } = route.params;
+	const { updateStates, getStation, getNoShow } = route.params;
 	// States that reset between matches
 	const [teamNumber, setTeamNumber] = useState('');
 	const [noShow, setNoShow] = useState(false);
@@ -61,7 +60,7 @@ export function Setup({ route, navigation }) {
 
 	// States that do not reset between matches
 	const [station, setStation] = useState('red1');
-	const [match, setMatch] = useState('1');
+	const [match, setMatch] = useState('0'); //Start on match 0 so when we reset when the app starts it will increment to 1
 	const [matchData, setMatchData] = useState({});
 
 	//Camera Stuff (not included in main state)
@@ -80,11 +79,11 @@ export function Setup({ route, navigation }) {
 		updateState('preloaded', setPreloaded, false);
 		updateState('startArea', setStartArea, 'A');
 		updateState('station', setStation, 'red1');
-		updateState('match', setMatch, '1');
+		updateState('match', setMatch, "" + (Number(match) + 1));
 		// TODO: how does reset work for the "Camera stuff" states?
 		// only use "updateState" if meant to be included in main state
 		// otherwise the normal setter will do
-	}, [resetTrigger]);
+	}, [resetContext]);
 
 	// Intermediary state updater function
 	// Sends update to main app and updates local state
@@ -254,7 +253,7 @@ export function Setup({ route, navigation }) {
 						(nextValue) => updateState('station', setStation, nextValue)
 					}
 				>
-					<RadioButtonItem label="Red 1" value="red1" />
+					<RadioButtonItem label="Red 1" value="red1"/>
 					<RadioButtonItem label="Red 2" value="red2" />
 					<RadioButtonItem label="Red 3" value="red3" />
 				</RadioButtonGroup>

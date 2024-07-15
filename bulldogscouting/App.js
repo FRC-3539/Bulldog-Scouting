@@ -23,19 +23,16 @@ const Tab = createMaterialTopTabNavigator();
 
 export const qrDataFilePath = FileSystem.documentDirectory + 'qrData.json';
 export const filePath = FileSystem.documentDirectory + 'data.json';
+export let resetContext = false;
 
 export default function App() {
 
-	// Ignore that stupid warning
 	LogBox.ignoreLogs([
 		'Non-serializable values were found in the navigation state',
 	]);
 
 	// Main state storage, not passed to children components
 	const state = useRef({});
-
-	// Reset trigger variable
-	const [resetTrigger, setResetTrigger] = useState(false);
 
 	// Update callback for child components
 	const updateStates = (values) => {
@@ -48,12 +45,11 @@ export default function App() {
 	function getStation() {
 		return state.current.station;
 	}
-	function getNoShow()
-	{
+	function getNoShow() {
 		return state.current.noShow;
 	}
 
-	async function triggerFileWrite() {
+	async function triggerFileWrite(navigation) {
 		Alert.alert(`Confirmation`, 'Are you ready to submit?', [
 			{
 				text: 'Cancel', onPress: () => { }
@@ -89,9 +85,9 @@ export default function App() {
 						await FileSystem.writeAsStringAsync(filePath, JSON.stringify(fileContent, null, 2));
 
 						// Trigger state reset in individual components
-						setResetTrigger(!resetTrigger);
+						resetContext = !resetContext;
+						navigation.navigate('Setup')
 					}
-
 					submit();
 
 				}
@@ -117,57 +113,52 @@ export default function App() {
 
 
 	return (
-	<NavigationContainer>
-		<SafeAreaView style={styles.safeArea}>
-			<StatusBar
-				animated={true}
-				backgroundColor={styles.safeArea.backgroundColor}
-				barStyle="dark-content"
-				hidden={false}
-			/>
-			<Tab.Navigator screenOptions={{
-				tabBarItemStyle: {
-					padding: 0,
-					margin: 0,
-				},
-			}}>
-				<Tab.Screen name="Setup" component={Setup} initialParams={{
-					updateStates: updateStates,
-					resetTrigger: resetTrigger,
-					getStation: getStation,
-					getNoShow: getNoShow,
-				}} />
-				{/* <Tab.Screen name="Auton" children={() =>
+		<NavigationContainer>
+			<SafeAreaView style={styles.safeArea}>
+				<StatusBar
+					animated={true}
+					backgroundColor={styles.safeArea.backgroundColor}
+					barStyle="dark-content"
+					hidden={false}
+				/>
+					<Tab.Navigator screenOptions={{
+						tabBarItemStyle: {
+							padding: 0,
+							margin: 0,
+						},
+					}}>
+						<Tab.Screen name="Setup" component={Setup} initialParams={{
+							updateStates: updateStates,
+							getStation: getStation,
+							getNoShow: getNoShow,
+						}} />
+						{/* <Tab.Screen name="Auton" children={() =>
 					<Auton updateStates={updateStates} resetTrigger={resetTrigger} station={station} />} /> */}
-				<Tab.Screen name="Auton" component={Auton} initialParams={{
-					updateStates: updateStates,
-					resetTrigger: resetTrigger,
-					getStation: getStation,
-					getNoShow: getNoShow,
-				}} />
-				<Tab.Screen name="Teleop" component={Teleop} initialParams={{
-					updateStates: updateStates,
-					resetTrigger: resetTrigger,
-					getStation: getStation,
-					getNoShow: getNoShow,
-				}} />
-				<Tab.Screen name="EndGame" component={EndGame} initialParams={{
-					updateStates: updateStates,
-					resetTrigger: resetTrigger,
-					getStation: getStation,
-					getNoShow: getNoShow,
-				}} />
-				<Tab.Screen name="Submit" component={Submit} initialParams={{
-					updateStates: updateStates,
-					resetTrigger: resetTrigger,
-					triggerWriteToFile: triggerFileWrite,
-					getStation: getStation,
-					triggerShare: share,
-					getNoShow: getNoShow,
-				}} />
-			</Tab.Navigator>
-		</SafeAreaView>
-	</NavigationContainer>
+						<Tab.Screen name="Auton" component={Auton} initialParams={{
+							updateStates: updateStates,
+							getStation: getStation,
+							getNoShow: getNoShow,
+						}} />
+						<Tab.Screen name="Teleop" component={Teleop} initialParams={{
+							updateStates: updateStates,
+							getStation: getStation,
+							getNoShow: getNoShow,
+						}} />
+						<Tab.Screen name="EndGame" component={EndGame} initialParams={{
+							updateStates: updateStates,
+							getStation: getStation,
+							getNoShow: getNoShow,
+						}} />
+						<Tab.Screen name="Submit" component={Submit} initialParams={{
+							updateStates: updateStates,
+							triggerWriteToFile: triggerFileWrite,
+							getStation: getStation,
+							triggerShare: share,
+							getNoShow: getNoShow,
+						}} />
+					</Tab.Navigator>
+			</SafeAreaView>
+		</NavigationContainer>
 
 
 	);

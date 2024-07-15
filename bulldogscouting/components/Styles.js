@@ -71,7 +71,7 @@ export const styles = StyleSheet.create({
 
     // Radio button styles
     radioStyle: {
-        padding: 0,
+        padding: 3,
         margin: 8,
         borderWidth: 3,
     },

@@ -9,10 +9,11 @@ import React, { useState, useEffect } from 'react';
 import { styles } from './Styles'
 import Checkbox from 'expo-checkbox';
 import { LinearGradient } from 'expo-linear-gradient';
+import {resetContext } from '../App'
 
 
 export function Auton({ route, navigation }) {
-	const { updateStates, resetTrigger, getStation, getNoShow } = route.params;
+	const { updateStates, getStation, getNoShow } = route.params;
 
 	const [autonNotes, setAutonNotes] = useState(0);
 	const [autonNoteAttempts, setAutonNoteAttempts] = useState(0);
@@ -39,13 +40,15 @@ export function Auton({ route, navigation }) {
 		updateState('usedNoteF', setUsedNoteF, false);
 		updateState('usedNoteG', setUsedNoteG, false);
 		updateState('usedNoteH', setUsedNoteH, false);
-	}, [resetTrigger]);
+	}, [resetContext]);
 
 	// Intermediary state updater function
 	// Sends update to main app and updates local state
 	const updateState = (stateName, stateUpdateFunction, stateValue) => {
-		updateStates({ [stateName]: stateValue });
-		stateUpdateFunction(stateValue);
+		if (!getNoShow()) {
+			updateStates({ [stateName]: stateValue });
+			stateUpdateFunction(stateValue);
+		}
 	};
 
 
@@ -57,36 +60,36 @@ export function Auton({ route, navigation }) {
 				}}
 				disabled={getNoShow()}>
 
-				{({pressed}) => (
-						<LinearGradient
+				{({ pressed }) => (
+					<LinearGradient
 						// Button Linear Gradient
-						colors={pressed?['#268118','#268118','#268118']:['#38bf24', '#32a321', '#29871b']}
-						style={pressed?pressStyle:style}>
-						<Text style={{color:'white', fontStyle:'Bold', fontSize:30}}>+</Text>
+						colors={pressed ? ['#268118', '#268118', '#268118'] : ['#38bf24', '#32a321', '#29871b']}
+						style={pressed ? pressStyle : style}>
+						<Text style={{ color: 'white', fontStyle: 'Bold', fontSize: 30 }}>+</Text>
 					</LinearGradient>
-						)}
+				)}
 			</Pressable >
 		)
 	}
-    const minusButton = (prop, setProp, pressStyle = styles.minusButtonPressed, style = styles.minusButton, disabledStyle = styles.buttonDisabled) => {
-        return (
-            <Pressable
-                onPress={() => {
-                    setProp(Math.max(prop - 1, 0))
-                }}
-                disabled={getNoShow()}>
+	const minusButton = (prop, setProp, pressStyle = styles.minusButtonPressed, style = styles.minusButton, disabledStyle = styles.buttonDisabled) => {
+		return (
+			<Pressable
+				onPress={() => {
+					setProp(Math.max(prop - 1, 0))
+				}}
+				disabled={getNoShow()}>
 
-				{({pressed}) => (
-						<LinearGradient
+				{({ pressed }) => (
+					<LinearGradient
 						// Button Linear Gradient
-						colors={pressed?['#811818','#811818','#811818']:['#c12525', '#a12121', '#881b1b']}
-						style={pressed?pressStyle:style}>
-						<Text style={{color:'white', fontStyle:'Bold', fontSize:30}}>-</Text>
+						colors={pressed ? ['#811818', '#811818', '#811818'] : ['#c12525', '#a12121', '#881b1b']}
+						style={pressed ? pressStyle : style}>
+						<Text style={{ color: 'white', fontStyle: 'Bold', fontSize: 30 }}>-</Text>
 					</LinearGradient>
-						)}
-            </Pressable>
-        )
-    }
+				)}
+			</Pressable>
+		)
+	}
 	const counter = (prop, setProp, name, bold) => {
 		return (
 			<View style={styles.vstack}>

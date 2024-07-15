@@ -8,9 +8,7 @@ import {
 import React, { useState, useEffect } from 'react';
 import { styles } from './Styles'
 import * as FileSystem from 'expo-file-system';
-import { filePath } from '../App'
-
-
+import { filePath,resetContext } from '../App'
 
 const clearFilePass = '3539' // Should be a number
 
@@ -44,7 +42,7 @@ async function clearFile() {
 }
 
 export function Submit({ route, navigation }) {
-	const { updateStates, resetTrigger, getStation, triggerWriteToFile, triggerShare, getNoShow  } = route.params;
+	const { updateStates, getStation, triggerWriteToFile, triggerShare, getNoShow  } = route.params;
 
     const [robotRemarks, setRobotRemarks] = useState('');
     const [matchScoreRed, setMatchScoreRed] = useState('');
@@ -66,13 +64,13 @@ export function Submit({ route, navigation }) {
         updateState('robotRemarks', setRobotRemarks, '');
         updateState('matchScoreRed', setMatchScoreRed, '');
         updateState('matchScoreBlue', setMatchScoreBlue, '');
-    }, [resetTrigger]);
+    }, [resetContext]);
 
     // Intermediary state updater function
     // Sends update to main app and updates local state
     const updateState = (stateName, stateUpdateFunction, stateValue) => {
-        updateStates({ [stateName]: stateValue });
-        stateUpdateFunction(stateValue);
+            updateStates({ [stateName]: stateValue });
+            stateUpdateFunction(stateValue);
     };
 
     if (visible) {
@@ -137,7 +135,7 @@ export function Submit({ route, navigation }) {
             />
 
             <View style={styles.hstack}>
-                <Button title="Submit" onPress={() => triggerWriteToFile()} />
+                <Button title="Submit" onPress={() => triggerWriteToFile(navigation)} />
             </View>
 
             <View style={styles.hstack}>

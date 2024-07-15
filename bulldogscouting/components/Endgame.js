@@ -6,10 +6,11 @@ import React, { useState, useEffect } from 'react';
 import { styles } from './Styles'
 import Checkbox from 'expo-checkbox';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
+import {resetContext } from '../App'
 
 
 export function EndGame({ route, navigation }) {
-	const { updateStates, resetTrigger, getStation, getNoShow } = route.params;
+	const { updateStates, getStation, getNoShow } = route.params;
 
 	const [sideClimb, setSideClimb] = useState(false);
 	const [climbSpeed, setClimbSpeed] = useState('No Climb');
@@ -19,7 +20,7 @@ export function EndGame({ route, navigation }) {
 		console.log('Endgame reset trigger activated');
         updateState('sideClimb', setSideClimb, false);
         updateState('climbSpeed', setClimbSpeed, 'No Climb');
-	}, [resetTrigger]);
+	}, [resetContext]);
 
 	// Intermediary state updater function
 	// Sends update to main app and updates local state
