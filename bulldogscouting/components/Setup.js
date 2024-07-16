@@ -11,47 +11,16 @@ import React, { useState, useEffect } from 'react';
 import { styles } from './Styles'
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import * as FileSystem from 'expo-file-system';
-import { qrDataFilePath, resetContext} from '../App'
+import { qrDataFilePath, resetContext } from '../App'
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import { LinearGradient } from 'expo-linear-gradient';
 
-
-// import {
-// 	Portal,
-// 	Dialog,
-// 	PaperProvider
-// } from 'react-native-paper';
-
-// Keep track of changes so we can update the team number only when we change station, match number,
-// or if we load new qr code data, this will allow us to override the teamnumber if we must.
-var lastMatch = 0;
-var lastStation = '';
-var lastMatchData = {};
 const clearFilePass = '3539' // Should be a number
 
-
-function compareObjects(obj1, obj2) {
-	const keys1 = Object.keys(obj1);
-	const keys2 = Object.keys(obj2);
-
-	// Check if the number of keys is the same
-	if (keys1.length !== keys2.length) {
-		return false;
-	}
-
-	// Check if all keys in obj1 are present in obj2 and have the same values
-	for (let key of keys1) {
-		if (obj1[key] !== obj2[key]) {
-			return false;
-		}
-	}
-
-	// If all checks passed, the objects are equal
-	return true;
-}
-
 export function Setup({ route, navigation }) {
+	//Get the methods that are passed in and store them for later use.
 	const { updateStates, getStation, getNoShow } = route.params;
+
 	// States that reset between matches
 	const [teamNumber, setTeamNumber] = useState('');
 	const [noShow, setNoShow] = useState(false);
@@ -80,10 +49,8 @@ export function Setup({ route, navigation }) {
 		updateState('startArea', setStartArea, 'A');
 		updateState('station', setStation, 'red1');
 		updateState('match', setMatch, "" + (Number(match) + 1));
-		// TODO: how does reset work for the "Camera stuff" states?
-		// only use "updateState" if meant to be included in main state
-		// otherwise the normal setter will do
 	}, [resetContext]);
+
 
 	// Intermediary state updater function
 	// Sends update to main app and updates local state
@@ -98,7 +65,7 @@ export function Setup({ route, navigation }) {
 	}
 
 	async function handleBarCodeScanned({ type, data }) {
-		var copyMatchData = matchData;
+		var copyMatchData ={...matchData} ;
 		setScanned(true);
 
 		// Create an empty dictionary to store parsed data
@@ -122,8 +89,8 @@ export function Setup({ route, navigation }) {
 			};
 
 			copyMatchData[loadedMatchData[0]] = matchTeams
-			setMatchData(copyMatchData);
 		});
+		setMatchData(copyMatchData);
 
 		// Save match data to local storage
 		await FileSystem.writeAsStringAsync(qrDataFilePath, JSON.stringify(matchData));
@@ -135,9 +102,12 @@ export function Setup({ route, navigation }) {
 		);
 	}
 
+	// On application load load the matchData from the files.
 	useEffect(() => {
-		const loadData = async () => { //Must create a new function to use await
+		// Lambdas cant be async so make an async function and call it.
+		const loadData = async () => {
 			try {
+				// Make sure the file exists then parse the json.
 				const dirInfo = await FileSystem.getInfoAsync(qrDataFilePath);
 				if (dirInfo.exists) {
 					const fileContents = await FileSystem.readAsStringAsync(qrDataFilePath);
@@ -152,13 +122,13 @@ export function Setup({ route, navigation }) {
 		loadData();
 	}, []);
 
+
 	async function clearFile() {
-		setMatchData({});
-		console.log('Cleared match data');
-		await FileSystem.writeAsStringAsync(qrDataFilePath, JSON.stringify(matchData));
-		console.log('Cleared File');
+		setMatchData({}); // Sets dont happen till the next code loop so we must clear the file without passing the matchdata
+		await FileSystem.writeAsStringAsync(qrDataFilePath, JSON.stringify({}));
 	}
 
+	// If the password matches make sure the user knows this is permanent before they clear the file.
 	async function tryClearFile(password, setPassword, hideDialog) {
 		if (password == clearFilePass) {
 			Alert.alert(
@@ -174,18 +144,14 @@ export function Setup({ route, navigation }) {
 				[{ text: 'Return' }]
 			);
 		}
-		setPassword('')
-		hideDialog()
+		setPassword('') // Clear out the password forum
+		hideDialog() // Hide this dialog.
 	}
 
+	// If the match, station, or matchData changes set the teamnumber to what matchdata says if we have no match data then clear the box.
 	useEffect(() => {
-		if (match != lastMatch || station != lastStation || !compareObjects(matchData, lastMatchData)) {
-			updateState('teamNumber', setTeamNumber, matchData?.[match]?.[station] ?? '');
-		}
-		lastMatch = match
-		lastStation = station
-		lastMatchData = { ...matchData }
-	}, [match, lastMatch, station, lastStation, matchData, lastMatchData]);
+		updateState('teamNumber', setTeamNumber, matchData?.[match]?.[station] ?? '');
+	}, [match, station, matchData]);
 
 	if (!permission) {
 		// Camera permissions are still loading.
@@ -201,9 +167,11 @@ export function Setup({ route, navigation }) {
 			</View>
 		);
 	}
+	
+	// Password Dialogs caused app lag so instead we just show a password forum and a couple buttons like the dialog.
 	if (visible) {
 		return (
-			
+
 			<View style={styles.vstack}>
 				<TextInput
 					style={styles.SingleLineInput}
@@ -222,6 +190,7 @@ export function Setup({ route, navigation }) {
 		)
 	}
 
+	// If the user presses the scan qr code button then open the scanner.
 	if (scanMode) {
 		return (
 			<View style={styles.cameraContainer}>
@@ -239,7 +208,7 @@ export function Setup({ route, navigation }) {
 		);
 	}
 
-
+	// If nothing else is happening then display the normal setup screen.
 	return (
 		<View style={styles.vstack}>
 			<Text style={{ fontSize: 25 }}>Alliance Station</Text>
@@ -253,7 +222,7 @@ export function Setup({ route, navigation }) {
 						(nextValue) => updateState('station', setStation, nextValue)
 					}
 				>
-					<RadioButtonItem label="Red 1" value="red1"/>
+					<RadioButtonItem label="Red 1" value="red1" />
 					<RadioButtonItem label="Red 2" value="red2" />
 					<RadioButtonItem label="Red 3" value="red3" />
 				</RadioButtonGroup>
