@@ -12,6 +12,7 @@ import {resetContext } from '../App'
 export function EndGame({ route, navigation }) {
 	const { updateStates, getStation, getNoShow } = route.params;
 
+    // States that store specific match data that will be cleared after each submit.
 	const [sideClimb, setSideClimb] = useState(false);
 	const [climbSpeed, setClimbSpeed] = useState('No Climb');
 

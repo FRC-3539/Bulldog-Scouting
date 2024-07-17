@@ -15,6 +15,7 @@ import {resetContext } from '../App'
 export function Auton({ route, navigation }) {
 	const { updateStates, getStation, getNoShow } = route.params;
 
+	// States that store specific match data that will be cleared after each submit.
 	const [autonNotes, setAutonNotes] = useState(0);
 	const [autonNoteAttempts, setAutonNoteAttempts] = useState(0);
 	const [leftAutonZone, setLeftAutonZone] = useState(false);
@@ -26,6 +27,7 @@ export function Auton({ route, navigation }) {
 	const [usedNoteF, setUsedNoteF] = useState(false);
 	const [usedNoteG, setUsedNoteG] = useState(false);
 	const [usedNoteH, setUsedNoteH] = useState(false);
+
 	// On change in reset trigger variable from main app, reset state
 	useEffect(() => {
 		console.log('Auton reset trigger activated');
@@ -52,6 +54,7 @@ export function Auton({ route, navigation }) {
 	};
 
 
+	// Plus button component to make the code cleaner
 	const plusButton = (prop, setProp, pressStyle = styles.plusButtonPressed, style = styles.plusButton, disabledStyle = styles.buttonDisabled) => {
 		return (
 			<Pressable
@@ -62,7 +65,6 @@ export function Auton({ route, navigation }) {
 
 				{({ pressed }) => (
 					<LinearGradient
-						// Button Linear Gradient
 						colors={pressed ? ['#268118', '#268118', '#268118'] : ['#38bf24', '#32a321', '#29871b']}
 						style={pressed ? pressStyle : style}>
 						<Text style={{ color: 'white', fontStyle: 'Bold', fontSize: 30 }}>+</Text>
@@ -71,6 +73,7 @@ export function Auton({ route, navigation }) {
 			</Pressable >
 		)
 	}
+	// Minus button component to make the code cleaner
 	const minusButton = (prop, setProp, pressStyle = styles.minusButtonPressed, style = styles.minusButton, disabledStyle = styles.buttonDisabled) => {
 		return (
 			<Pressable
@@ -81,7 +84,6 @@ export function Auton({ route, navigation }) {
 
 				{({ pressed }) => (
 					<LinearGradient
-						// Button Linear Gradient
 						colors={pressed ? ['#811818', '#811818', '#811818'] : ['#c12525', '#a12121', '#881b1b']}
 						style={pressed ? pressStyle : style}>
 						<Text style={{ color: 'white', fontStyle: 'Bold', fontSize: 30 }}>-</Text>
@@ -90,6 +92,7 @@ export function Auton({ route, navigation }) {
 			</Pressable>
 		)
 	}
+	// Counter component to make the code cleaner
 	const counter = (prop, setProp, name, bold) => {
 		return (
 			<View style={styles.vstack}>

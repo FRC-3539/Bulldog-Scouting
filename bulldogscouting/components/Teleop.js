@@ -14,6 +14,7 @@ import {resetContext } from '../App'
 export function Teleop({ route, navigation }) {
     const { updateStates, getStation, getNoShow } = route.params;
 
+    // States that store specific match data that will be cleared after each submit.
     const [teleopSpeaker, setTeleopSpeaker] = useState(0);
     const [teleopAmp, setTeleopAmp] = useState(0);
     const [teleopSpeakerAttempts, setTeleopSpeakerAttempts] = useState(0);
@@ -46,7 +47,7 @@ export function Teleop({ route, navigation }) {
     };
 
 
-
+	// Plus button component to make the code cleaner
 	const plusButton = (prop, setProp, pressStyle = styles.plusButtonPressed, style = styles.plusButton, disabledStyle = styles.buttonDisabled) => {
 		return (
 			<Pressable
@@ -66,6 +67,7 @@ export function Teleop({ route, navigation }) {
 			</Pressable >
 		)
 	}
+    // Minus button component to make the code cleaner
     const minusButton = (prop, setProp, pressStyle = styles.minusButtonPressed, style = styles.minusButton, disabledStyle = styles.buttonDisabled) => {
         return (
             <Pressable
@@ -85,6 +87,8 @@ export function Teleop({ route, navigation }) {
             </Pressable>
         )
     }
+    
+    // Counter component to make the code cleaner
     const counter = (prop, setProp, name, bold) => {
         return (
             <View style={styles.vstack}>

@@ -8,11 +8,12 @@ import {
 import React, { useState, useEffect } from 'react';
 import { styles } from './Styles'
 import * as FileSystem from 'expo-file-system';
-import { filePath,resetContext } from '../App'
+import { filePath, resetContext } from '../App'
 
-const clearFilePass = '3539' // Should be a number
+const clearFilePass = '3539' // Set a password for clearing the output data file. Should be a number
 
 
+// If the password matches make sure the user knows this is permanent before they clear the file.
 async function tryClearFile(password, setPassword, hideDialog) {
     if (password == clearFilePass) {
         Alert.alert(
@@ -33,23 +34,27 @@ async function tryClearFile(password, setPassword, hideDialog) {
             ]
         );
     }
-    setPassword('');
-    hideDialog();
+    setPassword('') // Clear out the password forum
+    hideDialog() // Hide this dialog.
 }
 
+// Completely clear the file that contains the scouting data.
 async function clearFile() {
     await FileSystem.writeAsStringAsync(filePath, ' ')
 }
 
 export function Submit({ route, navigation }) {
-	const { updateStates, getStation, triggerWriteToFile, triggerShare, getNoShow  } = route.params;
+    const { updateStates, getStation, triggerWriteToFile, triggerShare, getNoShow } = route.params;
 
+    // States that store specific match data that will be cleared after each submit.
     const [robotRemarks, setRobotRemarks] = useState('');
     const [matchScoreRed, setMatchScoreRed] = useState('');
     const [matchScoreBlue, setMatchScoreBlue] = useState('');
 
-    const [visible, setVisible] = React.useState(false)
+    // States for the password dialog.
+    const [visible, setVisible] = useState(false)
     const [password, setPassword] = useState('')
+
 
     const showDialog = () => setVisible(true)
 
@@ -69,10 +74,11 @@ export function Submit({ route, navigation }) {
     // Intermediary state updater function
     // Sends update to main app and updates local state
     const updateState = (stateName, stateUpdateFunction, stateValue) => {
-            updateStates({ [stateName]: stateValue });
-            stateUpdateFunction(stateValue);
+        updateStates({ [stateName]: stateValue });
+        stateUpdateFunction(stateValue);
     };
 
+    // Password Dialogs caused app lag so instead we just show a password forum and a couple buttons like the dialog.
     if (visible) {
         return (
             <View style={styles.vstack}>
@@ -91,7 +97,7 @@ export function Submit({ route, navigation }) {
             </View>);
     }
 
-
+    // If nothing else is happening then display the normal setup screen.
     return (
         <View style={styles.vstack}>
             <View style={styles.hstack}>
@@ -133,11 +139,9 @@ export function Submit({ route, navigation }) {
                 value={robotRemarks}
                 placeholder="Anything else you want to say about this robot?"
             />
-
             <View style={styles.hstack}>
                 <Button title="Submit" onPress={() => triggerWriteToFile(navigation)} />
             </View>
-
             <View style={styles.hstack}>
                 <Button title="Share" onPress={() => triggerShare()} />
                 <Button title="Clear" onPress={() => showDialog()} />

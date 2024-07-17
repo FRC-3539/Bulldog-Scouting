@@ -15,13 +15,13 @@ import { qrDataFilePath, resetContext } from '../App'
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import { LinearGradient } from 'expo-linear-gradient';
 
-const clearFilePass = '3539' // Should be a number
+const clearFilePass = '3539' // Set a password for clearing the qrcodedata. Should be a number
 
 export function Setup({ route, navigation }) {
 	//Get the methods that are passed in and store them for later use.
 	const { updateStates, getStation, getNoShow } = route.params;
 
-	// States that reset between matches
+    // States that store specific match data that will be cleared after each submit.
 	const [teamNumber, setTeamNumber] = useState('');
 	const [noShow, setNoShow] = useState(false);
 	const [preloaded, setPreloaded] = useState(false);
