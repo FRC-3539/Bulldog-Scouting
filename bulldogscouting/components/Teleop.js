@@ -35,28 +35,38 @@ export function Teleop({ route, navigation }) {
         stateUpdateFunction(stateValue);
     };
 
+    var speakerCount = 0
+    var ampCount = 0
+    scoreEvent.forEach(element => {
+        console.log(element)
+        if (element["scorePlace"] == "Speaker")
+            speakerCount++
+        else if (element["scorePlace"] == "Amp")
+            ampCount++
+    });
+
 
     // Plus button component to make the code cleaner
     const scoredButton = (name) => {
         return (
-        <Pressable
-        onPress={() => {
-            setPickedUpNote(false)
-            setPickedUpFrom("")
-            addScoreEvent(name)
-        }}
-        disabled={getNoShow()}
-        style={styles.scoreButton}>
+            <Pressable
+                onPress={() => {
+                    setPickedUpNote(false)
+                    setPickedUpFrom("")
+                    addScoreEvent(name)
+                }}
+                disabled={getNoShow()}
+                style={styles.scoreButton}>
 
-        {({ pressed }) => (
-            <LinearGradient
-                // Button Linear Gradient
-                colors={pressed ? ['#268118', '#268118', '#268118'] : ['#38bf24', '#32a321', '#29871b']}
-                style={pressed ? styles.scoreButtonGradientPressed : styles.scoreButtonGradient}>
-                <Text style={styles.scoreButtonText}>{name}</Text>
-            </LinearGradient>
-        )}
-    </Pressable >
+                {({ pressed }) => (
+                    <LinearGradient
+                        // Button Linear Gradient
+                        colors={pressed ? ['#268118', '#268118', '#268118'] : ['#38bf24', '#32a321', '#29871b']}
+                        style={pressed ? styles.scoreButtonGradientPressed : styles.scoreButtonGradient}>
+                        <Text style={styles.scoreButtonText}>{name}</Text>
+                    </LinearGradient>
+                )}
+            </Pressable >
         )
     }
 
@@ -65,7 +75,7 @@ export function Teleop({ route, navigation }) {
     const addScoreEvent = (scorePlace) => {
         updateState("scoreEvent", setScoreEvent, [ // with a new array
             ...scoreEvent, // that contains all the old items
-            [{ "pickupTime": pickedTime, "pickupLocation": pickedUpFrom.toString(), "scorePlace": scorePlace.toString(), "scoreTime": new Date().toISOString() }] // and one new item at the end
+            { "pickupTime": pickedTime, "pickupLocation": pickedUpFrom.toString(), "scorePlace": scorePlace.toString(), "scoreTime": new Date().toISOString() } // and one new item at the end
         ])
     }
 
@@ -73,6 +83,10 @@ export function Teleop({ route, navigation }) {
         return (
             <View style={styles.vstackFullWidth}>
                 <Text style={{ fontSize: 35, fontWeight: 'bold' }}>Pickup Note From</Text>
+                <View style={styles.hstackFullWidth}>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: "center" }}>Speaker: {speakerCount}</Text>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: "center" }}>Amp: {ampCount}</Text>
+                </View>
                 <Pressable
                     onPress={() => {
                         setPickedUpNote(true)
@@ -134,6 +148,7 @@ export function Teleop({ route, navigation }) {
             </View>
         )
     }
+
     return (
         <View style={styles.vstackFullWidth}>
             <Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: "center" }}>Picked Up Note From {pickedUpFrom} Was Scored In</Text>
@@ -141,7 +156,7 @@ export function Teleop({ route, navigation }) {
             {scoredButton("Amp")}
             {scoredButton("Trap")}
             {scoredButton("Pass")}
-            {scoredButton("Dropped")}
+            {scoredButton("Dropped/Destroyed")}
             {scoredButton("Missed")}
 
             <Pressable
