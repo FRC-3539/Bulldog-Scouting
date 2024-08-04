@@ -123,7 +123,7 @@ export function Auton({ route, navigation }) {
 				<Text></Text>
 				<View style={styles.hstack}>
 					{counter(autonNotes, setAutonNotes, 'Scored Notes', true)}
-					{counter(autonNoteAttempts, setAutonNoteAttempts, 'Failed Notes', true)}
+					{counter(autonNoteAttempts, setAutonNoteAttempts, 'Missed Notes', true)}
 				</View>
 				<Text></Text>
 				<View style={styles.hstackFullWidth}>

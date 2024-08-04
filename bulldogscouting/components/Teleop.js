@@ -8,35 +8,24 @@ import { styles } from './Styles';
 import Checkbox from 'expo-checkbox';
 import React, { useState, useEffect } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import {resetContext } from '../App'
+import { resetContext } from '../App'
 
 
 export function Teleop({ route, navigation }) {
     const { updateStates, getStation, getNoShow } = route.params;
 
+    // States that are used just in this page
+    const [pickedUpNote, setPickedUpNote] = useState(false);
+    const [pickedUpFrom, setPickedUpFrom] = useState("");
+    const [pickedTime, setPickedTime] = useState("");
+
     // States that store specific match data that will be cleared after each submit.
-    const [teleopSpeaker, setTeleopSpeaker] = useState(0);
-    const [teleopAmp, setTeleopAmp] = useState(0);
-    const [teleopSpeakerAttempts, setTeleopSpeakerAttempts] = useState(0);
-    const [teleopAmpAttempts, setTeleopAmpAttempts] = useState(0);
-    const [teleopAmplified, setTeleopAmplified] = useState(0);
-    const [usedAmplification, setUsedAmplification] = useState(false);
-    const [teleopPass, setTeleopPass] = useState(0);
-    const [slams, setSlams] = useState(0);
-    const [shotsBlocked, setShotsBlocked] = useState(0);
+    const [scoreEvent, setScoreEvent] = useState([]);
 
     // On change in reset trigger variable from main app, reset state
     useEffect(() => {
         console.log('Teleop reset trigger activated');
-        updateState('teleopSpeaker', setTeleopSpeaker, 0);
-        updateState('teleopAmp', setTeleopAmp, 0);
-        updateState('teleopSpeakerAttempts', setTeleopSpeakerAttempts, 0);
-        updateState('teleopAmpAttempts', setTeleopAmpAttempts, 0);
-        updateState('teleopAmplified', setTeleopAmplified, 0);
-        updateState('usedAmplification', setUsedAmplification, false);
-        updateState('teleopPass', setTeleopPass, 0);
-        updateState('slams', setSlams, 0);
-        updateState('shotsBlocked', setShotsBlocked, 0);
+        updateState('scoreEvent', setScoreEvent, []);
     }, [resetContext]);
 
     // Intermediary state updater function
@@ -47,96 +36,132 @@ export function Teleop({ route, navigation }) {
     };
 
 
-	// Plus button component to make the code cleaner
-	const plusButton = (prop, setProp, pressStyle = styles.plusButtonPressed, style = styles.plusButton, disabledStyle = styles.buttonDisabled) => {
-		return (
-			<Pressable
-				onPress={() => {
-					setProp(prop + 1)
-				}}
-				disabled={getNoShow()}>
-
-				{({pressed}) => (
-						<LinearGradient
-						// Button Linear Gradient
-						colors={pressed?['#268118','#268118','#268118']:['#38bf24', '#32a321', '#29871b']}
-						style={pressed?pressStyle:style}>
-						<Text style={{color:'white', fontStyle:'Bold', fontSize:30}}>+</Text>
-					</LinearGradient>
-						)}
-			</Pressable >
-		)
-	}
-    // Minus button component to make the code cleaner
-    const minusButton = (prop, setProp, pressStyle = styles.minusButtonPressed, style = styles.minusButton, disabledStyle = styles.buttonDisabled) => {
+    // Plus button component to make the code cleaner
+    const scoredButton = (name) => {
         return (
+        <Pressable
+        onPress={() => {
+            setPickedUpNote(false)
+            setPickedUpFrom("")
+            addScoreEvent(name)
+        }}
+        disabled={getNoShow()}
+        style={styles.scoreButton}>
+
+        {({ pressed }) => (
+            <LinearGradient
+                // Button Linear Gradient
+                colors={pressed ? ['#268118', '#268118', '#268118'] : ['#38bf24', '#32a321', '#29871b']}
+                style={pressed ? styles.scoreButtonGradientPressed : styles.scoreButtonGradient}>
+                <Text style={styles.scoreButtonText}>{name}</Text>
+            </LinearGradient>
+        )}
+    </Pressable >
+        )
+    }
+
+
+    // Counter component to make the code cleaner
+    const addScoreEvent = (scorePlace) => {
+        updateState("scoreEvent", setScoreEvent, [ // with a new array
+            ...scoreEvent, // that contains all the old items
+            [{ "pickupTime": pickedTime, "pickupLocation": pickedUpFrom.toString(), "scorePlace": scorePlace.toString(), "scoreTime": new Date().toISOString() }] // and one new item at the end
+        ])
+    }
+
+    if (!pickedUpNote) {
+        return (
+            <View style={styles.vstackFullWidth}>
+                <Text style={{ fontSize: 35, fontWeight: 'bold' }}>Pickup Note From</Text>
+                <Pressable
+                    onPress={() => {
+                        setPickedUpNote(true)
+                        setPickedUpFrom("Source Area")
+                        setPickedTime(new Date().toISOString())
+
+                    }}
+                    disabled={getNoShow()}
+                    style={styles.pickupButton}>
+
+                    {({ pressed }) => (
+                        <LinearGradient
+                            // Button Linear Gradient
+                            colors={pressed ? ['#268118', '#268118', '#268118'] : ['#38bf24', '#32a321', '#29871b']}
+                            style={pressed ? styles.pickupButtonGradientPressed : styles.pickupButtonGradient}>
+                            <Text style={styles.pickupButtonText}>Source Area</Text>
+                        </LinearGradient>
+                    )}
+                </Pressable >
+                <Pressable
+                    onPress={() => {
+                        setPickedUpNote(true)
+                        setPickedUpFrom("Mid Field")
+                        setPickedTime(new Date().toISOString())
+
+                    }}
+                    disabled={getNoShow()}
+                    style={styles.pickupButton}>
+
+                    {({ pressed }) => (
+                        <LinearGradient
+                            // Button Linear Gradient
+                            colors={pressed ? ['#268118', '#268118', '#268118'] : ['#38bf24', '#32a321', '#29871b']}
+                            style={pressed ? styles.pickupButtonGradientPressed : styles.pickupButtonGradient}>
+                            <Text style={styles.pickupButtonText}>Mid Field</Text>
+                        </LinearGradient>
+                    )}
+                </Pressable >
+
+                <Pressable
+                    onPress={() => {
+                        setPickedUpNote(true)
+                        setPickedUpFrom("Amp/Speaker Area")
+                        setPickedTime(new Date().toISOString())
+
+                    }}
+                    disabled={getNoShow()}
+                    style={styles.pickupButton}>
+
+                    {({ pressed }) => (
+                        <LinearGradient
+                            // Button Linear Gradient
+                            colors={pressed ? ['#268118', '#268118', '#268118'] : ['#38bf24', '#32a321', '#29871b']}
+                            style={pressed ? styles.pickupButtonGradientPressed : styles.pickupButtonGradient}>
+                            <Text style={styles.pickupButtonText}>Amp / Speaker Area</Text>
+                        </LinearGradient>
+                    )}
+                </Pressable >
+            </View>
+        )
+    }
+    return (
+        <View style={styles.vstackFullWidth}>
+            <Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: "center" }}>Picked Up Note From {pickedUpFrom} Was Scored In</Text>
+            {scoredButton("Speaker")}
+            {scoredButton("Amp")}
+            {scoredButton("Trap")}
+            {scoredButton("Pass")}
+            {scoredButton("Dropped")}
+            {scoredButton("Missed")}
+
             <Pressable
                 onPress={() => {
-                    setProp(Math.max(prop - 1, 0))
+                    setPickedUpNote(false)
+                    setPickedUpFrom("")
                 }}
-                disabled={getNoShow()}>
+                disabled={getNoShow()}
+                style={styles.cancelButton}>
 
-				{({pressed}) => (
-						<LinearGradient
-						// Button Linear Gradient
-						colors={pressed?['#811818','#811818','#811818']:['#c12525', '#a12121', '#881b1b']}
-						style={pressed?pressStyle:style}>
-						<Text style={{color:'white', fontStyle:'Bold', fontSize:30}}>-</Text>
-					</LinearGradient>
-						)}
-            </Pressable>
-        )
-    }
-    
-    // Counter component to make the code cleaner
-    const counter = (prop, setProp, name, bold) => {
-        return (
-            <View style={styles.vstack}>
-                <Text style={{ fontSize: 20, fontWeight: bold ? 'bold' : 'regular' }}>{name}</Text>
-                <View style={styles.hstack}>
-                    {plusButton(prop, setProp)}
-                    <Text style={{ fontSize: 16 }}>{prop}</Text>
-                    {minusButton(prop, setProp)}
-                </View>
-            </View>
-        )
-    }
+                {({ pressed }) => (
+                    <LinearGradient
+                        // Button Linear Gradient
+                        colors={pressed ? ['#811818', '#811818', '#811818'] : ['#c12525', '#a12121', '#881b1b']}
+                        style={pressed ? styles.cancelButtonGradientPressed : styles.cancelButtonGradient}>
+                        <Text style={styles.cancelButtonText}>Cancel</Text>
+                    </LinearGradient>
+                )}
+            </Pressable >
 
-    return (
-        <View style={styles.vstack}>
-            <View style={styles.vstack}>
-                <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Speaker</Text>
-                <View style={styles.hstack}>
-                    {counter(teleopSpeaker, setTeleopSpeaker, 'Scored Notes', false)}
-                    {counter(teleopSpeakerAttempts, setTeleopSpeakerAttempts, 'Missed Notes', false)}
-                </View>
-                <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Amp</Text>
-                <View style={styles.hstack}>
-                    {counter(teleopAmp, setTeleopAmp, 'Scored Notes', false)}
-                    {counter(teleopAmpAttempts, setTeleopAmpAttempts, 'Missed Notes', false)}
-                </View>
-                <Text style={{ fontSize: 20 }}></Text>
-                <View style={styles.hstack}>
-                    {counter(teleopPass, setTeleopPass, 'Passes', true)}
-                    {counter(teleopAmplified, setTeleopAmplified, 'Amplified Notes', true)}
-                </View>
-                <Text style={{ fontSize: 20 }}></Text>
-                <View style={styles.hstack}>
-                    {counter(slams, setSlams, 'Slams', true)}
-                    {counter(shotsBlocked, setShotsBlocked, 'Shots Blocked', true)}
-                </View>
-                <View style={styles.radioView}>
-                    <Text>Used Amplication?  </Text>
-                    <Checkbox
-                        value={usedAmplification}
-                        style={styles.checkboxStyle}
-                        onValueChange={
-                            () => updateState('usedAmplification', setUsedAmplification, !usedAmplification)
-                        }
-                    />
-                </View>
-                <Text style={{ fontSize: 30 }}></Text>
-            </View>
         </View>
     )
 }

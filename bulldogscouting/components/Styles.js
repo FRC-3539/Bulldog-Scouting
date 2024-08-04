@@ -38,6 +38,85 @@ export const styles = StyleSheet.create({
         paddingVertical: 2,
     },
 
+    pickupButton: {
+        width: '75%',
+        height: '20%',
+    },
+    cancelButton: {
+    },
+    cancelButtonGradient: {
+        elevation: 10,
+        borderRadius: 20,
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        justifyContent: 'center',
+    },
+    cancelButtonGradientPressed: {
+        borderRadius: 20,
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        justifyContent: 'center',
+    },
+    cancelButtonText:
+    {
+        color: 'white',
+        fontStyle: 'Bold',
+        fontSize: 18,
+        textAlign: 'center',
+    },
+    scoreButton: {
+        width: '75%',
+        height: '10%',
+    },
+    scoreButtonGradient: {
+        elevation: 10,
+        borderRadius: 20,
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+    },
+    scoreButtonGradientPressed: {
+        borderRadius: 20,
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+    },
+    scoreButtonText:
+    {
+        color: 'white',
+        fontStyle: 'Bold',
+        fontSize: 18,
+        textAlign: 'center',
+    },
+    pickupButtonGradient: {
+        elevation: 10,
+        borderRadius: 20,
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+    },
+    pickupButtonGradientPressed: {
+        borderRadius: 20,
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+    },
+    pickupButtonText:
+    {
+        color: 'white',
+        fontStyle: 'Bold',
+        fontSize: 22,
+        textAlign: 'center',
+    },
+
     // Input styles
     SingleLineInput: {
         height: 40,
@@ -65,7 +144,7 @@ export const styles = StyleSheet.create({
     },
 
     checkboxStyle: {
-        padding:12,
+        padding: 12,
         marginLeft: 10,
     },
 
@@ -91,6 +170,13 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
         width: '100%',
+    },
+    vstackFullWidth: {
+        flexDirection: 'column',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
     },
     hstack: {
         width: '100%',
