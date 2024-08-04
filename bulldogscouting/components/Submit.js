@@ -146,9 +146,6 @@ export function Submit({ route, navigation }) {
                 <Button title="Share" onPress={() => triggerShare()} />
                 <Button title="Clear" onPress={() => showDialog()} />
             </View>
-
-
-
         </View>
     )
 }

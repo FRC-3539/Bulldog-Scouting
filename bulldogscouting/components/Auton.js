@@ -9,7 +9,7 @@ import React, { useState, useEffect } from 'react';
 import { styles } from './Styles'
 import Checkbox from 'expo-checkbox';
 import { LinearGradient } from 'expo-linear-gradient';
-import {resetContext } from '../App'
+import { resetContext } from '../App'
 
 
 export function Auton({ route, navigation }) {
@@ -105,6 +105,20 @@ export function Auton({ route, navigation }) {
 			</View>
 		)
 	}
+	// Radio button component to make the code cleaner
+	const radioButton = (label, name, prop, setProp) => {
+		return (
+			<View style={styles.radioView}>
+				<Text>{label}</Text>
+				<Checkbox
+					value={prop}
+					style={styles.checkboxStyle}
+					onValueChange={
+						() => updateState(name, setProp, !prop)
+					}
+				/>
+			</View>)
+	}
 
 	return (
 		<View style={styles.vstack}>
@@ -133,86 +147,13 @@ export function Auton({ route, navigation }) {
 							: require('../assets/RedHalfAuton.png')}
 					/>
 					<View style={styles.vstack}>
-						<View style={styles.radioView}>
-							<Text>A</Text>
-							<Checkbox
-								value={usedNoteA}
-								style={styles.checkboxStyle}
-								onValueChange={
-									() => updateState('usedNoteA', setUsedNoteA, !usedNoteA)
-								}
-							/>
-						</View>
-						<View style={styles.radioView}>
-							<Text>B</Text>
-							<Checkbox
-								value={usedNoteB}
-								style={styles.checkboxStyle}
-								onValueChange={
-									() => updateState('usedNoteB', setUsedNoteB, !usedNoteB)
-								}
-							/>
-						</View>
-						<View style={styles.radioView}>
-							<Text>C</Text>
-							<Checkbox
-								value={usedNoteC}
-								style={styles.checkboxStyle}
-								onValueChange={
-									() => updateState('usedNoteC', setUsedNoteC, !usedNoteC)
-								}
-							/>
-						</View>
-						<View style={styles.radioView}>
-							<Text>D</Text>
-							<Checkbox
-								value={usedNoteD}
-								style={styles.checkboxStyle}
-								onValueChange={
-									() => updateState('usedNoteD', setUsedNoteD, !usedNoteD)
-								}
-							/>
-						</View>
-						<View style={styles.radioView}>
-							<Text>E</Text>
-							<Checkbox
-								value={usedNoteE}
-								style={styles.checkboxStyle}
-								onValueChange={
-									() => updateState('usedNoteE', setUsedNoteE, !usedNoteE)
-								}
-							/>
-						</View>
-						<View style={styles.radioView}>
-							<Text>F</Text>
-							<Checkbox
-								value={usedNoteF}
-								style={styles.checkboxStyle}
-								onValueChange={
-									() => updateState('usedNoteF', setUsedNoteF, !usedNoteF)
-								}
-							/>
-						</View>
-						<View style={styles.radioView}>
-							<Text>G</Text>
-							<Checkbox
-								value={usedNoteG}
-								style={styles.checkboxStyle}
-								onValueChange={
-									() => updateState('usedNoteG', setUsedNoteG, !usedNoteG)
-								}
-							/>
-						</View>
-						<View style={styles.radioView}>
-							<Text>H</Text>
-							<Checkbox
-								value={usedNoteH}
-								style={styles.checkboxStyle}
-								onValueChange={
-									() => updateState('usedNoteH', setUsedNoteH, !usedNoteH)
-								}
-							/>
-						</View>
+						{radioButton('B', 'usedNoteB', usedNoteB, setUsedNoteB)}
+						{radioButton('C', 'usedNoteC', usedNoteC, setUsedNoteC)}
+						{radioButton('D', 'usedNoteD', usedNoteD, setUsedNoteD)}
+						{radioButton('E', 'usedNoteE', usedNoteE, setUsedNoteE)}
+						{radioButton('F', 'usedNoteF', usedNoteF, setUsedNoteF)}
+						{radioButton('G', 'usedNoteG', usedNoteG, setUsedNoteG)}
+						{radioButton('H', 'usedNoteH', usedNoteH, setUsedNoteH)}
 					</View>
 				</View>
 			</View >

@@ -21,6 +21,11 @@ export function Teleop({ route, navigation }) {
 
     // States that store specific match data that will be cleared after each submit.
     const [scoreEvent, setScoreEvent] = useState([]);
+    const [pinFoul, setPinFoul] = useState(0); // G420
+    const [oneNoteFoul, setOneNoteFoul] = useState(0); // G409
+    const [stageProtectionFoul, setStageProtectionFoul] = useState(0); // G424
+    const [contactInsideFrameFoul, setContactInsideFrameFoul] = useState(0); // G417
+    const [podiumProtectionFoul, setPodiumProtectionFoul] = useState(0); // G422
 
     // On change in reset trigger variable from main app, reset state
     useEffect(() => {
@@ -37,12 +42,24 @@ export function Teleop({ route, navigation }) {
 
     var speakerCount = 0
     var ampCount = 0
+    var trapCount = 0
+    var passCount = 0
+    var droppedCount = 0
+    var missedCount = 0
     scoreEvent.forEach(element => {
         console.log(element)
         if (element["scorePlace"] == "Speaker")
             speakerCount++
         else if (element["scorePlace"] == "Amp")
             ampCount++
+        else if (element["scorePlace"] == "Trap")
+            trapCount++
+        else if (element["scorePlace"] == "Pass")
+            passCount++
+        else if (element["scorePlace"] == "Dropped/Destroyed")
+            droppedCount++
+        else if (element["scorePlace"] == "Missed")
+            missedCount++
     });
 
 
@@ -84,8 +101,13 @@ export function Teleop({ route, navigation }) {
             <View style={styles.vstackFullWidth}>
                 <Text style={{ fontSize: 35, fontWeight: 'bold' }}>Pickup Note From</Text>
                 <View style={styles.hstackFullWidth}>
-                    <Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: "center" }}>Speaker: {speakerCount}</Text>
-                    <Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: "center" }}>Amp: {ampCount}</Text>
+                    <Text style={{ fontSize: 10, fontWeight: 'bold', textAlign: "center" }}>Speaker: {speakerCount}</Text>
+                    <Text style={{ fontSize: 10, fontWeight: 'bold', textAlign: "center" }}>Amp: {ampCount}</Text>
+                    <Text style={{ fontSize: 10, fontWeight: 'bold', textAlign: "center" }}>Trap: {trapCount}</Text>
+                    <Text style={{ fontSize: 10, fontWeight: 'bold', textAlign: "center" }}>Pass: {passCount}</Text>
+                    <Text style={{ fontSize: 10, fontWeight: 'bold', textAlign: "center" }}>Dropped/Destroyed: {droppedCount}</Text>
+                    <Text style={{ fontSize: 10, fontWeight: 'bold', textAlign: "center" }}>Missed: {missedCount}</Text>
+
                 </View>
                 <Pressable
                     onPress={() => {
@@ -176,7 +198,6 @@ export function Teleop({ route, navigation }) {
                     </LinearGradient>
                 )}
             </Pressable >
-
         </View>
     )
 }

@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
 
     pickupButton: {
         width: '75%',
-        height: '20%',
+        height: '15%',
     },
     cancelButton: {
     },
