@@ -2,6 +2,8 @@ import {
     StyleSheet,
 } from 'react-native';
 
+
+
 // Define styles
 export const styles = StyleSheet.create({
     // General styles
@@ -133,6 +135,12 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
         padding: 10,
     },
+    horizontalLine: {
+        backgroundColor: 'lightgray',
+        height: 2,
+        width: '100%',
+        marginVertical: 10,
+    },
 
     // Image styles
     setupImage: {
@@ -184,6 +192,19 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
+    },
+    hstackcenter: {
+        width: '100%',
+        padding: 2,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+    },
+    vstackcenter: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
     },
     vstack: {
         flexDirection: 'column',

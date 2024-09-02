@@ -1,15 +1,14 @@
-import {
-	View,
-	Text,
-	Image,
-	Pressable,
-
-} from 'react-native';
-import React, { useState, useEffect } from 'react';
-import { styles } from './Styles'
 import Checkbox from 'expo-checkbox';
 import { LinearGradient } from 'expo-linear-gradient';
-import { resetContext } from '../App'
+import React, { useEffect, useState } from 'react';
+import {
+	Image,
+	Pressable,
+	Text,
+	View,
+} from 'react-native';
+import { resetContext, softResetContext } from '../App';
+import { styles } from './Styles';
 
 
 export function Auton({ route, navigation }) {
@@ -28,6 +27,14 @@ export function Auton({ route, navigation }) {
 	const [usedNoteG, setUsedNoteG] = useState(false);
 	const [usedNoteH, setUsedNoteH] = useState(false);
 
+	const score_good_clicked_colors = ['#268118', '#268118', '#268118']
+	const score_good_enabled_colors = ['#38bf24', '#32a321', '#29871b']
+	const score_good_disabled_colors = ['#ababab', '#ababab', '#ababab']
+
+	const score_bad_clicked_colors = ['#811818', '#811818', '#811818']
+	const score_bad_enabled_colors = ['#c12525', '#a12121', '#881b1b']
+	const score_bad_disabled_colors = ['#ababab', '#ababab', '#ababab']
+
 	// On change in reset trigger variable from main app, reset state
 	useEffect(() => {
 		console.log('Auton reset trigger activated');
@@ -42,30 +49,29 @@ export function Auton({ route, navigation }) {
 		updateState('usedNoteF', setUsedNoteF, false);
 		updateState('usedNoteG', setUsedNoteG, false);
 		updateState('usedNoteH', setUsedNoteH, false);
-	}, [resetContext]);
+	}, [resetContext, softResetContext]);
 
 	// Intermediary state updater function
 	// Sends update to main app and updates local state
 	const updateState = (stateName, stateUpdateFunction, stateValue) => {
-		if (!getNoShow()) {
-			updateStates({ [stateName]: stateValue });
-			stateUpdateFunction(stateValue);
-		}
+		updateStates({ [stateName]: stateValue });
+		stateUpdateFunction(stateValue);
 	};
 
 
+
 	// Plus button component to make the code cleaner
-	const plusButton = (prop, setProp, pressStyle = styles.plusButtonPressed, style = styles.plusButton, disabledStyle = styles.buttonDisabled) => {
+	const plusButton = (name, prop, setProp, disabled, pressStyle = styles.plusButtonPressed, style = styles.plusButton, disabledStyle = styles.buttonDisabled, disabled_colors = score_good_disabled_colors, clicked_colors = score_good_clicked_colors, enabled_colors = score_good_enabled_colors) => {
 		return (
 			<Pressable
 				onPress={() => {
-					setProp(prop + 1)
+					updateState(name, setProp, prop + 1)
 				}}
-				disabled={getNoShow()}>
+				disabled={disabled}>
 
 				{({ pressed }) => (
 					<LinearGradient
-						colors={pressed ? ['#268118', '#268118', '#268118'] : ['#38bf24', '#32a321', '#29871b']}
+						colors={disabled ? disabled_colors : pressed ? clicked_colors : enabled_colors}
 						style={pressed ? pressStyle : style}>
 						<Text style={{ color: 'white', fontStyle: 'Bold', fontSize: 30 }}>+</Text>
 					</LinearGradient>
@@ -74,17 +80,18 @@ export function Auton({ route, navigation }) {
 		)
 	}
 	// Minus button component to make the code cleaner
-	const minusButton = (prop, setProp, pressStyle = styles.minusButtonPressed, style = styles.minusButton, disabledStyle = styles.buttonDisabled) => {
+	const minusButton = (name, prop, setProp, disabled, pressStyle = styles.minusButtonPressed, style = styles.minusButton, disabledStyle = styles.buttonDisabled, disabled_colors = score_bad_disabled_colors, clicked_colors = score_bad_clicked_colors, enabled_colors = score_bad_enabled_colors) => {
 		return (
 			<Pressable
 				onPress={() => {
-					setProp(Math.max(prop - 1, 0))
+					updateState(name, setProp, Math.max(prop - 1, 0))
+
 				}}
-				disabled={getNoShow()}>
+				disabled={disabled}>
 
 				{({ pressed }) => (
 					<LinearGradient
-						colors={pressed ? ['#811818', '#811818', '#811818'] : ['#c12525', '#a12121', '#881b1b']}
+						colors={disabled ? disabled_colors : pressed ? clicked_colors : enabled_colors}
 						style={pressed ? pressStyle : style}>
 						<Text style={{ color: 'white', fontStyle: 'Bold', fontSize: 30 }}>-</Text>
 					</LinearGradient>
@@ -93,26 +100,27 @@ export function Auton({ route, navigation }) {
 		)
 	}
 	// Counter component to make the code cleaner
-	const counter = (prop, setProp, name, bold) => {
+	const counter = (prop, setProp, name, label, bold, disabled) => {
 		return (
 			<View style={styles.vstack}>
-				<Text style={{ fontSize: 20, fontWeight: bold ? 'bold' : 'regular' }}>{name}</Text>
+				<Text style={{ fontSize: 20, fontWeight: bold ? 'bold' : 'regular' }}>{label}</Text>
 				<View style={styles.hstack}>
-					{plusButton(prop, setProp)}
+					{plusButton(name, prop, setProp, disabled)}
 					<Text style={{ fontSize: 16 }}>{prop}</Text>
-					{minusButton(prop, setProp)}
+					{minusButton(name, prop, setProp, disabled)}
 				</View>
 			</View>
 		)
 	}
 	// Radio button component to make the code cleaner
-	const radioButton = (label, name, prop, setProp) => {
+	const radioButton = (label, name, disabled, prop, setProp) => {
 		return (
 			<View style={styles.radioView}>
 				<Text>{label}</Text>
 				<Checkbox
 					value={prop}
 					style={styles.checkboxStyle}
+					disabled={disabled}
 					onValueChange={
 						() => updateState(name, setProp, !prop)
 					}
@@ -129,6 +137,7 @@ export function Auton({ route, navigation }) {
 					<Checkbox
 						value={leftAutonZone}
 						style={styles.checkboxStyle}
+						disabled={getNoShow()}
 						onValueChange={
 							() => updateState('leftAutonZone', setLeftAutonZone, !leftAutonZone)
 						}
@@ -136,8 +145,8 @@ export function Auton({ route, navigation }) {
 				</View>
 				<Text></Text>
 				<View style={styles.hstack}>
-					{counter(autonNotes, setAutonNotes, 'Scored Notes', true)}
-					{counter(autonNoteAttempts, setAutonNoteAttempts, 'Missed Notes', true)}
+					{counter(autonNotes, setAutonNotes, 'autonNotes', 'Scored Notes', true, getNoShow())}
+					{counter(autonNoteAttempts, setAutonNoteAttempts, 'autonNoteAttempts', 'Missed Notes', true, getNoShow())}
 				</View>
 				<Text></Text>
 				<View style={styles.hstackFullWidth}>
@@ -147,13 +156,14 @@ export function Auton({ route, navigation }) {
 							: require('../assets/RedHalfAuton.png')}
 					/>
 					<View style={styles.vstack}>
-						{radioButton('B', 'usedNoteB', usedNoteB, setUsedNoteB)}
-						{radioButton('C', 'usedNoteC', usedNoteC, setUsedNoteC)}
-						{radioButton('D', 'usedNoteD', usedNoteD, setUsedNoteD)}
-						{radioButton('E', 'usedNoteE', usedNoteE, setUsedNoteE)}
-						{radioButton('F', 'usedNoteF', usedNoteF, setUsedNoteF)}
-						{radioButton('G', 'usedNoteG', usedNoteG, setUsedNoteG)}
-						{radioButton('H', 'usedNoteH', usedNoteH, setUsedNoteH)}
+						{radioButton('A', 'usedNoteA', getNoShow(), usedNoteA, setUsedNoteA)}
+						{radioButton('B', 'usedNoteB', getNoShow(), usedNoteB, setUsedNoteB)}
+						{radioButton('C', 'usedNoteC', getNoShow(), usedNoteC, setUsedNoteC)}
+						{radioButton('D', 'usedNoteD', getNoShow(), usedNoteD, setUsedNoteD)}
+						{radioButton('E', 'usedNoteE', getNoShow(), usedNoteE, setUsedNoteE)}
+						{radioButton('F', 'usedNoteF', getNoShow(), usedNoteF, setUsedNoteF)}
+						{radioButton('G', 'usedNoteG', getNoShow(), usedNoteG, setUsedNoteG)}
+						{radioButton('H', 'usedNoteH', getNoShow(), usedNoteH, setUsedNoteH)}
 					</View>
 				</View>
 			</View >

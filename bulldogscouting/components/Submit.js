@@ -1,14 +1,16 @@
+import * as FileSystem from 'expo-file-system';
+import { LinearGradient } from 'expo-linear-gradient';
+import React, { useEffect, useState } from 'react';
 import {
-    TextInput,
-    View,
-    Text,
     Alert,
     Button,
+    Pressable,
+    Text,
+    TextInput,
+    View,
 } from 'react-native';
-import React, { useState, useEffect } from 'react';
-import { styles } from './Styles'
-import * as FileSystem from 'expo-file-system';
-import { filePath, resetContext } from '../App'
+import { filePath, resetContext } from '../App';
+import { styles } from './Styles';
 
 const clearFilePass = '3539' // Set a password for clearing the output data file. Should be a number
 
@@ -62,6 +64,18 @@ export function Submit({ route, navigation }) {
         setVisible(false)
         setPassword('')
     }
+
+    const green_button_clicked_colors = ['#268118', '#268118', '#268118']
+    const green_button_enabled_colors = ['#38bf24', '#32a321', '#29871b']
+    const green_button_disabled_colors = ['#ababab', '#ababab', '#ababab']
+
+    const red_button_clicked_colors = ['#811818', '#811818', '#811818']
+    const red_button_enabled_colors = ['#c12525', '#a12121', '#881b1b']
+    const red_button_disabled_colors = ['#ababab', '#ababab', '#ababab']
+
+    const yellow_button_clicked_colors = ['#bfaa24', '#bfaa24', '#bfaa24']
+    const yellow_button_enabled_colors = ['#ebd12d', '#bfaa24', '#a6931e']
+    const yellow_button_disabled_colors = ['#ababab', '#ababab', '#ababab']
 
     // On change in reset trigger variable from main app, reset state
     useEffect(() => {
@@ -134,17 +148,60 @@ export function Submit({ route, navigation }) {
                 style={styles.MultiLineInput}
                 numberOfLines={8}
                 onChangeText={
-                    text => updateState('robotRemarks', setRobotRemarks, text.trim())
+                    text => updateState('robotRemarks', setRobotRemarks, text)
                 }
                 value={robotRemarks}
                 placeholder="Anything else you want to say about this robot?"
             />
             <View style={styles.hstack}>
-                <Button title="Submit" onPress={() => triggerWriteToFile(navigation)} />
+                <Pressable
+                    onPress={() => {
+                        triggerWriteToFile(navigation)
+                    }}>
+
+                    {({ pressed }) => (
+                        <LinearGradient
+                            colors={pressed ? green_button_clicked_colors : green_button_enabled_colors}
+                            style={pressed ? styles.plusButtonPressed : styles.plusButton}>
+                            <Text style={{ color: 'white', fontStyle: 'Bold', fontSize: 25 }}>Submit</Text>
+                        </LinearGradient>
+                    )}
+                </Pressable>
             </View>
-            <View style={styles.hstack}>
-                <Button title="Share" onPress={() => triggerShare()} />
-                <Button title="Clear" onPress={() => showDialog()} />
+            <View style={styles.hstackcenter}>
+
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
+                    <View style={{ flex: 1, alignItems: 'center' }}>
+                        <Pressable
+                            onPress={() => {
+                                triggerShare()
+                            }}>
+
+                            {({ pressed }) => (
+                                <LinearGradient
+                                    colors={pressed ? yellow_button_clicked_colors : yellow_button_enabled_colors}
+                                    style={pressed ? styles.plusButtonPressed : styles.plusButton}>
+                                    <Text style={{ color: 'white', fontStyle: 'Bold', fontSize: 25 }}>Share</Text>
+                                </LinearGradient>
+                            )}
+                        </Pressable>
+                    </View>
+                    <View style={{ flex: 1, alignItems: 'center' }}>
+                        <Pressable
+                            onPress={() => {
+                                showDialog()
+                            }}>
+
+                            {({ pressed }) => (
+                                <LinearGradient
+                                    colors={pressed ? red_button_clicked_colors : red_button_enabled_colors}
+                                    style={pressed ? styles.plusButtonPressed : styles.plusButton}>
+                                    <Text style={{ color: 'white', fontStyle: 'Bold', fontSize: 25 }}>Clear Data</Text>
+                                </LinearGradient>
+                            )}
+                        </Pressable>
+                    </View>
+                </View>
             </View>
         </View>
     )

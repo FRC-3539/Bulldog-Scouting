@@ -1,12 +1,12 @@
-import {
-    View,
-    Text,
-} from 'react-native';
-import React, { useState, useEffect } from 'react';
-import { styles } from './Styles'
 import Checkbox from 'expo-checkbox';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
-import { resetContext } from '../App'
+import React, { useEffect, useState } from 'react';
+import {
+    Text,
+    View,
+} from 'react-native';
+import { resetContext, softResetContext } from '../App';
+import { styles } from './Styles';
 
 
 export function EndGame({ route, navigation }) {
@@ -21,7 +21,7 @@ export function EndGame({ route, navigation }) {
         console.log('Endgame reset trigger activated');
         updateState('sideClimb', setSideClimb, false);
         updateState('climbSpeed', setClimbSpeed, 'No Climb');
-    }, [resetContext]);
+    }, [resetContext, softResetContext]);
 
     // Intermediary state updater function
     // Sends update to main app and updates local state
@@ -37,10 +37,14 @@ export function EndGame({ route, navigation }) {
                     <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Climb Speed</Text>
                     <RadioButtonGroup
                         selected={climbSpeed}
-                        radioBackground={'lime'}
+                        radioBackground={getNoShow()? "gray":'lime'}
+                        
                         radioStyle={styles.radioStyle}
                         onSelected={
-                            (nextValue) => updateState('climbSpeed', setClimbSpeed, nextValue)
+                            (nextValue) => {
+                                if(!getNoShow())
+                                    updateState('climbSpeed', setClimbSpeed, nextValue)
+                            }
                         }
                     >
                         <RadioButtonItem label="No Climb" value="No Climb" />
@@ -55,6 +59,7 @@ export function EndGame({ route, navigation }) {
                     <Checkbox
                         value={sideClimb}
                         style={styles.checkboxStyle}
+                        disabled={getNoShow()}
                         onValueChange={
                             () => updateState('sideClimb', setSideClimb, !sideClimb)
                         }

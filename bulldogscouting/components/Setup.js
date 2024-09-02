@@ -1,27 +1,29 @@
-import {
-	TextInput,
-	View,
-	Text,
-	Alert,
-	Image,
-	Switch,
-	Button,
-} from 'react-native';
-import React, { useState, useEffect } from 'react';
-import { styles } from './Styles'
+import { useFocusEffect } from '@react-navigation/native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import * as FileSystem from 'expo-file-system';
-import { qrDataFilePath, resetContext } from '../App'
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
-import { LinearGradient } from 'expo-linear-gradient';
+import React, { useCallback, useEffect, useState } from 'react';
+import {
+	Alert,
+	BackHandler,
+	Button,
+	Image,
+	Switch,
+	Text,
+	TextInput,
+	View,
+} from 'react-native';
+import { qrDataFilePath, resetContext, softResetContext } from '../App';
+import { styles } from './Styles';
+
 
 const clearFilePass = '3539' // Set a password for clearing the qrcodedata. Should be a number
 
 export function Setup({ route, navigation }) {
 	//Get the methods that are passed in and store them for later use.
-	const { updateStates, getStation, getNoShow } = route.params;
+	const { updateStates, getStation, getNoShow, triggerSoftReset } = route.params;
 
-    // States that store specific match data that will be cleared after each submit.
+	// States that store specific match data that will be cleared after each submit.
 	const [teamNumber, setTeamNumber] = useState('');
 	const [noShow, setNoShow] = useState(false);
 	const [preloaded, setPreloaded] = useState(false);
@@ -40,6 +42,26 @@ export function Setup({ route, navigation }) {
 	const [password, setPassword] = useState('');
 	const showDialog = () => setVisible(true);
 
+	useFocusEffect(
+        useCallback(() => {
+            const onBackPress = () => {
+                return true; // Prevent default behavior (closing the app)
+            };
+
+            // Add event listener for back button press
+            BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+            // Clean up the event listener when the component is unmounted or loses focus
+            return () => BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+        }, [navigation])
+    );
+
+	// On change in reset trigger variable from main app, reset state
+	useEffect(() => {
+		updateState('station', setStation, 'red1');
+
+	}, []);
+
 	// On change in reset trigger variable from main app, reset state
 	useEffect(() => {
 		console.log('Setup reset trigger activated');
@@ -47,9 +69,15 @@ export function Setup({ route, navigation }) {
 		updateState('noShow', setNoShow, false);
 		updateState('preloaded', setPreloaded, false);
 		updateState('startArea', setStartArea, 'A');
-		updateState('station', setStation, 'red1');
 		updateState('match', setMatch, "" + (Number(match) + 1));
 	}, [resetContext]);
+
+	// On change in soft reset trigger variable from main app, reset state
+	useEffect(() => {
+		console.log('Setup reset trigger activated');
+		updateState('preloaded', setPreloaded, false);
+		updateState('startArea', setStartArea, 'A');
+	}, [softResetContext]);
 
 
 	// Intermediary state updater function
@@ -65,7 +93,7 @@ export function Setup({ route, navigation }) {
 	}
 
 	async function handleBarCodeScanned({ type, data }) {
-		var copyMatchData ={...matchData} ;
+		var copyMatchData = { ...matchData };
 		setScanned(true);
 
 		// Create an empty dictionary to store parsed data
@@ -167,7 +195,7 @@ export function Setup({ route, navigation }) {
 			</View>
 		);
 	}
-	
+
 	// Password Dialogs caused app lag so instead we just show a password forum and a couple buttons like the dialog.
 	if (visible) {
 		return (
@@ -239,17 +267,8 @@ export function Setup({ route, navigation }) {
 					<RadioButtonItem label="Blue 3" value="blue3" />
 				</RadioButtonGroup>
 			</View>
+			<View style={styles.horizontalLine} />
 
-			<View style={styles.hstack}>
-				<View style={styles.vstack}>
-					<Text style={{ fontSize: 18 }}>Preloaded</Text>
-					<Switch onValueChange={() => updateState('preloaded', setPreloaded, !preloaded)} value={preloaded} />
-				</View>
-				<View style={styles.vstack}>
-					<Text style={{ fontSize: 18 }}>No Show</Text>
-					<Switch onValueChange={() => updateState('noShow', setNoShow, !noShow)} value={noShow} />
-				</View>
-			</View>
 
 			<View style={styles.hstack}>
 				<View style={styles.vstack}>
@@ -276,6 +295,20 @@ export function Setup({ route, navigation }) {
 					/>
 				</View>
 			</View>
+			<View style={styles.hstack}>
+				<View style={styles.vstack}>
+					<Text style={{ fontSize: 18 }}>Preloaded</Text>
+					<Switch onValueChange={() => updateState('preloaded', setPreloaded, !preloaded)} value={preloaded} />
+				</View>
+				<View style={styles.vstack}>
+					<Text style={{ fontSize: 18 }}>No Show</Text>
+					<Switch onValueChange={() => {
+						updateState('noShow', setNoShow, !noShow);
+						if (!noShow)
+							triggerSoftReset();
+					}} value={noShow} />
+				</View>
+			</View>
 
 			<View style={styles.hstackFullWidth}>
 				<Image
@@ -286,10 +319,13 @@ export function Setup({ route, navigation }) {
 				<View style={styles.vstack}>
 					<RadioButtonGroup
 						selected={startArea}
-						radioBackground={station?.includes('blue') ? "blue" : "red"}
+						radioBackground={getNoShow() ? "gray" : station?.includes('blue') ? "blue" : "red"}
 						radioStyle={styles.radioStyle}
 						onSelected={
-							(nextValue) => updateState('startArea', setStartArea, nextValue)
+							(nextValue) => {
+								if (!getNoShow())
+									updateState('startArea', setStartArea, nextValue)
+							}
 						}
 					>
 						<RadioButtonItem label="A" value="A" />
