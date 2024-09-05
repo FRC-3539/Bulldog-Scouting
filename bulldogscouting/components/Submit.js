@@ -148,7 +148,11 @@ export function Submit({ route, navigation }) {
                 style={styles.MultiLineInput}
                 numberOfLines={8}
                 onChangeText={
-                    text => updateState('robotRemarks', setRobotRemarks, text)
+                    text => 
+                        {
+                            var sanitizedText = text.replace(/\n/g, ''); // Remove new lines
+                            updateState('robotRemarks', setRobotRemarks, sanitizedText)
+                        }
                 }
                 value={robotRemarks}
                 placeholder="Anything else you want to say about this robot?"
