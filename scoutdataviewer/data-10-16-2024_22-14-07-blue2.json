@@ -1,0 +1,196 @@
+{
+  "matches": [
+    {
+      "station": "blue2",
+      "teamNumber": "3539",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "C",
+      "match": "4",
+      "autonNotes": 6,
+      "autonNoteAttempts": 2,
+      "leftAutonZone": true,
+      "usedNoteA": true,
+      "usedNoteB": true,
+      "usedNoteC": true,
+      "usedNoteD": false,
+      "usedNoteE": true,
+      "usedNoteF": true,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-17T02:13:18.153Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-17T02:13:18.746Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:19.410Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-17T02:13:19.919Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:20.402Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-17T02:13:20.860Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:21.311Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-17T02:13:21.801Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:22.269Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-17T02:13:22.819Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:23.317Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-17T02:13:23.802Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:24.376Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-17T02:13:24.901Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:29.735Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-17T02:13:30.417Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:30.925Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-17T02:13:31.576Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:32.059Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-17T02:13:32.575Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:33.158Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-17T02:13:33.717Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:34.266Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-17T02:13:34.783Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:35.374Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-17T02:13:35.849Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:36.374Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-17T02:13:36.882Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:37.340Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-17T02:13:37.865Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:38.449Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-17T02:13:39.423Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:40.057Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-17T02:13:40.765Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:41.233Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-17T02:13:41.981Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:42.722Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-17T02:13:43.781Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:44.365Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-17T02:13:45.214Z"
+        },
+        {
+          "pickupTime": "2024-10-17T02:13:45.822Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-17T02:13:46.397Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-17T02:13:27.043Z",
+          "foulType": "More than 5 second pin"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Slow",
+      "spotlit": true,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "33",
+      "matchScoreBlue": "77",
+      "passUnderChain": true,
+      "recievedRedCard": true,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "blue2",
+      "teamNumber": "33",
+      "noShow": true,
+      "preloaded": false,
+      "startArea": "A",
+      "match": "5",
+      "autonNotes": 0,
+      "autonNoteAttempts": 0,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [],
+      "foulEvent": [],
+      "sideClimb": false,
+      "climbSpeed": "No Climb",
+      "spotlit": false,
+      "robotRemarks": "",
+      "matchScoreRed": "",
+      "matchScoreBlue": "",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    }
+  ]
+}

@@ -7,20 +7,12 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTeam, setSelectedTeam] = useState(null);
 
-  useEffect(() => {
-    const storedData = localStorage.getItem('scoutingData');
-    if (storedData) {
-      setData(JSON.parse(storedData));
-    }
-  }, []);
-
   const handleFileUpload = (jsons) => {
     const mergedData = jsons.reduce((acc, json) => {
       acc.matches = acc.matches.concat(json.matches);
       return acc;
     }, { matches: [] });
     setData(mergedData);
-    localStorage.setItem('scoutingData', JSON.stringify(mergedData));
   };
 
   const handleSearchChange = (event) => {
