@@ -15,12 +15,14 @@ export function EndGame({ route, navigation }) {
     // States that store specific match data that will be cleared after each submit.
     const [sideClimb, setSideClimb] = useState(false);
     const [climbSpeed, setClimbSpeed] = useState('No Climb');
+    const [spotlit, setSpotlit] = useState(false);
 
     // On change in reset trigger variable from main app, reset state
     useEffect(() => {
         console.log('Endgame reset trigger activated');
         updateState('sideClimb', setSideClimb, false);
         updateState('climbSpeed', setClimbSpeed, 'No Climb');
+        updateState('spotlit', setSpotlit, false);
     }, [resetContext, softResetContext]);
 
     // Intermediary state updater function
@@ -64,8 +66,20 @@ export function EndGame({ route, navigation }) {
                             () => updateState('sideClimb', setSideClimb, !sideClimb)
                         }
                     />
+                    <View style={{ height: 30 }} />
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center' }}>Robot climbed on spotlit chain?</Text>
+                    <Checkbox
+                        value={spotlit}
+                        style={styles.checkboxStyle}
+                        disabled={getNoShow()}
+                        onValueChange={
+                            () => updateState('spotlit', setSpotlit, !spotlit)
+                        }
+                    />
                 </View>
+
             </View>
+            
         </View>
     )
 }

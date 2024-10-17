@@ -36,12 +36,6 @@ export function Teleop({ route, navigation }) {
     const yellow_button_enabled_colors = ['#ebd12d', '#bfaa24', '#a6931e']
     const yellow_button_disabled_colors = ['#ababab', '#ababab', '#ababab']
 
-    // const [pinFoul, setPinFoul] = useState(0); // G420
-    // const [oneNoteFoul, setOneNoteFoul] = useState(0); // G409
-    // const [stageProtectionFoul, setStageProtectionFoul] = useState(0); // G424
-    // const [contactInsideFrameFoul, setContactInsideFrameFoul] = useState(0); // G417
-    // const [podiumProtectionFoul, setPodiumProtectionFoul] = useState(0); // G422
-    
 
     // On change in reset trigger variable from main app, reset state
     useEffect(() => {
@@ -218,6 +212,7 @@ export function Teleop({ route, navigation }) {
                 </View>
 
                 {pickUpButton("Source Area", getNoShow(), green_button_disabled_colors, green_button_clicked_colors, green_button_enabled_colors)}
+                {pickUpButton("Source Area Human Fed", getNoShow(), green_button_disabled_colors, green_button_clicked_colors, green_button_enabled_colors)}
                 {pickUpButton("Mid Field", getNoShow(), green_button_disabled_colors, green_button_clicked_colors, green_button_enabled_colors)}
                 {pickUpButton("Amp/Speaker Area", getNoShow(), green_button_disabled_colors, green_button_clicked_colors, green_button_enabled_colors)}
                 <Pressable
@@ -244,12 +239,33 @@ export function Teleop({ route, navigation }) {
     return (
         <View style={styles.vstackFullWidth}>
             <Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: "center" }}>Picked Up Note From {pickedUpFrom} Was Scored In</Text>
+            {scoredButton("Amped Speaker", getNoShow(), green_button_disabled_colors, green_button_clicked_colors, green_button_enabled_colors)}
             {scoredButton("Speaker", getNoShow(), green_button_disabled_colors, green_button_clicked_colors, green_button_enabled_colors)}
             {scoredButton("Amp", getNoShow(), green_button_disabled_colors, green_button_clicked_colors, green_button_enabled_colors)}
             {scoredButton("Trap", getNoShow(), green_button_disabled_colors, green_button_clicked_colors, green_button_enabled_colors)}
             {scoredButton("Pass", getNoShow(), green_button_disabled_colors, green_button_clicked_colors, green_button_enabled_colors)}
-            {scoredButton("Dropped/Destroyed", getNoShow(), green_button_disabled_colors, green_button_clicked_colors, green_button_enabled_colors)}
+            {scoredButton("Dropped/Destroyed", getNoShow(), yellow_button_disabled_colors, yellow_button_clicked_colors, yellow_button_enabled_colors)}
             {scoredButton("Missed", getNoShow(), yellow_button_disabled_colors, yellow_button_clicked_colors, yellow_button_enabled_colors)}
+
+
+
+            <Pressable
+                    onPress={() => {
+                        setFoulMode(true)
+                        setFoulTime(new Date().toISOString())
+                    }}
+                    disabled={getNoShow()}
+                    style={styles.scoreButton}>
+
+                    {({ pressed }) => (
+                        <LinearGradient
+                            // Button Linear Gradient
+                            colors={getNoShow() ? yellow_button_disabled_colors : pressed ? yellow_button_clicked_colors : yellow_button_enabled_colors}
+                            style={pressed ? styles.scoreButtonGradientPressed : styles.scoreButtonGradient}>
+                            <Text style={styles.scoreButtonText}>Foul</Text>
+                        </LinearGradient>
+                    )}
+                </Pressable >
 
             <Pressable
                 onPress={() => {

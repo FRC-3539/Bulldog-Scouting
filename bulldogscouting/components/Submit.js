@@ -1,3 +1,4 @@
+import Checkbox from 'expo-checkbox';
 import * as FileSystem from 'expo-file-system';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useState } from 'react';
@@ -52,6 +53,9 @@ export function Submit({ route, navigation }) {
     const [robotRemarks, setRobotRemarks] = useState('');
     const [matchScoreRed, setMatchScoreRed] = useState('');
     const [matchScoreBlue, setMatchScoreBlue] = useState('');
+    const [passUnderChain, setPassUnderChain] = useState(false);
+    const [recievedRedCard, setRecievedRedCard] = useState(false);
+    const [recievedYellowCard, setRecievedYellowCard] = useState(false);
 
     // States for the password dialog.
     const [visible, setVisible] = useState(false)
@@ -83,6 +87,9 @@ export function Submit({ route, navigation }) {
         updateState('robotRemarks', setRobotRemarks, '');
         updateState('matchScoreRed', setMatchScoreRed, '');
         updateState('matchScoreBlue', setMatchScoreBlue, '');
+        updateState('passUnderChain', setPassUnderChain, false);
+        updateState('recievedRedCard', setRecievedRedCard, false);
+        updateState('recievedYellowCard', setRecievedYellowCard, false);
     }, [resetContext]);
 
     // Intermediary state updater function
@@ -115,6 +122,17 @@ export function Submit({ route, navigation }) {
     return (
         <View style={styles.vstack}>
             <View style={styles.hstack}>
+                <Checkbox
+                    value={passUnderChain}
+                    style={styles.checkboxStyle}
+                    disabled={getNoShow()}
+                    onValueChange={
+                        () => updateState('passUnderChain', setPassUnderChain, !passUnderChain)
+                    }
+                />
+                <Text style={{ fontSize: 15, fontWeight: 'regular' }}>Did the robot pass under the chain?</Text>
+            </View>
+            <View style={styles.hstack}>
                 <View style={styles.vstack}>
                     <Text style={{ color: 'red', fontWeight: 'bold', fontSize: 20 }}>Red Score</Text>
                     <TextInput
@@ -142,17 +160,43 @@ export function Submit({ route, navigation }) {
                     />
                 </View>
             </View>
+
+            <View style={styles.hstack}>
+                <View style={styles.vstack}>
+                    <Checkbox
+                        value={recievedRedCard}
+                        style={styles.checkboxStyle}
+                        disabled={getNoShow()}
+                        onValueChange={
+                            () => updateState('recievedRedCard', setRecievedRedCard, !recievedRedCard)
+                        }
+                    />
+                    <Text style={{ fontSize: 15, fontWeight: 'regular', textAlign: 'center' }}>Did the robot recieve a red card?</Text>
+                </View>
+                <View style={styles.vstack}>
+                    <Checkbox
+                        value={recievedYellowCard}
+                        style={styles.checkboxStyle}
+                        disabled={getNoShow()}
+                        onValueChange={
+                            () => updateState('recievedYellowCard', setRecievedYellowCard, !recievedYellowCard)
+                        }
+                    />
+                    <Text style={{ fontSize: 15, fontWeight: 'regular', textAlign: 'center' }}>Did the robot recieve a yellow card?</Text>
+                </View>
+            </View>
+            <Text style={{ fontSize: 15, fontWeight: 'bold', textAlign: 'center' }}>If either of the above please explain why</Text>
+
             <TextInput
                 editable
                 multiline
                 style={styles.MultiLineInput}
                 numberOfLines={8}
                 onChangeText={
-                    text => 
-                        {
-                            var sanitizedText = text.replace(/\n/g, ''); // Remove new lines
-                            updateState('robotRemarks', setRobotRemarks, sanitizedText)
-                        }
+                    text => {
+                        var sanitizedText = text.replace(/\n/g, ''); // Remove new lines
+                        updateState('robotRemarks', setRobotRemarks, sanitizedText)
+                    }
                 }
                 value={robotRemarks}
                 placeholder="Anything else you want to say about this robot?"
