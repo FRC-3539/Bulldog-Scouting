@@ -75,16 +75,30 @@ def generate_match(station, team_number, match_number):
 
 def generate_data(num_matches):
     stations = ["blue1", "blue2", "blue3", "red1", "red2", "red3"]
-    teams = ["3539", "33", "254", "118", "1678", "2056","1114", "148", "971", "1671", "1986", "330"]
+    teams = [
+        "3539", "33", "254", "118", "1678", "2056", "1114", "148", "971", "1671",
+        "1986", "330", "111", "71", "469", "987", "1111", "195", "125", "16",
+        "27", "67", "111", "148", "217", "233", "359", "610", "987", "1023"
+    ]
     data = {"matches": []}
+    num_teams = len(teams)
+    matches_per_team = num_matches * len(stations) // num_teams
 
-    for i in range(1, num_matches + 1):
-        for station in stations:
-            team_number = random.choice(teams)
-            data["matches"].append(generate_match(station, team_number, i))
+    # Ensure each team plays the same number of matches
+    team_matches = {team: [] for team in teams}
+    match_number = 1
+
+    for _ in range(num_matches):
+        random.shuffle(teams)
+        for i in range(0, num_teams, len(stations)):
+            match_teams = teams[i:i + len(stations)]
+            for station, team in zip(stations, match_teams):
+                team_matches[team].append(match_number)
+                data["matches"].append(generate_match(station, team, match_number))
+            match_number += 1
 
     return data
 
-data = generate_data(100)  # Generate 10 matches for each station
+data = generate_data(10)  # Generate 10 matches for each station
 with open('data-10-16-2024_22-14-07-blue2.json', 'w') as f:
     json.dump(data, f, indent=2)

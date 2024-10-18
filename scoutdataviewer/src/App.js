@@ -48,11 +48,13 @@ const App = () => {
               onChange={handleSearchChange}
             />
             <ul>
-              {filteredTeams.map((teamNumber, index) => (
-                <li key={index} onClick={() => handleTeamSelect(teamNumber)}>
-                  {teamNumber}
-                </li>
-              ))}
+              {filteredTeams
+                .sort((a, b) => a - b)
+                .map((teamNumber, index) => (
+                  <li key={index} onClick={() => handleTeamSelect(teamNumber)}>
+                    {teamNumber}
+                  </li>
+                ))}
             </ul>
           </div>
           <div className="main-content">
