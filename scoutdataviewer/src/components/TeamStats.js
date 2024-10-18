@@ -5,8 +5,8 @@ import 'chart.js/auto';
 const AverageIgnoreKeys = ['station', 'robotRemarks'];
 
 const percentageConfig = {
-  noShow: true, // true means high percentage is good
-  preload: false, // false means high percentage is bad
+  noShow: false, // true means high percentage is good
+  preloaded: true, // false means high percentage is bad
   usedNoteA: true,
   usedNoteB: true,
   usedNoteC: true,
@@ -124,6 +124,7 @@ const calculateAverages = (matches) => {
   return averages;
 };
 
+
 const calculateMatchPoints = (match) => {
   let points = 0;
 
@@ -219,8 +220,13 @@ const TeamStats = ({ data }) => {
           scales: {
             x: {
               grid: {
-                color: 'lightgray'
+                color: '#333333'
               }
+            },
+            y: {
+              grid: {
+                color: '#333333'
+              },
             },
             'y-axis-scores': {
               type: 'linear',
@@ -258,239 +264,241 @@ const TeamStats = ({ data }) => {
             </div>
             <div style={{ paddingLeft: '20px' }}>
               <input
-                type="text"
-                placeholder="Search attributes"
-                value={attributeSearchTerm}
-                onChange={handleAttributeSearchChange}
+          type="text"
+          placeholder="Search attributes"
+          value={attributeSearchTerm}
+          onChange={handleAttributeSearchChange}
               />
               <h3>Average Stats</h3>
               <table>
-                <thead>
-                  <tr>
-                    <th>Attribute</th>
-                    <th>Average</th>
+          <thead>
+            <tr>
+              <th>Attribute</th>
+              <th>Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredAttributes.map((key) => (
+              key !== 'foulEvent' && key !== 'scoreEvent' && key !== 'matchScoreRed' && key !== 'matchScoreBlue' && key !== 'scoringAreas' && key !== 'startAreas' ? (
+                <tr key={key}>
+            <td>{formatAttributeName(key)}</td>
+            <td>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                {percentageAttributes[key] && (
+                  <div style={{
+              width: `${Math.max(averages[key], 1)}%`,
+              height: '20px',
+              backgroundColor: getFillColor(parseFloat(averages[key]), percentageConfig[key]),
+              marginRight: '10px'
+                  }}></div>
+                )}
+                {averages[key]}{percentageAttributes[key] ? '%' : ''}
+              </div>
+            </td>
+                </tr>
+              ) : null
+            ))}
+            <tr>
+              <td colSpan="2">
+                <details>
+            <summary>Fouls</summary>
+            <table style={{ width: '100%' }}>
+              <thead>
+                <tr>
+                  <th>Foul Type</th>
+                  <th>Foul Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(averages.foulEvent).map(([foulType, details]) => (
+                  <tr key={foulType}>
+              <td style={{ width: '50%' }}>{foulType}</td>
+              <td style={{ width: '50%' }}>
+                <details>
+                  <summary>{details.count} times</summary>
+                  <ul>
+                    {details.matches.map((match, idx) => (
+                <li key={idx}>
+                  <a href={`#match-${match}`} onClick={() => document.getElementById(`match-${match}`).open = true}>
+                    Match {match}
+                  </a>
+                </li>
+                    ))}
+                  </ul>
+                </details>
+              </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {filteredAttributes.map((key) => (
-                    key !== 'foulEvent' && key !== 'scoreEvent' && key !== 'matchScoreRed' && key !== 'matchScoreBlue' && key !== 'scoringAreas' && key !== 'startAreas' ? (
-                      <tr key={key}>
-                        <td>{formatAttributeName(key)}</td>
-                        <td>
-                          <div style={{ display: 'flex', alignItems: 'center' }}>
-                            {percentageAttributes[key] && (
-                              <div style={{
-                                width: `${Math.max(averages[key], 1)}%`,
-                                height: '20px',
-                                backgroundColor: getFillColor(parseFloat(averages[key]), percentageConfig[key]),
-                                marginRight: '10px'
-                              }}></div>
-                            )}
-                            {averages[key]}{percentageAttributes[key] ? '%' : ''}
-                          </div>
-                        </td>
-                      </tr>
-                    ) : null
-                  ))}
-                  <tr>
-                    <td colSpan="2">
-                      <details>
-                        <summary>Fouls</summary>
-                        <table style={{ width: '100%' }}>
-                          <thead>
-                            <tr>
-                              <th>Foul Type</th>
-                              <th>Foul Details</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {Object.entries(averages.foulEvent).map(([foulType, details]) => (
-                              <tr key={foulType}>
-                                <td style={{ width: '50%' }}>{foulType}</td>
-                                <td style={{ width: '50%' }}>
-                                  <details>
-                                    <summary>{details.count} times</summary>
-                                    <ul>
-                                      {details.matches.map((match, idx) => (
-                                        <li key={idx}>
-                                          <a href={`#match-${match}`} onClick={() => document.getElementById(`match-${match}`).open = true}>
-                                            Match {match}
-                                          </a>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </details>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </details>
-                    </td>
+                ))}
+              </tbody>
+            </table>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td colSpan="2">
+                <details>
+            <summary>Comments</summary>
+            <ul>
+              {comments.map((item, idx) => (
+                <li key={idx}>
+                  {item.comment} - <a href={`#match-${item.matchNumber}`} onClick={() => document.getElementById(`match-${item.matchNumber}`).open = true}>
+              Match {item.matchNumber}
+                  </a>
+                </li>
+              ))}
+            </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td colSpan="2">
+                <details>
+            <summary>Scoring Areas</summary>
+            <table style={{ width: '100%' }}>
+              <thead>
+                <tr>
+                  <th>Scoring Area</th>
+                  <th>Average Count</th>
+                  <th>Average Cycle Time (seconds)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(averages.scoringAreas).map(([area, details]) => (
+                  <tr key={area}>
+              <td>{area}</td>
+              <td>{details.averageCount}</td>
+              <td>{details.averageCycleTime}</td>
                   </tr>
-                  <tr>
-                    <td colSpan="2">
-                      <details>
-                        <summary>Comments</summary>
-                        <ul>
-                          {comments.map((item, idx) => (
-                            <li key={idx}>
-                              {item.comment} - <a href={`#match-${item.matchNumber}`} onClick={() => document.getElementById(`match-${item.matchNumber}`).open = true}>
-                                Match {item.matchNumber}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </details>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colSpan="2">
-                      <details>
-                        <summary>Scoring Areas</summary>
-                        <table style={{ width: '100%' }}>
-                          <thead>
-                            <tr>
-                              <th>Scoring Area</th>
-                              <th>Average Count</th>
-                              <th>Average Cycle Time (seconds)</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {Object.entries(averages.scoringAreas).map(([area, details]) => (
-                              <tr key={area}>
-                                <td>{area}</td>
-                                <td>{details.averageCount}</td>
-                                <td>{details.averageCycleTime}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </details>
-                    </td>
-                  </tr>
-                </tbody>
+                ))}
+              </tbody>
+            </table>
+                </details>
+              </td>
+            </tr>
+          </tbody>
               </table>
               <h3>Match Info</h3>
-              {matches.map((match, index) => {
-                const otherTeams = matchesByNumber[match.match].filter(team => team !== teamNumber);
+              {matches
+          .sort((a, b) => a.match - b.match) // Sort matches by match number
+          .map((match, index) => {
+            const otherTeams = matchesByNumber[match.match].filter(team => team !== teamNumber);
 
+            return (
+              <details key={index} id={`match-${match.match}`} style={{ marginBottom: '20px' }}>
+                <summary>Match {match.match}</summary>
+                <table>
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.keys(match)
+                .filter(key => formatAttributeName(key).toLowerCase().includes(attributeSearchTerm.toLowerCase()))
+                .sort() // Sort attributes alphabetically
+                .map((key) => (
+                  key !== 'scoreEvent' && key !== 'foulEvent' ? (
+              <tr key={key}>
+                <td>{formatAttributeName(key)}</td>
+                <td>{match[key].toString()}</td>
+              </tr>
+                  ) : null
+                ))}
+              <tr>
+                <td>Points Scored</td>
+                <td>{calculateMatchPoints(match)}</td>
+              </tr>
+              {match.scoreEvent && (
+                <tr>
+                  <td colSpan="2">
+              <details>
+                <summary>Score Events</summary>
+                <table>
+                  <thead>
+                    <tr>
+                <th>Pickup Location</th>
+                <th>Score Place</th>
+                <th>Time Taken (seconds)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {match.scoreEvent.map((event, idx) => {
+                const pickupTime = new Date(event.pickupTime);
+                const scoreTime = new Date(event.scoreTime);
+                const timeTaken = ((scoreTime - pickupTime) / 1000).toFixed(2);
                 return (
-                  <details key={index} id={`match-${match.match}`} style={{ marginBottom: '20px' }}>
-                    <summary>Match {match.match}</summary>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Attribute</th>
-                          <th>Value</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {Object.keys(match)
-                          .filter(key => formatAttributeName(key).toLowerCase().includes(attributeSearchTerm.toLowerCase()))
-                          .sort() // Sort attributes alphabetically
-                          .map((key) => (
-                            key !== 'scoreEvent' && key !== 'foulEvent' ? (
-                              <tr key={key}>
-                                <td>{formatAttributeName(key)}</td>
-                                <td>{match[key].toString()}</td>
-                              </tr>
-                            ) : null
-                          ))}
-                        <tr>
-                          <td>Points Scored</td>
-                          <td>{calculateMatchPoints(match)}</td>
-                        </tr>
-                        {match.scoreEvent && (
-                          <tr>
-                            <td colSpan="2">
-                              <details>
-                                <summary>Score Events</summary>
-                                <table>
-                                  <thead>
-                                    <tr>
-                                      <th>Pickup Location</th>
-                                      <th>Score Place</th>
-                                      <th>Time Taken (seconds)</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    {match.scoreEvent.map((event, idx) => {
-                                      const pickupTime = new Date(event.pickupTime);
-                                      const scoreTime = new Date(event.scoreTime);
-                                      const timeTaken = ((scoreTime - pickupTime) / 1000).toFixed(2);
-                                      return (
-                                        <tr key={idx}>
-                                          <td>{event.pickupLocation}</td>
-                                          <td>{event.scorePlace}</td>
-                                          <td>{timeTaken}</td>
-                                        </tr>
-                                      );
-                                    })}
-                                  </tbody>
-                                </table>
-                              </details>
-                            </td>
-                          </tr>
-                        )}
-                        {match.foulEvent && (
-                          <tr>
-                            <td colSpan="2">
-                              <details>
-                                <summary>Foul Events</summary>
-                                <table>
-                                  <thead>
-                                    <tr>
-                                      <th>Foul Type</th>
-                                      <th>Foul Details</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    {Object.keys(match.foulEvent.reduce((acc, event) => {
-                                      acc[event.foulType] = acc[event.foulType] || [];
-                                      acc[event.foulType].push(event);
-                                      return acc;
-                                    }, {})).map((foulType, idx) => (
-                                      <tr key={idx}>
-                                        <td>{foulType}</td>
-                                        <td>
-                                          <details>
-                                            <summary>Details</summary>
-                                            <table>
-                                              <thead>
-                                                <tr>
-                                                  <th>Foul Time</th>
-                                                  <th>Match</th>
-                                                </tr>
-                                              </thead>
-                                              <tbody>
-                                                {match.foulEvent.filter(event => event.foulType === foulType).map((event, idx) => (
-                                                  <tr key={idx}>
-                                                    <td>{new Date(event.foulTime).toLocaleString()}</td>
-                                                    <td>
-                                                      <a href={`#match-${match.match}`} onClick={() => document.getElementById(`match-${match.match}`).open = true}>
-                                                        Match {match.match}
-                                                      </a>
-                                                    </td>
-                                                  </tr>
-                                                ))}
-                                              </tbody>
-                                            </table>
-                                          </details>
-                                        </td>
-                                      </tr>
-                                    ))}
-                                  </tbody>
-                                </table>
-                              </details>
-                            </td>
-                          </tr>
-                        )}
-                      </tbody>
-                    </table>
-                  </details>
+                  <tr key={idx}>
+                    <td>{event.pickupLocation}</td>
+                    <td>{event.scorePlace}</td>
+                    <td>{timeTaken}</td>
+                  </tr>
                 );
-              })}
+                    })}
+                  </tbody>
+                </table>
+              </details>
+                  </td>
+                </tr>
+              )}
+              {match.foulEvent && (
+                <tr>
+                  <td colSpan="2">
+              <details>
+                <summary>Foul Events</summary>
+                <table>
+                  <thead>
+                    <tr>
+                <th>Foul Type</th>
+                <th>Foul Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Object.keys(match.foulEvent.reduce((acc, event) => {
+                acc[event.foulType] = acc[event.foulType] || [];
+                acc[event.foulType].push(event);
+                return acc;
+                    }, {})).map((foulType, idx) => (
+                <tr key={idx}>
+                  <td>{foulType}</td>
+                  <td>
+                    <details>
+                      <summary>Details</summary>
+                      <table>
+                  <thead>
+                    <tr>
+                      <th>Foul Time</th>
+                      <th>Match</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {match.foulEvent.filter(event => event.foulType === foulType).map((event, idx) => (
+                      <tr key={idx}>
+                        <td>{new Date(event.foulTime).toLocaleString()}</td>
+                        <td>
+                    <a href={`#match-${match.match}`} onClick={() => document.getElementById(`match-${match.match}`).open = true}>
+                      Match {match.match}
+                    </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                      </table>
+                    </details>
+                  </td>
+                </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </details>
+                  </td>
+                </tr>
+              )}
+            </tbody>
+                </table>
+              </details>
+            );
+          })}
             </div>
           </div>
         );

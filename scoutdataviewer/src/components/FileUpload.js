@@ -17,8 +17,17 @@ const FileUpload = ({ onFileUpload }) => {
   };
 
   return (
-    <div>
-      <input type="file" accept=".json" multiple onChange={handleFileChange} />
+    <div className="file-upload">
+      <input
+        type="file"
+        id="file-input"
+        accept=".json"
+        multiple
+        onChange={handleFileChange}
+      />
+      <label htmlFor="file-input" className="file-upload-button">
+        Choose Files
+      </label>
     </div>
   );
 };

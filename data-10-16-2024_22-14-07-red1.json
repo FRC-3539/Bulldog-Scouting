@@ -1,0 +1,4131 @@
+{
+  "matches": [
+    {
+      "station": "red1",
+      "teamNumber": "148",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "A",
+      "match": "1",
+      "autonNotes": 1,
+      "autonNoteAttempts": 2,
+      "leftAutonZone": true,
+      "usedNoteA": true,
+      "usedNoteB": false,
+      "usedNoteC": true,
+      "usedNoteD": true,
+      "usedNoteE": true,
+      "usedNoteF": true,
+      "usedNoteG": true,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.711560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:14.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:14.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:24.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:24.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:28.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:28.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:38.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:38.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:40.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:40.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:43.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:43.711560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:48.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:48.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:53.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:53.711560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:00.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:00.711560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:06.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:06.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:09.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:09.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:13.711560Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:21.711560Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:25.711560Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:29.711560Z",
+          "foulType": "More than 5 second pin"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Slow",
+      "spotlit": false,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "46",
+      "matchScoreBlue": "91",
+      "passUnderChain": false,
+      "recievedRedCard": true,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "1114",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "A",
+      "match": "2",
+      "autonNotes": 2,
+      "autonNoteAttempts": 1,
+      "leftAutonZone": false,
+      "usedNoteA": true,
+      "usedNoteB": false,
+      "usedNoteC": true,
+      "usedNoteD": true,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": true,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:14.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:14.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:19.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:19.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:21.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:21.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:26.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:26.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:28.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:28.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:38.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:38.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:47.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:47.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:57.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:57.711560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:58.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:58.711560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:04.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:04.711560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:07.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:07.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:10.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:10.711560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:19.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:19.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:21.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:21.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:31.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:31.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:35.711560Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:15.711560Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:23.711560Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:24.711560Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Medium",
+      "spotlit": false,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "67",
+      "matchScoreBlue": "27",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": true
+    },
+    {
+      "station": "red1",
+      "teamNumber": "610",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "A",
+      "match": "3",
+      "autonNotes": 4,
+      "autonNoteAttempts": 0,
+      "leftAutonZone": false,
+      "usedNoteA": true,
+      "usedNoteB": true,
+      "usedNoteC": false,
+      "usedNoteD": true,
+      "usedNoteE": true,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:16.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:16.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:21.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:21.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:25.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:25.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:31.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:31.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:33.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:33.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:37.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:37.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:39.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:39.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:45.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:45.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:47.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:47.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:51.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:51.711560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:00.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:00.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:02.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:02.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:06.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:06.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:16.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:16.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:23.711560Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:19.711560Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:28.711560Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:32.711560Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:35.711560Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:41.711560Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Fast",
+      "spotlit": true,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "83",
+      "matchScoreBlue": "15",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": true
+    },
+    {
+      "station": "red1",
+      "teamNumber": "71",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "A",
+      "match": "4",
+      "autonNotes": 3,
+      "autonNoteAttempts": 1,
+      "leftAutonZone": true,
+      "usedNoteA": true,
+      "usedNoteB": false,
+      "usedNoteC": true,
+      "usedNoteD": false,
+      "usedNoteE": true,
+      "usedNoteF": true,
+      "usedNoteG": true,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:21.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:21.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:29.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:29.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:37.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:37.711560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:42.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:42.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:44.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:44.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:46.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:46.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:52.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:52.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:56.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:56.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:05.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:05.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:13.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:13.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:22.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:22.711560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:31.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:31.711560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:36.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:36.711560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:43.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:43.711560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:45.711560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:45.711560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:46.711560Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:20.712560Z",
+          "foulType": "Illegal defense"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Fast",
+      "spotlit": false,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "100",
+      "matchScoreBlue": "88",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "971",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "B",
+      "match": "6",
+      "autonNotes": 0,
+      "autonNoteAttempts": 5,
+      "leftAutonZone": true,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": true,
+      "usedNoteF": false,
+      "usedNoteG": true,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.712560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:15.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:15.712560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:17.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:17.712560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:20.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:20.712560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:22.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:22.712560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:26.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:26.712560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:34.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:34.712560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:42.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:42.712560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:51.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:51.712560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:52.712560Z"
+        }
+      ],
+      "foulEvent": [],
+      "sideClimb": true,
+      "climbSpeed": "Fast",
+      "spotlit": false,
+      "robotRemarks": "Great job!",
+      "matchScoreRed": "17",
+      "matchScoreBlue": "0",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "118",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "A",
+      "match": "7",
+      "autonNotes": 6,
+      "autonNoteAttempts": 5,
+      "leftAutonZone": false,
+      "usedNoteA": true,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": true,
+      "usedNoteE": true,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.712560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:16.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:16.712560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:21.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:21.712560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:23.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:23.712560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:27.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:27.712560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:33.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:33.712560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:35.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:35.712560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:42.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:42.712560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:51.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:51.712560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:01.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:01.712560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:11.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:11.712560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:20.712560Z"
+        }
+      ],
+      "foulEvent": [],
+      "sideClimb": false,
+      "climbSpeed": "Medium",
+      "spotlit": false,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "63",
+      "matchScoreBlue": "53",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": true
+    },
+    {
+      "station": "red1",
+      "teamNumber": "71",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "B",
+      "match": "8",
+      "autonNotes": 1,
+      "autonNoteAttempts": 3,
+      "leftAutonZone": false,
+      "usedNoteA": true,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": true,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.712560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:20.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:20.712560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:21.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:21.712560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:27.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:27.712560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:32.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:32.712560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:33.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:33.712560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:41.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:41.712560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:43.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:43.712560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:50.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:50.712560Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:54.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:54.712560Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:00.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:00.712560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:04.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:04.712560Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:08.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:08.712560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:10.712560Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:10.712560Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:20.712560Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:15.712560Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:22.712560Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Medium",
+      "spotlit": true,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "11",
+      "matchScoreBlue": "20",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "1111",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "C",
+      "match": "9",
+      "autonNotes": 4,
+      "autonNoteAttempts": 2,
+      "leftAutonZone": true,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": true,
+      "usedNoteE": true,
+      "usedNoteF": true,
+      "usedNoteG": true,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.713561Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:20.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:20.713561Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:30.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:30.713561Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:32.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:32.713561Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:35.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:35.713561Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:39.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:39.713561Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:48.713561Z"
+        }
+      ],
+      "foulEvent": [],
+      "sideClimb": true,
+      "climbSpeed": "Fast",
+      "spotlit": true,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "20",
+      "matchScoreBlue": "32",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "987",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "B",
+      "match": "11",
+      "autonNotes": 1,
+      "autonNoteAttempts": 5,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": true,
+      "usedNoteE": true,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.713561Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:17.713561Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:21.713561Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:30.713561Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:36.713561Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:46.713561Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:52.713561Z",
+          "foulType": "More than 5 second pin"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Fast",
+      "spotlit": false,
+      "robotRemarks": "Great job!",
+      "matchScoreRed": "90",
+      "matchScoreBlue": "68",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "1023",
+      "noShow": true,
+      "preloaded": false,
+      "startArea": "A",
+      "match": "12",
+      "autonNotes": 0,
+      "autonNoteAttempts": 0,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [],
+      "foulEvent": [],
+      "sideClimb": false,
+      "climbSpeed": "No Climb",
+      "spotlit": false,
+      "robotRemarks": "",
+      "matchScoreRed": "",
+      "matchScoreBlue": "",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "2056",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "A",
+      "match": "13",
+      "autonNotes": 9,
+      "autonNoteAttempts": 2,
+      "leftAutonZone": true,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": true,
+      "usedNoteD": true,
+      "usedNoteE": true,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.713561Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:22.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:22.713561Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:26.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:26.713561Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:34.713561Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:21.713561Z",
+          "foulType": "More than 5 second pin"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Fast",
+      "spotlit": true,
+      "robotRemarks": "Great job!",
+      "matchScoreRed": "45",
+      "matchScoreBlue": "10",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "1114",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "B",
+      "match": "14",
+      "autonNotes": 9,
+      "autonNoteAttempts": 0,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": true,
+      "usedNoteC": true,
+      "usedNoteD": true,
+      "usedNoteE": false,
+      "usedNoteF": true,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.713561Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:18.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:18.713561Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:26.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:26.713561Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:27.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:27.713561Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:36.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:36.713561Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:45.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:45.713561Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:55.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:55.713561Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:56.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:56.713561Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:06.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:06.713561Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:14.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:14.713561Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:22.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:22.713561Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:25.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:25.713561Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:28.713561Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:28.713561Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:34.713561Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:19.715064Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Medium",
+      "spotlit": true,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "94",
+      "matchScoreBlue": "85",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": true
+    },
+    {
+      "station": "red1",
+      "teamNumber": "610",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "B",
+      "match": "16",
+      "autonNotes": 2,
+      "autonNoteAttempts": 0,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": true,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:17.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:17.715064Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:27.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:27.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:33.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:33.715064Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:41.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:41.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:42.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:42.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:48.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:48.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:49.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:49.715064Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:54.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:54.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:02.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:02.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:04.715064Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:14.715064Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:19.715064Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Medium",
+      "spotlit": true,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "35",
+      "matchScoreBlue": "26",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "469",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "C",
+      "match": "17",
+      "autonNotes": 4,
+      "autonNoteAttempts": 5,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": true,
+      "usedNoteD": false,
+      "usedNoteE": true,
+      "usedNoteF": true,
+      "usedNoteG": true,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:14.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:14.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:16.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:16.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:19.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:19.715064Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:20.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:20.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:23.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:23.715064Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:25.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:25.715064Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:35.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:35.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:45.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:45.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:55.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:55.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:04.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:04.715064Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:07.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:07.715064Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:13.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:13.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:14.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:14.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:22.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:22.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:32.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:32.715064Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:41.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:41.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:47.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:47.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:55.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:55.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:52:04.715064Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:22.715064Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:28.715064Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:30.715064Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:36.715064Z",
+          "foulType": "More than 5 second pin"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Slow",
+      "spotlit": false,
+      "robotRemarks": "Great job!",
+      "matchScoreRed": "87",
+      "matchScoreBlue": "12",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "3539",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "C",
+      "match": "18",
+      "autonNotes": 8,
+      "autonNoteAttempts": 2,
+      "leftAutonZone": false,
+      "usedNoteA": true,
+      "usedNoteB": true,
+      "usedNoteC": false,
+      "usedNoteD": true,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:17.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:17.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:25.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:25.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:28.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:28.715064Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:37.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:37.715064Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:42.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:42.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:48.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:48.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:54.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:54.715064Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:01.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:01.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:11.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:11.715064Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:14.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:14.715064Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:23.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:23.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:26.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:26.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:33.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:33.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:42.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:42.715064Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:45.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:45.715064Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:48.715064Z"
+        }
+      ],
+      "foulEvent": [],
+      "sideClimb": false,
+      "climbSpeed": "Slow",
+      "spotlit": false,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "86",
+      "matchScoreBlue": "80",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "27",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "A",
+      "match": "19",
+      "autonNotes": 5,
+      "autonNoteAttempts": 5,
+      "leftAutonZone": true,
+      "usedNoteA": true,
+      "usedNoteB": true,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": true,
+      "usedNoteF": true,
+      "usedNoteG": true,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.715064Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:19.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:19.715064Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:21.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:21.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:25.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:25.715064Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:26.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:26.715064Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:31.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:31.715064Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:39.715064Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:39.715064Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:41.715064Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:23.715064Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:26.715064Z",
+          "foulType": "More than 5 second pin"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Medium",
+      "spotlit": false,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "43",
+      "matchScoreBlue": "100",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "111",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "B",
+      "match": "21",
+      "autonNotes": 10,
+      "autonNoteAttempts": 1,
+      "leftAutonZone": false,
+      "usedNoteA": true,
+      "usedNoteB": false,
+      "usedNoteC": true,
+      "usedNoteD": true,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": true,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:22.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:22.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:24.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:24.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:33.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:33.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:36.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:36.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:46.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:46.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:53.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:53.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:59.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:59.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:06.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:06.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:13.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:13.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:14.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:14.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:15.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:15.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:22.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:22.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:24.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:24.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:25.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:25.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:29.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:29.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:37.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:37.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:44.716067Z"
+        }
+      ],
+      "foulEvent": [],
+      "sideClimb": false,
+      "climbSpeed": "Fast",
+      "spotlit": false,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "27",
+      "matchScoreBlue": "94",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "71",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "B",
+      "match": "22",
+      "autonNotes": 6,
+      "autonNoteAttempts": 4,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": true,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:14.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:14.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:24.716067Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:22.716067Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:32.716067Z",
+          "foulType": "More than 5 second pin"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Medium",
+      "spotlit": false,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "22",
+      "matchScoreBlue": "35",
+      "passUnderChain": false,
+      "recievedRedCard": true,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "1671",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "A",
+      "match": "23",
+      "autonNotes": 7,
+      "autonNoteAttempts": 2,
+      "leftAutonZone": true,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": true,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:19.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:19.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:22.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:22.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:24.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:24.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:30.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:30.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:40.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:40.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:41.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:41.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:50.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:50.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:00.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:00.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:08.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:08.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:11.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:11.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:15.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:15.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:19.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:19.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:27.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:27.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:28.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:28.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:38.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:38.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:40.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:40.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:49.716067Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:16.716067Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:23.716067Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:24.716067Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Fast",
+      "spotlit": true,
+      "robotRemarks": "Great job!",
+      "matchScoreRed": "56",
+      "matchScoreBlue": "41",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "33",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "A",
+      "match": "24",
+      "autonNotes": 5,
+      "autonNoteAttempts": 3,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": true,
+      "usedNoteC": true,
+      "usedNoteD": false,
+      "usedNoteE": true,
+      "usedNoteF": true,
+      "usedNoteG": true,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:23.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:23.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:24.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:24.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:32.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:32.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:35.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:35.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:38.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:38.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:43.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:43.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:47.716067Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:22.716067Z",
+          "foulType": "Illegal defense"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Fast",
+      "spotlit": true,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "86",
+      "matchScoreBlue": "66",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "67",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "A",
+      "match": "26",
+      "autonNotes": 4,
+      "autonNoteAttempts": 3,
+      "leftAutonZone": true,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:17.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:17.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:19.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:19.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:25.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:25.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:33.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:33.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:37.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:37.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:46.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:46.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:52.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:52.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:02.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:02.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:04.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:04.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:12.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:12.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:21.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:21.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:22.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:22.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:29.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:29.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:32.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:32.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:40.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:40.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:41.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:41.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:46.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:46.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:50.716067Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:18.716067Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:19.716067Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:26.716067Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:28.716067Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:34.716067Z",
+          "foulType": "Illegal defense"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Slow",
+      "spotlit": false,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "84",
+      "matchScoreBlue": "57",
+      "passUnderChain": false,
+      "recievedRedCard": true,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "359",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "A",
+      "match": "27",
+      "autonNotes": 9,
+      "autonNoteAttempts": 1,
+      "leftAutonZone": true,
+      "usedNoteA": true,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": true,
+      "usedNoteF": true,
+      "usedNoteG": true,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:19.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:19.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:22.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:22.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:23.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:23.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:27.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:27.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:34.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:34.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:35.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:35.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:36.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:36.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:38.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:38.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:44.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:44.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:52.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:52.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:57.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:57.716067Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:58.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:58.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:04.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:04.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:09.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:09.716067Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:17.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:17.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:23.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:23.716067Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:27.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:27.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:36.716067Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:36.716067Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:41.716067Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:19.716067Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:28.716067Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:32.716067Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:37.716067Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:39.716067Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Slow",
+      "spotlit": true,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "58",
+      "matchScoreBlue": "9",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": true
+    },
+    {
+      "station": "red1",
+      "teamNumber": "27",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "C",
+      "match": "28",
+      "autonNotes": 8,
+      "autonNoteAttempts": 2,
+      "leftAutonZone": true,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": true,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": true,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.717069Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:23.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:23.717069Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:32.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:32.717069Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:39.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:39.717069Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:45.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:45.717069Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:52.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:52.717069Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:02.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:02.717069Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:12.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:12.717069Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:14.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:14.717069Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:20.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:20.717069Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:22.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:22.717069Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:23.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:23.717069Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:31.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:31.717069Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:35.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:35.717069Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:39.717069Z"
+        }
+      ],
+      "foulEvent": [],
+      "sideClimb": false,
+      "climbSpeed": "Slow",
+      "spotlit": false,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "47",
+      "matchScoreBlue": "100",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "148",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "B",
+      "match": "29",
+      "autonNotes": 3,
+      "autonNoteAttempts": 4,
+      "leftAutonZone": true,
+      "usedNoteA": true,
+      "usedNoteB": true,
+      "usedNoteC": true,
+      "usedNoteD": true,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": true,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.717069Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:20.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:20.717069Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:28.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:28.717069Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:35.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:35.717069Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:36.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:36.717069Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:39.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:39.717069Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:48.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:48.717069Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:54.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:54.717069Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:59.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:59.717069Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:00.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:00.717069Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:06.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:06.717069Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:16.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:16.717069Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:22.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:22.717069Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:32.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:32.717069Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:34.717069Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:34.717069Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:42.717069Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:16.717069Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Fast",
+      "spotlit": false,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "72",
+      "matchScoreBlue": "64",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "1111",
+      "noShow": true,
+      "preloaded": false,
+      "startArea": "B",
+      "match": "31",
+      "autonNotes": 0,
+      "autonNoteAttempts": 0,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [],
+      "foulEvent": [],
+      "sideClimb": false,
+      "climbSpeed": "No Climb",
+      "spotlit": false,
+      "robotRemarks": "",
+      "matchScoreRed": "",
+      "matchScoreBlue": "",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "1678",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "C",
+      "match": "32",
+      "autonNotes": 7,
+      "autonNoteAttempts": 1,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": true,
+      "usedNoteC": true,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": true,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:16.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:16.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:24.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:24.718074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:26.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:26.718074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:28.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:28.718074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:37.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:37.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:38.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:38.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:47.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:47.718074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:50.718074Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:18.718074Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:25.718074Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:29.718074Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:34.718074Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:40.718074Z",
+          "foulType": "Illegal defense"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Medium",
+      "spotlit": false,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "63",
+      "matchScoreBlue": "85",
+      "passUnderChain": false,
+      "recievedRedCard": true,
+      "recievedYellowCard": true
+    },
+    {
+      "station": "red1",
+      "teamNumber": "195",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "C",
+      "match": "33",
+      "autonNotes": 1,
+      "autonNoteAttempts": 0,
+      "leftAutonZone": true,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": true,
+      "usedNoteD": true,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": true,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:19.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:19.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:20.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:20.718074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:24.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:24.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:32.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:32.718074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:41.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:41.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:45.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:45.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:48.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:48.718074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:51.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:51.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:52.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:52.718074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:57.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:57.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:07.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:07.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:09.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:09.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:16.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:16.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:22.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:22.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:31.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:31.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:33.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:33.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:37.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:37.718074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:44.718074Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:17.718074Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:25.718074Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:29.718074Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:37.718074Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:44.718074Z",
+          "foulType": "Illegal defense"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Fast",
+      "spotlit": true,
+      "robotRemarks": "Great job!",
+      "matchScoreRed": "26",
+      "matchScoreBlue": "40",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "469",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "A",
+      "match": "34",
+      "autonNotes": 7,
+      "autonNoteAttempts": 4,
+      "leftAutonZone": true,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": true,
+      "usedNoteF": true,
+      "usedNoteG": true,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:18.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:18.718074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:26.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:26.718074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:36.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:36.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:39.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:39.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:46.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:46.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:47.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:47.718074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:49.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:49.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:53.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:53.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:55.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:55.718074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:59.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:59.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:03.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:03.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:06.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:06.718074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:15.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:15.718074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:23.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:23.718074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:26.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:26.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:32.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:32.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:38.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:38.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:41.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:41.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:49.718074Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:22.718074Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:25.718074Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:30.718074Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:38.718074Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Slow",
+      "spotlit": false,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "39",
+      "matchScoreBlue": "69",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": true
+    },
+    {
+      "station": "red1",
+      "teamNumber": "610",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "B",
+      "match": "36",
+      "autonNotes": 5,
+      "autonNoteAttempts": 0,
+      "leftAutonZone": true,
+      "usedNoteA": false,
+      "usedNoteB": true,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": true,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:21.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:21.718074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:25.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:25.718074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:29.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:29.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:35.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:35.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:41.718074Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:15.718074Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:16.718074Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:21.718074Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:29.718074Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:36.718074Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Fast",
+      "spotlit": true,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "83",
+      "matchScoreBlue": "23",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "3539",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "A",
+      "match": "37",
+      "autonNotes": 4,
+      "autonNoteAttempts": 4,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": true,
+      "usedNoteC": true,
+      "usedNoteD": true,
+      "usedNoteE": true,
+      "usedNoteF": false,
+      "usedNoteG": true,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.718074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:18.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:18.718074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:20.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:20.718074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:21.718074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:21.718074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:28.718074Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:14.718074Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:18.718074Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:25.718074Z",
+          "foulType": "Illegal defense"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Medium",
+      "spotlit": true,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "14",
+      "matchScoreBlue": "94",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "254",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "A",
+      "match": "38",
+      "autonNotes": 3,
+      "autonNoteAttempts": 5,
+      "leftAutonZone": true,
+      "usedNoteA": true,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": true,
+      "usedNoteG": true,
+      "usedNoteH": false,
+      "scoreEvent": [],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:18.719073Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:25.719073Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:30.719073Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Fast",
+      "spotlit": true,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "77",
+      "matchScoreBlue": "27",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "71",
+      "noShow": true,
+      "preloaded": false,
+      "startArea": "B",
+      "match": "39",
+      "autonNotes": 0,
+      "autonNoteAttempts": 0,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [],
+      "foulEvent": [],
+      "sideClimb": false,
+      "climbSpeed": "No Climb",
+      "spotlit": false,
+      "robotRemarks": "",
+      "matchScoreRed": "",
+      "matchScoreBlue": "",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "971",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "B",
+      "match": "41",
+      "autonNotes": 2,
+      "autonNoteAttempts": 3,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": true,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": true,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.719073Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:23.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:23.719073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:29.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:29.719073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:38.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:38.719073Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:47.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:47.719073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:54.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:54.719073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:02.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:02.719073Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:10.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:10.719073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:18.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:18.719073Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:23.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:23.719073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:24.719073Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:23.719073Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:31.719073Z",
+          "foulType": "More than 5 second pin"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Fast",
+      "spotlit": false,
+      "robotRemarks": "Great job!",
+      "matchScoreRed": "41",
+      "matchScoreBlue": "82",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "16",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "B",
+      "match": "42",
+      "autonNotes": 9,
+      "autonNoteAttempts": 2,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": true,
+      "usedNoteC": true,
+      "usedNoteD": true,
+      "usedNoteE": false,
+      "usedNoteF": true,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.719073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:16.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:16.719073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:20.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:20.719073Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:21.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:21.719073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:22.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:22.719073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:23.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:23.719073Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:24.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:24.719073Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:28.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:28.719073Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:31.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:31.719073Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:34.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:34.719073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:39.719073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:39.719073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:48.719073Z"
+        }
+      ],
+      "foulEvent": [],
+      "sideClimb": false,
+      "climbSpeed": "Fast",
+      "spotlit": true,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "100",
+      "matchScoreBlue": "87",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": true
+    },
+    {
+      "station": "red1",
+      "teamNumber": "67",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "C",
+      "match": "43",
+      "autonNotes": 6,
+      "autonNoteAttempts": 4,
+      "leftAutonZone": false,
+      "usedNoteA": false,
+      "usedNoteB": true,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": true,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.720074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:14.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:14.720074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:18.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:18.720074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:28.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:28.720074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:36.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:36.720074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:45.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:45.720074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:49.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:49.720074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:51.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:51.720074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:59.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:59.720074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:03.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:03.720074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:08.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:08.720074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:16.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:16.720074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:22.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:22.720074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:31.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:31.720074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:40.720074Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:20.720074Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Fast",
+      "spotlit": true,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "32",
+      "matchScoreBlue": "32",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "2056",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "A",
+      "match": "44",
+      "autonNotes": 5,
+      "autonNoteAttempts": 5,
+      "leftAutonZone": true,
+      "usedNoteA": false,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": false,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.720074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:18.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:18.720074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:22.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:22.720074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:27.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:27.720074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:35.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:35.720074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:41.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:41.720074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:42.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:42.720074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:46.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:46.720074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:55.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:55.720074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:50:57.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:57.720074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:00.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:00.720074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:02.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:02.720074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:08.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:08.720074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:14.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:14.720074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:18.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:18.720074Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:19.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:19.720074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:20.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:20.720074Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:23.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:23.720074Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:30.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:30.720074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:31.720074Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:31.720074Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:37.720074Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:14.720074Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:23.720074Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:30.720074Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:36.720074Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:41.720074Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Medium",
+      "spotlit": false,
+      "robotRemarks": "Needs improvement",
+      "matchScoreRed": "90",
+      "matchScoreBlue": "25",
+      "passUnderChain": true,
+      "recievedRedCard": true,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "971",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "C",
+      "match": "46",
+      "autonNotes": 10,
+      "autonNoteAttempts": 0,
+      "leftAutonZone": false,
+      "usedNoteA": true,
+      "usedNoteB": false,
+      "usedNoteC": false,
+      "usedNoteD": true,
+      "usedNoteE": false,
+      "usedNoteF": true,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:19.720074Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:23.720074Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:25.720074Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:35.720074Z",
+          "foulType": "More than 5 second pin"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:44.720074Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Fast",
+      "spotlit": false,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "9",
+      "matchScoreBlue": "16",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "1023",
+      "noShow": false,
+      "preloaded": true,
+      "startArea": "A",
+      "match": "47",
+      "autonNotes": 7,
+      "autonNoteAttempts": 4,
+      "leftAutonZone": false,
+      "usedNoteA": true,
+      "usedNoteB": true,
+      "usedNoteC": true,
+      "usedNoteD": false,
+      "usedNoteE": false,
+      "usedNoteF": true,
+      "usedNoteG": true,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.721073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:23.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:23.721073Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:28.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:28.721073Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:35.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:35.721073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:37.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:37.721073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:39.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:39.721073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:41.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:41.721073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:50:51.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:51.721073Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:56.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:56.721073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:04.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:04.721073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:05.721073Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:18.721073Z",
+          "foulType": "Illegal defense"
+        }
+      ],
+      "sideClimb": false,
+      "climbSpeed": "Fast",
+      "spotlit": true,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "19",
+      "matchScoreBlue": "39",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "987",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "C",
+      "match": "48",
+      "autonNotes": 8,
+      "autonNoteAttempts": 2,
+      "leftAutonZone": true,
+      "usedNoteA": false,
+      "usedNoteB": true,
+      "usedNoteC": true,
+      "usedNoteD": true,
+      "usedNoteE": true,
+      "usedNoteF": true,
+      "usedNoteG": false,
+      "usedNoteH": false,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.721073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:22.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:22.721073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:28.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:28.721073Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:32.721073Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:23.721073Z",
+          "foulType": "Illegal defense"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:26.721073Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:30.721073Z",
+          "foulType": "Out of bounds"
+        },
+        {
+          "foulTime": "2024-10-18T00:50:34.721073Z",
+          "foulType": "More than 5 second pin"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Slow",
+      "spotlit": false,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "92",
+      "matchScoreBlue": "43",
+      "passUnderChain": true,
+      "recievedRedCard": false,
+      "recievedYellowCard": false
+    },
+    {
+      "station": "red1",
+      "teamNumber": "1671",
+      "noShow": false,
+      "preloaded": false,
+      "startArea": "C",
+      "match": "49",
+      "autonNotes": 7,
+      "autonNoteAttempts": 3,
+      "leftAutonZone": false,
+      "usedNoteA": true,
+      "usedNoteB": true,
+      "usedNoteC": false,
+      "usedNoteD": false,
+      "usedNoteE": true,
+      "usedNoteF": false,
+      "usedNoteG": true,
+      "usedNoteH": true,
+      "scoreEvent": [
+        {
+          "pickupTime": "2024-10-18T00:50:13.721073Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:20.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:20.721073Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:50:25.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:25.721073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:50:27.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:27.721073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:31.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:31.721073Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:50:39.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:39.721073Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:48.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:48.721073Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:50:54.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:54.721073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:50:59.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:50:59.721073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:01.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:01.721073Z",
+          "pickupLocation": "Source Area",
+          "scorePlace": "Dropped/Destroyed",
+          "scoreTime": "2024-10-18T00:51:03.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:03.721073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:10.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:10.721073Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Pass",
+          "scoreTime": "2024-10-18T00:51:17.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:17.721073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amped Speaker",
+          "scoreTime": "2024-10-18T00:51:18.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:18.721073Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Speaker",
+          "scoreTime": "2024-10-18T00:51:23.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:23.721073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Missed",
+          "scoreTime": "2024-10-18T00:51:31.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:31.721073Z",
+          "pickupLocation": "Source Area Human Fed",
+          "scorePlace": "Amp",
+          "scoreTime": "2024-10-18T00:51:38.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:38.721073Z",
+          "pickupLocation": "Mid Field",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:42.721073Z"
+        },
+        {
+          "pickupTime": "2024-10-18T00:51:42.721073Z",
+          "pickupLocation": "Amp/Speaker Area",
+          "scorePlace": "Trap",
+          "scoreTime": "2024-10-18T00:51:49.721073Z"
+        }
+      ],
+      "foulEvent": [
+        {
+          "foulTime": "2024-10-18T00:50:22.721073Z",
+          "foulType": "Out of bounds"
+        }
+      ],
+      "sideClimb": true,
+      "climbSpeed": "Slow",
+      "spotlit": false,
+      "robotRemarks": "Boooo",
+      "matchScoreRed": "7",
+      "matchScoreBlue": "68",
+      "passUnderChain": false,
+      "recievedRedCard": false,
+      "recievedYellowCard": true
+    }
+  ]
+}

@@ -43,6 +43,24 @@ h1, h2, h3, h4 {
   box-sizing: border-box;
 }
 
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #333333;
+  color: #e0e0e0;
+  border: none;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  background-color: #555555;
+}
+
 details {
   margin-bottom: 10px;
 }
@@ -99,4 +117,122 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Styles for the file upload button */
+.file-upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#file-input {
+  display: none;
+}
+
+.file-upload-button {
+  padding: 10px 20px;
+  background-color: #1e90ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload-button:hover {
+  background-color: #1c86ee;
+}
+
+/* Styles for the save button */
+.save-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #218838;
+}
+
+/* Styles for the apply button */
+.apply-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.apply-button:hover {
+  background-color: #0056b3;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.modal-content h2 {
+  color: #ffffff;
+}
+
+.modal-content p {
+  color: #e0e0e0;
+}
+
+.modal-content input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #333333;
+  color: #e0e0e0;
+  border: 1px solid #555555;
+  border-radius: 5px;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #555555;
+  border-radius: 6px;
+  border: 3px solid #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #777777;
 }
