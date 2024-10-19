@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import FileUpload from './components/FileUpload';
 import TeamStats from './components/TeamStats';
 import TeamRankings from './components/TeamRankings';
+import Picklist from './components/Picklist'; // Import the Picklist component
 
 const App = () => {
   const [data, setData] = useState({ matches: [] });
@@ -9,6 +10,7 @@ const App = () => {
   const [selectedTeam, setSelectedTeam] = useState(null);
   const [activeTab, setActiveTab] = useState('stats');
   const [missingTeamQueue, setMissingTeamQueue] = useState([]);
+  const [picklist, setPicklist] = useState([]);
   const teamNumberInputRef = useRef(null);
 
   const handleFileUpload = (jsons) => {
@@ -49,18 +51,55 @@ const App = () => {
   };
 
   const handleTeamSelect = (teamNumber) => {
-    setSelectedTeam(teamNumber);
-    setActiveTab('stats');
+    if (activeTab === 'picklist') {
+      addToPicklist(teamNumber);
+    } else {
+      setSelectedTeam(teamNumber);
+      setActiveTab('stats');
+    }
   };
 
   const filteredTeams = data.matches
     .map(match => match.teamNumber)
     .filter((teamNumber, index, self) => self.indexOf(teamNumber) === index)
-    .filter(teamNumber => teamNumber.includes(searchTerm));
+    .filter(teamNumber => {
+      const searchTerms = searchTerm.split(',').map(term => term.trim());
+      return searchTerms.some(term => teamNumber.includes(term));
+    });
 
   const filteredMatches = selectedTeam
     ? data.matches.filter((match) => match.teamNumber === selectedTeam)
     : [];
+
+  const moveTeamUp = (index) => {
+    if (index === 0) return;
+    const updatedPicklist = [...picklist];
+    [updatedPicklist[index - 1], updatedPicklist[index]] = [updatedPicklist[index], updatedPicklist[index - 1]];
+    setPicklist(updatedPicklist);
+  };
+
+  const moveTeamDown = (index) => {
+    if (index === picklist.length - 1) return;
+    const updatedPicklist = [...picklist];
+    [updatedPicklist[index + 1], updatedPicklist[index]] = [updatedPicklist[index], updatedPicklist[index + 1]];
+    setPicklist(updatedPicklist);
+  };
+
+  const deleteTeam = (index) => {
+    const updatedPicklist = [...picklist];
+    updatedPicklist.splice(index, 1);
+    setPicklist(updatedPicklist);
+  };
+
+  const clearPicklist = () => {
+    setPicklist([]);
+  };
+
+  const addToPicklist = (teamNumber) => {
+    if (!picklist.includes(teamNumber)) {
+      setPicklist([...picklist, teamNumber]);
+    }
+  };
 
   return (
     <div className="app-container">
@@ -106,12 +145,22 @@ const App = () => {
             <div className="tabs">
               <button onClick={() => setActiveTab('stats')} className={activeTab === 'stats' ? 'active' : ''}>Team Stats</button>
               <button onClick={() => setActiveTab('rankings')} className={activeTab === 'rankings' ? 'active' : ''}>Team Rankings</button>
+              <button onClick={() => setActiveTab('picklist')} className={activeTab === 'picklist' ? 'active' : ''}>Picklist</button>
             </div>
             {activeTab === 'stats' && selectedTeam && (
               <TeamStats data={{ matches: filteredMatches }} />
             )}
             {activeTab === 'rankings' && (
               <TeamRankings data={data} onTeamSelect={handleTeamSelect} />
+            )}
+            {activeTab === 'picklist' && (
+              <Picklist
+                picklist={picklist}
+                moveTeamUp={moveTeamUp}
+                moveTeamDown={moveTeamDown}
+                deleteTeam={deleteTeam}
+                clearPicklist={clearPicklist}
+              />
             )}
           </div>
         </div>

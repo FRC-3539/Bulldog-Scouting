@@ -18,7 +18,7 @@ const FileUpload = ({ onFileUpload }) => {
             return {
               ...match,
               preloaded: false,
-              startArea: "N/A",
+              startArea: "",
               autonNotes: 0,
               autonNoteAttempts: 0,
               leftAutonZone: false,
