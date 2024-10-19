@@ -66,8 +66,8 @@ def generate_match(station, team_number, match_number):
         "climbSpeed": "No Climb" if no_show else random.choice(["Slow", "Medium", "Fast"]),
         "spotlit": not no_show and random.random() < 0.5,
         "robotRemarks": "" if no_show else random.choice(["Great job!", "Needs improvement", "Boooo"]),
-        "matchScoreRed": "" if no_show else str(random.randint(0, 100)),
-        "matchScoreBlue": "" if no_show else str(random.randint(0, 100)),
+        "matchScoreRed": str(random.randint(0, 100)),
+        "matchScoreBlue": str(random.randint(0, 100)),
         "passUnderChain": not no_show and random.random() < 0.5,
         "recievedRedCard": not no_show and random.random() < 0.1,
         "recievedYellowCard": not no_show and random.random() < 0.2

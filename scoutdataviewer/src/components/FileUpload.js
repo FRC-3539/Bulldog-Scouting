@@ -12,7 +12,39 @@ const FileUpload = ({ onFileUpload }) => {
     Promise.all(readers.map(reader => new Promise(resolve => {
       reader.onload = (e) => resolve(JSON.parse(e.target.result));
     }))).then(jsons => {
-      onFileUpload(jsons);
+      const updatedJsons = jsons.map(json => {
+        json.matches = json.matches.map(match => {
+          if (match.noShow) {
+            return {
+              ...match,
+              preloaded: false,
+              startArea: "N/A",
+              autonNotes: 0,
+              autonNoteAttempts: 0,
+              leftAutonZone: false,
+              usedNoteA: false,
+              usedNoteB: false,
+              usedNoteC: false,
+              usedNoteD: false,
+              usedNoteE: false,
+              usedNoteF: false,
+              usedNoteG: false,
+              usedNoteH: false,
+              scoreEvent: [],
+              foulEvent: [],
+              sideClimb: false,
+              climbSpeed: "No Climb",
+              spotlit: false,
+              passUnderChain: false,
+              recievedRedCard: false,
+              recievedYellowCard: false,
+            };
+          }
+          return match;
+        });
+        return json;
+      });
+      onFileUpload(updatedJsons);
     });
   };
 
