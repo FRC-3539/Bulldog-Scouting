@@ -2,7 +2,7 @@
   "matches": [
     {
       "station": "blue2",
-      "teamNumber": "610",
+      "teamNumber": "",
       "noShow": false,
       "preloaded": false,
       "startArea": "A",
@@ -340,7 +340,7 @@
     },
     {
       "station": "blue2",
-      "teamNumber": "27",
+      "teamNumber": "",
       "noShow": false,
       "preloaded": false,
       "startArea": "A",
@@ -752,7 +752,7 @@
     },
     {
       "station": "blue2",
-      "teamNumber": "118",
+      "teamNumber": "",
       "noShow": false,
       "preloaded": true,
       "startArea": "A",

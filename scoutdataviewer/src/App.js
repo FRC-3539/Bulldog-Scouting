@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import FileUpload from './components/FileUpload';
 import TeamStats from './components/TeamStats';
 import TeamRankings from './components/TeamRankings';
@@ -8,7 +8,8 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTeam, setSelectedTeam] = useState(null);
   const [activeTab, setActiveTab] = useState('stats');
-  const [missingTeamInfo, setMissingTeamInfo] = useState(null);
+  const [missingTeamQueue, setMissingTeamQueue] = useState([]);
+  const teamNumberInputRef = useRef(null);
 
   const handleFileUpload = (jsons) => {
     const mergedData = jsons.reduce((acc, json) => {
@@ -20,23 +21,27 @@ const App = () => {
   };
 
   const checkForMissingTeamNumbers = (matches) => {
-    const missingTeamMatch = matches.find(match => !match.teamNumber);
-    if (missingTeamMatch) {
-      setMissingTeamInfo(missingTeamMatch);
+    const missingTeams = matches.filter(match => !match.teamNumber);
+    if (missingTeams.length > 0) {
+      setMissingTeamQueue(missingTeams);
     }
   };
 
   const handleTeamNumberSubmit = (teamNumber) => {
+    if (!teamNumber) return;
     setData(prevData => {
       const updatedMatches = prevData.matches.map(match => {
-        if (match.station === missingTeamInfo.station && match.match === missingTeamInfo.match) {
+        if (match.station === missingTeamQueue[0].station && match.match === missingTeamQueue[0].match) {
           return { ...match, teamNumber };
         }
         return match;
       });
       return { ...prevData, matches: updatedMatches };
     });
-    setMissingTeamInfo(null);
+    setMissingTeamQueue(prevQueue => prevQueue.slice(1));
+    if (teamNumberInputRef.current) {
+      teamNumberInputRef.current.value = '';
+    }
   };
 
   const handleSearchChange = (event) => {
@@ -47,7 +52,7 @@ const App = () => {
     setSelectedTeam(teamNumber);
     setActiveTab('stats');
   };
-  
+
   const filteredTeams = data.matches
     .map(match => match.teamNumber)
     .filter((teamNumber, index, self) => self.indexOf(teamNumber) === index)
@@ -63,18 +68,18 @@ const App = () => {
         <h1>Bulldog Scouting</h1>
         <FileUpload onFileUpload={handleFileUpload} />
       </div>
-      {missingTeamInfo && (
+      {missingTeamQueue.length > 0 && (
         <div className="modal">
           <div className="modal-content">
             <h2>Missing Team Number</h2>
-            <p>Station: {missingTeamInfo.station}</p>
-            <p>Match Number: {missingTeamInfo.match}</p>
+            <p>Station: {missingTeamQueue[0].station}</p>
+            <p>Match Number: {missingTeamQueue[0].match}</p>
             <input
               type="text"
               placeholder="Enter Team Number"
-              onBlur={(e) => handleTeamNumberSubmit(e.target.value)}
+              ref={teamNumberInputRef}
             />
-            <button className="apply-button" onClick={() => handleTeamNumberSubmit(document.querySelector('.modal-content input').value)}>Apply</button>
+            <button className="apply-button" onClick={() => handleTeamNumberSubmit(teamNumberInputRef.current.value)}>Apply</button>
           </div>
         </div>
       )}
@@ -106,7 +111,7 @@ const App = () => {
               <TeamStats data={{ matches: filteredMatches }} />
             )}
             {activeTab === 'rankings' && (
-              <TeamRankings data={data} />
+              <TeamRankings data={data} onTeamSelect={handleTeamSelect} />
             )}
           </div>
         </div>

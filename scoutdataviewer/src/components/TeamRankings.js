@@ -52,7 +52,7 @@ const calculateMatchPoints = (match) => {
   return points;
 };
 
-const TeamRankings = ({ data }) => {
+const TeamRankings = ({ data, onTeamSelect }) => {
   const teams = data.matches.reduce((acc, match) => {
     const teamNumber = match.teamNumber;
     if (!acc[teamNumber]) {
@@ -102,6 +102,16 @@ const TeamRankings = ({ data }) => {
     maintainAspectRatio: false,
     responsive: true,
     aspectRatio: 2, // Make the chart a little smaller
+    onClick: (event, elements) => {
+      if (elements.length > 0) {
+        const index = elements[0].index;
+        const teamNumber = sortedTeams[index].teamNumber;
+        onTeamSelect(teamNumber);
+      }
+    },
+    onHover: (event, elements) => {
+      event.native.target.style.cursor = elements.length > 0 ? 'pointer' : 'default';
+    }
   };
 
   return (
