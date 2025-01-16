@@ -25,6 +25,7 @@ export function Setup({ route, navigation }) {
 
 	// States that store specific match data that will be cleared after each submit.
 	const [teamNumber, setTeamNumber] = useState('');
+	const [scoutName, setScoutName] = useState('');
 	const [noShow, setNoShow] = useState(false);
 	const [preloaded, setPreloaded] = useState(false);
 	const [startArea, setStartArea] = useState('A');
@@ -272,7 +273,7 @@ export function Setup({ route, navigation }) {
 
 			<View style={styles.hstack}>
 				<View style={styles.vstack}>
-					<Text>Match Number</Text>
+					<Text>Match Number</Text>n
 					<TextInput
 						style={styles.SingleLineInput}
 						onChangeText={text => updateState('match', setMatch, text)}
