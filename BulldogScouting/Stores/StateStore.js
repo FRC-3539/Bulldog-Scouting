@@ -1,6 +1,8 @@
 import { create } from 'zustand'
 
 const useStateStore = create((set) => ({
+    allianceColor: "red",
+    allianceStation: 1,
     scoutName: "",
     matchNumber:"",
     teamNumber: "",

@@ -12,7 +12,7 @@ import { VStack, HStack, Spacer } from 'react-native-stacks';
 export default function Homepage() {
 
     const [value, setValue] = useState(0)
-    const { scoutName, teamNumber, preload, noShow, startPosition, matchNumber, set } = useStateStore();
+    const { scoutName, teamNumber, preload, noShow, startPosition, matchNumber, allianceColor, allianceStation, set } = useStateStore();
 
     return (
         <View style={styles.container}>
@@ -20,7 +20,28 @@ export default function Homepage() {
             <Button title="Click me" onPress={() => setclicks(clicks + 1200
             )}></Button>
             <Text>{clicks}</Text> */}
+            <HStack>
+<Text>red</Text>
+<Switch
+                trackColor={{ false: '#ff8181', true: '#81b0ff' }}
+                thumbColor={allianceColor=='red' ? '#FF0000' : '#0000FF'}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={(value) => set((state) => ({ allianceColor: value?"blue":"red" }))}
+                value={allianceColor!='red'}
+            />
+<Text>blue</Text>
 
+</HStack>
+<Slider
+                style={styles.Slider}
+                minimumValue={1}
+                maximumValue={3}
+                step={1}
+                value={allianceStation}
+                onValueChange={(value) => set((state) => ({ allianceStation: value }))}>
+
+            </Slider>
+            <Text>{allianceStation}</Text>
             <HStack>
                 <Spacer />
                 <TextInput
@@ -68,17 +89,17 @@ export default function Homepage() {
                 value={noShow}
             />
             {/* <Text>Value: {value}</Text> */}
-            <Text>A                         B                         C</Text>
+            <Text></Text>
             <Slider
                 style={styles.Slider}
                 minimumValue={0}
                 maximumValue={100}
-                step={1}
+                step={10}
                 value={startPosition}
                 onValueChange={(value) => set((state) => ({ startPosition: value }))}>
 
             </Slider>
-
+<Text>{startPosition}</Text>
         </View>
     );
 }
