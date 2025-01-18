@@ -6,12 +6,16 @@ import Slider from '@react-native-community/slider';
 import React from 'react';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import testimage from "../assets/icon.png";
+import useStateStore from "../Stores/StateStore"
 
 export default function Auton() {
    
+    const {scoutName,set}=useStateStore();
+
     return (
         <View style={styles.container}>
            
+           <Text>{scoutName}</Text>
         </View>
     );
 }

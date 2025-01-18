@@ -6,14 +6,13 @@ import Slider from '@react-native-community/slider';
 import React from 'react';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import testimage from "../assets/icon.png";
-import {Switch,} from 'react-native';
+import { Switch, } from 'react-native';
+import useStateStore from "../Stores/StateStore"
+import { VStack, HStack, Spacer } from 'react-native-stacks';
 export default function Homepage() {
-    const [clicks, setclicks] = useState(0);
-    const [check, setcheck] = useState(false);
-    const [Textinput, setText] = useState("");
+
     const [value, setValue] = useState(0)
-     const [isEnabled, setIsEnabled] = useState(false);
-    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const { scoutName, teamNumber, preload, noShow, startPosition, matchNumber, set } = useStateStore();
 
     return (
         <View style={styles.container}>
@@ -22,64 +21,64 @@ export default function Homepage() {
             )}></Button>
             <Text>{clicks}</Text> */}
 
-    <Text>Scout Name</Text>
+            <HStack>
+                <Spacer />
+                <TextInput
+                    style={styles.input}
+                    onChangeText={(text) => set((state) => ({ scoutName: text }))}
+                    placeholder='Scout Name'
+                    value={scoutName} />
+                <Spacer />
+                <Text>Match #</Text>
 
-            <TextInput
-                style={styles.input}
-                onChangeText={setText}
-                placeholder='Scout Name'
-                value={Textinput} />
-            <Text>{Textinput}</Text>
+                <TextInput
+                    style={styles.input}
+                    onChangeText={(text) => set((state) => ({ matchNumber: text }))}
+                    placeholder='Match #'
+                    value={matchNumber} />
 
-    <Text>Match #</Text>
+                <Spacer />
+                <Text>Team #</Text>
 
-    <TextInput
-                style={styles.input}
-                onChangeText={setText}
-                placeholder='Match #'
-                value={Textinput} />
-            <Text>{Textinput}</Text>
+                <TextInput
+                    style={styles.input}
+                    onChangeText={(text) => set((state) => ({ teamNumber: text }))}
+                    placeholder='Team #'
+                    value={teamNumber} />
 
-    <Text>Team #</Text>
-
-            <TextInput
-                style={styles.input}
-                onChangeText={setText}
-                placeholder='Team #'
-                value={Textinput} />
-            <Text>{Textinput}</Text>
-
-    <Text>Preload</Text>
+                <Spacer />
+            </HStack>
+            <Text>Preload</Text>
 
             <Switch
-          trackColor={{false: '#767577', true: '#81b0ff'}}
-          thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-          ios_backgroundColor="#3e3e3e"
-          onValueChange={toggleSwitch}
-          value={isEnabled}
-        />
-        
-    <Text>No Show</Text>
+                trackColor={{ false: '#767577', true: '#81b0ff' }}
+                thumbColor={preload ? '#f5dd4b' : '#f4f3f4'}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={(value) => set((state) => ({ preload: value }))}
+                value={preload}
+            />
 
-<Switch
-          trackColor={{false: '#767577', true: '#81b0ff'}}
-          thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-          ios_backgroundColor="#3e3e3e"
-          onValueChange={toggleSwitch}
-          value={isEnabled}
-        />
+            <Text>No Show</Text>
+
+            <Switch
+                trackColor={{ false: '#767577', true: '#81b0ff' }}
+                thumbColor={noShow ? '#f5dd4b' : '#f4f3f4'}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={(value) => set((state) => ({ noShow: value }))}
+                value={noShow}
+            />
             {/* <Text>Value: {value}</Text> */}
-        <Text>A                         B                         C</Text>
+            <Text>A                         B                         C</Text>
             <Slider
                 style={styles.Slider}
                 minimumValue={0}
                 maximumValue={100}
                 step={1}
-                value={value}
-                onValueChange={(val) => setValue(val)}>
+                value={startPosition}
+                onValueChange={(value) => set((state) => ({ startPosition: value }))}>
 
             </Slider>
-      
+
         </View>
     );
 }
