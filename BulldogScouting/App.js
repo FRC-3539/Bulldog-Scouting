@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import React from 'react';
 import Homepage from './Pages/Homepage';
@@ -23,6 +23,7 @@ const Stack = createStackNavigator();
 // Create some file paths that we for sure have permissions to read and write to.
 export const qrDataFilePath = FileSystem.documentDirectory + 'qrData.json';
 export const filePath = FileSystem.documentDirectory + 'data.json';
+export const settingsPath = FileSystem.documentDirectory + 'settings.json';
 
 function MainTabs() {
   return (
@@ -63,7 +64,7 @@ function MainTabs() {
 export default function App() {
   const { set } = useStateStore();
 
-  // On application load load the matchData from the files.
+  // On application load load the matchData and settings from the files.
   useEffect(() => {
     // Lambdas cant be async so make an async function and call it.
     const loadData = async () => {
@@ -78,6 +79,19 @@ export default function App() {
         }
       } catch (error) {
         console.error("Failed to read or parse the qrDataFile file", error);
+      }
+
+      try {
+        // Make sure the file exists then parse the json.
+        const dirInfo = await FileSystem.getInfoAsync(settingsPath);
+        if (dirInfo.exists) {
+          const fileContents = await FileSystem.readAsStringAsync(settingsPath);
+          const data = JSON.parse(fileContents);
+          if (data != null || data != '' || data != ' ')
+            set(data);
+        }
+      } catch (error) {
+        console.error("Failed to read or parse the settings file", error);
       }
     };
     loadData();

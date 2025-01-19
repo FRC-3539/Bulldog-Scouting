@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
     },
     input: {
         borderWidth: 1,
-        borderRadius: 5
+        borderRadius: 5,
+        width: 90
     },
     Slider: {
         width: "75%",

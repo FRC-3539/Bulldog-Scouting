@@ -11,10 +11,17 @@ import { QrScan } from './QrScan';
 import * as FileSystem from 'expo-file-system';
 import { qrDataFilePath } from '../App';
 import { useNavigation } from '@react-navigation/native';
+import { Alert } from 'react-native';
 
 export default function Homepage() {
-    const { scoutName, teamNumber, preload, noShow, startPosition, matchNumber, allianceColor, allianceStation, rotateField, set } = useStateStore();
+    const { scoutName, teamNumber, preload, noShow, startPosition, matchNumber, allianceColor, allianceStation, rotateField, matchData, set } = useStateStore();
     const navigation = useNavigation();
+
+    useEffect(() => {
+        set({
+            teamNumber: matchData?.[matchNumber]?.[allianceColor + allianceStation] ?? ''
+        })
+    }, [allianceColor, allianceStation, matchNumber, matchData]);
 
     return (
         <View style={styles.container}>

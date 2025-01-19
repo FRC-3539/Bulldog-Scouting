@@ -1,16 +1,13 @@
-import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import startPositionImage from "../assets/AutonStartingPosition.png";
-import startPositionImageRotated from "../assets/AutonStartingPositionRotated.png";
-import { Switch } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { Switch, Alert } from 'react-native';
 import useStateStore from "../Stores/StateStore"
 import { VStack, HStack, Spacer } from 'react-native-stacks';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import { QrScan } from './QrScan';
 import * as FileSystem from 'expo-file-system';
-import { qrDataFilePath } from '../App';
+import { qrDataFilePath, settingsPath } from '../App';
 import { useNavigation } from '@react-navigation/native';
+
 
 
 
@@ -19,17 +16,23 @@ import { useNavigation } from '@react-navigation/native';
 export default function Settings() {
     const navigation = useNavigation();
 
-    const { scoutName, teamNumber, preload, noShow, startPosition, matchNumber, allianceColor, allianceStation, rotateField, set } = useStateStore();
+    const { allianceColor, allianceStation, rotateField, set } = useStateStore();
+
+    useEffect(() => {
+        const saveSettings = async () => {
+            // Save match data to local storage
+            try {
+                await FileSystem.writeAsStringAsync(settingsPath, JSON.stringify({ allianceColor: allianceColor, allianceStation: allianceStation, rotateField: rotateField }));
+
+            } catch (error) {
+                console.error(error);
+                console.log(await FileSystem.getInfoAsync(settingsPath));
+            }
+        }
+        saveSettings();
 
 
-    const openPasswordModal = () => {
-        setPasswordModalVisible(true);
-        setPassword('');
-    };
-    const closePasswordModal = () => {
-        setPasswordModalVisible(false);
-        setPassword('');
-    };
+    }, [allianceColor, allianceStation, rotateField]);
 
     return (
         <View style={styles.container}>
@@ -65,6 +68,25 @@ export default function Settings() {
                     </RadioButtonGroup>
                 </HStack>
             </VStack>
+            <Spacer />
+            <Button title="Clear Loaded Match Data" onPress={() => Alert.alert(
+                "Clear Data",
+                "Are you sure you want to clear the loaded match data?",
+                [
+                    {
+                        text: "Cancel",
+                        style: "cancel"
+                    },
+                    {
+                        text: "Yes",
+                        onPress: async () => {
+                            set({ matchData: {} });
+                            await FileSystem.writeAsStringAsync(qrDataFilePath, JSON.stringify({}));
+                        }
+                    }
+                ]
+            )} />
+
             <Spacer />
             <Button title="Scan Match Data" onPress={() => navigation.navigate("Scan QR Code")} />
             <Spacer />

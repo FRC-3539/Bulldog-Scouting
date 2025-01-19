@@ -83,10 +83,6 @@ export function QrScan() {
                 onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
                 ratio='16:9'
             />
-            <View style={styles.hstack}>
-                <Button title="Clear Loaded Match Data" onPress={() => showDialog()} />
-
-            </View>
         </View>
     );
 }
