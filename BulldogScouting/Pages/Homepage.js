@@ -3,11 +3,12 @@ import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import React from 'react';
 import startPositionImage from "../assets/AutonStartingPosition.png";
 import startPositionImageRotated from "../assets/AutonStartingPositionRotated.png";
-import { Switch, } from 'react-native';
+import { Switch } from 'react-native';
 import useStateStore from "../Stores/StateStore"
 import { VStack, HStack, Spacer } from 'react-native-stacks';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import { QrScan } from './QrScan';
 
 
 
@@ -19,6 +20,8 @@ export default function Homepage() {
     const [password, setPassword] = useState('');
 
     const [isPasswordModalVisible, setPasswordModalVisible] = useState(false);
+    const [scanMode, setScanMode] = useState(false);
+
 
     const openPasswordModal = () => {
         setPasswordModalVisible(true);
@@ -37,6 +40,16 @@ export default function Homepage() {
             alert('Incorrect password');
         }
     };
+
+
+    if (scanMode) {
+        return (
+            <View style={styles.container}>
+                <QrScan />
+                <Button title="Close" onPress={() => setScanMode(false)} />
+            </View>
+        )
+    }
 
     // Password Screen
     if (isPasswordModalVisible) {
@@ -106,6 +119,9 @@ export default function Homepage() {
                         </RadioButtonGroup>
                     </HStack>
                 </VStack>
+                <Spacer />
+                <Button title="Scan Match Data" onPress={() => setScanMode(true)} />
+
                 <Spacer />
                 <Button title="Close Settings" onPress={() => setShowSettings(false)} />
             </View>
