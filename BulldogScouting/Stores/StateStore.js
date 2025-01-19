@@ -11,7 +11,6 @@ const useStateStore = create((set) => ({
     startPosition: "a",
     rotateField: false,
     reefAutonL1Count: 0,
-
     matchData: {},
     set
 }))

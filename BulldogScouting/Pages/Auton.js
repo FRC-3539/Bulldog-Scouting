@@ -10,11 +10,12 @@ import useStateStore from "../Stores/StateStore"
 import Counter from '../Components/Counter.js';
 
 export default function Auton() {
-    const { scoutName, noShow, set } = useStateStore();
+    const { scoutName, matchData, noShow, set } = useStateStore();
 
     return (
         <View style={styles.container}>
             <Text>{scoutName}</Text>
+            <Text>{JSON.stringify(matchData)}</Text>
             <Counter variable='reefAutonL1Count' disabled={noShow} />
         </View>
     );

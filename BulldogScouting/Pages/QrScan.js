@@ -3,6 +3,9 @@ import { Alert, Button, View, Text, StyleSheet } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { VStack, HStack, Spacer } from 'react-native-stacks';
 import useStateStore from '../Stores/StateStore';
+import { qrDataFilePath } from '../App';
+import * as FileSystem from 'expo-file-system';
+
 
 
 
@@ -41,7 +44,13 @@ export function QrScan() {
         set({ matchData: copyMatchData });
 
         // Save match data to local storage
-        await FileSystem.writeAsStringAsync(qrDataFilePath, JSON.stringify(matchData));
+        try {
+            await FileSystem.writeAsStringAsync(qrDataFilePath, JSON.stringify(copyMatchData));
+
+        } catch (error) {
+            console.error(error);
+            console.log(await FileSystem.getInfoAsync(qrDataFilePath));
+        }
 
         Alert.alert(
             `Data Added`,
@@ -67,7 +76,7 @@ export function QrScan() {
 
 
     return (
-        <View >
+        <View style={styles.cameraContainer}>
             <CameraView
                 style={styles.camera}
                 barcodeScannerSettings={{ barcodeTypes: ["qr"] }}
@@ -75,8 +84,8 @@ export function QrScan() {
                 ratio='16:9'
             />
             <View style={styles.hstack}>
-                <Button title="Return" onPress={() => setScanMode(!scanMode)} />
                 <Button title="Clear Loaded Match Data" onPress={() => showDialog()} />
+
             </View>
         </View>
     );
@@ -88,5 +97,11 @@ const styles = StyleSheet.create({
     camera: {
         flex: 1,
         aspectRatio: "0.5625",
-    }
+    },
+    cameraContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 });
