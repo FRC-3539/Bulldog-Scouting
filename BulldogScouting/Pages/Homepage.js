@@ -38,6 +38,7 @@ export default function Homepage() {
         }
     };
 
+    // Password Screen
     if (isPasswordModalVisible) {
         return (
             <View style={styles.container}>
@@ -69,6 +70,7 @@ export default function Homepage() {
     }
 
 
+    // Settings Screen
     if (showSettings) {
         return (
             <View style={styles.container}>
@@ -111,6 +113,7 @@ export default function Homepage() {
     }
 
 
+    // Normal Home Screen
     return (
         <View style={styles.container}>
             <HStack>
@@ -130,7 +133,8 @@ export default function Homepage() {
                         style={styles.input}
                         onChangeText={(text) => set({ matchNumber: text })}
                         placeholder='Match #'
-                        value={matchNumber} />
+                        value={matchNumber}
+                        keyboardType='numeric' />
                 </VStack>
                 <Spacer />
                 <VStack>
@@ -139,7 +143,8 @@ export default function Homepage() {
                         style={styles.input}
                         onChangeText={(text) => set({ teamNumber: text })}
                         placeholder='Team #'
-                        value={teamNumber} />
+                        value={teamNumber}
+                        keyboardType='numeric' />
                 </VStack>
                 <Spacer />
                 <FontAwesome6 name="gear" size={24} color='gray' onPress={openPasswordModal} />
@@ -196,7 +201,8 @@ const styles = StyleSheet.create({
     },
     input: {
         borderWidth: 1,
-        borderRadius: 5
+        borderRadius: 5,
+        width: 90
     },
     Slider: {
         width: "75%",
