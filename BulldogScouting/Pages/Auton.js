@@ -7,15 +7,15 @@ import React from 'react';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import testimage from "../assets/icon.png";
 import useStateStore from "../Stores/StateStore"
+import Counter from '../Components/Counter.js';
 
 export default function Auton() {
-   
-    const {scoutName,set}=useStateStore();
+    const { scoutName, noShow, set } = useStateStore();
 
     return (
         <View style={styles.container}>
-           
-           <Text>{scoutName}</Text>
+            <Text>{scoutName}</Text>
+            <Counter variable='reefAutonL1Count' disabled={noShow} />
         </View>
     );
 }
@@ -39,6 +39,4 @@ const styles = StyleSheet.create({
         height: 200,
         resizeMode: 'stretch',
     }
-
-
 });
