@@ -87,14 +87,17 @@ export default function Homepage() {
             <HStack>
                 <Image style={styles.startPositionImage} source={rotateField ? startPositionImageRotated : startPositionImage} />
                 <RadioButtonGroup
-                    style={styles.RadioButtonGroup}
+                    containerStyle={styles.RadioButtonGroup}
                     selected={startPosition}
                     onSelected={(value) => set({ startPosition: value })}
                     radioBackground="green"
                 >
-                    <RadioButtonItem value="a" label="A" />
-                    <RadioButtonItem value="b" label="B" />
-                    <RadioButtonItem value="c" label="C" />
+                    <VStack>
+                        <RadioButtonItem value="a" label="A" />
+                        <Spacer />
+                        <RadioButtonItem value="b" label="B" />
+                        <RadioButtonItem value="c" label="C" />
+                    </VStack>
                 </RadioButtonGroup>
             </HStack>
         </View >
@@ -111,7 +114,7 @@ const styles = StyleSheet.create({
     input: {
         borderWidth: 1,
         borderRadius: 5,
-        width: 90
+        width: 110
     },
     Slider: {
         width: "75%",
@@ -121,5 +124,10 @@ const styles = StyleSheet.create({
         width: 300, // Adjust width to fit within the screen
         height: 400, // Adjust height to fit within the screen
         resizeMode: 'center',
-    }
+    },
+    RadioButtonGroup: {
+
+        height: '500px'
+
+    },
 });
