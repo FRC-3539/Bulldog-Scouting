@@ -5,7 +5,8 @@ import useStateStore from "../Stores/StateStore"
 import Counter from '../Components/Counter.js';
 import { HStack, Spacer, VStack } from 'react-native-stacks';
 import reefImage from "../assets/Reef.png";
-// import processorImage from "../assets/Processor.PNG"
+import processorImage from "../assets/Processor.png"
+import netImage from "../assets/net.png"
 
 export default function Auton() {
     const { scoutName, noShow, matchNumber, teamNumber } = useStateStore();
@@ -46,22 +47,22 @@ export default function Auton() {
                 </VStack>
                 <Spacer />
             </HStack>
-            <Spacer/>
+            <Spacer />
             <HStack>
                 <Spacer />
                 <Image style={styles.reefImage} source={reefImage} />
-                
+
                 <View style={styles.counterContainer}>
                     <HStack>
                         <Spacer />
                         <VStack>
                             <Text>Scores</Text>
-                        <Counter variable='reefAutonL4Count' disabled={noShow} />
+                            <Counter variable='reefAutonL4Count' disabled={noShow} />
                         </VStack>
                         <Spacer />
                         <VStack>
-                        <Text>Misses</Text>
-                        <Counter variable='reefAutonL4MissCount' disabled={noShow} />
+                            <Text>Misses</Text>
+                            <Counter variable='reefAutonL4MissCount' disabled={noShow} />
                         </VStack>
                         <Spacer />
                     </HStack>
@@ -95,8 +96,8 @@ export default function Auton() {
             </HStack>
             <Spacer />
             <HStack>
-                <Spacer/>
-                 {/* <Image style={styles.processorImage} source={processorImage} /> */}
+                <Spacer />
+                <Image style={styles.processorImage} source={processorImage} />
                 <Spacer />
                 <Counter variable='processorAutonCount' disabled={noShow} />
                 <Spacer />
@@ -105,8 +106,8 @@ export default function Auton() {
             </HStack>
             <Spacer />
             <HStack>
-            <Spacer/>
-            <Text>Net/Barge Picture</Text>
+                <Spacer />
+                <Image style={styles.netImage} source={netImage} />
                 <Spacer />
                 <Counter variable='netAutonCount' disabled={noShow} />
                 <Spacer />
@@ -149,5 +150,19 @@ const styles = StyleSheet.create({
         width: 75,
         height: 300,
         resizeMode: 'center'
-    }
+    },
+    processorImage: {
+        width: 125,
+        height: 125,
+        resizeMode: 'center',
+
+    },
+    netImage: {
+        width: 175,
+        height: 125,
+        resizeMode: "center",
+
+
+    },
+
 });

@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image} from 'react-native';
 import { Switch, } from 'react-native';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import useStateStore from "../Stores/StateStore"
 import React, { useEffect, useState } from 'react';
 import { Spacer } from 'react-native-stacks';
+import {endgameBlueBarge} from "../assets/endgame_blue.png"
+import {endgameRedBarge} from "../assets/endgame_red.png"
 
 export default function Endgame() {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -45,8 +47,9 @@ export default function Endgame() {
             </RadioButtonGroup>
             <Spacer />
 
-            <Text>Climb Position</Text>
-
+            
+           
+<Spacer/>
             <RadioButtonGroup
                 containerStyle={styles.RadioButtonGroup}
                 selected={climbPosition}
@@ -63,6 +66,8 @@ export default function Endgame() {
                 <Spacer />
 
             </RadioButtonGroup>
+
+
 
         </View>
     );
@@ -93,6 +98,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
 
     },
+    
+    
 
 
 
