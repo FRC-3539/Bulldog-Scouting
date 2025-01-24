@@ -1,12 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
-import Slider from '@react-native-community/slider';
 import React from 'react';
-import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
-import testimage from "../assets/icon.png";
 import { Switch, } from 'react-native';
+import { HStack, Spacer } from 'react-native-stacks';
 
 export default function Final() {
     const [Textinput, setText] = useState("");
@@ -14,66 +10,72 @@ export default function Final() {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return (
         <View style={styles.container}>
-            
+            <Spacer />
+            <HStack>
+            <Spacer/>
+                <Text>Tipped</Text>
+                <Switch
+                    trackColor={{ false: '#767577', true: '#81b0ff' }}
+                    thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={toggleSwitch}
+                    value={isEnabled}
+                />
+                <Spacer />
+                <Text>Broken</Text>
+                <Switch
+                    trackColor={{ false: '#767577', true: '#81b0ff' }}
+                    thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={toggleSwitch}
+                    value={isEnabled}
+                />
 
-            <Text>Tipped</Text>
-            <Switch
-                trackColor={{ false: '#767577', true: '#81b0ff' }}
-                thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={toggleSwitch}
-                value={isEnabled}
-            />
+                <Spacer />
 
-            <Text>Broken</Text>
-            <Switch
-                trackColor={{ false: '#767577', true: '#81b0ff' }}
-                thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={toggleSwitch}
-                value={isEnabled}
-            />
+                <Text>Disabled</Text>
+                <Switch
+                    trackColor={{ false: '#767577', true: '#81b0ff' }}
+                    thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={toggleSwitch}
+                    value={isEnabled}
+                />
+                <Spacer/>
+            </HStack>
+            <Spacer />
+            <HStack>
+                <Spacer />
+                <Text>Red Flag</Text>
+                <Switch
+                    trackColor={{ false: '#767577', true: '#81b0ff' }}
+                    thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={toggleSwitch}
+                    value={isEnabled}
+                />
 
+                <Spacer />
 
-
-            <Text>Disabled</Text>
-            <Switch
-                trackColor={{ false: '#767577', true: '#81b0ff' }}
-                thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={toggleSwitch}
-                value={isEnabled}
-            />
-
-
-            <Text>Red Flag</Text>
-            <Switch
-                trackColor={{ false: '#767577', true: '#81b0ff' }}
-                thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={toggleSwitch}
-                value={isEnabled}
-            />
-
-
-
-            <Text>Yellow Flag</Text>
-            <Switch
-                trackColor={{ false: '#767577', true: '#81b0ff' }}
-                thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={toggleSwitch}
-                value={isEnabled}
-            />
+                <Text>Yellow Flag</Text>
+                <Switch
+                    trackColor={{ false: '#767577', true: '#81b0ff' }}
+                    thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={toggleSwitch}
+                    value={isEnabled}
+                /> <Spacer />
+            </HStack>
+            <Spacer />
             <Text>Comments?</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={setText}
-                placeholder='Text'
+                placeholder='Text?'
                 value={Textinput}
                 multiline={true} />
-            <Text>{Textinput}</Text>
 
+            <Spacer />
         </View>
 
     );
@@ -91,6 +93,8 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         width: '50%',
         height: '15%',
+        textAlignVertical: 'top',
+        
 
     },
     Slider: {

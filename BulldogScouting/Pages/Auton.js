@@ -11,6 +11,7 @@ import Counter from '../Components/Counter.js';
 import { HStack, Spacer, VStack } from 'react-native-stacks';
 import reefImage from "../assets/Reef.png";
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+// import processorImage from "../assets/Processor.PNG"
 
 export default function Auton() {
     const { scoutName, noShow, matchNumber, teamNumber } = useStateStore();
@@ -50,8 +51,6 @@ export default function Auton() {
                         keyboardType='numeric' />
                 </VStack>
                 <Spacer />
-                <FontAwesome6 name="gear" size={24} color='gray' onPress={() => navigation.navigate('Authentication')} />
-                <Spacer />
             </HStack>
             <Spacer/>
             <HStack>
@@ -63,22 +62,31 @@ export default function Auton() {
                         <Spacer />
                         <VStack>
                             <Text>Scores</Text>
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
+                        <Counter variable='reefAutonL4Count' disabled={noShow} />
                         </VStack>
                         <Spacer />
                         <VStack>
                         <Text>Misses</Text>
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
+                        <Counter variable='reefAutonL4MissCount' disabled={noShow} />
                         </VStack>
                         <Spacer />
                     </HStack>
                     <Spacer />
                     <HStack>
                         <Spacer />
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
+                        <Counter variable='reefAutonL3Count' disabled={noShow} />
                         <Spacer />
 
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
+                        <Counter variable='reefAutonL3MissCount' disabled={noShow} />
+                        <Spacer />
+                    </HStack>
+                    <Spacer />
+                    <HStack>
+                        <Spacer />
+                        <Counter variable='reefAutonL2Count' disabled={noShow} />
+                        <Spacer />
+
+                        <Counter variable='reefAutonL2MissCount' disabled={noShow} />
                         <Spacer />
                     </HStack>
                     <Spacer />
@@ -86,16 +94,7 @@ export default function Auton() {
                         <Spacer />
                         <Counter variable='reefAutonL1Count' disabled={noShow} />
                         <Spacer />
-
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
-                        <Spacer />
-                    </HStack>
-                    <Spacer />
-                    <HStack>
-                        <Spacer />
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
-                        <Spacer />
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
+                        <Counter variable='reefAutonL1MissCount' disabled={noShow} />
                         <Spacer />
                     </HStack>
                 </View>
@@ -105,9 +104,9 @@ export default function Auton() {
                 <Spacer/>
                 <Text>Processor Picture</Text>
                 <Spacer />
-                <Counter variable='reefAutonL1Count' disabled={noShow} />
+                <Counter variable='processorAutonCount' disabled={noShow} />
                 <Spacer />
-                <Counter variable='reefAutonL1Count' disabled={noShow} />
+                <Counter variable='processorAutonMissCount' disabled={noShow} />
                 <Spacer />
             </HStack>
             <Spacer />
@@ -115,9 +114,9 @@ export default function Auton() {
             <Spacer/>
             <Text>Net/Barge Picture</Text>
                 <Spacer />
-                <Counter variable='reefAutonL1Count' disabled={noShow} />
+                <Counter variable='netAutonCount' disabled={noShow} />
                 <Spacer />
-                <Counter variable='reefAutonL1Count' disabled={noShow} />
+                <Counter variable='netAutonMissCount' disabled={noShow} />
                 <Spacer />
             </HStack>
             <Spacer />

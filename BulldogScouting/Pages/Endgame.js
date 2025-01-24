@@ -1,11 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
-import Slider from '@react-native-community/slider';
-import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
-import testimage from "../assets/icon.png";
 import {Switch,} from 'react-native';
-import RNPickerSelect from 'react-native-picker-select';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import useStateStore from "../Stores/StateStore"
 import React, { useEffect, useState } from 'react';

@@ -1,11 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
-import Slider from '@react-native-community/slider';
 import React from 'react';
-import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
-import testimage from "../assets/icon.png";
 import Counter from '../Components/Counter.js';
 import { HStack, Spacer, VStack } from 'react-native-stacks';
 import reefImage from "../assets/Reef.png";
@@ -50,8 +44,6 @@ export default function Teleop() {
                         keyboardType='numeric' />
                 </VStack>
                 <Spacer />
-                <FontAwesome6 name="gear" size={24} color='gray' onPress={() => navigation.navigate('Authentication')} />
-                <Spacer />
             </HStack>
             <Spacer />
             <HStack>
@@ -63,22 +55,31 @@ export default function Teleop() {
                         <Spacer />
                         <VStack>
                             <Text>Scores</Text>
-                            <Counter variable='reefAutonL1Count' disabled={noShow} />
+                            <Counter variable='reefAutonL4Count' disabled={noShow} />
                         </VStack>
                         <Spacer />
                         <VStack>
                             <Text>Misses</Text>
-                            <Counter variable='reefAutonL1Count' disabled={noShow} />
+                            <Counter variable='reefAutonL4MissCount' disabled={noShow} />
                         </VStack>
                         <Spacer />
                     </HStack>
                     <Spacer />
                     <HStack>
                         <Spacer />
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
+                        <Counter variable='reefAutonL3Count' disabled={noShow} />
                         <Spacer />
 
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
+                        <Counter variable='reefAutonL3MissCount' disabled={noShow} />
+                        <Spacer />
+                    </HStack>
+                    <Spacer />
+                    <HStack>
+                        <Spacer />
+                        <Counter variable='reefAutonL2Count' disabled={noShow} />
+                        <Spacer />
+
+                        <Counter variable='reefAutonL2MissCount' disabled={noShow} />
                         <Spacer />
                     </HStack>
                     <Spacer />
@@ -86,16 +87,7 @@ export default function Teleop() {
                         <Spacer />
                         <Counter variable='reefAutonL1Count' disabled={noShow} />
                         <Spacer />
-
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
-                        <Spacer />
-                    </HStack>
-                    <Spacer />
-                    <HStack>
-                        <Spacer />
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
-                        <Spacer />
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
+                        <Counter variable='reefAutonL1MissCount' disabled={noShow} />
                         <Spacer />
                     </HStack>
                 </View>
@@ -105,9 +97,9 @@ export default function Teleop() {
                 <Spacer />
                 <Text>Processor Picture</Text>
                 <Spacer />
-                <Counter variable='reefAutonL1Count' disabled={noShow} />
+                <Counter variable='processorTeleopCount' disabled={noShow} />
                 <Spacer />
-                <Counter variable='reefAutonL1Count' disabled={noShow} />
+                <Counter variable='processorTeleopMissCount' disabled={noShow} />
                 <Spacer />
             </HStack>
             <Spacer />
@@ -115,13 +107,13 @@ export default function Teleop() {
                 <Spacer />
                 <Text>Net/Barge Picture</Text>
                 <Spacer />
-                <Counter variable='reefAutonL1Count' disabled={noShow} />
+                <Counter variable='netTeleopCount' disabled={noShow} />
                 <Spacer />
-                <Counter variable='reefAutonL1Count' disabled={noShow} />
+                <Counter variable='netTeleopMissCount' disabled={noShow} />
                 <Spacer />
             </HStack>
             <Spacer />
-            
+
         </View>
 
     );
