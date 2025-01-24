@@ -20,13 +20,16 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "softwareKeyboardLayoutMode": "pan"
-
+      "softwareKeyboardLayoutMode": "pan",
+      "permissions": [
+        "android.permission.CAMERA"
+      ],
+      "package": "com.bbprogrammers3539.BulldogScouting"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-     "plugins": [
+    "plugins": [
       [
         "expo-camera",
         {
@@ -36,6 +39,10 @@
         }
       ]
     ],
-
+    "extra": {
+      "eas": {
+        "projectId": "9d974518-edb8-4812-8338-0b214f07988c"
+      }
+    }
   }
 }
