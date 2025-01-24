@@ -3,7 +3,6 @@ import React from 'react';
 import Counter from '../Components/Counter.js';
 import { HStack, Spacer, VStack } from 'react-native-stacks';
 import reefImage from "../assets/Reef.png";
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import useStateStore from "../Stores/StateStore"
 
 export default function Teleop() {

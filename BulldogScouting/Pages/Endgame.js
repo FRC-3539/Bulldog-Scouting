@@ -1,70 +1,69 @@
-import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
-import {Switch,} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Switch, } from 'react-native';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import useStateStore from "../Stores/StateStore"
 import React, { useEffect, useState } from 'react';
-import { HStack, Spacer } from 'react-native-stacks';
+import { Spacer } from 'react-native-stacks';
 
 export default function Endgame() {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     const [isEnabled, setIsEnabled] = useState(false);
     const [value, setValue] = useState(0)
-    const { startPosition, allianceColor, allianceStation, teamNumber, matchData, matchNumber, set } = useStateStore();
+    const { allianceColor, allianceStation, teamNumber, matchData, matchNumber, set, climbTime, climbPosition } = useStateStore();
     useEffect(() => {
-            set({
-                teamNumber: matchData?.[matchNumber]?.[allianceColor + allianceStation] ?? ''
-            })
-        }, [allianceColor, allianceStation, matchNumber, matchData]);
+        set({
+            teamNumber: matchData?.[matchNumber]?.[allianceColor + allianceStation] ?? ''
+        })
+    }, [allianceColor, allianceStation, matchNumber, matchData]);
     return (
 
 
         <View style={styles.container}>
 
-        <Text>Attempt</Text>
-        <Switch
-                  trackColor={{false: '#767577', true: '#81b0ff'}}
-                  thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-                  ios_backgroundColor="#3e3e3e"
-                  onValueChange={toggleSwitch}
-                  value={isEnabled}
-                /> 
+            <Text>Attempt</Text>
+            <Switch
+                trackColor={{ false: '#767577', true: '#81b0ff' }}
+                thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={toggleSwitch}
+                value={isEnabled}
+            />
 
 
-    <Text>Time Used</Text>
-    <RadioButtonGroup
-                        containerStyle={styles.RadioButtonGroup}
-                        selected={startPosition}
-                        onSelected={(value) => set({ startPosition: value })}
-                        radioBackground="green"
-                    >
-                        <HStack>
-                        <Spacer/>
-                        <RadioButtonItem  value="a" label="<5" />
-                        <Spacer/>
-                        <RadioButtonItem value="b" label="~5" />
-                        <Spacer/>
-                        <RadioButtonItem value="c" label="<10" />
-                        <Spacer/>
-                        </HStack>
-                    </RadioButtonGroup>
-                    <Spacer/>
-                    <Text>Climb Position</Text>
-    <RadioButtonGroup
-                        containerStyle={styles.RadioButtonGroup}
-                        selected={startPosition}
-                        onSelected={(value) => set({ startPosition: value })}
-                        radioBackground="green"
-                    >
-                        <HStack>
-                        <Spacer/>
-                        <RadioButtonItem  value="a" label="park" />
-                        <Spacer/>
-                        <RadioButtonItem value="b" label="shallow" />
-                        <Spacer/>
-                        <RadioButtonItem value="c" label="deep" />
-                        <Spacer/>
-                        </HStack>
-                    </RadioButtonGroup>
+            <Text>Time Used</Text>
+            <RadioButtonGroup
+                containerStyle={styles.RadioButtonGroup}
+                selected={climbTime}
+                onSelected={(value) => set({ climbTime: value })}
+                radioBackground="green"
+            >
+
+                <RadioButtonItem value="d" label="<5" />
+                <RadioButtonItem value="e" label="~5" />
+                <RadioButtonItem value="f" label="<10" />
+
+            </RadioButtonGroup>
+            <Spacer />
+
+            <Text>Climb Position</Text>
+
+            <RadioButtonGroup
+                containerStyle={styles.RadioButtonGroup}
+                selected={climbPosition}
+                onSelected={(value) => set({ climbPosition: value })}
+                radioBackground="green"
+            >
+
+                <Spacer />
+                <RadioButtonItem value="a" label="park" />
+                <Spacer />
+                <RadioButtonItem value="b" label="shallow" />
+                <Spacer />
+                <RadioButtonItem value="c" label="deep" />
+                <Spacer />
+
+            </RadioButtonGroup>
+
         </View>
     );
 }
@@ -89,10 +88,12 @@ const styles = StyleSheet.create({
         resizeMode: 'stretch',
     },
     RadioButtonGroup: {
-        width: '100%'
-        
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+
     },
- 
+
 
 
 

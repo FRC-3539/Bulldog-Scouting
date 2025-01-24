@@ -1,16 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+
 import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
-import Slider from '@react-native-community/slider';
 import React from 'react';
-import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
-import testimage from "../assets/icon.png";
 import useStateStore from "../Stores/StateStore"
 import Counter from '../Components/Counter.js';
 import { HStack, Spacer, VStack } from 'react-native-stacks';
 import reefImage from "../assets/Reef.png";
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 // import processorImage from "../assets/Processor.PNG"
 
 export default function Auton() {
@@ -102,7 +96,7 @@ export default function Auton() {
             <Spacer />
             <HStack>
                 <Spacer/>
-                <Text>Processor Picture</Text>
+                 {/* <Image style={styles.processorImage} source={processorImage} /> */}
                 <Spacer />
                 <Counter variable='processorAutonCount' disabled={noShow} />
                 <Spacer />

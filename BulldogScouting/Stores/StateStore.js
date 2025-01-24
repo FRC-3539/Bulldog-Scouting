@@ -34,6 +34,9 @@ const useStateStore = create((set) => ({
     processorTeleopMissCount: 0,
     netTeleopCount: 0,
     netTeleopMissCount: 0,
+    climbTime: "d",
+    climbPosition: 'a',
+
     matchData: {},
     set
 }))

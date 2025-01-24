@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import useStateStore from "../Stores/StateStore"
 import { HStack } from 'react-native-stacks';

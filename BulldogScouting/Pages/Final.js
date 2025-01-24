@@ -12,7 +12,7 @@ export default function Final() {
         <View style={styles.container}>
             <Spacer />
             <HStack>
-            <Spacer/>
+                <Spacer />
                 <Text>Tipped</Text>
                 <Switch
                     trackColor={{ false: '#767577', true: '#81b0ff' }}
@@ -30,9 +30,7 @@ export default function Final() {
                     onValueChange={toggleSwitch}
                     value={isEnabled}
                 />
-
                 <Spacer />
-
                 <Text>Disabled</Text>
                 <Switch
                     trackColor={{ false: '#767577', true: '#81b0ff' }}
@@ -41,7 +39,7 @@ export default function Final() {
                     onValueChange={toggleSwitch}
                     value={isEnabled}
                 />
-                <Spacer/>
+                <Spacer />
             </HStack>
             <Spacer />
             <HStack>
@@ -54,9 +52,7 @@ export default function Final() {
                     onValueChange={toggleSwitch}
                     value={isEnabled}
                 />
-
                 <Spacer />
-
                 <Text>Yellow Flag</Text>
                 <Switch
                     trackColor={{ false: '#767577', true: '#81b0ff' }}
@@ -64,7 +60,8 @@ export default function Final() {
                     ios_backgroundColor="#3e3e3e"
                     onValueChange={toggleSwitch}
                     value={isEnabled}
-                /> <Spacer />
+                /> 
+                <Spacer />
             </HStack>
             <Spacer />
             <Text>Comments?</Text>
@@ -74,7 +71,6 @@ export default function Final() {
                 placeholder='Text?'
                 value={Textinput}
                 multiline={true} />
-
             <Spacer />
         </View>
 
@@ -94,7 +90,7 @@ const styles = StyleSheet.create({
         width: '50%',
         height: '15%',
         textAlignVertical: 'top',
-        
+
 
     },
     Slider: {

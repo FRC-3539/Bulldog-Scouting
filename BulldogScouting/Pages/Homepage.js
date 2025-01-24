@@ -1,5 +1,5 @@
 import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import startPositionImage from "../assets/AutonStartingPosition.png";
 import startPositionImageRotated from "../assets/AutonStartingPositionRotated.png";
 import { Switch } from 'react-native';
@@ -7,11 +7,7 @@ import useStateStore from "../Stores/StateStore"
 import { VStack, HStack, Spacer } from 'react-native-stacks';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import { QrScan } from './QrScan';
-import * as FileSystem from 'expo-file-system';
-import { qrDataFilePath } from '../App';
 import { useNavigation } from '@react-navigation/native';
-import { Alert } from 'react-native';
 
 export default function Homepage() {
     const { scoutName, teamNumber, preload, noShow, startPosition, matchNumber, allianceColor, allianceStation, rotateField, matchData, set } = useStateStore();
@@ -86,19 +82,18 @@ export default function Homepage() {
             <Spacer />
             <HStack>
                 <Image style={styles.startPositionImage} source={rotateField ? startPositionImageRotated : startPositionImage} />
+                <View>
                 <RadioButtonGroup
                     containerStyle={styles.RadioButtonGroup}
                     selected={startPosition}
                     onSelected={(value) => set({ startPosition: value })}
                     radioBackground="green"
                 >
-                    <VStack>
                         <RadioButtonItem value="a" label="A" />
-                        <Spacer />
                         <RadioButtonItem value="b" label="B" />
                         <RadioButtonItem value="c" label="C" />
-                    </VStack>
                 </RadioButtonGroup>
+                </View>
             </HStack>
         </View >
     );
@@ -127,7 +122,12 @@ const styles = StyleSheet.create({
     },
     RadioButtonGroup: {
 
-        height: '500px'
+        gap: '20px',
+        minHeight: '500px',
+        flexDirection:'column',
+        justifyContent:"space-between",
+       alignContent: 'space-between',
+       display: 'flex',
 
     },
 });
