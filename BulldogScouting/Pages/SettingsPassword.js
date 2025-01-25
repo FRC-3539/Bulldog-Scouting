@@ -8,7 +8,9 @@ export default function SettingsPassword() {
     const [password, setPassword] = useState('');
     const navigation = useNavigation();
 
-
+    const saveToFile = () => {
+        
+    }
 
     const handlePasswordSubmit = () => {
         if (password === '') { // Change password!

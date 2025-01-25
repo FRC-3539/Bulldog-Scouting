@@ -1,15 +1,12 @@
-import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import React from 'react';
 import { Switch, } from 'react-native';
 import { HStack, Spacer } from 'react-native-stacks';
-import {useFinalStore} from "../Stores/StateStore"
+import { useFinalStore } from "../Stores/StateStore"
 
 export default function Final() {
-    const { scoutName, teamNumber, preload, noShow, isTipped , set, isDisabled, isBroken, redCard, yellowCard,  } = useFinalStore();
-    const [Textinput, setText] = useState("");
-    const [isEnabled, setIsEnabled] = useState(false);
-    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const { scoutName, teamNumber, preload, noShow, isTipped, set, isDisabled, isBroken, redCard, yellowCard, comments } = useFinalStore();
+
     return (
         <View style={styles.container}>
             <Spacer />
@@ -22,11 +19,6 @@ export default function Final() {
                     onValueChange={(value) => set({ isTipped: value })}
                     value={isTipped}
                 />
-                {/* <Switch
-                                        trackColor={{ false: '#767577', true: '#81b0ff' }}
-                                        thumbColor={preload ? '#f5dd4b' : '#f4f3f4'}
-                                        onValueChange={(value) => set({ preload: value })}
-                                        value={preload} */}
                 <Spacer />
                 <Text>Broken</Text>
                 <Switch
@@ -70,16 +62,17 @@ export default function Final() {
                 <Spacer />
             </HStack>
             <Spacer />
-            <Text>Comments?</Text>
+
             <TextInput
                 style={styles.input}
-                onChangeText={setText}
-                placeholder='Text?'
-                value={Textinput}
+                onChangeText={(value) => set({ comments: value })}
+                placeholder='Please enter any Comments'
+                value={comments}
                 multiline={true} />
             <Spacer />
+            <Button title="Submit" />
+            <Spacer />
         </View>
-
     );
 }
 
@@ -107,7 +100,7 @@ const styles = StyleSheet.create({
         height: 200,
         resizeMode: 'stretch',
     },
-    
+
 
 
 });

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import startPositionImage from "../assets/AutonStartingPosition.webp";
 import startPositionImageRotated from "../assets/AutonStartingPositionRotated.webp";
 import { Switch } from 'react-native';
-import {useStateStore} from "../Stores/StateStore"
+import { useStateStore } from "../Stores/StateStore"
 import { VStack, HStack, Spacer } from 'react-native-stacks';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
@@ -21,6 +21,7 @@ export default function Homepage() {
 
     return (
         <View style={styles.container}>
+            <Spacer />
             <HStack>
                 <Spacer />
                 <VStack>
@@ -82,19 +83,18 @@ export default function Homepage() {
             <Spacer />
             <HStack>
                 <Image style={styles.startPositionImage} source={rotateField ? startPositionImageRotated : startPositionImage} />
-                <View>
                 <RadioButtonGroup
                     containerStyle={styles.RadioButtonGroup}
                     selected={startPosition}
                     onSelected={(value) => set({ startPosition: value })}
                     radioBackground="green"
                 >
-                        <RadioButtonItem value="a" label="A" />
-                        <RadioButtonItem value="b" label="B" />
-                        <RadioButtonItem value="c" label="C" />
+                    <RadioButtonItem value={rotateField?"a":"c"} label={rotateField?"A":"C"} />
+                    <RadioButtonItem value="b" label="B" />
+                    <RadioButtonItem value={rotateField?"c":"a"} label={rotateField?"C":"A"} />
                 </RadioButtonGroup>
-                </View>
             </HStack>
+            <Spacer />
         </View >
     );
 }
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         width: 110
-        
+
     },
     Slider: {
         width: "75%",
@@ -122,13 +122,8 @@ const styles = StyleSheet.create({
         resizeMode: 'center',
     },
     RadioButtonGroup: {
-
-        gap: '20px',
-        minHeight: '500px',
-        flexDirection:'column',
-        justifyContent:"space-between",
-       alignContent: 'space-between',
-       display: 'flex',
-
+        height:'400',
+        flexDirection: 'column',
+        justifyContent: "space-around",
     },
 });

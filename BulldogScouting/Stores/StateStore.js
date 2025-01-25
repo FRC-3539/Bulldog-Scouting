@@ -51,6 +51,7 @@ export const useFinalStore = create((set) => ({
     isDisabled: false,
     redCard: false,
     yellowCard: false,
+    comments:"",
     set
 
 }))
