@@ -1,4 +1,12 @@
 import { create } from 'zustand'
+import * as FileSystem from 'expo-file-system';
+
+
+// Create some file paths that we for sure have permissions to read and write to.
+export const qrDataFilePath = FileSystem.documentDirectory + 'qrData.json';
+export const filePath = FileSystem.documentDirectory + 'data.json';
+export const settingsPath = FileSystem.documentDirectory + 'settings.json';
+
 export const useAutonStore = create((set) => ({
     set,
     reefAutonL1Count: 0,
@@ -30,18 +38,21 @@ export const useTeleopStore = create((set) => ({
     netTeleopMissCount: 0,
 }))
 
-export const useStateStore = create((set) => ({
+export const useSettingsStore = create((set) => ({
     allianceColor: "red",
     allianceStation: 1,
-    scoutName: "",
-    matchNumber: "",
-    teamNumber: "",
-    preload: false,
-    noShow: false,
-    startPosition: "a",
     rotateField: false,
     matchData: {},
     set
+}))
+export const useHomeStore = create((set) => ({
+    set,
+    preload: false,
+    noShow: false,
+    startPosition: "a",
+    scoutName: "",
+    matchNumber: "",
+    teamNumber: "",
 }))
 export const useFinalStore = create((set) => ({
     climbTime: "d",
@@ -51,7 +62,7 @@ export const useFinalStore = create((set) => ({
     isDisabled: false,
     redCard: false,
     yellowCard: false,
-    comments:"",
+    comments: "",
     set
 
 }))

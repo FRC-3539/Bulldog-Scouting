@@ -1,22 +1,17 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect } from 'react';
 import { Switch, Alert } from 'react-native';
-import {useStateStore} from "../Stores/StateStore"
+import { useSettingsStore } from "../Stores/StateStore"
 import { VStack, HStack, Spacer } from 'react-native-stacks';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import * as FileSystem from 'expo-file-system';
-import { qrDataFilePath, settingsPath } from '../App';
 import { useNavigation } from '@react-navigation/native';
-
-
-
-
-
+import { settingsPath, qrDataFilePath } from '../Stores/StateStore';
 
 export default function Settings() {
     const navigation = useNavigation();
 
-    const { allianceColor, allianceStation, rotateField, set } = useStateStore();
+    const { allianceColor, allianceStation, rotateField, set } = useSettingsStore();
 
     useEffect(() => {
         const saveSettings = async () => {

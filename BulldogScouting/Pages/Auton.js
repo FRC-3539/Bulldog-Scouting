@@ -1,7 +1,7 @@
 
 import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import React from 'react';
-import { useStateStore } from "../Stores/StateStore"
+import { useHomeStore } from "../Stores/StateStore"
 import Counter from '../Components/Counter.js';
 import { HStack, Spacer, VStack } from 'react-native-stacks';
 import reefImage from "../assets/Reef.webp"
@@ -9,7 +9,7 @@ import processorImage from "../assets/Processor.webp"
 import netImage from "../assets/net_small.webp"
 
 export default function Auton() {
-    const { scoutName, noShow, matchNumber, teamNumber, set } = useStateStore();
+    const { scoutName, noShow, matchNumber, teamNumber } = useHomeStore();
 
     return (
         <View style={styles.container}>
@@ -20,29 +20,29 @@ export default function Auton() {
                     <Text>Scout Name</Text>
                     <TextInput
                         style={styles.input}
-                        onChangeText={(text) => set({ scoutName: text })}
                         placeholder='Scout Name'
-                        value={scoutName} />
+                        value={scoutName}
+                        editable={false} />
                 </VStack>
                 <Spacer />
                 <VStack>
                     <Text>Match #</Text>
                     <TextInput
                         style={styles.input}
-                        onChangeText={(text) => set({ matchNumber: text })}
                         placeholder='Match #'
                         value={matchNumber}
-                        keyboardType='numeric' />
+                        keyboardType='numeric'
+                        editable={false} />
                 </VStack>
                 <Spacer />
                 <VStack>
                     <Text>Team #</Text>
                     <TextInput
                         style={styles.input}
-                        onChangeText={(text) => set({ teamNumber: text })}
                         placeholder='Team #'
                         value={teamNumber}
-                        keyboardType='numeric' />
+                        keyboardType='numeric'
+                        editable={false} />
                 </VStack>
                 <Spacer />
             </HStack>

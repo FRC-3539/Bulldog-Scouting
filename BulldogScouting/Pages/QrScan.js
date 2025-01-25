@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { Alert, Button, View, Text, StyleSheet } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { VStack, HStack, Spacer } from 'react-native-stacks';
-import {useStateStore} from '../Stores/StateStore';
-import { qrDataFilePath } from '../App';
+import { useSettingsStore } from '../Stores/StateStore';
 import * as FileSystem from 'expo-file-system';
+import { settingsPath, qrDataFilePath } from '../Stores/StateStore';
+
 
 
 
@@ -12,7 +13,7 @@ import * as FileSystem from 'expo-file-system';
 export function QrScan() {
     const [scanned, setScanned] = useState(false);
     const [permission, requestPermission] = useCameraPermissions();
-    const { matchData, set } = useStateStore();
+    const { matchData, set } = useSettingsStore();
 
 
     async function handleBarCodeScanned({ type, data }) {

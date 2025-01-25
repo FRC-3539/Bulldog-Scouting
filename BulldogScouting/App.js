@@ -14,20 +14,14 @@ import * as FileSystem from 'expo-file-system';
 import Settings from './Pages/Settings';
 import SettingsPassword from './Pages/SettingsPassword';
 import QrScan from './Pages/QrScan';
-import {useStateStore} from './Stores/StateStore';
-
+import { useSettingsStore, settingsPath, qrDataFilePath } from './Stores/StateStore';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-// Create some file paths that we for sure have permissions to read and write to.
-export const qrDataFilePath = FileSystem.documentDirectory + 'qrData.json';
-export const filePath = FileSystem.documentDirectory + 'data.json';
-export const settingsPath = FileSystem.documentDirectory + 'settings.json';
-
 function MainTabs() {
   return (
-    <Tab.Navigator backBehavior='history' animationed={false}>
+    <Tab.Navigator backBehavior='history' screenOptions={{ animation: 'none' }}>
       <Tab.Screen
         name="Home"
         component={Homepage}
@@ -62,7 +56,7 @@ function MainTabs() {
 }
 
 export default function App() {
-  const { set } = useStateStore();
+  const { set } = useSettingsStore();
 
   // On application load load the matchData and settings from the files.
   useEffect(() => {
@@ -99,7 +93,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ animation: 'none' }}>
         <Stack.Screen
           name="Main"
           component={MainTabs}

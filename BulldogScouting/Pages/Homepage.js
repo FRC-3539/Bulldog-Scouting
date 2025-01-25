@@ -3,14 +3,17 @@ import React, { useEffect } from 'react';
 import startPositionImage from "../assets/AutonStartingPosition.webp";
 import startPositionImageRotated from "../assets/AutonStartingPositionRotated.webp";
 import { Switch } from 'react-native';
-import { useStateStore } from "../Stores/StateStore"
+import { useSettingsStore, useHomeStore } from "../Stores/StateStore"
 import { VStack, HStack, Spacer } from 'react-native-stacks';
-import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { useNavigation } from '@react-navigation/native';
+import RadioButton from "../Components/RadioButton";
+import RadioButtonGroup from "../Components/RadioButtonGroup";
 
 export default function Homepage() {
-    const { scoutName, teamNumber, preload, noShow, startPosition, matchNumber, allianceColor, allianceStation, rotateField, matchData, set } = useStateStore();
+    const { allianceColor, allianceStation, rotateField, matchData } = useSettingsStore();
+    const { scoutName, teamNumber, preload, noShow, startPosition, matchNumber, set } = useHomeStore();
+
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -53,7 +56,7 @@ export default function Homepage() {
                         keyboardType='numeric' />
                 </VStack>
                 <Spacer />
-                <FontAwesome6 name="gear" size={24} color='gray' onPress={() => navigation.navigate('Authentication')} />
+                <FontAwesome6 name="gear" size={24} padding={20} color='gray' onPress={() => navigation.navigate('Authentication')} />
                 <Spacer />
             </HStack>
             <Spacer />
@@ -83,16 +86,23 @@ export default function Homepage() {
             <Spacer />
             <HStack>
                 <Image style={styles.startPositionImage} source={rotateField ? startPositionImageRotated : startPositionImage} />
-                <RadioButtonGroup
+
+
+                <RadioButtonGroup containerStyle={styles.RadioButtonGroup} selected={startPosition} onChange={(value) => set({ startPosition: value })} disabled={noShow}>
+                    <RadioButton color={'green'} value={rotateField ? "a" : "c"} label={rotateField ? "A" : "C"} />
+                    <RadioButton color={'green'} value="b" label="B" />
+                    <RadioButton color={'green'} value={rotateField ? "c" : "a"} label={rotateField ? "C" : "A"} />
+                </RadioButtonGroup>
+                {/* <RadioButtonGroup
                     containerStyle={styles.RadioButtonGroup}
                     selected={startPosition}
                     onSelected={(value) => set({ startPosition: value })}
                     radioBackground="green"
                 >
-                    <RadioButtonItem value={rotateField?"a":"c"} label={rotateField?"A":"C"} />
+                    <RadioButtonItem value={rotateField ? "a" : "c"} label={rotateField ? "A" : "C"} />
                     <RadioButtonItem value="b" label="B" />
-                    <RadioButtonItem value={rotateField?"c":"a"} label={rotateField?"C":"A"} />
-                </RadioButtonGroup>
+                    <RadioButtonItem value={rotateField ? "c" : "a"} label={rotateField ? "C" : "A"} />
+                </RadioButtonGroup> */}
             </HStack>
             <Spacer />
         </View >
@@ -122,7 +132,7 @@ const styles = StyleSheet.create({
         resizeMode: 'center',
     },
     RadioButtonGroup: {
-        height:'400',
+        height: '400',
         flexDirection: 'column',
         justifyContent: "space-around",
     },

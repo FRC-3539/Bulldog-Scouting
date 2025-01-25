@@ -2,10 +2,10 @@ import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import React from 'react';
 import { Switch, } from 'react-native';
 import { HStack, Spacer } from 'react-native-stacks';
-import { useFinalStore } from "../Stores/StateStore"
+import { useFinalStore, useHomeStore } from "../Stores/StateStore"
 
 export default function Final() {
-    const { scoutName, teamNumber, preload, noShow, isTipped, set, isDisabled, isBroken, redCard, yellowCard, comments } = useFinalStore();
+    const { isTipped, set, isDisabled, isBroken, redCard, yellowCard, comments } = useFinalStore();
 
     return (
         <View style={styles.container}>

@@ -3,14 +3,15 @@ import React from 'react';
 import Counter from '../Components/Counter.js';
 import { HStack, Spacer, VStack } from 'react-native-stacks';
 import reefImage from "../assets/Reef.webp";
-import {useTeleopStore, useStateStore} from "../Stores/StateStore"
+import { useTeleopStore, useSettingsStore, useHomeStore } from "../Stores/StateStore"
 import processorImage from "../assets/Processor.webp"
 import netImage from "../assets/net_small.webp"
 
 export default function Teleop() {
 
 
-    const { scoutName, noShow, matchNumber, teamNumber, set } = useStateStore();
+    const { scoutName, noShow, matchNumber, teamNumber } = useHomeStore();
+
     return (
         <View style={styles.container}>
             <Spacer />
@@ -20,29 +21,29 @@ export default function Teleop() {
                     <Text>Scout Name</Text>
                     <TextInput
                         style={styles.input}
-                        onChangeText={(text) => set({ scoutName: text })}
                         placeholder='Scout Name'
-                        value={scoutName} />
+                        value={scoutName}
+                        editable={false} />
                 </VStack>
                 <Spacer />
                 <VStack>
                     <Text>Match #</Text>
                     <TextInput
                         style={styles.input}
-                        onChangeText={(text) => set({ matchNumber: text })}
                         placeholder='Match #'
                         value={matchNumber}
-                        keyboardType='numeric' />
+                        keyboardType='numeric'
+                        editable={false} />
                 </VStack>
                 <Spacer />
                 <VStack>
                     <Text>Team #</Text>
                     <TextInput
                         style={styles.input}
-                        onChangeText={(text) => set({ teamNumber: text })}
                         placeholder='Team #'
                         value={teamNumber}
-                        keyboardType='numeric' />
+                        keyboardType='numeric'
+                        editable={false} />
                 </VStack>
                 <Spacer />
             </HStack>
@@ -161,5 +162,5 @@ const styles = StyleSheet.create({
         width: 175,
         height: 125,
         resizeMode: "center",
-},
+    },
 });
