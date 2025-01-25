@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { Switch, } from 'react-native';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
-import useStateStore from "../Stores/StateStore"
+import {useStateStore} from "../Stores/StateStore"
 import React, { useEffect, useState } from 'react';
 import { Spacer } from 'react-native-stacks';
-import {endgameBlueBarge} from "../assets/endgame_blue.png"
-import {endgameRedBarge} from "../assets/endgame_red.png"
+import { endgameBlueBarge } from "../assets/endgame_blue.png"
+import { endgameRedBarge } from "../assets/endgame_red.png"
 
 export default function Endgame() {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -18,9 +18,8 @@ export default function Endgame() {
         })
     }, [allianceColor, allianceStation, matchNumber, matchData]);
     return (
-
-
         <View style={styles.container}>
+            <Image style={styles.endgameBarge} source={allianceColor == "red" ? endgameRedBarge : endgameBlueBarge} />
 
             <Text>Attempt</Text>
             <Switch
@@ -30,8 +29,6 @@ export default function Endgame() {
                 onValueChange={toggleSwitch}
                 value={isEnabled}
             />
-
-
             <Text>Time Used</Text>
             <RadioButtonGroup
                 containerStyle={styles.RadioButtonGroup}
@@ -39,24 +36,20 @@ export default function Endgame() {
                 onSelected={(value) => set({ climbTime: value })}
                 radioBackground="green"
             >
-
                 <RadioButtonItem value="d" label="<5" />
                 <RadioButtonItem value="e" label="~5" />
                 <RadioButtonItem value="f" label="<10" />
 
             </RadioButtonGroup>
             <Spacer />
-
-            
-           
-<Spacer/>
+            <Image style={styles.endgameBarge} source={allianceColor == "red" ? endgameRedBarge : endgameBlueBarge} />
+            <Spacer />
             <RadioButtonGroup
                 containerStyle={styles.RadioButtonGroup}
                 selected={climbPosition}
                 onSelected={(value) => set({ climbPosition: value })}
                 radioBackground="green"
             >
-
                 <Spacer />
                 <RadioButtonItem value="a" label="park" />
                 <Spacer />
@@ -66,9 +59,6 @@ export default function Endgame() {
                 <Spacer />
 
             </RadioButtonGroup>
-
-
-
         </View>
     );
 }
@@ -76,7 +66,7 @@ export default function Endgame() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#ffe3e3',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -98,8 +88,14 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
 
     },
-    
-    
+    endgameBarge: {
+        width: 400,
+        height: 400,
+        resizeMode: "stretch"
+
+    }
+
+
 
 
 

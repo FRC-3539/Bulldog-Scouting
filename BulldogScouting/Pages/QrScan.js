@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Alert, Button, View, Text, StyleSheet } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { VStack, HStack, Spacer } from 'react-native-stacks';
-import useStateStore from '../Stores/StateStore';
+import {useStateStore} from '../Stores/StateStore';
 import { qrDataFilePath } from '../App';
 import * as FileSystem from 'expo-file-system';
 

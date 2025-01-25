@@ -14,7 +14,7 @@ import * as FileSystem from 'expo-file-system';
 import Settings from './Pages/Settings';
 import SettingsPassword from './Pages/SettingsPassword';
 import QrScan from './Pages/QrScan';
-import useStateStore from './Stores/StateStore';
+import {useStateStore} from './Stores/StateStore';
 
 
 const Tab = createBottomTabNavigator();

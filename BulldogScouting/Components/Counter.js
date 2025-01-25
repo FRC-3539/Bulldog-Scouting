@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text } from 'react-native';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import useStateStore from "../Stores/StateStore"
+import {useAutonStore, useTeleopStore } from "../Stores/StateStore"
 import { HStack } from 'react-native-stacks';
-
-const Counter = ({ variable, onIncrement, onDecrement, disabled }) => {
-    const count = useStateStore(state => state[variable]);
-    const set = useStateStore(state => state.set);
+const Stores = {Auton: useAutonStore, Teleop: useTeleopStore}
+const Counter = ({ store, variable, onIncrement, onDecrement, disabled }) => {
+    const count = Stores[store](state => state[variable]);
+    const set = Stores[store](state => state.set);
 
     const handleIncrement = () => {
         if (!disabled) {
@@ -24,9 +24,9 @@ const Counter = ({ variable, onIncrement, onDecrement, disabled }) => {
 
     return (
         <HStack>
-            <FontAwesome6 name="minus" size={32} onPress={handleDecrement} color={disabled ? 'gray' : 'red'} />
+            <FontAwesome6 name="minus" padding={20} paddingRight={5} size={32} onPress={handleDecrement} color={disabled ? 'gray' : 'red'} />
             <Text style={{ width: 75, textAlign: 'center', fontSize: 24 }}>  {count}  </Text>
-            <FontAwesome6 name="plus" size={32} onPress={handleIncrement} color={disabled ? 'gray' : 'green'} />
+            <FontAwesome6 name="plus" padding={20} paddingLeft={5} size={32} onPress={handleIncrement} color={disabled ? 'gray' : 'green'} />
         </HStack>
     );
 };

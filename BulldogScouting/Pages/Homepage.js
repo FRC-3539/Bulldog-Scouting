@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import startPositionImage from "../assets/AutonStartingPosition.png";
 import startPositionImageRotated from "../assets/AutonStartingPositionRotated.png";
 import { Switch } from 'react-native';
-import useStateStore from "../Stores/StateStore"
+import {useStateStore} from "../Stores/StateStore"
 import { VStack, HStack, Spacer } from 'react-native-stacks';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
@@ -102,7 +102,7 @@ export default function Homepage() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#dedede',
         alignItems: 'center',
         justifyContent: 'center',
     },

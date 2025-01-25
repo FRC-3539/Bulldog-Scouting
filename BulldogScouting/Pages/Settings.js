@@ -1,7 +1,7 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect } from 'react';
 import { Switch, Alert } from 'react-native';
-import useStateStore from "../Stores/StateStore"
+import {useStateStore} from "../Stores/StateStore"
 import { VStack, HStack, Spacer } from 'react-native-stacks';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import * as FileSystem from 'expo-file-system';

@@ -3,9 +3,9 @@ import React from 'react';
 import Counter from '../Components/Counter.js';
 import { HStack, Spacer, VStack } from 'react-native-stacks';
 import reefImage from "../assets/Reef.png";
-import useStateStore from "../Stores/StateStore"
+import {useTeleopStore, useStateStore} from "../Stores/StateStore"
 import processorImage from "../assets/Processor.png"
-import netImage from "../assets/net.png"
+import netImage from "../assets/net_small.png"
 
 export default function Teleop() {
 
@@ -56,39 +56,39 @@ export default function Teleop() {
                         <Spacer />
                         <VStack>
                             <Text>Scores</Text>
-                            <Counter variable='reefAutonL4Count' disabled={noShow} />
+                            <Counter store="Teleop" variable='reefTeleopL4Count' disabled={noShow} />
                         </VStack>
                         <Spacer />
                         <VStack>
                             <Text>Misses</Text>
-                            <Counter variable='reefAutonL4MissCount' disabled={noShow} />
+                            <Counter store="Teleop" variable='reefTeleopL4MissCount' disabled={noShow} />
                         </VStack>
                         <Spacer />
                     </HStack>
                     <Spacer />
                     <HStack>
                         <Spacer />
-                        <Counter variable='reefAutonL3Count' disabled={noShow} />
+                        <Counter store="Teleop" variable='reefTeleopL3Count' disabled={noShow} />
                         <Spacer />
 
-                        <Counter variable='reefAutonL3MissCount' disabled={noShow} />
+                        <Counter store="Teleop" variable='reefTeleopL3MissCount' disabled={noShow} />
                         <Spacer />
                     </HStack>
                     <Spacer />
                     <HStack>
                         <Spacer />
-                        <Counter variable='reefAutonL2Count' disabled={noShow} />
+                        <Counter store="Teleop" variable='reefTeleopL2Count' disabled={noShow} />
                         <Spacer />
 
-                        <Counter variable='reefAutonL2MissCount' disabled={noShow} />
+                        <Counter store="Teleop" variable='reefTeleopL2MissCount' disabled={noShow} />
                         <Spacer />
                     </HStack>
                     <Spacer />
                     <HStack>
                         <Spacer />
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
+                        <Counter store="Teleop" variable='reefTeleopL1Count' disabled={noShow} />
                         <Spacer />
-                        <Counter variable='reefAutonL1MissCount' disabled={noShow} />
+                        <Counter store="Teleop" variable='reefTeleopL1MissCount' disabled={noShow} />
                         <Spacer />
                     </HStack>
                 </View>
@@ -98,9 +98,9 @@ export default function Teleop() {
                 <Spacer />
                 <Image style={styles.processorImage} source={processorImage} />
                 <Spacer />
-                <Counter variable='processorTeleopCount' disabled={noShow} />
+                <Counter store="Teleop" variable='processorTeleopCount' disabled={noShow} />
                 <Spacer />
-                <Counter variable='processorTeleopMissCount' disabled={noShow} />
+                <Counter store="Teleop" variable='processorTeleopMissCount' disabled={noShow} />
                 <Spacer />
             </HStack>
             <Spacer />
@@ -108,9 +108,9 @@ export default function Teleop() {
                 <Spacer />
                 <Image style={styles.netImage} source={netImage} />
                 <Spacer />
-                <Counter variable='netTeleopCount' disabled={noShow} />
+                <Counter store="Teleop" variable='netTeleopCount' disabled={noShow} />
                 <Spacer />
-                <Counter variable='netTeleopMissCount' disabled={noShow} />
+                <Counter store="Teleop" variable='netTeleopMissCount' disabled={noShow} />
                 <Spacer />
             </HStack>
             <Spacer />
@@ -123,13 +123,13 @@ export default function Teleop() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#e3ffe7',
         alignItems: 'center',
         justifyContent: 'center',
     },
     counterContainer: {
         width: '80%',
-        backgroundColor: '#fff',
+        backgroundColor: 'Transparent',
         alignItems: 'center',
         justifyContent: 'center',
     },

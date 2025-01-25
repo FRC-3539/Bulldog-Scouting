@@ -1,15 +1,15 @@
 
 import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import React from 'react';
-import useStateStore from "../Stores/StateStore"
+import {useStateStore} from "../Stores/StateStore"
 import Counter from '../Components/Counter.js';
 import { HStack, Spacer, VStack } from 'react-native-stacks';
 import reefImage from "../assets/Reef.png";
 import processorImage from "../assets/Processor.png"
-import netImage from "../assets/net.png"
+import netImage from "../assets/net_small.png"
 
 export default function Auton() {
-    const { scoutName, noShow, matchNumber, teamNumber } = useStateStore();
+    const { scoutName, noShow, matchNumber, teamNumber, set } = useStateStore();
 
     return (
 
@@ -57,39 +57,39 @@ export default function Auton() {
                         <Spacer />
                         <VStack>
                             <Text>Scores</Text>
-                            <Counter variable='reefAutonL4Count' disabled={noShow} />
+                            <Counter store="Auton" variable='reefAutonL4Count' disabled={noShow} />
                         </VStack>
                         <Spacer />
                         <VStack>
                             <Text>Misses</Text>
-                            <Counter variable='reefAutonL4MissCount' disabled={noShow} />
+                            <Counter store="Auton" variable='reefAutonL4MissCount' disabled={noShow} />
                         </VStack>
                         <Spacer />
                     </HStack>
                     <Spacer />
                     <HStack>
                         <Spacer />
-                        <Counter variable='reefAutonL3Count' disabled={noShow} />
+                        <Counter store="Auton" variable='reefAutonL3Count' disabled={noShow} />
                         <Spacer />
 
-                        <Counter variable='reefAutonL3MissCount' disabled={noShow} />
+                        <Counter store="Auton" variable='reefAutonL3MissCount' disabled={noShow} />
                         <Spacer />
                     </HStack>
                     <Spacer />
                     <HStack>
                         <Spacer />
-                        <Counter variable='reefAutonL2Count' disabled={noShow} />
+                        <Counter store="Auton" variable='reefAutonL2Count' disabled={noShow} />
                         <Spacer />
 
-                        <Counter variable='reefAutonL2MissCount' disabled={noShow} />
+                        <Counter store="Auton" variable='reefAutonL2MissCount' disabled={noShow} />
                         <Spacer />
                     </HStack>
                     <Spacer />
                     <HStack>
                         <Spacer />
-                        <Counter variable='reefAutonL1Count' disabled={noShow} />
+                        <Counter store="Auton" variable='reefAutonL1Count' disabled={noShow} />
                         <Spacer />
-                        <Counter variable='reefAutonL1MissCount' disabled={noShow} />
+                        <Counter store="Auton" variable='reefAutonL1MissCount' disabled={noShow} />
                         <Spacer />
                     </HStack>
                 </View>
@@ -99,9 +99,9 @@ export default function Auton() {
                 <Spacer />
                 <Image style={styles.processorImage} source={processorImage} />
                 <Spacer />
-                <Counter variable='processorAutonCount' disabled={noShow} />
+                <Counter store="Auton" variable='processorAutonCount' disabled={noShow} />
                 <Spacer />
-                <Counter variable='processorAutonMissCount' disabled={noShow} />
+                <Counter store="Auton" variable='processorAutonMissCount' disabled={noShow} />
                 <Spacer />
             </HStack>
             <Spacer />
@@ -109,9 +109,9 @@ export default function Auton() {
                 <Spacer />
                 <Image style={styles.netImage} source={netImage} />
                 <Spacer />
-                <Counter variable='netAutonCount' disabled={noShow} />
+                <Counter store="Auton" variable='netAutonCount' disabled={noShow} />
                 <Spacer />
-                <Counter variable='netAutonMissCount' disabled={noShow} />
+                <Counter store="Auton" variable='netAutonMissCount' disabled={noShow} />
                 <Spacer />
             </HStack>
             <Spacer />
@@ -123,13 +123,13 @@ export default function Auton() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#e3e3ff',
         alignItems: 'center',
         justifyContent: 'center',
     },
     counterContainer: {
         width: '80%',
-        backgroundColor: '#fff',
+        backgroundColor: 'transparent',
         alignItems: 'center',
         justifyContent: 'center',
     },

@@ -44,7 +44,7 @@ export default function Final() {
             <Spacer />
             <HStack>
                 <Spacer />
-                <Text>Red Flag</Text>
+                <Text>Red Card</Text>
                 <Switch
                     trackColor={{ false: '#767577', true: '#81b0ff' }}
                     thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
@@ -53,7 +53,7 @@ export default function Final() {
                     value={isEnabled}
                 />
                 <Spacer />
-                <Text>Yellow Flag</Text>
+                <Text>Yellow Card</Text>
                 <Switch
                     trackColor={{ false: '#767577', true: '#81b0ff' }}
                     thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
@@ -80,7 +80,7 @@ export default function Final() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#fce3ff',
         alignItems: 'center',
         justifyContent: 'center',
     },

@@ -1,16 +1,7 @@
 import { create } from 'zustand'
-
-const useStateStore = create((set) => ({
-    allianceColor: "red",
-    allianceStation: 1,
-    scoutName: "",
-    matchNumber: "",
-    teamNumber: "",
-    preload: false,
-    noShow: false,
-    startPosition: "a",
-    rotateField: false,
-    reefAutonL1Count: 0, 
+export const useAutonStore = create((set) => ({
+    set,
+    reefAutonL1Count: 0,
     reefAutonL2Count: 0,
     reefAutonL3Count: 0,
     reefAutonL4Count: 0,
@@ -22,7 +13,10 @@ const useStateStore = create((set) => ({
     processorAutonMissCount: 0,
     netAutonCount: 0,
     netAutonMissCount: 0,
-    reefTeleopL1Count: 0, 
+}))
+export const useTeleopStore = create((set) => ({
+    set,
+    reefTeleopL1Count: 0,
     reefTeleopL2Count: 0,
     reefTeleopL3Count: 0,
     reefTeleopL4Count: 0,
@@ -34,10 +28,23 @@ const useStateStore = create((set) => ({
     processorTeleopMissCount: 0,
     netTeleopCount: 0,
     netTeleopMissCount: 0,
+}))
+
+export const useStateStore = create((set) => ({
+    allianceColor: "red",
+    allianceStation: 1,
+    scoutName: "",
+    matchNumber: "",
+    teamNumber: "",
+    preload: false,
+    noShow: false,
+    startPosition: "a",
+    rotateField: false,
+
+    
     climbTime: "d",
     climbPosition: 'a',
 
     matchData: {},
     set
 }))
-export default useStateStore;
