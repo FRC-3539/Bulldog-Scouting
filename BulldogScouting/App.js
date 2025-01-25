@@ -27,7 +27,7 @@ export const settingsPath = FileSystem.documentDirectory + 'settings.json';
 
 function MainTabs() {
   return (
-    <Tab.Navigator backBehavior='history' detachInactiveScreens='true'>
+    <Tab.Navigator backBehavior='history' animationed={false}>
       <Tab.Screen
         name="Home"
         component={Homepage}

@@ -1,18 +1,17 @@
 
 import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import React from 'react';
-import {useStateStore} from "../Stores/StateStore"
+import { useStateStore } from "../Stores/StateStore"
 import Counter from '../Components/Counter.js';
 import { HStack, Spacer, VStack } from 'react-native-stacks';
-import reefImage from "../assets/Reef.png";
-import processorImage from "../assets/Processor.png"
-import netImage from "../assets/net_small.png"
+import reefImage from "../assets/Reef.webp"
+import processorImage from "../assets/Processor.webp"
+import netImage from "../assets/net_small.webp"
 
 export default function Auton() {
     const { scoutName, noShow, matchNumber, teamNumber, set } = useStateStore();
 
     return (
-
         <View style={styles.container}>
             <Spacer />
             <HStack>
@@ -51,7 +50,6 @@ export default function Auton() {
             <HStack>
                 <Spacer />
                 <Image style={styles.reefImage} source={reefImage} />
-
                 <View style={styles.counterContainer}>
                     <HStack>
                         <Spacer />
@@ -71,7 +69,6 @@ export default function Auton() {
                         <Spacer />
                         <Counter store="Auton" variable='reefAutonL3Count' disabled={noShow} />
                         <Spacer />
-
                         <Counter store="Auton" variable='reefAutonL3MissCount' disabled={noShow} />
                         <Spacer />
                     </HStack>
@@ -80,7 +77,6 @@ export default function Auton() {
                         <Spacer />
                         <Counter store="Auton" variable='reefAutonL2Count' disabled={noShow} />
                         <Spacer />
-
                         <Counter store="Auton" variable='reefAutonL2MissCount' disabled={noShow} />
                         <Spacer />
                     </HStack>
@@ -116,7 +112,6 @@ export default function Auton() {
             </HStack>
             <Spacer />
         </View>
-
     );
 }
 

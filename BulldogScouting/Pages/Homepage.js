@@ -1,7 +1,7 @@
 import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import React, { useEffect } from 'react';
-import startPositionImage from "../assets/AutonStartingPosition.png";
-import startPositionImageRotated from "../assets/AutonStartingPositionRotated.png";
+import startPositionImage from "../assets/AutonStartingPosition.webp";
+import startPositionImageRotated from "../assets/AutonStartingPositionRotated.webp";
 import { Switch } from 'react-native';
 import {useStateStore} from "../Stores/StateStore"
 import { VStack, HStack, Spacer } from 'react-native-stacks';
@@ -81,7 +81,7 @@ export default function Homepage() {
             </HStack>
             <Spacer />
             <HStack>
-                <Image style={styles.startPositionImage} source={rotateField ? startPositionImageRotated : startPositionImage} />
+                {/* <Image style={styles.startPositionImage} source={rotateField ? startPositionImageRotated : startPositionImage} /> */}
                 <View>
                 <RadioButtonGroup
                     containerStyle={styles.RadioButtonGroup}
@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         width: 110
+        
     },
     Slider: {
         width: "75%",

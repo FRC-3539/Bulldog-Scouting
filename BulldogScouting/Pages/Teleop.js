@@ -2,10 +2,10 @@ import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import React from 'react';
 import Counter from '../Components/Counter.js';
 import { HStack, Spacer, VStack } from 'react-native-stacks';
-import reefImage from "../assets/Reef.png";
+import reefImage from "../assets/Reef.webp";
 import {useTeleopStore, useStateStore} from "../Stores/StateStore"
-import processorImage from "../assets/Processor.png"
-import netImage from "../assets/net_small.png"
+import processorImage from "../assets/Processor.webp"
+import netImage from "../assets/net_small.webp"
 
 export default function Teleop() {
 

@@ -4,8 +4,8 @@ import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import {useStateStore} from "../Stores/StateStore"
 import React, { useEffect, useState } from 'react';
 import { Spacer } from 'react-native-stacks';
-import { endgameBlueBarge } from "../assets/endgame_blue.png"
-import { endgameRedBarge } from "../assets/endgame_red.png"
+import { endgameBlueBarge } from "../assets/endgame_blue.webp"
+import { endgameRedBarge } from "../assets/endgame_red.webp"
 
 export default function Endgame() {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
