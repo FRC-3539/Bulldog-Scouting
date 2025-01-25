@@ -40,11 +40,21 @@ export const useStateStore = create((set) => ({
     noShow: false,
     startPosition: "a",
     rotateField: false,
-
-    
+    matchData: {},
+    set
+}))
+export const useFinalStore = create((set) => ({
     climbTime: "d",
     climbPosition: 'a',
+    isTipped: false,
+    isBroken: false,
+    isDisabled: false,
+    redCard: false,
+    yellowCard: false,
+    set
 
-    matchData: {},
+}))
+export const useEndgameStore = create((set) => ({
+    climbAttempt: false,
     set
 }))

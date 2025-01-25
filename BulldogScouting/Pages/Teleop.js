@@ -10,7 +10,7 @@ import netImage from "../assets/net_small.webp"
 export default function Teleop() {
 
 
-    const { scoutName, noShow, matchNumber, teamNumber } = useStateStore();
+    const { scoutName, noShow, matchNumber, teamNumber, set } = useStateStore();
     return (
         <View style={styles.container}>
             <Spacer />

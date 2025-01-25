@@ -81,7 +81,7 @@ export default function Homepage() {
             </HStack>
             <Spacer />
             <HStack>
-                {/* <Image style={styles.startPositionImage} source={rotateField ? startPositionImageRotated : startPositionImage} /> */}
+                <Image style={styles.startPositionImage} source={rotateField ? startPositionImageRotated : startPositionImage} />
                 <View>
                 <RadioButtonGroup
                     containerStyle={styles.RadioButtonGroup}

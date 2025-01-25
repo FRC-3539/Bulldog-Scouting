@@ -3,8 +3,10 @@ import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import React from 'react';
 import { Switch, } from 'react-native';
 import { HStack, Spacer } from 'react-native-stacks';
+import {useFinalStore} from "../Stores/StateStore"
 
 export default function Final() {
+    const { scoutName, teamNumber, preload, noShow, isTipped , set, isDisabled, isBroken, redCard, yellowCard,  } = useFinalStore();
     const [Textinput, setText] = useState("");
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -16,28 +18,32 @@ export default function Final() {
                 <Text>Tipped</Text>
                 <Switch
                     trackColor={{ false: '#767577', true: '#81b0ff' }}
-                    thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-                    ios_backgroundColor="#3e3e3e"
-                    onValueChange={toggleSwitch}
-                    value={isEnabled}
+                    thumbColor={isTipped ? '#f5dd4b' : '#f4f3f4'}
+                    onValueChange={(value) => set({ isTipped: value })}
+                    value={isTipped}
                 />
+                {/* <Switch
+                                        trackColor={{ false: '#767577', true: '#81b0ff' }}
+                                        thumbColor={preload ? '#f5dd4b' : '#f4f3f4'}
+                                        onValueChange={(value) => set({ preload: value })}
+                                        value={preload} */}
                 <Spacer />
                 <Text>Broken</Text>
                 <Switch
                     trackColor={{ false: '#767577', true: '#81b0ff' }}
-                    thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                    thumbColor={isBroken ? '#f5dd4b' : '#f4f3f4'}
                     ios_backgroundColor="#3e3e3e"
-                    onValueChange={toggleSwitch}
-                    value={isEnabled}
+                    onValueChange={(value) => set({ isBroken: value })}
+                    value={isBroken}
                 />
                 <Spacer />
                 <Text>Disabled</Text>
                 <Switch
                     trackColor={{ false: '#767577', true: '#81b0ff' }}
-                    thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                    thumbColor={isDisabled ? '#f5dd4b' : '#f4f3f4'}
                     ios_backgroundColor="#3e3e3e"
-                    onValueChange={toggleSwitch}
-                    value={isEnabled}
+                    onValueChange={(value) => set({ isDisabled: value })}
+                    value={isDisabled}
                 />
                 <Spacer />
             </HStack>
@@ -47,20 +53,20 @@ export default function Final() {
                 <Text>Red Card</Text>
                 <Switch
                     trackColor={{ false: '#767577', true: '#81b0ff' }}
-                    thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                    thumbColor={redCard ? '#f5dd4b' : '#f4f3f4'}
                     ios_backgroundColor="#3e3e3e"
-                    onValueChange={toggleSwitch}
-                    value={isEnabled}
+                    onValueChange={(value) => set({ redCard: value })}
+                    value={redCard}
                 />
                 <Spacer />
                 <Text>Yellow Card</Text>
                 <Switch
                     trackColor={{ false: '#767577', true: '#81b0ff' }}
-                    thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                    thumbColor={yellowCard ? '#f5dd4b' : '#f4f3f4'}
                     ios_backgroundColor="#3e3e3e"
-                    onValueChange={toggleSwitch}
-                    value={isEnabled}
-                /> 
+                    onValueChange={(value) => set({ yellowCard: value })}
+                    value={yellowCard}
+                />
                 <Spacer />
             </HStack>
             <Spacer />
@@ -100,7 +106,8 @@ const styles = StyleSheet.create({
         width: 200,
         height: 200,
         resizeMode: 'stretch',
-    }
+    },
+    
 
 
 });

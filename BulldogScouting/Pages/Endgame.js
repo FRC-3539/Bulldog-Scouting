@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { Switch, } from 'react-native';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
-import {useStateStore} from "../Stores/StateStore"
+import {useEndgameStore} from "../Stores/StateStore"
 import React, { useEffect, useState } from 'react';
 import { Spacer } from 'react-native-stacks';
 import { endgameBlueBarge } from "../assets/endgame_blue.webp"
@@ -11,7 +11,7 @@ export default function Endgame() {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     const [isEnabled, setIsEnabled] = useState(false);
     const [value, setValue] = useState(0)
-    const { allianceColor, allianceStation, teamNumber, matchData, matchNumber, set, climbTime, climbPosition } = useStateStore();
+    const { allianceColor, allianceStation, teamNumber, matchData, matchNumber, set, climbTime, climbPosition, climbAttempt } = useEndgameStore();
     useEffect(() => {
         set({
             teamNumber: matchData?.[matchNumber]?.[allianceColor + allianceStation] ?? ''
@@ -24,10 +24,10 @@ export default function Endgame() {
             <Text>Attempt</Text>
             <Switch
                 trackColor={{ false: '#767577', true: '#81b0ff' }}
-                thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                thumbColor={climbAttempt ? '#f5dd4b' : '#f4f3f4'}
                 ios_backgroundColor="#3e3e3e"
-                onValueChange={toggleSwitch}
-                value={isEnabled}
+                onValueChange={(value) => set({ climbAttempt: value })}
+                value={climbAttempt}
             />
             <Text>Time Used</Text>
             <RadioButtonGroup
