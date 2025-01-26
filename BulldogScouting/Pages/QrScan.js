@@ -5,6 +5,8 @@ import { VStack, HStack, Spacer } from 'react-native-stacks';
 import { useSettingsStore } from '../Stores/StateStore';
 import * as FileSystem from 'expo-file-system';
 import { settingsPath, qrDataFilePath } from '../Stores/StateStore';
+import { useIsFocused } from '@react-navigation/native';
+
 
 
 
@@ -14,6 +16,11 @@ export function QrScan() {
     const [scanned, setScanned] = useState(false);
     const [permission, requestPermission] = useCameraPermissions();
     const { matchData, set } = useSettingsStore();
+
+    const isFocused = useIsFocused();
+    if (!isFocused) {
+        return (<View style={styles.container}></View>)
+    }
 
 
     async function handleBarCodeScanned({ type, data }) {

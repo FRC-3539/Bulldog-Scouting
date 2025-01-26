@@ -3,10 +3,14 @@ import React, { useEffect } from 'react';
 import { Switch, Alert } from 'react-native';
 import { useSettingsStore } from "../Stores/StateStore"
 import { VStack, HStack, Spacer } from 'react-native-stacks';
-import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import * as FileSystem from 'expo-file-system';
 import { useNavigation } from '@react-navigation/native';
 import { settingsPath, qrDataFilePath } from '../Stores/StateStore';
+import RadioButton from "../Components/RadioButton";
+import RadioButtonGroup from "../Components/RadioButtonGroup";
+import { useIsFocused } from '@react-navigation/native';
+
+
 
 export default function Settings() {
     const navigation = useNavigation();
@@ -28,6 +32,11 @@ export default function Settings() {
 
 
     }, [allianceColor, allianceStation, rotateField]);
+
+    const isFocused = useIsFocused();
+    if (!isFocused) {
+        return (<View style={styles.container}></View>)
+    }
 
     return (
         <View style={styles.container}>
@@ -52,14 +61,11 @@ export default function Settings() {
                 />
                 <Text>Alliance Station</Text>
                 <HStack>
-                    <RadioButtonGroup
-                        selected={allianceStation.toString()}
-                        onSelected={(value) => set({ allianceStation: parseInt(value) })}
-                        radioBackground="green"
-                    >
-                        <RadioButtonItem value="1" label="1" />
-                        <RadioButtonItem value="2" label="2" />
-                        <RadioButtonItem value="3" label="3" />
+
+                    <RadioButtonGroup containerStyle={styles.RadioButtonGroup} selected={allianceStation} onChange={(value) => set({ allianceStation: parseInt(value) })}>
+                        <RadioButton color={allianceColor} value={1} label="1" />
+                        <RadioButton color={allianceColor} value={2} label="2" />
+                        <RadioButton color={allianceColor} value={3} label="3" />
                     </RadioButtonGroup>
                 </HStack>
             </VStack>

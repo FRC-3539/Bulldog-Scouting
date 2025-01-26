@@ -93,7 +93,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ animation: 'none' }}>
+      <Stack.Navigator>
         <Stack.Screen
           name="Main"
           component={MainTabs}

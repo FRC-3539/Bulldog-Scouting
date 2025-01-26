@@ -7,11 +7,17 @@ import endgameBlueBarge from "../assets/endgame_blue.webp"
 import endgameRedBarge from "../assets/endgame_red.webp"
 import RadioButton from "../Components/RadioButton";
 import RadioButtonGroup from "../Components/RadioButtonGroup";
+import { useIsFocused } from '@react-navigation/native';
+
 
 export default function Endgame() {
     const { set, climbTime, climbPosition, climbAttempt } = useEndgameStore();
     const { scoutName, noShow, matchNumber, teamNumber } = useHomeStore();
     const { allianceColor } = useSettingsStore();
+    const isFocused = useIsFocused();
+    if (!isFocused) {
+        return (<View style={styles.container}></View>)
+    }
     return (
         <View style={styles.container}>
             <Spacer />
@@ -91,7 +97,8 @@ const styles = StyleSheet.create({
     },
     input: {
         borderWidth: 1,
-        borderRadius: 5
+        borderRadius: 5,
+        width: 110,
     },
     Slider: {
         width: "75%",

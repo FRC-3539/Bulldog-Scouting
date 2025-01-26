@@ -41,7 +41,7 @@ const RadioButton = ({
 };
 
 RadioButton.propTypes = {
-    value: PropTypes.string.isRequired,
+    value: PropTypes.any.isRequired,
     selected: PropTypes.string,
     onChange: PropTypes.func,
     color: PropTypes.string,

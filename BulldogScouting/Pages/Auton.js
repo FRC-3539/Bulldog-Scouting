@@ -7,9 +7,17 @@ import { HStack, Spacer, VStack } from 'react-native-stacks';
 import reefImage from "../assets/Reef.webp"
 import processorImage from "../assets/Processor.webp"
 import netImage from "../assets/net_small.webp"
+import { useIsFocused } from '@react-navigation/native';
+
 
 export default function Auton() {
     const { scoutName, noShow, matchNumber, teamNumber } = useHomeStore();
+
+    const isFocused = useIsFocused();
+
+    if (!isFocused) {
+        return (<View style={styles.container}></View>)
+    }
 
     return (
         <View style={styles.container}>

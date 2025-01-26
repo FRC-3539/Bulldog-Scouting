@@ -2,6 +2,8 @@ import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import React, { useState } from 'react';
 import { VStack, HStack, Spacer } from 'react-native-stacks';
 import { useNavigation } from '@react-navigation/native';
+import { useIsFocused } from '@react-navigation/native';
+
 
 
 export default function SettingsPassword() {
@@ -9,7 +11,7 @@ export default function SettingsPassword() {
     const navigation = useNavigation();
 
     const saveToFile = () => {
-        
+
     }
 
     const handlePasswordSubmit = () => {
@@ -19,6 +21,11 @@ export default function SettingsPassword() {
             alert('Incorrect password');
         }
     };
+
+    const isFocused = useIsFocused();
+    if (!isFocused) {
+        return (<View style={styles.container}></View>)
+    }
 
     return (
         <View style={styles.container}>

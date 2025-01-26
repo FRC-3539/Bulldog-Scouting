@@ -3,10 +3,15 @@ import React from 'react';
 import { Switch, } from 'react-native';
 import { HStack, Spacer } from 'react-native-stacks';
 import { useFinalStore, useHomeStore } from "../Stores/StateStore"
+import { useIsFocused } from '@react-navigation/native';
+
 
 export default function Final() {
     const { isTipped, set, isDisabled, isBroken, redCard, yellowCard, comments } = useFinalStore();
-
+    const isFocused = useIsFocused();
+    if (!isFocused) {
+        return (<View style={styles.container}></View>)
+    }
     return (
         <View style={styles.container}>
             <Spacer />
@@ -66,7 +71,7 @@ export default function Final() {
             <TextInput
                 style={styles.input}
                 onChangeText={(value) => set({ comments: value })}
-                placeholder='Please enter any Comments'
+                placeholder='Please enter any comments'
                 value={comments}
                 multiline={true} />
             <Spacer />

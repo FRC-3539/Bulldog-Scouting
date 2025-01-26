@@ -9,6 +9,8 @@ import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { useNavigation } from '@react-navigation/native';
 import RadioButton from "../Components/RadioButton";
 import RadioButtonGroup from "../Components/RadioButtonGroup";
+import { useIsFocused } from '@react-navigation/native';
+
 
 export default function Homepage() {
     const { allianceColor, allianceStation, rotateField, matchData } = useSettingsStore();
@@ -16,11 +18,17 @@ export default function Homepage() {
 
     const navigation = useNavigation();
 
+    const isFocused = useIsFocused();
+
+
     useEffect(() => {
         set({
             teamNumber: matchData?.[matchNumber]?.[allianceColor + allianceStation] ?? ''
         })
     }, [allianceColor, allianceStation, matchNumber, matchData]);
+    if (!isFocused) {
+        return (<View style={styles.container}></View>)
+    }
 
     return (
         <View style={styles.container}>
@@ -93,16 +101,6 @@ export default function Homepage() {
                     <RadioButton color={'green'} value="b" label="B" />
                     <RadioButton color={'green'} value={rotateField ? "c" : "a"} label={rotateField ? "C" : "A"} />
                 </RadioButtonGroup>
-                {/* <RadioButtonGroup
-                    containerStyle={styles.RadioButtonGroup}
-                    selected={startPosition}
-                    onSelected={(value) => set({ startPosition: value })}
-                    radioBackground="green"
-                >
-                    <RadioButtonItem value={rotateField ? "a" : "c"} label={rotateField ? "A" : "C"} />
-                    <RadioButtonItem value="b" label="B" />
-                    <RadioButtonItem value={rotateField ? "c" : "a"} label={rotateField ? "C" : "A"} />
-                </RadioButtonGroup> */}
             </HStack>
             <Spacer />
         </View >
