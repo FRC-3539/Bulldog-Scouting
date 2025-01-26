@@ -98,7 +98,9 @@ export async function shareFile() {
     // Copy the json to the new file name in the cache directory
     await FileSystem.copyAsync({ from: filePath, to: newFilePath });
     // Share the new copy
-    await Sharing.shareAsync(newFilePath)
+    await Sharing.shareAsync(newFilePath).then(async () => {
+        await FileSystem.deleteAsync(newFilePath);
+    });
 }
 
 export const submitToFile = async () => {
@@ -154,7 +156,7 @@ export const setStoresToDefault = (resetNoShow = true) => {
     useTeleopStore.setState(useTeleopStore.getInitialState());
     useHomeStore.setState((state) => ({
         ...useHomeStore.getInitialState(),
-        noShow: resetNoShow ? false : state.noShow,
+        noShow: resetNoShow ? false : state.noShow, // Reset these values back to the current state so we don't lose them.
         matchNumber: state.matchNumber,
         scoutName: state.scoutName,
         teamNumber: state.teamNumber,
