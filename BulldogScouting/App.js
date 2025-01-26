@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import React from 'react';
 import Homepage from './Pages/Homepage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Auton from './Pages/Auton';
 import Endgame from './Pages/Endgame';
@@ -17,7 +17,7 @@ import QrScan from './Pages/QrScan';
 import { useSettingsStore, settingsPath, qrDataFilePath } from './Stores/StateStore';
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 function MainTabs() {
   return (

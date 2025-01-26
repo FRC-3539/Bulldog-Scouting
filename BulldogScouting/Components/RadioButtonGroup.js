@@ -25,7 +25,7 @@ const RadioButtonGroup = ({ children, selected = '', onChange = () => { }, disab
 
 RadioButtonGroup.propTypes = {
     children: PropTypes.node.isRequired,
-    selected: PropTypes.string,
+    selected: PropTypes.any,
     onChange: PropTypes.func,
     disabled: PropTypes.bool,
     containerStyle: PropTypes.object,
