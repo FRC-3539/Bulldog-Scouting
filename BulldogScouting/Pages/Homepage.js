@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import startPositionImage from "../assets/AutonStartingPosition.webp";
 import startPositionImageRotated from "../assets/AutonStartingPositionRotated.webp";
 import { Switch } from 'react-native';
-import { useSettingsStore, useHomeStore } from "../Stores/StateStore"
+import { useSettingsStore, useHomeStore, setStoresToDefault } from "../Stores/StateStore"
 import { VStack, HStack, Spacer } from 'react-native-stacks';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { useNavigation } from '@react-navigation/native';
@@ -85,7 +85,12 @@ export default function Homepage() {
                     <Switch
                         trackColor={{ false: '#767577', true: '#81b0ff' }}
                         thumbColor={noShow ? '#f5dd4b' : '#f4f3f4'}
-                        onValueChange={(value) => set({ noShow: value })}
+                        onValueChange={(value) => {
+                            set({ noShow: value });
+                            if (value) {
+                                setStoresToDefault(resetNoShow = false);
+                            }
+                        }}
                         value={noShow}
                     />
                 </VStack>

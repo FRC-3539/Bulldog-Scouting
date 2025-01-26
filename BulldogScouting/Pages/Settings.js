@@ -5,7 +5,7 @@ import { useSettingsStore } from "../Stores/StateStore"
 import { VStack, HStack, Spacer } from 'react-native-stacks';
 import * as FileSystem from 'expo-file-system';
 import { useNavigation } from '@react-navigation/native';
-import { settingsPath, qrDataFilePath } from '../Stores/StateStore';
+import { settingsPath, qrDataFilePath, filePath } from '../Stores/StateStore';
 import RadioButton from "../Components/RadioButton";
 import RadioButtonGroup from "../Components/RadioButtonGroup";
 import { useIsFocused } from '@react-navigation/native';
@@ -70,7 +70,7 @@ export default function Settings() {
                 </HStack>
             </VStack>
             <Spacer />
-            <Button title="Clear Loaded Match Data" onPress={() => Alert.alert(
+            <Button title="Clear Loaded Match Data (QR Code Data)" onPress={() => Alert.alert(
                 "Clear Data",
                 "Are you sure you want to clear the loaded match data?",
                 [
@@ -83,6 +83,24 @@ export default function Settings() {
                         onPress: async () => {
                             set({ matchData: {} });
                             await FileSystem.writeAsStringAsync(qrDataFilePath, JSON.stringify({}));
+                        }
+                    }
+                ]
+            )} />
+            <Spacer />
+            <Button title="Clear Scouting Data" onPress={() => Alert.alert(
+                "Clear Data",
+                "Are you sure you want to clear the scouting data?",
+                [
+                    {
+                        text: "Cancel",
+                        style: "cancel"
+                    },
+                    {
+                        text: "Yes",
+                        onPress: async () => {
+                            set({ matchData: {} });
+                            await FileSystem.writeAsStringAsync(filePath, JSON.stringify({}));
                         }
                     }
                 ]

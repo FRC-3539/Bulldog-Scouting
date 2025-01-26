@@ -1,12 +1,12 @@
-import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, Alert } from 'react-native';
 import React from 'react';
 import { Switch, } from 'react-native';
 import { HStack, Spacer } from 'react-native-stacks';
-import { useFinalStore, useHomeStore } from "../Stores/StateStore"
-import { useIsFocused } from '@react-navigation/native';
-
+import { submitToFile, useFinalStore, useHomeStore, setStoresToDefault, incrementMatchNumber, shareFile } from "../Stores/StateStore"
+import { useIsFocused, useNavigation } from '@react-navigation/native';
 
 export default function Final() {
+    const navigation = useNavigation();
     const { isTipped, set, isDisabled, isBroken, redCard, yellowCard, comments } = useFinalStore();
     const isFocused = useIsFocused();
     if (!isFocused) {
@@ -75,7 +75,32 @@ export default function Final() {
                 value={comments}
                 multiline={true} />
             <Spacer />
-            <Button title="Submit" />
+            <Button title="Submit" onPress={
+                () => {
+                    Alert.alert(
+                        "Confirm Submission",
+                        "Are you sure you want to submit?",
+                        [
+                            {
+                                text: "Cancel",
+                                style: "cancel"
+                            },
+                            {
+                                text: "Submit",
+                                onPress: () => {
+                                    submitToFile().then(() => {
+                                        setStoresToDefault();
+                                        incrementMatchNumber();
+                                        navigation.navigate('Home');
+                                    });
+
+                                }
+                            }
+                        ]
+                    );
+                }} />
+            <Spacer />
+            <Button title="Send Data" onPress={() => { shareFile() }} />
             <Spacer />
         </View>
     );
@@ -91,7 +116,7 @@ const styles = StyleSheet.create({
     input: {
         borderWidth: 1,
         borderRadius: 5,
-        width: '50%',
+        width: '70%',
         height: '15%',
         textAlignVertical: 'top',
 
