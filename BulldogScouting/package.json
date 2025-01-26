@@ -1,7 +1,7 @@
 {
   "name": "BulldogScouting",
   "version": "2025.0.0",
-  "main": "index.js",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -9,7 +9,6 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@react-native-community/slider": "^4.5.5",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
     "@react-navigation/stack": "^7.1.1",
