@@ -7,7 +7,7 @@ export const qrDataFilePath = FileSystem.documentDirectory + 'qrData.json';
 export const filePath = FileSystem.documentDirectory + 'data.json';
 export const settingsPath = FileSystem.documentDirectory + 'settings.json';
 
-export const useAutonStore = create((set, get) => ({
+export const useAutonStore = create((set) => ({
     set,
     reefAutonL1Count: 0,
     reefAutonL2Count: 0,
@@ -21,10 +21,9 @@ export const useAutonStore = create((set, get) => ({
     processorAutonMissCount: 0,
     netAutonCount: 0,
     netAutonMissCount: 0,
-    getInitialState: () => get()
 }));
 
-export const useTeleopStore = create((set, get) => ({
+export const useTeleopStore = create((set) => ({
     set,
     reefTeleopL1Count: 0,
     reefTeleopL2Count: 0,
@@ -38,19 +37,17 @@ export const useTeleopStore = create((set, get) => ({
     processorTeleopMissCount: 0,
     netTeleopCount: 0,
     netTeleopMissCount: 0,
-    getInitialState: () => get()
 }));
 
-export const useSettingsStore = create((set, get) => ({
+export const useSettingsStore = create((set) => ({
     allianceColor: "red",
     allianceStation: 1,
     rotateField: false,
     matchData: {},
     set,
-    getInitialState: () => get()
 }));
 
-export const useHomeStore = create((set, get) => ({
+export const useHomeStore = create((set) => ({
     set,
     preload: false,
     noShow: false,
@@ -58,10 +55,9 @@ export const useHomeStore = create((set, get) => ({
     scoutName: "",
     matchNumber: "1",
     teamNumber: "",
-    getInitialState: () => get()
 }));
 
-export const useFinalStore = create((set, get) => ({
+export const useFinalStore = create((set) => ({
     isTipped: false,
     isBroken: false,
     isDisabled: false,
@@ -69,15 +65,13 @@ export const useFinalStore = create((set, get) => ({
     yellowCard: false,
     comments: "",
     set,
-    getInitialState: () => get()
 }));
 
-export const useEndgameStore = create((set, get) => ({
+export const useEndgameStore = create((set) => ({
     climbAttempt: false,
     climbTime: "",
     climbPosition: "",
     set,
-    getInitialState: () => get()
 }));
 
 // Share function that is passed to the submit page.
