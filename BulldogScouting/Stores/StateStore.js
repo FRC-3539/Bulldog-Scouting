@@ -9,34 +9,36 @@ export const settingsPath = FileSystem.documentDirectory + 'settings.json';
 
 export const useAutonStore = create((set) => ({
     set,
-    reefAutonL1Count: 0,
-    reefAutonL2Count: 0,
-    reefAutonL3Count: 0,
-    reefAutonL4Count: 0,
-    reefAutonL1MissCount: 0,
-    reefAutonL2MissCount: 0,
-    reefAutonL3MissCount: 0,
-    reefAutonL4MissCount: 0,
-    processorAutonCount: 0,
-    processorAutonMissCount: 0,
-    netAutonCount: 0,
-    netAutonMissCount: 0,
+    reefAutonL1Count: [],
+    reefAutonL2Count: [],
+    reefAutonL3Count: [],
+    reefAutonL4Count: [],
+    reefAutonL1MissCount: [],
+    reefAutonL2MissCount: [],
+    reefAutonL3MissCount: [],
+    reefAutonL4MissCount: [],
+    processorAutonCount: [],
+    processorAutonMissCount: [],
+    netAutonCount: [],
+    netAutonMissCount: [],
+    autonFouls: [],
 }));
 
 export const useTeleopStore = create((set) => ({
     set,
-    reefTeleopL1Count: 0,
-    reefTeleopL2Count: 0,
-    reefTeleopL3Count: 0,
-    reefTeleopL4Count: 0,
-    reefTeleopL1MissCount: 0,
-    reefTeleopL2MissCount: 0,
-    reefTeleopL3MissCount: 0,
-    reefTeleopL4MissCount: 0,
-    processorTeleopCount: 0,
-    processorTeleopMissCount: 0,
-    netTeleopCount: 0,
-    netTeleopMissCount: 0,
+    reefTeleopL1Count: [],
+    reefTeleopL2Count: [],
+    reefTeleopL3Count: [],
+    reefTeleopL4Count: [],
+    reefTeleopL1MissCount: [],
+    reefTeleopL2MissCount: [],
+    reefTeleopL3MissCount: [],
+    reefTeleopL4MissCount: [],
+    processorTeleopCount: [],
+    processorTeleopMissCount: [],
+    netTeleopCount: [],
+    netTeleopMissCount: [],
+    teleopFouls: [],
 }));
 
 export const useSettingsStore = create((set) => ({
@@ -121,14 +123,6 @@ export const submitToFile = async () => {
     }
 
     // // Add the new data to the "matches" list.
-    console.log({
-        ...useAutonStore.getState(),
-        ...useTeleopStore.getState(),
-        ...useSettingsStore.getState(),
-        ...useHomeStore.getState(),
-        ...useFinalStore.getState(),
-        ...useEndgameStore.getState()
-    })
     fileContent.matches.push({
         ...useAutonStore.getState(),
         ...useTeleopStore.getState(),

@@ -1,6 +1,6 @@
 
-import { Button, StyleSheet, Text, TextInput, View, Image } from 'react-native';
-import React from 'react';
+import { Button, StyleSheet, Text, TextInput, View, Image, Modal, Pressable } from 'react-native';
+import React, { useState } from 'react';
 import { useHomeStore } from "../Stores/StateStore"
 import Counter from '../Components/Counter.js';
 import { HStack, Spacer, VStack } from 'react-native-stacks';
@@ -8,11 +8,11 @@ import reefImage from "../assets/Reef.webp"
 import processorImage from "../assets/Processor.webp"
 import netImage from "../assets/net_small.webp"
 import { useIsFocused } from '@react-navigation/native';
+import FoulPopUp from '../Components/FoulPopUp.js';
 
 
 export default function Auton() {
     const { scoutName, noShow, matchNumber, teamNumber } = useHomeStore();
-
     const isFocused = useIsFocused();
 
     if (!isFocused) {
@@ -119,7 +119,9 @@ export default function Auton() {
                 <Spacer />
             </HStack>
             <Spacer />
-        </View>
+            <FoulPopUp></FoulPopUp>
+            
+        </View >
     );
 }
 
